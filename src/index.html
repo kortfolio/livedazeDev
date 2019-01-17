@@ -6,22 +6,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
     <script>
-        
+
     </script>
     <style>
 
-        .signUp {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 900;
-            font-size: 32px;
+        @font-face {
+            font-family: 'isotonic';
+            src: url('/isotonicWebFont/Isotonic-regular.ttf') format('truetype');
         }
 
-        .description {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 100;
-            font-size: 14px;
+
+
+        body{
+            font-family: 'isotonic';
         }
+
+        @font-face {
+            font-family: 'isotonicBold';
+            src: url('/isotonicWebFont/IsotonicBold.ttf');
+        }
+
+
+        .livedazeMissionStatement {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 800;
+            font-size: 2.0rem;
+            letter-spacing: -0.05em;
+            margin-top: 30px;
+            margin-bottom: 0px;
+        }
+
+        .livedazeSubMissionStatement {
+            font-size: 1.5em;
+            margin-top: -10px;
+        }
+
+        .liveDazeMsDetails{
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 800;
+        }
+
+        li.subDescriptionMS {
+            font-size: 0.8em;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px white inset !important;
+        }
+
+
         a { cursor: pointer; }
         .help-block { font-size: 12px; }
         nav {
@@ -53,7 +90,13 @@
         <a href="#!" class="brand-logo">LIVEDAZE</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html">Why livedaze?</a></li>
+            <li><a href="">Why livedaze?</a></li>
+            <li><a href="">Features</a></li>
+            <li><a href="">FAQ</a></li>
+            <li><a href="">Support</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">About Us</a></li>
+
             <li><a href="badges.html">sign in</a></li>
             <li><a class="waves-effect waves-light btn">Sign Up</a></li>
         </ul>
@@ -74,11 +117,8 @@
 
     <!-- credits -->
     <div class="text-center">
-        <p>
-            <a href="http://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example" target="_top">React + Redux - User Registration and Login Tutorial & Example</a>
-        </p>
-        <p>
-            <a href="http://jasonwatmore.com" target="_top">livedaze.com</a>
+        <p align="center">
+            <a href="" target="_top">livedaze.com</a>
         </p>
     </div>
 </body>
