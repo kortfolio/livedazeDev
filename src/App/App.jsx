@@ -8,7 +8,9 @@ import { PrivateRoute } from '../_components';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
-import NavBar from '../_components/NavBar';
+import Clock from 'react-live-clock';
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 class App extends React.Component {
     constructor(props) {
@@ -23,9 +25,15 @@ class App extends React.Component {
 
     render() {
         const { alert } = this.props;
+        let time = new Date().toLocaleString();
+
+        
+        const dateToFormat = '1976-04-19T12:59-0500';
+
         return (
 
             <div className="container">
+
 
                 <div className="row">
 

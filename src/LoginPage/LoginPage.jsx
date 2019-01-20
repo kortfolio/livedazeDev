@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {userActions} from '../_actions';
-import NavBar from '../_components/NavBar';
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -53,22 +52,28 @@ class LoginPage extends React.Component {
                     <ul className="liveDazeMsDetails">
                         <li>
                             • Get to know your self first.
+                            <ul>
                             <li className="subDescriptionMS">
                                 Yes. Simple as that. Using our TimeRefactoring technique. to realize how much time you
                                 can spend to improve/learn in a daily basis.
                             </li>
+                            </ul>
                         </li>
+
                         <li>
                             • Set your Daily planner.
-                            <li className="subDescriptionMS">
+                            <ul><li className="subDescriptionMS">
                             You only got like 5~7 hours day to actually do something for YOUR SELF. Set a realistic goal. daily goal. and DO IT.
                             </li>
+                            </ul>
                         </li>
                         <li>
                             • result-oriented personal tracker
+                            <ul>
                             <li className="subDescriptionMS">
                                 If you have no result based on your improvement, it's useless.
                             </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -83,15 +88,16 @@ class LoginPage extends React.Component {
                     <input placeholder="Placeholder" id="first_name" type="text" className="validate"/>
                         <label htmlFor="first_name">First Name</label>
                 </div>
-*/}
+                */}
+
                 <div className="col s6">
                     <div className="livedazeMissionStatement">Login</div>
                     <div className="description">Start using Livedaze to keep your day organize.</div>
 
                     <form name="form" onSubmit={this.handleSubmit}>
-                        <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
+                        <div className={'input-field col s12' + (submitted && !username ? ' has-error' : '')}>
                             <label htmlFor="username">Email</label>
-                            <input type="text" className="form-control" name="username" value={username}
+                            <input type="text" className="validate" name="username" value={username}
                                    onChange={this.handleChange}/>
                             {submitted && !username &&
                             <div className="help-block">Username is required</div>
@@ -132,6 +138,13 @@ class LoginPage extends React.Component {
                             <Link to="/register" className="btn btn-link">Register</Link>
                         </div>
                     </form>
+                    <button className="loginBtn loginBtn--facebook">
+                        Login with Facebook
+                    </button>
+
+                    <button className="loginBtn loginBtn--google">
+                        Login with Google
+                    </button>
                 </div>
             </div>
 
