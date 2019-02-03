@@ -90,6 +90,7 @@ class HomePage extends React.Component {
                     <Moment interval="10">{sampleInput}</Moment>
                 </Moment>
 
+                <h1>Testing Atom Integration with Github</h1>
 
 
                 <div id="wakeUpTime">
