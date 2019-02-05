@@ -32,7 +32,6 @@ class App extends React.Component {
 
             <div className="container">
 
-
                 <div className="row">
 
                     {alert.message &&

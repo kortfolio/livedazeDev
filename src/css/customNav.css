@@ -24,6 +24,8 @@ div#app {
 
 .card-panel.livedazeGrey {
     background: #232323;
+    max-width:100%;
+
 
 }
 
