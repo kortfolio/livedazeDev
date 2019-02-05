@@ -5,13 +5,15 @@
     <title>LiveDaze : Focus on Today. Just Today.</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
-    <link rel="stylesheet" href="./css/loginBtn.css">
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/css/loginBtn.css">
+    <link rel="stylesheet" href="./src/css/customNav.css">
 
 
     <style>
@@ -197,13 +199,31 @@
         </ul>
     </div>
 </nav>
+    <!--Fixed Side bar-->
 
-<ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
-</ul>
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+      <li><a href="#!">Welcome Mark!</a></li>
+      <li class="livedaze_SideTabCategory">Your livedaze</li>
+
+      <li><a href="#!"><b>Dashboard</b></a></li>
+      <li><a href="#!">Hourly Evaluation</a></li>
+      <li><a href="#!">ACHIEVEMENTS</a></li>
+      <li class="livedaze_SideTabCategory">Your Day</li>
+
+    <li><a href="#!">Morning Session</a></li>
+  <li><a href="#!">Afternoon Session</a></li>
+  <li><a href="#!">Evening Session</a></li>
+
+<li class="livedaze_SideTabCategory">Settings</li>
+
+  <li><a href="#!">Notification</a></li>
+
+  <li><a href="#!">Theme</a></li>
+  <li><a href="#!">Session</a></li>
+  <li><a href="#!">Account</a></li>
+  <li><a href="#!">LOG OUT</a></li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
 <div id="app">
 

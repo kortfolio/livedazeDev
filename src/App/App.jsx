@@ -9,8 +9,6 @@ import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import Clock from 'react-live-clock';
-import Moment from 'react-moment';
-import 'moment-timezone';
 
 class App extends React.Component {
     constructor(props) {
@@ -27,7 +25,7 @@ class App extends React.Component {
         const { alert } = this.props;
         let time = new Date().toLocaleString();
 
-        
+
         const dateToFormat = '1976-04-19T12:59-0500';
 
         return (
@@ -63,4 +61,4 @@ function mapStateToProps(state) {
 }
 
 const connectedApp = connect(mapStateToProps)(App);
-export { connectedApp as App }; 
+export { connectedApp as App };

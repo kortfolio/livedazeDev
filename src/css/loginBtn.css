@@ -60,3 +60,33 @@
 .loginBtn--google:focus {
     background: #E74B37;
 }
+
+li.livedaze_SideTabCategory {
+    color: white;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-left: 20px;
+    font-size: 16px;
+    /* font-weight: bold; */
+}
+.livedaze_daysRemaining {
+  margin-top: -30px;
+margin-bottom: -30px;
+    font-size: 80px;
+    text-align: center;
+}
+
+.livedazeGreen
+{
+  color:#9ce97a;
+  text-transform:uppercase;
+  text-align:center;
+}
+
+.goalDate
+{
+  text-align: center;
+text-transform: uppercase;
+font-size: 20px;
+color: #93b2ff;
+}

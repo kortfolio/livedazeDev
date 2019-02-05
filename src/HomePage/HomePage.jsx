@@ -7,14 +7,26 @@ import { displayToday } from '../_components/date/Clock';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import 'moment-duration-format';
+import moment from 'moment';
 
-class Clock extends React.Component {
+class WorkEndTime extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+          date: new Date(),
+        };
 
 
-        this.state = {date: new Date()};
+this.now = moment(new Date());
+this.expiration = moment("2019-02-04T19:00-0800");
+
+// get the difference between the moments
+this.diff = this.expiration.diff(this.now);
+
+//express as a duration
+this.diffDuration = moment.duration(this.diff);
     }
+
 
     componentDidMount() {
         this.timerID = setInterval(
@@ -31,16 +43,204 @@ class Clock extends React.Component {
         this.setState({
             date: new Date()
         });
+        this.now = moment(new Date());
+        this.expiration = moment("2019-02-04T19:00-0800");
+
+        // get the difference between the moments
+        this.diff = this.expiration.diff(this.now);
+
+        //express as a duration
+        this.diffDuration = moment.duration(this.diff);
+
     }
 
     render() {
         return (
             <div>
-                 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+            <div className="livedaze_TabTitle">YOU WILL GO HOME IN</div>
+            <h4>{this.diffDuration.hours()}HR:
+            {this.diffDuration.minutes()}MIN:
+            {this.diffDuration.seconds()}SEC</h4>
             </div>
         );
     }
 }
+
+class SinceWakeUp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          date: new Date(),
+        };
+
+
+this.now = moment(new Date());
+this.expiration = moment("2019-02-04T06:00-0800");
+
+// get the difference between the moments
+this.diff = this.expiration.diff(this.now);
+
+//express as a duration
+this.diffDuration = moment.duration(this.diff);
+    }
+
+
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    tick() {
+        this.setState({
+            date: new Date()
+        });
+        this.now = moment(new Date());
+        this.expiration = moment("2019-02-04T06:00-0800");
+
+        // get the difference between the moments
+        this.diff = this.now.diff(this.expiration);
+
+        //express as a duration
+        this.diffDuration = moment.duration(this.diff);
+
+    }
+
+    render() {
+        return (
+            <div>
+            <div className="livedaze_TabTitle">IT's BEEN</div>
+            <div className="timeSuperSet">
+            {this.diffDuration.hours()}<sub class="timeSubset">  HRS  </sub>
+            {this.diffDuration.minutes()}<sub class="timeSubset">  MIN  </sub>
+            {this.diffDuration.seconds()}<sub class="timeSubset"> SEC  </sub>
+            </div>
+            <div className="livedaze_TabTitle">SINCE YOU WAKE UP</div>
+
+            </div>
+        );
+    }
+}
+
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          date: new Date(),
+        };
+
+
+this.now = moment(new Date());
+
+this.expiration = moment("2019-02-04T22:00-0800");
+
+// get the difference between the moments
+this.diff = this.now.diff(this.expiration);
+
+//express as a duration
+this.diffDuration = moment.duration(this.diff);
+
+// display
+/**
+console.log("Days:", this.diffDuration.days());
+console.log("Hours:", this.diffDuration.hours());
+console.log("Minutes:", this.diffDuration.minutes());
+console.log("Seconds:", this.diffDuration.seconds());
+**/
+
+/**
+  var now = moment(new Date());
+  var end = moment("2019-03-10");
+
+  var duration = moment.duration(now.diff(end));
+  var dayz = duration.asDays();
+  console.log(dayz);
+  var itsbeen =  moment([2018, 10, 10]).fromNow();
+  itsbeen = moment().format('dddd, MMMM Do YYYY, h:mm:ss')
+  console.log(itsbeen);
+  console.log("-------***---------------")
+
+  var sleepyTime = moment("2019-02-03T23:50-0800");
+  var whensleep = moment(sleepyTime).toNow(true);
+
+  console.log("YOU WILL SLEEP...in " + whensleep);
+  console.log("YOU WILL SLEEP...in " + whensleep);
+  console.log("YOU WILL SLEEP...in " + whensleep);
+  **/
+/**
+  console.log("formatted val" + formatted);
+
+  var seconds = 3820;
+  var duration = moment.duration(gimoddi, 'seconds');
+  var formattedd = duration.format("hh:mm:ss");
+  console.log("먼가 될것같은 느..낌!?" + formattedd); // 01:03:40
+
+  var sleeetime = moment.duration(now.diff(sleepyTime));
+
+  sleeetime = moment().format('HH:mm:ss');
+  console.log("-------sleep time---------------")
+  console.log(sleeetime);
+  console.log("-------end sleep time---------------")
+
+//<Moment fromNow>{sleepTime}</Moment>
+
+  duration = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+  console.log(duration);
+
+  console.log("----------------------");
+  hours = hours-(days*24);
+  minutes = minutes-(days*24*60)-(hours*60);
+  seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
+  console.log(hours)
+  console.log(minutes)
+  console.log(days)
+
+**/
+    }
+
+
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    tick() {
+        this.setState({
+            date: new Date()
+        });
+        this.now = moment(new Date());
+        this.expiration = moment("2019-02-04T22:00-0800");
+
+        // get the difference between the moments
+        this.diff = this.expiration.diff(this.now);
+
+        //express as a duration
+        this.diffDuration = moment.duration(this.diff);
+
+    }
+
+    render() {
+        return (
+            <div className="timeSuperSet">
+            {this.diffDuration.hours()}<sub class="timeSubset">  HRS  </sub>
+            {this.diffDuration.minutes()}<sub class="timeSubset">  MIN  </sub>
+            {this.diffDuration.seconds()}<sub class="timeSubset"> SEC  </sub>
+            </div>
+          );
+    }
+}
+
 
 class HomePage extends React.Component {
 
@@ -62,137 +262,141 @@ class HomePage extends React.Component {
         const { user, users } = this.props;
         const wakeUpTime = '2019-01-19T07:00-0800';
         const sleepTime = '2019-01-18T22:00-0800';
+
+
+        const startDay = '2018-10-10';
         const date = new Date();
         const moment = require("moment");
-        let sampleInput = moment(date, 'HH:mm:ss: A').diff(wakeUpTime, 'seconds');
+
+        const goal = '2019-03-01';
+
+        const goalFormatted = moment(goal).format('LL');
+
+
+
+        let samplezz = moment(date, 'Days').diff(goal);
+
+        let remainingDays = Math.abs(moment(date, 'days').diff(goal, 'days'))+1;
+        let durationSince = Math.abs(moment(date, 'days').diff(startDay, 'days'))+1;
+
          return (
 
-            <div className="col-md-6 col-md-offset-3">
+            <div className="container">
 
 
-                <div>It's been </div>
+             <div class="row">
+                           <div class="col-sm">
+                           <div className="row">
+                              <div className="col s12 m5">
+                                <div className="card-panel livedazeGrey">
+                                  <span className="white-text">
+                                  <div className="livedaze_TabTitle">TIME LEFT TODAY</div>
 
-                <div>Since you woke up </div>
+                                   <Clock/>
+                                   </span>
+                                </div>
+                              </div>
+                            </div>
+                           </div>
+                           <div class="col-sm">
 
-                <h4> <Moment format="YYYY/MM/DD">{sleepTime}</Moment></h4>
-                <h4>Wake Up time</h4>
-                <h4>Testing const date:..
-                    {sampleInput}
-                </h4>
-                {/*Working great*/}
-                {/*8:25AM JAN 19 2018 : Need to make changes to dynamically update every second.*/}
-                {/*8:32AM JAN 19 2018 : Set Interval, Moment Timer npm.*/}
-                {/*8:32AM JAN 19 2018 : npm install moment-timer.*/}
-                {/*8:37AM JAN 19 2018 : take Break.*/}
-                {/*12:52PM JAN 19 2018 : Stop. Do something elese..*/}
-                <Clock/>
-                <Moment interval={1000}>
-                    <Moment interval="10">{sampleInput}</Moment>
-                </Moment>
-
-                <h1>Testing Atom Integration with Github</h1>
-
-
-                <div id="wakeUpTime">
-                { moment.duration(sampleInput, "seconds").format("d [days], h [hours], m [minutes], s [seconds]")
-                };
-                </div>
-                <h4>Sleep Time</h4>
-                <div>It's been </div>
-
-                <div>Since you woke up </div>
-
-                {moment.duration(123, "minutes").format()};
+                           <div className="row"> {/*!--work time -->*/}
+                              <div className="col s12 m5">
+                                <div className="card-panel livedazeGrey">
+                                  <span className="white-text">
+                                   <WorkEndTime/>
+                                   </span>
+                                </div>
+                              </div>
+                            </div>
 
 
-                <Moment fromNow format="dddd, MMMM Do YYYY, h:mm:ss a">{sleepTime}</Moment>
+                           </div>
+                           <div class="col-sm">
+
+                           <div className="row"> {/*!--work time -->*/}
+                              <div className="col s12 m5">
+                                <div className="card-panel livedazeGrey">
+                                  <span className="white-text">
+
+                                  <SinceWakeUp/>
+                                   </span>
+                                </div>
+                              </div>
+                            </div>
+
+                           </div>
+                         </div>
+                         <div class="row">
+                                       <div class="col-sm">
+                                       <div className="row">
+                                          <div className="col s12 m5">
+                                            <div className="card-panel livedazeGrey">
+                                              <span className="white-text">
+                                                   MORNING PLANNER
+                                                   <div className="form-group">
+                                                    <label for="usr">Name:</label>
+                                                    <input type="text" className="form-control" id="usr"/>
+                                                  </div>
+                                                  <div className="form-group">
+                                                   <label for="usr">Name:</label>
+                                                   <input type="text" className="form-control" id="usr"/>
+                                                 </div>
+
+                                                 <div className="form-group">
+                                                  <label for="usr">Name:</label>
+                                                  <input type="text" className="form-control" id="usr"/>
+                                                 </div>
 
 
-                { moment.duration(100, "days").format()};
-                <h4>---------------homepage.js -------------------</h4>
-                <h4><b>Your Remaining day until your another challange</b> <Moment  fromNow>2019-03-08T07:00-0800</Moment></h4>
-                {moment.duration(date, "minutes").format("s [seconds], m [minutes], h [hours], d [days]")};
-<p> {/*123 minutes. */}
+                                               </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                       </div>
+                                       <div class="col-sm">
 
-</p>
-                <h4><b>From Now :</b> <Moment  fromNow>2019-01-18T07:00-0800</Moment></h4>
-
-                <h4><b>You need to sleep</b> <Moment fromNow>{sleepTime}</Moment></h4>
-                <h4>You woke up
-                    <b><Moment fromNow  interval={1000} >2019-01-18T07:00-0800</Moment></b>
-                     (from homepage.js)
-                </h4>
-                <h4>JS TESTING</h4>
-                { moment.duration(123, "months").format() }
-                <p>
-                {moment.duration({wakeUpTime}, "minutes").format("h [hrs], m [min]")}
-                </p>
-                <h4>END JS TESTING</h4>
-
-                <Moment diff={date} interval={1000} unit="hours">2019-01-19T07:00-0800</Moment>
-
-
-                {/*Time Elasped from current time and wake up time*/}
-                {/*    <moment diff={now} format={"DD/MM/YYYY HH:mm:ss"}>{then}</moment>*/}
-
-                {/* {date} implies current time and date*/}
-                <div>
-                    <Moment add={{ hours: 12 }}>{date}</Moment>
-                    <Moment add={{ days: 1, hours: 12 }}>{date}</Moment>
-                    <Moment subtract={{ hours: 12 }}>{date}</Moment>
-                    <Moment subtract={{ days: 1, hours: 12 }}>{date}</Moment>
-                </div>
-                <h4>------------------------</h4>
-                <div><b>It's been  </b>
-
-                <Moment fromNow ago format={ "HH:m:s"} interval={1000}>2019-01-18T07:00-0800</Moment>
-                  </div>
-
-                <h4>--********************------</h4>
-                <Moment date={wakeUpTime} />
-                <p>Formatting example</p>
-                <Moment format="HH:mm:ss" interval={1000} fromNow>
-                    2019-01-18T07:00:32-0800
-                </Moment>
-
-                <h4>--!!! h:m:s------</h4>
-
-                <Moment fromNow format={"H:m:s"} interval={1000}>
-                    2019-01-18T24:00-0800</Moment>{/* This one is Working*/}
-                {/*MomentJS Duration From Now */}
-                <h4>--!!! END  h:m:s------</h4>
-                <h4>--!! Difference-----</h4>
-                <Moment duration="2018-11-1T10:59-0500"
-                        date="2018-11-1T12:59-0500"
-                />
-                <h4><p>Current Time - Wake up Time</p></h4>
-                <Moment diff="2019-01-18T16:45-0800" format={"h:m:s"} unit="minutes">2019-01-18T07:03-0800</Moment>
-                <h4>--!! Difference-----</h4>
-                <h4><p>Difference Examples</p></h4>
-                <div>
-                    <p>                    <Moment diff="2015-04-19">1976-04-19T12:59-0500</Moment></p>
-                    <Moment diff="2015-04-19" unit="minutes">1976-04-19T12:59-0500</Moment>
-                    <Moment diff="2015-04-19" unit="years" decimal>1976-04-19T12:59-0500</Moment>
-                </div>
-                <h4>--END Difference-----</h4>
-                <h4>--!!! Duration Testing-----</h4>
-
-                <Moment duration="2018-11-1T10:59-0500"
-                        date="2018-11-1T12:59-0500"
-                />
-                <h4>--END Duration Testing-----</h4>
+                                       <div className="row"> {/*!--work time -->*/}
+                                          <div className="col s12 m5">
+                                            <div className="card-panel livedazeGrey">
+                                              <span className="white-text">
+                                                  <div className="livedaze_TabTitle">My D-day
+                                                  </div>
+                                              <div className="livedaze_daysRemaining">
+                                              {remainingDays}
+                                              <span className="daysLeft">days<br/></span>
+                                              </div>
+                                                <div className="goalDate">{goalFormatted}</div>
+                                              <div>It’s been {durationSince} days since you started.</div>
+                                                 </span>
+                                            </div>
+                                          </div>
+                                        </div>
 
 
-                <div>You will be sleeping---
-                    <Moment fromNow format="HH:mm:ss" interval={1000}>2019-01-18T22:00-0800</Moment>
-                    {/*MomentJS SLEEPING TIME IS 10 IS SHOWING RIGHT  */}
-                    {/*MomentJS Duration From Now */}
+                                       </div>
+                                       <div class="col-sm">
+
+                                       <div className="row"> {/*!--work time -->*/}
+                                          <div className="col s12 m5">
+                                            <div className="card-panel livedazeGrey">
+                                              <span className="white-text">
+                                              <span className="livedazeGreen">Hey mark, how’s your progress?</span>
 
 
-                </div>
-                <div>{/*Time deducting work hours/ going to work hours..*/}</div>
+                                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                            </button>
+                                               </span>
+                                            </div>
+                                          </div>
+                                        </div>
 
-                {/*Time Elasped from current time and wake up time*/}
+                                       </div>
+                                     </div>
+
+
+
+
 
                 <h4>----------------------------------</h4>
                 <h4>Hi {user.firstName}!</h4>
