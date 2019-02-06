@@ -13,42 +13,101 @@ class WorkEndTime extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: new Date()
+      date: new Date(),
+      userWorkEndTime: '',
+      list:[]
     };
-
     this.now = moment(new Date());
     this.expiration = moment("2019-02-05T19:00-0800");
-
     // get the difference between the moments
     this.diff = this.expiration.diff(this.now);
-
     //express as a duration
     this.diffDuration = moment.duration(this.diff);
-  }
-
-  componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 10000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
   }
 
   tick() {
-    this.setState({date: new Date()});
-    this.now = moment(new Date());
-    this.expiration = moment("2019-02-05T19:00-0800");
+      this.setState({date: new Date()});
+      this.now = moment(new Date());
+      this.expiration = moment("2019-02-05T19:00-0800");
 
-    // get the difference between the moments
-    this.diff = this.expiration.diff(this.now);
+      // get the difference between the moments
+      this.diff = this.expiration.diff(this.now);
 
-    //express as a duration
-    this.diffDuration = moment.duration(this.diff);
+      //express as a duration
+      this.diffDuration = moment.duration(this.diff);
 
+    }
+
+  changeUserWorkEndTime(input){
+    this.setState({
+      userWorkEndTime: input
+    }, ()=> console.log(moment.duration(input))
+  )
   }
+
+  addToList(input){
+    //Make a copy of this.state.list instaed of directly accesing list array.
+      let listArray = this.state.list;
+
+      listArray.push(input);
+
+      this.setState({
+        list: listArray,
+        userWorkEndTime: '',
+        showMe: true
+      })
+  }
+
+  operation()
+{
+  this.setState({
+    showMe:!this.state.showMe
+  })
+}
+
+componentDidMount() {
+this.timerID = setInterval(() => this.tick(), 1000);
+}
+componentWillUnmount() {
+clearInterval(this.timerID);
+}
+
 
   render() {
     return (<div>
+      <div className="work-end-time">
+          <input type="time" id="appt" name="appt"
+             min="0:00" max="24:00" required
+             onChange = { (e)=>this.changeUserWorkEndTime(e.target.value) }
+             value={this.state.userWorkEndTime}
+             Name="form-control"
+          />
+
+             <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker3'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time">dmdmdm</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+      {
+            function () {
+                '#datetimepicker3'.datetimepicker({
+                    format: 'LT'
+                });
+            }
+      }
+
+        <button onClick= { () => this.addToList(this.state.userWorkEndTime) }>
+        Press me
+        </button>
+      </div>
+        <ul>
+        { this.state.list.map( (val) => <li>{val}</li> )}
+        </ul>
       <div className="livedaze_TabTitle">YOU WILL GO HOME IN</div>
       <h4>{this.diffDuration.hours()}HR: {this.diffDuration.minutes()}MIN: {this.diffDuration.seconds()}SEC</h4>
     </div>);
@@ -73,7 +132,7 @@ class SinceWakeUp extends React.Component {
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 10000);
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
@@ -97,13 +156,13 @@ class SinceWakeUp extends React.Component {
     return (<div>
       <div className="livedaze_TabTitle">IT's BEEN</div>
       <div className="timeSuperSet">
-        {this.diffDuration.hours()}<sub class="timeSubset">
+        {this.diffDuration.hours()}<sub className="timeSubset">
           HRS
         </sub>
-        {this.diffDuration.minutes()}<sub class="timeSubset">
+        {this.diffDuration.minutes()}<sub className="timeSubset">
           MIN
         </sub>
-        {this.diffDuration.seconds()}<sub class="timeSubset">
+        {this.diffDuration.seconds()}<sub className="timeSubset">
           SEC
         </sub>
       </div>
@@ -129,67 +188,10 @@ class Clock extends React.Component {
 
     //express as a duration
     this.diffDuration = moment.duration(this.diff);
-
-    // display
-    /**
-console.log("Days:", this.diffDuration.days());
-console.log("Hours:", this.diffDuration.hours());
-console.log("Minutes:", this.diffDuration.minutes());
-console.log("Seconds:", this.diffDuration.seconds());
-**/
-
-    /**
-var now = moment(new Date());
-var end = moment("2019-03-10");
-
-var duration = moment.duration(now.diff(end));
-var dayz = duration.asDays();
-console.log(dayz);
-var itsbeen = moment([2018, 10, 10]).fromNow();
-itsbeen = moment().format('dddd, MMMM Do YYYY, h:mm:ss')
-console.log(itsbeen);
-console.log("-------***---------------")
-
-var sleepyTime = moment("2019-02-03T23:50-0800");
-var whensleep = moment(sleepyTime).toNow(true);
-
-console.log("YOU WILL SLEEP...in " + whensleep);
-console.log("YOU WILL SLEEP...in " + whensleep);
-console.log("YOU WILL SLEEP...in " + whensleep);
-**/
-    /**
-console.log("formatted val" + formatted);
-
-var seconds = 3820;
-var duration = moment.duration(gimoddi, 'seconds');
-var formattedd = duration.format("hh:mm:ss");
-console.log("먼가 될것같은 느..낌!?" + formattedd); // 01:03:40
-
-var sleeetime = moment.duration(now.diff(sleepyTime));
-
-sleeetime = moment().format('HH:mm:ss');
-console.log("-------sleep time---------------")
-console.log(sleeetime);
-console.log("-------end sleep time---------------")
-
-//<Moment fromNow>{sleepTime}</Moment>
-
-duration = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-console.log(duration);
-
-console.log("----------------------");
-hours = hours-(days*24);
-minutes = minutes-(days*24*60)-(hours*60);
-seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
-console.log(hours)
-console.log(minutes)
-console.log(days)
-
-**/
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 10000);
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
@@ -211,13 +213,13 @@ console.log(days)
 
   render() {
     return (<div className="timeSuperSet">
-      {this.diffDuration.hours()}<sub class="timeSubset">
+      {this.diffDuration.hours()}<sub className="timeSubset">
         HRS
       </sub>
-      {this.diffDuration.minutes()}<sub class="timeSubset">
+      {this.diffDuration.minutes()}<sub className="timeSubset">
         MIN
       </sub>
-      {this.diffDuration.seconds()}<sub class="timeSubset">
+      {this.diffDuration.seconds()}<sub className="timeSubset">
         SEC
       </sub>
     </div>);
@@ -258,6 +260,53 @@ class HomePage extends React.Component {
 
     return (<div className="container">
 
+    <div className="row">
+      <div className="col-sm">
+        <div className="row">
+          <div className="col s12 m5">
+            <div className="card-panel livedazeGrey">
+              <span className="white-text">
+
+                <div className="livedaze_TabTitle">What time did you get up today?</div>
+
+                <input type="time" id="appt" name="appt"
+                       min="0:00" max="24:00" required/>
+
+                <span className="note">ghgh</span>
+                <button className="btn waves-effect waves-light" type="submit" name="action">Update
+                </button>
+
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="col-sm">
+        <div className="row">
+          {/* !--work time --> */}
+          <div className="col s12 m5">
+            <div className="card-panel livedazeGrey">
+              <span className="white-text">
+                <WorkEndTime/>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="col-sm">
+        <div className="row">
+          {/* !--work time --> */}
+          <div className="col s12 m5">
+            <div className="card-panel livedazeGrey">
+              <span className="white-text">
+              
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div className="row">
         <div className="col-sm">
           <div className="row">
@@ -272,62 +321,46 @@ class HomePage extends React.Component {
           </div>
         </div>
         <div className="col-sm">
-
           <div className="row">
             {/* !--work time --> */}
             <div className="col s12 m5">
               <div className="card-panel livedazeGrey">
                 <span className="white-text">
-                  <WorkEndTime/>
+
                 </span>
               </div>
             </div>
           </div>
-
         </div>
         <div className="col-sm">
-
           <div className="row">
             {/* !--work time --> */}
             <div className="col s12 m5">
               <div className="card-panel livedazeGrey">
                 <span className="white-text">
-
                   <SinceWakeUp/>
                 </span>
               </div>
             </div>
           </div>
-
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm">
+
+      <div className="row">
+        <div className="col-sm">
           <div className="row">
             <div className="col s12 m5">
               <div className="card-panel livedazeGrey">
                 <span className="white-text">
                   MORNING PLANNER
-                  <div className="form-group">
-                    <label for="usr">Name:</label>
-                    <input type="text" className="form-control" id="usr"/>
-                  </div>
-                  <div className="form-group">
-                    <label for="usr">Name:</label>
-                    <input type="text" className="form-control" id="usr"/>
-                  </div>
 
-                  <div className="form-group">
-                    <label for="usr">Name:</label>
-                    <input type="text" className="form-control" id="usr"/>
-                  </div>
 
                 </span>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm">
+        <div className="col-sm">
 
           <div className="row">
             {/* !--work time --> */}
@@ -349,7 +382,7 @@ class HomePage extends React.Component {
           </div>
 
         </div>
-        <div class="col-sm">
+        <div className="col-sm">
 
           <div className="row">
             {/* !--work time --> */}
@@ -360,7 +393,7 @@ class HomePage extends React.Component {
                   <form action="#">
                     <p>
                       <label>
-                        <input name="group1" type="radio" checked="checked"/>
+                        <input name="group1" type="radio"/>
                         <span>Great. i am very focused and productive.</span>
                       </label>
                     </p>
@@ -384,7 +417,7 @@ class HomePage extends React.Component {
                     </p>
                   </form>
 
-                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <button className="btn waves-effect waves-light" type="submit" name="action">Submit
                   </button>
                 </span>
               </div>

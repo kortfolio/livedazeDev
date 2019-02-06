@@ -1,5 +1,13 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+loaders: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_compontents)/,
+        use: ['babel-loader']
+      }
+],
+
 module.exports = {
     mode: 'development',
     resolve: {
@@ -15,7 +23,10 @@ module.exports = {
     },
     plugins: [new HtmlWebpackPlugin({
         template: './src/index.html'
-    })],
+    })]
+
+
+    ,
     devServer: {
         historyApiFallback: true
     },

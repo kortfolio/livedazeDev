@@ -109,7 +109,7 @@ header, main, footer {
 
         @font-face {
             font-family: 'isotonic';
-            src: url('/isotonicWebFont/Isotonic-regular.ttf') format('truetype');
+            src: url('/src/isotonicWebFont/Isotonic-regular.ttf') format('truetype');
         }
 
 
@@ -226,4 +226,10 @@ font-family: 'isotonic';
 
 sub.timeSubset {
     font-size: 12px;
+}
+
+input#appt {
+    color: white;
+    font-size:24px;
+    text-align:center;
 }
