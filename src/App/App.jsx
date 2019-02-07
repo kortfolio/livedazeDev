@@ -30,7 +30,7 @@ class App extends React.Component {
 
         return (
 
-            <div className="container">
+            <div>
 
                 <div className="row">
 

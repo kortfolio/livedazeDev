@@ -16,6 +16,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "history": "^4.6.3",
     "jquery": "^3.3.1",
+    "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.23.0",
     "moment-duration-format": "^2.2.2",
     "moment-timer": "^1.3.0",

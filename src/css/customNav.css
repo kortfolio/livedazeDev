@@ -10,7 +10,6 @@ nav {
 
 div#app {
     background-color: #434343;
-        padding-left: 300px;
 }
 
 .livedaze_TabTitle {
@@ -116,6 +115,7 @@ header, main, footer {
 
         body{
             font-family: 'isotonic';
+                background: #434343;
         }
 
         @font-face {
@@ -189,9 +189,7 @@ header, main, footer {
             transition: background-color .2s ease-out;
             cursor: pointer;
         }
-        .navbar-material .nav-wrapper .brand-logo img {
-            height: 64px;
-        }
+
         img#logo {
             padding-top: 10px;
         }
@@ -241,3 +239,36 @@ input#appt {
     font-size: 16px;
     letter-spacing: -0.2px;
 }
+
+header, main, footer {
+    padding-left: 200px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+  width: 100%;
+    }
+  }
+
+
+  .side-nav li>a {
+    color: rgba(255, 255, 255, 0.87);
+      height: 35px;
+}
+
+.wrapper {
+    padding-left: 220px;
+}
+/*# sourceMappingURL=picker.css.map */
+
+
+    header, main, footer {
+      padding-left: 220px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }

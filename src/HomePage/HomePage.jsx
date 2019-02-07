@@ -12,8 +12,38 @@ import moment from 'moment';
 import TimePicker from 'rc-time-picker';
 import ReactDOM from 'react-dom';
 import { Button, Card, Row, Col,Icon } from 'react-materialize';
-import M from 'react-materialize';
+import M from 'materialize-css';
 
+
+class SomeComponent extends React.Component {
+  // get a reference to the element after the component has mounted
+  componentDidMount(){
+    M.Sidenav.init(this.sidenav);
+  }
+
+
+
+  render(){
+    return (
+      <ul className={this.props.classes}
+          ref={ (sidenav) => {this.sidenav = sidenav} }
+          id={this.props.id}>
+          // menuItems
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+
+      </ul>
+    )
+  }
+}
 
 class WorkEndTime extends React.Component {
   constructor(props) {
@@ -70,12 +100,14 @@ class WorkEndTime extends React.Component {
 }
 
 componentDidMount() {
-this.timerID = setInterval(() => this.tick(), 1000);
+this.timerID = setInterval(() => this.tick(), 1000)
 
- // Or with jQuery
-
+console.log("below is the value of M??");
+console.log(M);
+       M.AutoInit();
 
 }
+
 componentWillUnmount() {
 clearInterval(this.timerID);
 }
@@ -84,9 +116,24 @@ clearInterval(this.timerID);
 //            {$('#timepicker1').timepicker();}
 
   render() {
-    return (<div>
-    {/**  <div className="livedaze_pre_headline">What time did u get up?</div>
-    **/}
+    return (
+      <div>
+    <div className="livedaze_pre_headline">This is the option selector integrated with Materialized CSS JQuery</div>
+
+    <div className="input-field col s12">
+        <select ref="dropdown" defaultValue="1">
+          <option value="" disabled>Choose your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <label>Materialize Select</label>
+        <div className="livedaze_pre_headline">END TESTING</div>
+    </div>
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+
     <div className="livedaze_pre_headline">Primitive Time picker</div>
       <div className="work-end-time">
           <input type="time" id="appt" name="appt"
@@ -101,6 +148,9 @@ clearInterval(this.timerID);
              <input id="TimePicker" type="text" className="form-control input-small"/>
              <span className="input-group-addon"><i className="glyphicon glyphicon-time"></i></span>
           </div>
+          <div className="livedaze_pre_headline">2월 7일 css time picker</div>
+
+          <input type="text" className="datepicker"/>
 
           <div className="livedaze_pre_headline">Materialize css time picker</div>
           <input type="text" className="timepicker"/>
@@ -271,21 +321,34 @@ class HomePage extends React.Component {
 
     return (
 
+<div className="wrapper">
+<div className="livedaze_pre_headline">View 0 : Default/First User Login</div>
 
-      <div className="container">
+        <div className="row">
+          <div className="col s4">
+          <div className="card-panel livedazeGrey">
+            <span className="white-text">
+  <WorkEndTime/>
+            </span>
+          </div>
 
+          </div>
+          <div className="col s4">
+            6-columns (one-half)
+          </div>
+          <div className="col s4">
+            6-columns (one-half)
+          </div>
+        </div>
 
     <div className="row">
       <div className="col-sm">
         <div className="row">
           <div className="col s12 m5">
-            <div className="card-panel livedazeGrey">
-              <span className="white-text">
 
-                    <WorkEndTime/>
 
-              </span>
-            </div>
+
+
           </div>
         </div>
       </div>
@@ -333,126 +396,74 @@ class HomePage extends React.Component {
 <br/>
 <br/>
 <br/>
+  <div className="livedaze_pre_headline">View for Afer User adds the values</div>
+<div className="row">
+  <div className="col col l4 s12">
+  <div className="card-panel livedazeGrey">
+  <span className="white-text">
+  <div className="livedaze_TabTitle">
+  My D-day
+  </div>
+  <div className="livedaze_daysRemaining">
+    {remainingDays}
+    <span className="daysLeft">days<br/></span>
+  </div>
+  <div className="goalDate">{goalFormatted}</div>
+  <div>It’s been {durationSince}
+    days since you started.</div>
+    </span>
+  </div>
+  </div>
+  <div className="col l4 s12">
+  <div className="card-panel livedazeGrey">
+    <span className="white-text">
+      <SinceWakeUp/>
+    </span>
+  </div>
+  </div>
+  <div className="col l4 s12">
+  <div className="card-panel livedazeGrey">
+    <span className="white-text">
+    <div className="card-panel livedazeGrey">
+      <span className="white-text">
+        <span className="livedazeGreen">Hey mark, how’s your progress?</span>
+        <form action="#">
+          <p>
+            <label>
+              <input name="group1" type="radio"/>
+              <span>Great. i am very focused and productive.</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio"/>
+              <span>IT’s FINE. I AM FOCUSING BUT I AM NOT REALLY SURE.</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio"/>
+              <span>I hate doing this. literally.</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio"/>
+              <span>YOLO! I DIDN’T DO ANYTHING. I WAS JUST WATCHING YOUTUBE.</span>
+            </label>
+          </p>
+        </form>
 
-      <div className="row">
-        <div className="col-sm">
-          <div className="row">
-            <div className="col s12 m5">
-              <div className="card-panel livedazeGrey">
-                <span className="white-text">
-                  <div className="livedaze_TabTitle">TIME LEFT TODAY</div>
-                  <Clock/>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-sm">
-          <div className="row">
-            {/* !--work time --> */}
-            <div className="col s12 m5">
-              <div className="card-panel livedazeGrey">
-                <span className="white-text">
-
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-sm">
-          <div className="row">
-            {/* !--work time --> */}
-            <div className="col s12 m5">
-              <div className="card-panel livedazeGrey">
-                <span className="white-text">
-                  <SinceWakeUp/>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="row">
-        <div className="col-sm">
-          <div className="row">
-            <div className="col s12 m5">
-              <div className="card-panel livedazeGrey">
-                <span className="white-text">
-                  MORNING PLANNER
+        <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+        </button>
+      </span>
+    </div>
+    </span>
+  </div>
+  </div>
+</div>
 
 
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-sm">
-
-          <div className="row">
-            {/* !--work time --> */}
-            <div className="col s12 m5">
-              <div className="card-panel livedazeGrey">
-                <span className="white-text">
-                  <div className="livedaze_TabTitle">My D-day
-                  </div>
-                  <div className="livedaze_daysRemaining">
-                    {remainingDays}
-                    <span className="daysLeft">days<br/></span>
-                  </div>
-                  <div className="goalDate">{goalFormatted}</div>
-                  <div>It’s been {durationSince}
-                    days since you started.</div>
-                </span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div className="col-sm">
-
-          <div className="row">
-            {/* !--work time --> */}
-            <div className="col s12 m5">
-              <div className="card-panel livedazeGrey">
-                <span className="white-text">
-                  <span className="livedazeGreen">Hey mark, how’s your progress?</span>
-                  <form action="#">
-                    <p>
-                      <label>
-                        <input name="group1" type="radio"/>
-                        <span>Great. i am very focused and productive.</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input name="group1" type="radio"/>
-                        <span>IT’s FINE. I AM FOCUSING BUT I AM NOT REALLY SURE.</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input name="group1" type="radio"/>
-                        <span>I hate doing this. literally.</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input name="group1" type="radio"/>
-                        <span>YOLO! I DIDN’T DO ANYTHING. I WAS JUST WATCHING YOUTUBE.</span>
-                      </label>
-                    </p>
-                  </form>
-
-                  <button className="btn waves-effect waves-light" type="submit" name="action">Submit
-                  </button>
-                </span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
 
       <h4>----------------------------------</h4>
       <h4>Hi {user.firstName}!</h4>
