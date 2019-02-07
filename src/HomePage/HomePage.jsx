@@ -1,13 +1,19 @@
+
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import $ from 'jquery';
 import {userActions} from '../_actions';
 import {displayToday} from '../_components/date/Clock';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import 'moment-duration-format';
 import moment from 'moment';
+import TimePicker from 'rc-time-picker';
+import ReactDOM from 'react-dom';
+import { Button, Card, Row, Col,Icon } from 'react-materialize';
+import M from 'react-materialize';
+
 
 class WorkEndTime extends React.Component {
   constructor(props) {
@@ -32,16 +38,14 @@ class WorkEndTime extends React.Component {
 
       // get the difference between the moments
       this.diff = this.expiration.diff(this.now);
-
       //express as a duration
       this.diffDuration = moment.duration(this.diff);
-
     }
 
   changeUserWorkEndTime(input){
     this.setState({
       userWorkEndTime: input
-    }, ()=> console.log(moment.duration(input))
+    }
   )
   }
 
@@ -67,49 +71,56 @@ class WorkEndTime extends React.Component {
 
 componentDidMount() {
 this.timerID = setInterval(() => this.tick(), 1000);
+
+ // Or with jQuery
+
+
 }
 componentWillUnmount() {
 clearInterval(this.timerID);
 }
 
 
+//            {$('#timepicker1').timepicker();}
+
   render() {
     return (<div>
+    {/**  <div className="livedaze_pre_headline">What time did u get up?</div>
+    **/}
+    <div className="livedaze_pre_headline">Primitive Time picker</div>
       <div className="work-end-time">
           <input type="time" id="appt" name="appt"
              min="0:00" max="24:00" required
              onChange = { (e)=>this.changeUserWorkEndTime(e.target.value) }
              value={this.state.userWorkEndTime}
-             Name="form-control"
+             name="form-control"
           />
 
-             <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker3'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-time">dmdmdm</span>
-                    </span>
-                </div>
-            </div>
-        </div>
-      {
-            function () {
-                '#datetimepicker3'.datetimepicker({
-                    format: 'LT'
-                });
-            }
-      }
+          <div className="livedaze_pre_headline">Bootstrap Time Picker</div>
+          <div className="input-group bootstrap-timepicker timepicker">
+             <input id="TimePicker" type="text" className="form-control input-small"/>
+             <span className="input-group-addon"><i className="glyphicon glyphicon-time"></i></span>
+          </div>
 
-        <button onClick= { () => this.addToList(this.state.userWorkEndTime) }>
-        Press me
+          <div className="livedaze_pre_headline">Materialize css time picker</div>
+          <input type="text" className="timepicker"/>
+          <Button waves='light'>EDIT ME<Icon left>save</Icon></Button>
+
+            <input name='on' type='time' onChange={function(e, value) {}} />
+
+        <button onClick= { () => this.addToList(this.state.userWorkEndTime) }
+        className="btn btn-light">
+        Update
         </button>
+
+
       </div>
         <ul>
         { this.state.list.map( (val) => <li>{val}</li> )}
         </ul>
-      <div className="livedaze_TabTitle">YOU WILL GO HOME IN</div>
-      <h4>{this.diffDuration.hours()}HR: {this.diffDuration.minutes()}MIN: {this.diffDuration.seconds()}SEC</h4>
+
+        {/*<div className="livedaze_TabTitle">YOU WILL GO HOME IN</div>*/}
+    {/*<h4>{this.diffDuration.hours()}HR: {this.diffDuration.minutes()}MIN: {this.diffDuration.seconds()}SEC</h4>*/}
     </div>);
   }
 }
@@ -258,7 +269,11 @@ class HomePage extends React.Component {
     let remainingDays = Math.abs(moment(date, 'days').diff(goal, 'days')) + 1;
     let durationSince = Math.abs(moment(date, 'days').diff(startDay, 'days')) + 1;
 
-    return (<div className="container">
+    return (
+
+
+      <div className="container">
+
 
     <div className="row">
       <div className="col-sm">
@@ -267,14 +282,7 @@ class HomePage extends React.Component {
             <div className="card-panel livedazeGrey">
               <span className="white-text">
 
-                <div className="livedaze_TabTitle">What time did you get up today?</div>
-
-                <input type="time" id="appt" name="appt"
-                       min="0:00" max="24:00" required/>
-
-                <span className="note">ghgh</span>
-                <button className="btn waves-effect waves-light" type="submit" name="action">Update
-                </button>
+                    <WorkEndTime/>
 
               </span>
             </div>
@@ -287,7 +295,7 @@ class HomePage extends React.Component {
           <div className="col s12 m5">
             <div className="card-panel livedazeGrey">
               <span className="white-text">
-                <WorkEndTime/>
+
               </span>
             </div>
           </div>
@@ -299,13 +307,32 @@ class HomePage extends React.Component {
           <div className="col s12 m5">
             <div className="card-panel livedazeGrey">
               <span className="white-text">
-              
+
               </span>
             </div>
           </div>
         </div>
       </div>
     </div>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
       <div className="row">
         <div className="col-sm">
@@ -459,6 +486,8 @@ class HomePage extends React.Component {
       <p>
         <Link to="/login">Logout</Link>
       </p>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
     </div>);
   }
 }

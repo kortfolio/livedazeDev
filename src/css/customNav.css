@@ -233,3 +233,11 @@ input#appt {
     font-size:24px;
     text-align:center;
 }
+
+.livedaze_pre_headline {
+    text-align: center;
+    text-transform: uppercase;
+    color: #ebf489;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
