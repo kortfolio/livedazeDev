@@ -272,3 +272,16 @@ header, main, footer {
         padding-left: 0;
       }
     }
+
+    input.timepicker {
+    color: white;
+    font-family: 'isotonic';
+    /* font-size: 36px; */
+}
+
+.livedaze_pomodoroTimer_headline {
+    color: #e13c38;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 18px;
+}
