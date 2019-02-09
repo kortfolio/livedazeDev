@@ -285,3 +285,16 @@ header, main, footer {
     text-align: center;
     font-size: 18px;
 }
+
+.BtnControl {
+    align-content: center;
+    text-align: center;
+}
+
+a.waves-effect.waves-light.btn.customBtnColor {
+    color: white;
+    border-radius: 100px;
+    background-color: #bc3630;
+    margin-left: 10px;
+    margin-right: 10px;
+}

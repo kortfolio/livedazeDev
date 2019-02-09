@@ -13,7 +13,8 @@ import ReactDOM from "react-dom";
 import { Button, Card, Row, Col, Icon } from "react-materialize";
 import M from "materialize-css";
 import { PomodoroTimer } from "../_components/pomodoroTimer";
-import { CountDown } from '../_components/Countdown';
+import { WakeUpTime } from "../_components/WakeUpTime";
+
 class SomeComponent extends React.Component {
   // get a reference to the element after the component has mounted
   componentDidMount() {
@@ -345,7 +346,7 @@ class HomePage extends React.Component {
             </div>
           </div>
           <div className="col s4">
-              <CountDown/>
+            <WakeUpTime/>
           </div>
           <div className="col s4">
           <PomodoroTimer/>
