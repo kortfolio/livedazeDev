@@ -1,51 +1,22 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import $ from "jquery";
+
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import $ from "jquery";
 import { userActions } from "../_actions";
-import { displayToday } from "../_components/date/Clock";
+
 import Moment from "react-moment";
 import "moment-timezone";
 import "moment-duration-format";
 import moment from "moment";
-import TimePicker from "rc-time-picker";
-import ReactDOM from "react-dom";
+
 import { Button, Card, Row, Col, Icon } from "react-materialize";
 import M from "materialize-css";
+
 import { PomodoroTimer } from "../_components/pomodoroTimer";
 import { WakeUpTime } from "../_components/WakeUpTime";
-
-class SomeComponent extends React.Component {
-  // get a reference to the element after the component has mounted
-  componentDidMount() {
-    M.Sidenav.init(this.sidenav);
-  }
-
-  render() {
-    return (
-      <ul
-        className={this.props.classes}
-        ref={sidenav => {
-          this.sidenav = sidenav;
-        }}
-        id={this.props.id}
-      >
-        // menuItems
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-      </ul>
-    );
-  }
-}
-
+import { DailyToDo } from "../_components/DailyToDo";
 class WorkEndTime extends React.Component {
   constructor(props) {
     super(props);
@@ -82,8 +53,10 @@ class WorkEndTime extends React.Component {
   addToList(input) {
     //Make a copy of this.state.list instaed of directly accesing list array.
     let listArray = this.state.list;
+    console.log("value of listArray in HomePage.jsx: " + listArray + "--");
 
     listArray.push(input);
+    console.log("value of input in HomePage.jsx: " + input + "--");
 
     this.setState({
       list: listArray,
@@ -119,20 +92,9 @@ class WorkEndTime extends React.Component {
           This is the option selector integrated with Materialized CSS JQuery
         </div>
 
-        <div className="input-field col s12">
-          <select ref="dropdown" defaultValue="1">
-            <option value="" disabled>
-              Choose your option
-            </option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-          </select>
-          <label>Materialize Select</label>
-          <div className="livedaze_pre_headline">END TESTING</div>
-        </div>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js" />
+
 
         <div className="livedaze_pre_headline">Primitive Time picker</div>
         <div className="work-end-time">
@@ -147,38 +109,12 @@ class WorkEndTime extends React.Component {
             value={this.state.userWorkEndTime}
             name="form-control"
           />
-
-          <div className="livedaze_pre_headline">Bootstrap Time Picker</div>
-          <div className="input-group bootstrap-timepicker timepicker">
-            <input
-              id="TimePicker"
-              type="text"
-              className="form-control input-small"
-            />
-            <span className="input-group-addon">
-              <i className="glyphicon glyphicon-time" />
-            </span>
-          </div>
-          <div className="livedaze_pre_headline">2월 7일 css time picker</div>
-
-          <input type="text" className="datepicker" />
-
-          <div className="livedaze_pre_headline">
-            Materialize css time picker
-          </div>
-          <input type="text" className="timepicker" />
-          <Button waves="light">
-            EDIT ME<Icon left>save</Icon>
-          </Button>
-
-          <input name="on" type="time" onChange={function(e, value) {}} />
-
           <button
             onClick={() => this.addToList(this.state.userWorkEndTime)}
             className="btn btn-light"
           >
-            Update
-          </button>
+            it is working!
+                      </button>
         </div>
         <ul>
           {this.state.list.map(val => (
@@ -188,7 +124,7 @@ class WorkEndTime extends React.Component {
 
         {/*<div className="livedaze_TabTitle">YOU WILL GO HOME IN</div>*/}
         {/*<h4>{this.diffDuration.hours()}HR: {this.diffDuration.minutes()}MIN: {this.diffDuration.seconds()}SEC</h4>*/}
-      </div>
+    </div>
     );
   }
 }
@@ -337,74 +273,23 @@ class HomePage extends React.Component {
           View 0 : Default/First User Login
         </div>
 
-        <div className="row">
-          <div className="col s4">
-            <div className="card-panel livedazeGrey">
-              <span className="white-text">
-                <WorkEndTime />
-              </span>
-            </div>
-          </div>
-          <div className="col s4">
-            <WakeUpTime/>
-          </div>
-          <div className="col s4">
-          <PomodoroTimer/>
-          </div>
-        </div>
+        <div className="row flex">
+              <div className="col l4 s12">
 
-        <div className="row">
-          <div className="col-sm">
-            <div className="row">
-              <div className="col s12 m5" />
-            </div>
+<DailyToDo/>
           </div>
-          <div className="col-sm">
-            <div className="row">
-              {/* !--work time --> */}
-              <div className="col s12 m5">
-                <div className="card-panel livedazeGrey">
-                  <span className="white-text" />
-                </div>
-              </div>
-            </div>
+              <div className="col l4 s12">
+                  <WakeUpTime/>
           </div>
-          <div className="col-sm">
-            <div className="row">
-              {/* !--work time --> */}
-              <div className="col s12 m5">
-                <div className="card-panel livedazeGrey">
-                  <span className="white-text" />
-                </div>
-              </div>
-            </div>
+                <div className="col l4 s12">
+                <PomodoroTimer/>
           </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <div className="livedaze_pre_headline">
           View #2 : After User Adds value
         </div>
         <div className="row">
-          <div className="col col l4 s12">
+          <div className="col col l4 s12 ">
             <div className="card-panel livedazeGrey">
               <span className="white-text">
                 <div className="livedaze_TabTitle">My D-day</div>

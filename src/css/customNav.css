@@ -24,7 +24,7 @@ div#app {
 .card-panel.livedazeGrey {
     background: #232323;
     max-width:100%;
-
+    height:100%;
 
 }
 
@@ -284,6 +284,8 @@ header, main, footer {
     text-transform: uppercase;
     text-align: center;
     font-size: 18px;
+    letter-spacing: 0.10em;
+
 }
 
 .BtnControl {
@@ -297,4 +299,78 @@ a.waves-effect.waves-light.btn.customBtnColor {
     background-color: #bc3630;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+a.waves-effect.waves-light.btn.PrimaryBtnColor
+{
+  color: white;
+  border-radius: 100px;
+  background-color: #95b5ff;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.Livedaze_ToDo_List {
+  display: flex;
+  overflow-x: auto;
+}
+.Livedaze_ToDo_List > * {
+  flex: 0 0 auto;
+  margin-left: 10px;
+}
+.Livedaze_ToDo_List::after {
+  content: '';
+  flex: 0 0 10px;
+}
+
+.Livedaze_ToDo_List {
+  height: calc(100% - 10px - 17px);
+}
+.Livedaze_ToDo_List > * {
+
+  background-color: #232323;
+  color: #333;
+  padding: 0 10px;
+}
+.Livedaze_ToDo_List header {
+  line-height: 36px;
+  font-size: 16px;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.Livedaze_ToDo_List footer {
+  line-height: 36px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #888;
+}
+.Livedaze_ToDo_List ul {
+  list-style: none;
+  margin: 0;
+  overflow-y: auto;
+  width: 100%;
+  height:100%;
+}
+.Livedaze_ToDo_List ul li {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.Livedaze_ToDo_List ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.Livedaze_ToDo_List ul li img {
+  display: block;
+  width: calc(100% + 2 * 10px);
+  margin: -10px 0 10px -10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
 }
