@@ -48,6 +48,8 @@ export class WakeUpTime extends React.Component {
     return (
       <div className="card-panel livedazeGrey">
         <span className="white-text">
+        <div className="livedaze_TabTitle">I am from WakeUpTime.jsx</div>
+
           <div className="livedaze_TabTitle">When did you get up today?</div>
 
   <div className="work-end-time">
@@ -72,7 +74,7 @@ export class WakeUpTime extends React.Component {
 
           </div>
 
-             
+
   </div>
               <ul>
               {this.state.list.map(val => (
