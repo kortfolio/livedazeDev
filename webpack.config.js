@@ -6,7 +6,9 @@ loaders: [
         exclude: /(node_modules|bower_compontents)/,
         use: ['babel-loader']
       }
+
 ],
+
 
 module.exports = {
     mode: 'development',
@@ -18,7 +20,11 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader'
-            }
+          },
+          {
+            test: /\.(css|less)$/,
+            use: ["style-loader", "css-loader"]
+          }
 
         ]
     },
