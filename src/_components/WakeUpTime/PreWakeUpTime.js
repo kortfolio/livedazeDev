@@ -25,53 +25,62 @@ export class PreWakeUpTime extends React.Component {
     });
     console.log("Rendering from... handleChange(date)");
     console.log(this.state.startDate);
-
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.setState({
       isClicked: false
-    })
-  }
+    });
+  };
 
   render() {
     let isClicked = this.state.isClicked;
     const today = new Date();
-     return (
+    return (
       <React.Fragment>
-      {
-        (isClicked)
-          ? (
-              <form onSubmit={this.handleSubmit}>
-              <div className="SetGoalDatePlaceHolder">When did you get up today?</div>
-              <div className="centerStuff">
+        {isClicked ? (
+          <form onSubmit={this.handleSubmit}>
+            <div className="SetGoalDatePlaceHolder">
+              When did you get up today?
+            </div>
+            <div className="centerStuff">
               <label>
-              <DatePicker
+                <DatePicker
                   selected={this.state.startDate}
                   onChange={this.handleChange}
                   showTimeSelect
-                  minTime={ new Date(today.getYear(), today.getMonth(), today.getDay(), 0, 0, 0, 0) }
-                  maxTime={ today }
-                  
+                  minTime={
+                    new Date(
+                      today.getYear(),
+                      today.getMonth(),
+                      today.getDay(),
+                      0,
+                      0,
+                      0,
+                      0
+                    )
+                  }
+                  maxTime={today}
                   showTimeSelectOnly
                   timeIntervals={10}
                   dateFormat="h:mm aa"
                   timeCaption="Time"
-                  />
-                </label>
-                <br/>
-                <button type="submit" className="waves-effect waves-light btn PrimaryBtnColor">Update</button>
-                </div>
-              </form>
-            )
-          : (
-              <AfterWakeUpTime WakeUpTime={this.state.startDate}/>
-            )
-      }
+                />
+              </label>
+              <br />
+              <button
+                type="submit"
+                className="waves-effect waves-light btn PrimaryBtnColor"
+              >
+                Update
+              </button>
+            </div>
+          </form>
+        ) : (
+          <AfterWakeUpTime WakeUpTime={this.state.startDate} />
+        )}
       </React.Fragment>
-
-
     );
   }
 }

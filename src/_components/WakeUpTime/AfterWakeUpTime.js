@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import "moment-timezone";
 import "moment-duration-format";
-
-
 export class AfterWakeUpTime extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       date: new Date(),
-      wakeUpTime : props.WakeUpTime
+      wakeUpTime: props.WakeUpTime
     };
     this.now = moment(new Date());
     this.expiration = moment(this.state.wakeUpTime);
@@ -43,13 +41,11 @@ export class AfterWakeUpTime extends React.Component {
 
     //express as a duration
     this.diffDuration = moment.duration(this.diff);
-
   }
 
   render() {
-      return (
+    return (
       <div>
-
         <div className="livedaze_TabTitle">IT's BEEN</div>
         <div className="timeSuperSet">
           {this.diffDuration.hours()}
@@ -62,7 +58,6 @@ export class AfterWakeUpTime extends React.Component {
         <div className="livedaze_TabTitle">SINCE YOU WAKE UP</div>
         <div>RESET</div>
       </div>
-
     );
   }
 }

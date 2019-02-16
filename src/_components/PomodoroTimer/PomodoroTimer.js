@@ -110,19 +110,18 @@ export class PomodoroTimer extends React.Component {
     return (
       <div className="card-panel livedazeGrey">
         <span className="white-text">
-          <div className="livedaze_pomodoroTimer_headline">Pomodoro Timer </div>{" "}
+          <div className="livedaze_pomodoroTimer_headline">Pomodoro Timer </div>
           <div className="timeSuperSet">
-            {" "}
             {this.state.time.m} <sub className="timeSubset"> MIN </sub>
-            {this.state.time.s} <sub className="timeSubset"> SEC </sub>{" "}
-          </div>{" "}
+            {this.state.time.s} <sub className="timeSubset"> SEC </sub>
+          </div>
           <div className="BtnControl">
             {start}
             {stop}
             {resume}
             {reset}
           </div>
-        </span>{" "}
+        </span>
       </div>
     );
   }
