@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
+
 import { AfterSetGoalDate } from "../GoalDate/AfterSetGoalDate";
 
 export class BeforeSetGoalDate extends React.Component {
@@ -43,8 +45,10 @@ export class BeforeSetGoalDate extends React.Component {
           <div className="centerStuff">
           <label>
             <DatePicker
+            inline
             selected={this.state.startDate}
             onChange={this.handleChange}
+            minDate={new Date()}
             />
             </label>
             <br/>
@@ -53,8 +57,7 @@ export class BeforeSetGoalDate extends React.Component {
           </form>
             )
           : (
-
-                      <AfterSetGoalDate newDate={this.state.startDate}/>
+              <AfterSetGoalDate newDate={this.state.startDate}/>
 
           )
       }
