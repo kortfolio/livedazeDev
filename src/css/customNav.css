@@ -374,3 +374,24 @@ a.waves-effect.waves-light.btn.PrimaryBtnColor
   display: flex;
   flex-wrap: wrap;
 }
+.SetGoalDatePlaceHolder {
+    color: #f7931e;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 18px;
+}
+input[type="text"] {
+    text-align: center;
+    color: white;
+}
+
+.centerStuff {
+    align-items: center;
+    text-align: center;
+}
+
+button.waves-effect.waves-light.btn.PrimaryBtnColor {
+    color: white;
+    border-radius: 30px;
+    background-color: #f7921e;
+}
