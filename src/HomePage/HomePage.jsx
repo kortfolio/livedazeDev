@@ -14,7 +14,7 @@ import { Button, Card, Row, Col, Icon } from "react-materialize";
 import M from "materialize-css";
 
 import { PomodoroTimer } from "../_components/PomodoroTimer/pomodoroTimer";
-import { SetGoalDateView } from "../_components/GoalDate/SetGoalDateView";
+import { BeforeSetGoalDate } from "../_components/GoalDate/BeforeSetGoalDate";
 import { PreWakeUpTime } from "../_components/WakeUpTime/PreWakeUpTime";
 
 class HomePage extends React.Component {
@@ -87,7 +87,7 @@ class HomePage extends React.Component {
           <div className="col l4 s12">
             <div className="card-panel livedazeGrey">
               <span className="white-text">
-                <SetGoalDateView />
+                <BeforeSetGoalDate />
               </span>
             </div>
           </div>

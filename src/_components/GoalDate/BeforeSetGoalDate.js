@@ -22,48 +22,44 @@ export class BeforeSetGoalDate extends React.Component {
     });
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
 
     this.setState({
       isClicked: false
-    })
-
-  }
+    });
+  };
 
   render() {
     let isClicked = this.state.isClicked;
 
     return (
       <React.Fragment>
-      {
-        (isClicked)
-          ? (
-
+        {isClicked ? (
           <form onSubmit={this.handleSubmit}>
-          <div className="SetGoalDatePlaceHolder">Set your D day</div>
-          <div className="centerStuff">
-          <label>
-            <DatePicker
-            inline
-            selected={this.state.startDate}
-            onChange={this.handleChange}
-            minDate={new Date()}
-            />
-            </label>
-            <br/>
-            <button type="submit" className="waves-effect waves-light btn PrimaryBtnColor">Update</button>
+            <div className="SetGoalDatePlaceHolder">Set your D day</div>
+            <div className="centerStuff">
+              <label>
+                <DatePicker
+                  inline
+                  selected={this.state.startDate}
+                  onChange={this.handleChange}
+                  minDate={new Date()}
+                />
+              </label>
+              <br />
+              <button
+                type="submit"
+                className="waves-effect waves-light btn PrimaryBtnColor"
+              >
+                Update
+              </button>
             </div>
           </form>
-            )
-          : (
-              <AfterSetGoalDate newDate={this.state.startDate}/>
-
-          )
-      }
+        ) : (
+          <AfterSetGoalDate newDate={this.state.startDate} />
+        )}
       </React.Fragment>
-
-
     );
   }
 }

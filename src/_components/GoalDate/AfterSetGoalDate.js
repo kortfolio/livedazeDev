@@ -10,7 +10,6 @@ export class AfterSetGoalDate extends React.Component {
       startDate: new Date()
     };
   }
-
   render() {
     // today
     const date = new Date();

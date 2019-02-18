@@ -17,7 +17,7 @@ export class AfterWakeUpTime extends React.Component {
     console.log(this.expiration);
 
     // get the difference between the moments.
-    this.diff = this.expiration.diff(this.now);
+    this.diff = this.now.diff(this.expiration);
     // and then express as a duration.
     this.diffDuration = moment.duration(this.diff);
   }
@@ -38,7 +38,6 @@ export class AfterWakeUpTime extends React.Component {
 
     // get the difference between the moments
     this.diff = this.now.diff(this.expiration);
-
     //express as a duration
     this.diffDuration = moment.duration(this.diff);
   }
