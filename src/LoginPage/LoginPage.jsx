@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { userActions } from "../_actions";
+import $ from 'jquery';
+window.$ = $;
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -100,107 +102,107 @@ class LoginPage extends React.Component {
             </span>
           </div>
         </div>{/* End MS I */}
-
-
-
-
-        </div>{/* End col s6*/}
+      </div>{/* End col s6*/}
 
         <div className="col s12 m6">{/* START Login Form */}
-
-        <div className="livedazeMissionStatement">Login</div>
-        <div className="description">
-          Start using Livedaze to keep your day organize.
-        </div>
-
-        <form name="form" onSubmit={this.handleSubmit}>
-          <div
-            className={
-              "input-field col s12" +
-              (submitted && !username ? " has-error" : "")
-            }
-          >
-            <label htmlFor="username">Email</label>
-            <input
-              type="text"
-              className="validate"
-              name="username"
-              value={username}
-              onChange={this.handleChange}
-            />
-            {submitted && !username && (
-              <div className="help-block">Username is required</div>
-            )}
-          </div>
-
-          <div
-            className={
-              "input-field col s12" +
-              (submitted && !password ? " has-error" : "")
-            }
-          >
-            <label htmlFor="password">Enter your password</label>
-
-            <input
-              type="password"
-              className="validate"
-              name="password"
-              value={password}
-              id="password"
-              onChange={this.handleChange}
-            />
-
-            {submitted && !password && (
-              <div className="help-block">Password is required</div>
-            )}
-          </div>
-
-          {/* Original Source Code
-                      <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                          <label htmlFor="password">Password</label>
-                          <input type="password" className="form-control" name="password" value={password} id="password"
-                                 onChange={this.handleChange}/>
-                          {submitted && !password &&
-                          <div className="help-block">Password is required</div>
-                          }
-                      </div>
-                      */}
-
-          <div className="form-group">
-            <button className="btn btn-primary">Login</button>
-            {loggingIn && (
-              <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-            )}
-            <Link to="/register" className="btn btn-link">
-              Register
-            </Link>
-          </div>
-        </form>
-        <button className="loginBtn loginBtn--facebook">
-          Login with Facebook
-        </button>
-
-        <button className="loginBtn loginBtn--google">
-          Login with Google
-        </button>
-
-        </div>
-      </div>
-
-      <div className="row">
-        <div className="col s6">
-
-
-
-          <div className="row">
-            <div className="col s6">
-
+            <div className="livedazeMissionStatement">Let’s get started!</div>
+            <div className="description">
+              Start using Livedaze to keep your day organize.
             </div>
 
-          </div>
+            <form name="form" onSubmit={this.handleSubmit}>
+              <div
+                className={
+                  "input-field col s12" +
+                  (submitted && !username ? " has-error" : "")
+                }
+              >
 
-        </div>
-        </div>
+                <label htmlFor="username">Email</label>
+                <input
+                  type="text"
+                  placeholder=""
+                  className="validate"
+                  name="username"
+                  value={username}
+                  onChange={this.handleChange}
+                />
+                {submitted && !username && (
+                  <div className="help-block">Username is required</div>
+                )}
+              </div>
+
+              <div
+                className={
+                  "input-field col s12" +
+                  (submitted && !password ? " has-error" : "")
+                }
+              >
+                <label htmlFor="password">Password</label>
+                <input
+                id="password"
+                placeholder=""
+                name="password"
+                type="password"
+                  className="validate"
+                  value={password}
+                  onChange={this.handleChange}
+
+                />
+
+                {submitted && !password && (
+                  <div className="help-block">Password is required</div>
+                )}
+              </div>
+
+              {/* Original Source Code
+                          <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
+                              <label htmlFor="password">Password</label>
+                              <input type="password" className="form-control" name="password" value={password} id="password"
+                                     onChange={this.handleChange}/>
+                              {submitted && !password &&
+                              <div className="help-block">Password is required</div>
+                              }
+                          </div>
+                          */}
+
+                {/*
+              <div className="form-group">
+                <button className="btn btn-primary">Login</button>
+                {loggingIn && (
+                  <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                )}
+                <Link to="/register" className="btn btn-link">
+
+                  Register
+                </Link>
+              </div>
+              */}
+            <h5 className="right-align">
+             <a className="waves-effect waves-light btn yellowButton">Get Started</a>
+             </h5>
+            </form>
+              <div className="description">OR LOGIN WITH</div><br/>
+            <div className="row valign-wrapper center">
+              <div className="col s4">
+              <img src="../images/LoginWithGoogleBtn.png" width="50px"/>
+              </div>
+              <div className="col s4">
+              <img src="../images/LoginWithFaceBookBtn.png" width="50px"/>
+              </div>
+              <div className="col s4">
+              <img src="../images/LoginWithGithubBtn.png" width="50px"/>
+              </div>
+            </div>
+            <div className="Sm_Pink right">No thanks, let me just look around.</div>
+            <img
+          className="center-align"
+          src="../images/LoginImage2.png"
+        />
+                </div>
+
+      </div>
+
         {/* END LiveDaze Mission Statement Descriptions */}
         {/*
                 <div className="input-field col s12">
@@ -216,6 +218,18 @@ class LoginPage extends React.Component {
       </div>
     );
   }
+}
+
+{
+  $(document).ready(function() {
+    M.updateTextFields();
+  });
+  $( '.input-field > input' ).each( function( index, el ) {
+      $el = $( el );
+      if ( $el.val() !== '' )
+          $el.trigger( 'focus' );
+  } );
+
 }
 
 function mapStateToProps(state) {
