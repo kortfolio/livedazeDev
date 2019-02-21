@@ -41,9 +41,10 @@ class LoginPage extends React.Component {
     const { loggingIn } = this.props;
     const { username, password, submitted } = this.state;
     return (
+    <div className="container">
       <div className="row">
         <div className="col s6">
-        <h5 class="center-align">
+        <h5 className="center-align">
           <img
             className="responsive-img center"
             src="../images/welcome.png"
@@ -58,10 +59,14 @@ class LoginPage extends React.Component {
           </div>
 
           {/* LiveDaze Mission Statement Descriptions */}
+          <div className="row">
+            <div className="col s12"><img src="../images/bulbIcon.png" width="50px"/>  Get to know yourself.</div>
 
+          </div>
           <ul className="liveDazeMsDetails">
             <li>
-              •   Get to know yourself.
+
+              •
               <ul>
                 <li className="subDescriptionMS">
                 Figure out what you are good at and what you are not.
@@ -87,6 +92,7 @@ class LoginPage extends React.Component {
               </ul>
             </li>
           </ul>
+        </div>
         </div>
         {/* END LiveDaze Mission Statement Descriptions */}
         {/*
