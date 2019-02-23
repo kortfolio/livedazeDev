@@ -10,8 +10,6 @@ import moment from "moment";
 import "moment-timezone";
 import "moment-duration-format";
 
-import { Button, Card, Row, Col, Icon } from "react-materialize";
-import M from "materialize-css";
 
 import { PomodoroTimer } from "../_components/PomodoroTimer/pomodoroTimer";
 import { BeforeSetGoalDate } from "../_components/GoalDate/BeforeSetGoalDate";

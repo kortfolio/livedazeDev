@@ -10,6 +10,7 @@ import { LoginPage } from "../LoginPage";
 import { RegisterPage } from "../RegisterPage";
 import Clock from "react-live-clock";
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -29,6 +30,7 @@ class App extends React.Component {
 
     return (
       <div>
+    
         <div className="row">
           {alert.message && (
             <div className={`alert ${alert.type}`}>{alert.message}</div>

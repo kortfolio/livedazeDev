@@ -404,6 +404,7 @@ div.Sm_Pink {
     color: #f087b1;
     /* text-align: right; */
 }
+
 .yellowButton {
     color: #58465d;
     background: #f7d16f;
@@ -411,6 +412,15 @@ div.Sm_Pink {
     align-content: center;
     letter-spacing: 3px;
     box-shadow: none;
+    font-size: 10px;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #ffd057;
+}
+
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+      background-color: #ffd057;
 }
 
 .description {
@@ -436,4 +446,8 @@ input[type]:-webkit-autofill + label{
 /* fix clicking label does not activate text input */
 .input-field label {
     pointer-events: all;
+}
+
+.createAccount {
+    font-size: 14px;
 }

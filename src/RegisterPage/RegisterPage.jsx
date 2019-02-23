@@ -48,8 +48,72 @@ class RegisterPage extends React.Component {
         const { registering  } = this.props;
         const { user, submitted } = this.state;
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <h2>Register</h2>
+          <div className="container">
+            <div className="row">
+              <div className="col s12 m6">
+              <h5 className="center-align">
+              <img
+                className="responsive-img center"
+                src="../images/welcome.png"
+                width="300px"
+              />
+              </h5>
+              <div className="livedazeMissionStatement center">
+                get to know yourself and start improving!
+              </div>
+
+              {/* LiveDaze Mission Statements */}
+              <div className="row valign-wrapper">
+                <div className="col s2">
+                  <img src="../images/bulbIcon.png" width="50px"/>
+                </div>
+                <div className="col s10">
+                  <span className="liveDazeMsDetails">
+                    Get to know yourself.<br/>
+                  </span>
+                  <span className="subDescriptionMS">
+                    Figure out what you are good at and what you are not.
+                  </span>
+                </div>
+              </div>
+
+              <div className="row valign-wrapper">
+                <div className="col s2">
+                  <img src="../images/NotePadIcon.png" width="50px"/>
+                </div>
+                <div className="col s10">
+                  <span className="liveDazeMsDetails">
+                    Get things done.<br/>
+                  </span>
+                  <span className="subDescriptionMS">
+                    Set a realistic goal. and get things done.
+                  </span>
+                </div>
+              </div>
+
+              <div className="row valign-wrapper">
+                <div className="col s2">
+                  <img src="../images/TrophyIcon.png" width="50px"/>
+                </div>
+                <div className="col s10">
+                  <span className="liveDazeMsDetails">
+                    Keep Improving.<br/>
+                  </span>
+                  <span className="subDescriptionMS">
+                    Keep track of what you have done and keep improving.
+                  </span>
+                </div>
+              </div>
+              {/* END LiveDaze Mission Statements */}
+
+            </div>{/* End col s6*/}
+
+            <div className="col s12 m6">{/* START Login Form */}
+                <div className="livedazeMissionStatement">Let’s get started!</div>
+                <div className="description">
+                  Start using Livedaze to keep your day organize.
+                </div>
+
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
                         <label htmlFor="firstName">First Name</label>
@@ -80,13 +144,17 @@ class RegisterPage extends React.Component {
                         }
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary">Register</button>
-                        {registering && 
+                        <button className="btn btn-primary">Sign Up</button>
+                        {registering &&
                             <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                         }
-                        <Link to="/login" className="btn btn-link">Cancel</Link>
+
                     </div>
+                    <div className="createAccount">Back to <Link to="/login">Login Page</Link></div>
+
                 </form>
+            </div>
+              </div>
             </div>
         );
     }
