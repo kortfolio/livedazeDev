@@ -451,3 +451,9 @@ input[type]:-webkit-autofill + label{
 .createAccount {
     font-size: 14px;
 }
+/* Fix Height of the logo image in materializecss nav bar */
+
+.logo-img {
+    max-height: 64px!important;
+    padding: 15px 0!important;
+}

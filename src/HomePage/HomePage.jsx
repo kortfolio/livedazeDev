@@ -49,40 +49,6 @@ class HomePage extends React.Component {
 
     return (
       <div className="wrapper">
-        <h4>----------------------------------</h4>
-        <h4>Hi {user.firstName}!</h4>
-        <p>Welcome to livedaze.</p>
-
-        <h3>All registered users:</h3>
-        {users.loading && <em>Loading users...</em>}
-        {users.error && (
-          <span className="text-danger">ERROR: {users.error}</span>
-        )}
-        {users.items && (
-          <ul>
-            {users.items.map((user, index) => (
-              <li key={user.id}>
-                {user.firstName + " " + user.lastName}
-                {user.deleting ? (
-                  <em>- Deleting...</em>
-                ) : user.deleteError ? (
-                  <span className="text-danger">
-                    - ERROR: {user.deleteError}
-                  </span>
-                ) : (
-                  <span>
-                    -<a onClick={this.handleDeleteUser(user.id)}>Delete</a>
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-        <p>
-          <Link to="/login">Logout</Link>
-        </p>
-        <h4>----------------------------------</h4>
-
         <div className="livedaze_pre_headline">
           View 0 : Default/First User Login <br />
           Date Picker : https://www.npmjs.com/package/react-datepicker
