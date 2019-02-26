@@ -457,3 +457,6 @@ input[type]:-webkit-autofill + label{
     max-height: 64px!important;
     padding: 15px 0!important;
 }
+
+.card-panel { border-radius: 8px;
+min-height:200px; }

@@ -14,6 +14,10 @@ import "moment-duration-format";
 import { PomodoroTimer } from "../_components/PomodoroTimer/pomodoroTimer";
 import { BeforeSetGoalDate } from "../_components/GoalDate/BeforeSetGoalDate";
 import { PreWakeUpTime } from "../_components/WakeUpTime/PreWakeUpTime";
+import { BeforeSetSleepTime } from "../_components/SleepTimeCountDown/BeforeSetSleepTime";
+
+import { ConditionalRenderingTest } from "../_components/ConditionalRenderingTest/ConditionalRenderingTest";
+
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -49,14 +53,15 @@ class HomePage extends React.Component {
 
     return (
       <div className="wrapper">
-        <div className="livedaze_pre_headline">
-          View 0 : Default/First User Login <br />
-          Date Picker : https://www.npmjs.com/package/react-datepicker
-        </div>
-
+        {/**Daily To do List **/}
         <div className="row flex">
-          {/**Daily To do List **/}
-          <div className="col l4 s12" />
+          <div className="col l4 s12">
+            <div className="card-panel livedazeGrey">
+              <span className="white-text">
+                <BeforeSetSleepTime />
+              </span>
+            </div>
+          </div>
 
           {/**Wake Up Time **/}
           <div className="col l4 s12">
@@ -72,16 +77,14 @@ class HomePage extends React.Component {
           </div>
         </div>
 
-        <div className="livedaze_pre_headline">
-          View #2 : After User Adds value
-        </div>
-
-        <div className="row">
+        <div className="row flex">
           <div className="col col l4 s12 ">
             <div className="card-panel livedazeGrey">
               <span className="white-text" />
+              <ConditionalRenderingTest/>
             </div>
           </div>
+
           <div className="col l4 s12">
             <div className="card-panel livedazeGrey">
               <span className="white-text">
@@ -95,8 +98,7 @@ class HomePage extends React.Component {
               <span className="white-text" />
             </div>
           </div>
-        </div>
-
+</div>
         <script type="text/javascript" src="js/materialize.min.js" />
       </div>
     );

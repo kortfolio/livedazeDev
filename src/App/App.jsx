@@ -8,8 +8,6 @@ import { PrivateRoute } from "../_components";
 import { HomePage } from "../HomePage";
 import { LoginPage } from "../LoginPage";
 import { RegisterPage } from "../RegisterPage";
-import Clock from "react-live-clock";
-
 
 class App extends React.Component {
   constructor(props) {
@@ -24,13 +22,9 @@ class App extends React.Component {
 
   render() {
     const { alert } = this.props;
-    let time = new Date().toLocaleString();
-
     const dateToFormat = "1976-04-19T12:59-0500";
-
     return (
       <div>
-    
         <div className="row">
           {alert.message && (
             <div className={`alert ${alert.type}`}>{alert.message}</div>

@@ -125,7 +125,8 @@ class RegisterPage extends React.Component {
                             }
                       </div>
                     </div>
-                                        <div className="input-field col s6">
+
+                    <div className="input-field col s6">
                     <div className={'form-group' + (submitted && !user.lastName ? ' has-error' : '')}>
                         <label htmlFor="lastName">Last Name</label>
                         <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={this.handleChange} />
@@ -134,19 +135,24 @@ class RegisterPage extends React.Component {
                         }
                     </div>
                     </div>
+                    <div className="input-field col s12">
                     <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">Email</label>
                         <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} />
                         {submitted && !user.username &&
-                            <div className="help-block">Username is required</div>
+                            <div className="help-block">Email is required</div>
                         }
                     </div>
+                    </div>
+
+                    <div className="input-field col s12">
                     <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
                         <label htmlFor="password">Password</label>
                         <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
                         {submitted && !user.password &&
                             <div className="help-block">Password is required</div>
                         }
+                    </div>
                     </div>
                     <h5 className="right-align">
                     <div className="form-group">
@@ -157,7 +163,7 @@ class RegisterPage extends React.Component {
                         }
 
                     </div>
-                    <div className="createAccount">Back to <Link to="/login">Login Page</Link></div>
+                    <div className="createAccount">Or go back to <Link to="/login">Login Page</Link></div>
                     </h5>
                 </form>
             </div>
