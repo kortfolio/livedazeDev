@@ -5,8 +5,6 @@ import moment from "moment";
 import "moment-timezone";
 import "moment-duration-format";
 
-
-
 export class UserGreeting extends React.Component {
   constructor(props) {
     super(props);
