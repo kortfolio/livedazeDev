@@ -109,7 +109,7 @@ class LoginPage extends React.Component {
               Start using Livedaze to keep your day organize.
             </div>
 
-            <form name="form" onSubmit={this.handleSubmit}>
+            <form name="form" onSubmit={this.handleSubmit} autoComplete="on">
               <div
                 className={
                   "input-field col s12" +
@@ -146,6 +146,7 @@ class LoginPage extends React.Component {
                   className="validate"
                   value={password}
                   onChange={this.handleChange}
+                  autoComplete="on"
 
                 />
 
@@ -153,10 +154,6 @@ class LoginPage extends React.Component {
                   <div className="help-block">Password is required</div>
                 )}
               </div>
-
-
-
-
 
             <h5 className="right-align">
             <div className="form-group">

@@ -460,3 +460,9 @@ input[type]:-webkit-autofill + label{
 
 .card-panel { border-radius: 8px;
 min-height:200px; }
+
+label.livedaze_LoginFormText {
+  color: #586069;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

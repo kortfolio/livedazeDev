@@ -118,7 +118,7 @@ class RegisterPage extends React.Component {
 
                     <div className="input-field col s6">
                       <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
-                          <label htmlFor="firstName">First Name</label>
+                          <label htmlFor="firstName" className="livedaze_LoginFormText">First Name</label>
                             <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} />
                             {submitted && !user.firstName &&
                               <div className="help-block">First Name is required</div>
@@ -128,7 +128,7 @@ class RegisterPage extends React.Component {
 
                     <div className="input-field col s6">
                     <div className={'form-group' + (submitted && !user.lastName ? ' has-error' : '')}>
-                        <label htmlFor="lastName">Last Name</label>
+                        <label htmlFor="lastName" className="livedaze_LoginFormText">Last Name</label>
                         <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={this.handleChange} />
                         {submitted && !user.lastName &&
                             <div className="help-block">Last Name is required</div>
@@ -137,7 +137,7 @@ class RegisterPage extends React.Component {
                     </div>
                     <div className="input-field col s12">
                     <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
-                        <label htmlFor="username">Email</label>
+                        <label htmlFor="username" className="livedaze_LoginFormText">Email</label>
                         <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} />
                         {submitted && !user.username &&
                             <div className="help-block">Email is required</div>
@@ -147,7 +147,7 @@ class RegisterPage extends React.Component {
 
                     <div className="input-field col s12">
                     <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password" className="livedaze_LoginFormText">Password</label>
                         <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
                         {submitted && !user.password &&
                             <div className="help-block">Password is required</div>

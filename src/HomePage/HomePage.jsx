@@ -1,12 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import $ from "jquery";
 
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { userActions } from "../_actions";
 
-import moment from "moment";
 import "moment-timezone";
 import "moment-duration-format";
 
@@ -25,17 +21,12 @@ class HomePage extends React.Component {
   }
 
   handleDeleteUser(id) {
-    return e => this.props.dispatch(userActions.delete(id));
+    return () => this.props.dispatch(userActions.delete(id));
   }
 
   render() {
-    const clock = document.getElementById("clock");
-    const rows = [];
 
-    const { user, users } = this.props;
 
-    const wakeUpTime = "2019-01-19T07:00-0800";
-    const sleepTime = "2019-01-18T22:00-0800";
 
     const startDay = "2018-10-10";
     const date = new Date();
@@ -43,17 +34,13 @@ class HomePage extends React.Component {
 
     const goal = "2019-03-01";
 
-    const goalFormatted = moment(goal).format("LL");
 
-    let samplezz = moment(date, "Days").diff(goal);
 
-    let remainingDays = Math.abs(moment(date, "days").diff(goal, "days")) + 1;
-    let durationSince =
-      Math.abs(moment(date, "days").diff(startDay, "days")) + 1;
 
     return (
       <div className="wrapper">
         {/**Daily To do List **/}
+        
         <div className="row flex">
           <div className="col l4 s12">
             <div className="card-panel livedazeGrey">
