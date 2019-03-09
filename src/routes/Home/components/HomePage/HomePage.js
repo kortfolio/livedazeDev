@@ -36,67 +36,20 @@ export const Home = ({ classes}) => (
  */}
   
     <div className="flex-row-center">
-      <h2>Home Route</h2>
+      <h2>UNDER DEVELOPMENT</h2>
     </div>
     <div className="flex-row-center">
       <div className={classes.section}>
-        <h3>Routing</h3>
-        <span>
-          Redirecting and route protection done using:
-          <div>
-            <span>
-          
-            </span>
-            <span> and </span>
-              redux-auth-wrapper
+        
+      </div>
+      <div className={classes.section}>
        
-          </div>
-        </span>
       </div>
       <div className={classes.section}>
-        <h4>Logged Out</h4>
-        <span>
-          User is redirected to <pre>/login</pre> if not authenticated and
-          trying to vist:
-        </span>
-        <ul>
-          <li>
-            <Link to={LIST_PATH}>Projects</Link>
-          </li>
-          <li>
-            <Link to={ACCOUNT_PATH}>Account</Link>
-          </li>
-        </ul>
+     
       </div>
       <div className={classes.section}>
-        <h4>Logged In</h4>
-        <span>
-          User is redirected to <pre>/projects</pre> if authenticated and trying
-          to vist:
-        </span>
-        <ul>
-          <li>
-            <Link to={LOGIN_PATH}>Login</Link>
-          </li>
-          <li>
-            <Link to={SIGNUP_PATH}>Signup</Link>
-          </li>
-        </ul>
-      </div>
-      <div className={classes.section}>
-        <div>
-          <h4>Forms</h4>
-          <span>Redirecting and route protection done using:</span>
-          <div>
-            <span>
-          
-            </span>
-          </div>
-        </div>
-        <span>The following routes use redux-form:</span>
-        <Link to={ACCOUNT_PATH}>
-          <p>Account Page</p>
-        </Link>
+     
       </div>
     </div>
   </div>

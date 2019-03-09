@@ -3,8 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import { AfterSetSleepTime } from "../SleepTimeCountDown/AfterSetSleepTime";
-
-import moment from "moment";
+ 
 import "moment-timezone";
 import "moment-duration-format";
 
@@ -23,8 +22,6 @@ export class BeforeSetSleepTime extends React.Component {
     this.setState({
       startDate: date
     });
-    console.log("Rendering from... handleChange(date)");
-    console.log(this.state.startDate);
   }
 
   handleSubmit = e => {
@@ -42,7 +39,7 @@ export class BeforeSetSleepTime extends React.Component {
         {isClicked ? (
           <form onSubmit={this.handleSubmit}>
             <div className="SetGoalDatePlaceHolder">
-              What time do you plan to sleep tonight?
+             Select your bed time
             </div>
             <div className="centerStuff">
               <label>
@@ -56,8 +53,8 @@ export class BeforeSetSleepTime extends React.Component {
                         today.getYear(),
                         today.getMonth(),
                         today.getDay(),
-                        0,
-                        0,
+                        23,
+                        50,
                         0,
                         0
                       )

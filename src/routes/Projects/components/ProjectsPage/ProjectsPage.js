@@ -11,7 +11,6 @@ import "moment-timezone";
 import "moment-duration-format";
 import { BeforeSetSleepTime } from '../SleepTimeCountDown/BeforeSetSleepTime';
 import { PreWakeUpTime } from '../WakeUpTime/PreWakeUpTime';
-import { ConditionalRenderingTest } from '../ConditionalRenderingTest/ConditionalRenderingTest';
 
 
 
@@ -68,10 +67,13 @@ export const ProjectsPage = ({
           </div>
 
           <div className="col l4 s12">
-            <ConditionalRenderingTest/>
+            <div className="card-panel livedazeGrey">
+              <span className="white-text">
+            
+            </span>
+            </div>
           </div>
         </div>
-        
           <NewProjectDialog
             onSubmit={addProject}
             open={newDialogOpen}

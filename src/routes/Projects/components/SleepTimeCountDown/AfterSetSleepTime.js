@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import "moment-timezone";
 import "moment-duration-format";
+import { BeforeSetSleepTime } from "./BeforeSetSleepTime";
 export class AfterSetSleepTime extends React.Component {
   constructor(props) {
     super(props);
@@ -42,25 +43,41 @@ export class AfterSetSleepTime extends React.Component {
     this.diffDuration = moment.duration(this.diff);
   }
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      isClicked: true
+    });
+  };
+
   render() {
+    let isClicked = this.state.isClicked;
+    const today = new Date();
     return (
-      <div>
-        <div className="livedaze_TabTitle">remaining time of today</div>
-        <div className="timeSuperSet">
-          {this.diffDuration.hours()}
-          <sub className="timeSubset">HRS</sub>
-          {this.diffDuration.minutes()}
-          <sub className="timeSubset">MIN</sub>
-          {this.diffDuration.seconds()}
-          <sub className="timeSubset">SEC</sub>
-        </div>
-        <button
-          type="submit"
-          className="waves-effect waves-light btn PrimaryBtnColor"
-        >
-          reset
-        </button>
-      </div>
+      <React.Fragment>
+        {isClicked ? (
+        
+         <BeforeSetSleepTime/>
+        ) : (
+          <form onSubmit={this.handleSubmit}>
+          <div className="livedaze_TabTitle">remaining time of today</div>
+          <div className="timeSuperSet">
+            {this.diffDuration.hours()}
+            <sub className="timeSubset">HRS</sub>
+            {this.diffDuration.minutes()}
+            <sub className="timeSubset">MIN</sub>
+            {this.diffDuration.seconds()}
+            <sub className="timeSubset">SEC</sub>
+          </div>
+          <button
+            type="submit"
+            className="waves-effect waves-light btn PrimaryBtnColor"
+          >
+            reset
+          </button>
+          </form>
+        )}
+      </React.Fragment>
     );
   }
 }

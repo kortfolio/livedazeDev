@@ -1,12 +1,10 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
-import { AfterWakeUpTime } from "../WakeUpTime/AfterWakeUpTime";
-
-import moment from "moment";
 import "moment-timezone";
 import "moment-duration-format";
+import { AfterWakeUpTime } from "../WakeUpTime/AfterWakeUpTime";
+
 
 export class PreWakeUpTime extends React.Component {
   constructor(props) {

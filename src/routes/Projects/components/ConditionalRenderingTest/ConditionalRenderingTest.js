@@ -1,94 +1,77 @@
-import React, { Component } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
-import { AfterSetSleepTime } from "../SleepTimeCountDown/AfterSetSleepTime";
-
-import moment from "moment";
 import "moment-timezone";
 import "moment-duration-format";
-
-
-import { GuestGreeting }  from "../ConditionalRenderingTest/GuestGreeting";
-import { UserGreeting }  from "../ConditionalRenderingTest/UserGreeting";
-
-function LogoutButton(props) {
-  return (
-    <button
-    className="waves-effect waves-light btn PrimaryBtnColor"
-    onClick={props.onClick}>
-      Back
-    </button>
-  );
-}
-
-function LoginButton(props) {
-  return (
-    <button
-    className="waves-effect waves-light btn PrimaryBtnColor"
-    onClick={props.onClick}
-    SleepTime={props.userSleepTime}>
-      Update
-    </button>
-  );
-}
-
-
-function Greeting(props) {
-  console.log("Greeting is loading");
-  const isLoggedIn = props.isLoggedIn;
-  if (isLoggedIn) {
-    return <UserGreeting
-            SleepTime="ssibal"/>;
-  }
-  return <GuestGreeting />;
-}
-
+import { UserGreeting } from "./UserGreeting";
 
 export class ConditionalRenderingTest extends React.Component {
   constructor(props) {
     super(props);
-    this.handleLoginClick = this.handleLoginClick.bind(this);
-    this.handleLogoutClick = this.handleLogoutClick.bind(this);
-    this.state = {isLoggedIn: false};
-     this.handleChange = this.handleChange.bind(this);
-
+    this.state = {
+      startDate: null,
+      isClicked: true
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(date) {
-   this.setState({
-     startDate: date
-   });
- }
-
-  handleLoginClick() {
-    this.setState({isLoggedIn: true});
+    this.setState({
+      startDate: date
+    });
+    console.log(`[RENDERED] GuestGreeting.js:` + this.state.startDate);
+ 
   }
 
-  handleLogoutClick() {
-    this.setState({isLoggedIn: false});
-  }
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      isClicked: false,
+    });
+
+  };
 
   render() {
-      console.log("Buttons are loading");
-    const isLoggedIn = this.state.isLoggedIn;
-    let button;
-
-    if (isLoggedIn) {
-      button = <LogoutButton
-                  onClick={this.handleLogoutClick}
-                   />;
-    } else {
-      (button = <LoginButton onClick={this.handleLoginClick}
-            />
-  );
-    }
-
+    let isClicked = this.state.isClicked;
+    const today = new Date();
     return (
-      <div>
-        <Greeting isLoggedIn={isLoggedIn} />
-        {button}
-      </div>
+      <React.Fragment>
+          <form onSubmit={this.handleSubmit}>
+            <div className="SetGoalDatePlaceHolder">
+              What time do you plan to sleep tonight?
+            </div>
+            <div className="centerStuff">
+              <label>
+                <DatePicker
+                  selected={this.state.startDate}
+                  onChange={this.handleChange}
+                  showTimeSelect
+                  minTime={today}
+                  maxTime={
+                      new Date(
+                        today.getYear(),
+                        today.getMonth(),
+                        today.getDay(),
+                        0,
+                        0,
+                        0,
+                        0
+                      )
+                  }
+                  showTimeSelectOnly
+                  timeIntervals={10}
+                  dateFormat="h:mm aa"
+                  timeCaption="Time"
+                />
+              </label>
+              <br/>
+              <button>YO LO </button>
+
+            </div>
+          </form>
+
+      </React.Fragment>
     );
   }
 }

@@ -9,17 +9,20 @@ export class UserGreeting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: props.SleepTime,
+      sleepTime : props.newDate,
       isClicked: true
     };
-    console.log("Value of sleeptime from user Greeting " + props.SleepTime);
+    console.log("[RENDERED] UserGreeting.js : " + this.state.sleepTime);
+
 
   }
 
   render() {
+    const sleeptime = this.state.sleeptime
     return (
     <React.Fragment>
-    <h1>this will display time</h1>
+      { this.sleepTime }
+    <h1>This area </h1>
 
     </React.Fragment>
 );
