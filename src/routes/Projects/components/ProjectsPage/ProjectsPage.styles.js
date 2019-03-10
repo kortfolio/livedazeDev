@@ -2,12 +2,13 @@ export default theme => ({
   root: {
     ...theme.flexColumnCenter,
     paddingTop: theme.spacing.unit * 4,
-    flexGrow: '2',
+    //flexGrow: '2',
     boxSizing: 'border-box',
-    overflowY: 'scroll'
+    overflowY: 'scroll',
+    display: ""
   },
   tiles: {
-    display: 'flex',
+    //display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
     '-webkit-flex-flow': 'row wrap'

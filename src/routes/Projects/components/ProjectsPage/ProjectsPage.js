@@ -11,6 +11,7 @@ import "moment-timezone";
 import "moment-duration-format";
 import { BeforeSetSleepTime } from '../SleepTimeCountDown/BeforeSetSleepTime';
 import { PreWakeUpTime } from '../WakeUpTime/PreWakeUpTime';
+import { BeforeSetGoalDate } from '../GoalDate/BeforeSetGoalDate';
 
 
 
@@ -43,11 +44,8 @@ export const ProjectsPage = ({
       exact
       path={match.path}
       render={() => (
-        
+        <div className="container">  
         <div className={classes.root}>
-          <div>
-        Hi Nice to meet u buddy
-        </div>
         <div className="row flex">
           <div className="col l4 s12">
             <div className="card-panel livedazeGrey">
@@ -69,7 +67,7 @@ export const ProjectsPage = ({
           <div className="col l4 s12">
             <div className="card-panel livedazeGrey">
               <span className="white-text">
-            
+              <BeforeSetGoalDate/>
             </span>
             </div>
           </div>
@@ -92,6 +90,7 @@ export const ProjectsPage = ({
               ))}
           </div>
         
+        </div>
         </div>
       )}
     />

@@ -3,7 +3,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "moment-timezone";
 import "moment-duration-format";
-import { UserGreeting } from "./UserGreeting";
 
 export class ConditionalRenderingTest extends React.Component {
   constructor(props) {
@@ -36,6 +35,7 @@ export class ConditionalRenderingTest extends React.Component {
     let isClicked = this.state.isClicked;
     const today = new Date();
     return (
+
       <React.Fragment>
           <form onSubmit={this.handleSubmit}>
             <div className="SetGoalDatePlaceHolder">
@@ -66,7 +66,6 @@ export class ConditionalRenderingTest extends React.Component {
                 />
               </label>
               <br/>
-              <button>YO LO </button>
 
             </div>
           </form>

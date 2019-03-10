@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
  
-import { SIGNUP_PATH } from 'constants/paths'
-import LoginForm from '../LoginForm'
+import { SIGNUP_PATH } from 'constants/paths';
+import LoginForm from '../LoginForm';
 
 import './../../../../css/CustomCSS.css';
 
@@ -91,8 +91,7 @@ export const LoginPage = ({
       </Link>
       </span>
     </div>
-            
-
+          
               <div className="description">OR LOGIN WITH</div><br/>
             <div className="row valign-wrapper center">
               <div className="col s4">
