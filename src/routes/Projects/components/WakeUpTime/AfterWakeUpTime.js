@@ -1,11 +1,9 @@
-import React, { Component } from "react";
-import DatePicker from "react-datepicker";
+import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import "moment-timezone";
 import "moment-duration-format";
 import { Grid, Icon } from "@material-ui/core";
-import { red } from "@material-ui/core/colors";
 import { PreWakeUpTime } from "./PreWakeUpTime";
 
 export class AfterWakeUpTime extends React.Component {
@@ -73,13 +71,11 @@ export class AfterWakeUpTime extends React.Component {
             justify="center"
           >
           <Grid item alignItems="center" alignContent="center">
-          <Icon color="action">
-                  hotel
-              </Icon>
+          <Icon color="action"> wb_sunny </Icon>
           </Grid>
           <Grid item alignItems="center">
             <div className="SetGoalDatePlaceHolder">  
-            Remaining Time of today
+            You've stayed awake for
             </div>
           </Grid>
       </Grid>

@@ -13,8 +13,6 @@ import { BeforeSetSleepTime } from '../SleepTimeCountDown/BeforeSetSleepTime';
 import { PreWakeUpTime } from '../WakeUpTime/PreWakeUpTime';
 import { BeforeSetGoalDate } from '../GoalDate/BeforeSetGoalDate';
 
-
-
 const renderChildren = (routes, match, parentProps) =>
   routes.map(route => (
     <Route
@@ -72,6 +70,7 @@ export const ProjectsPage = ({
             </div>
           </div>
         </div>
+        
           <NewProjectDialog
             onSubmit={addProject}
             open={newDialogOpen}

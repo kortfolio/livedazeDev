@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom'
 import { LIST_PATH } from 'constants/paths'
 import AccountMenu from './AccountMenu'
 import LoginMenu from './LoginMenu'
-import purple from '@material-ui/core/colors/purple';
-import red from '@material-ui/core/colors/red';
-import blue from '@material-ui/core/colors/blue';
+
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'

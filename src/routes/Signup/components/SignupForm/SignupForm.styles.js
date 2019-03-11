@@ -10,11 +10,11 @@ export default theme => ({
   },
   submit: {
     ...theme.flexColumnCenter,
-    justifyContent: 'center',
-    flexGrow: 1,
-    textAlign: 'center',
-    padding: '1.25rem',
+    justifyContent: 'right',
+    textAlign: 'right',
     minWidth: '192px',
-    marginTop: '1.5rem'
+    marginTop: '1.5rem',
+    width: '100%',
+    display: "block"
   }
 })

@@ -87,7 +87,7 @@ export const LoginPage = ({
     <div className={classes.signup}>
       <span className={classes.signupLabel}>New to Livedaze? 
       <Link to={SIGNUP_PATH}>
-      Create an account.
+      &nbsp;Create an account.
       </Link>
       </span>
     </div>

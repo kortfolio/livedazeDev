@@ -1,15 +1,26 @@
-import React, { Component } from "react";
-import DatePicker from "react-datepicker";
+import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
+import Icon from '@mdi/react';
+import { mdiCrown } from '@mdi/js';
+import { Grid } from "@material-ui/core";
+import {BeforeSetGoalDate} from './BeforeSetGoalDate';
 
 export class AfterSetGoalDate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       goalDate: props.newDate,
-      startDate: new Date()
+      startDate: new Date(),
     };
   }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      isClicked: true
+    });
+  };
+
   render() {
     // today
     const date = new Date();
@@ -24,19 +35,65 @@ export class AfterSetGoalDate extends React.Component {
 
     const durationSince =
       Math.abs(moment(date, "days").diff(startDay, "days")) + 1;
+    let isClicked = this.state.isClicked;
+ return (
+    <React.Fragment>
+     {
+       isClicked ? (
+      <BeforeSetGoalDate/>
+     ) : (
+      <form onSubmit={this.handleSubmit}>
+       <Grid
+            container
+            spacing={8}
+            alignItems="center"
+            justify="center"
+          >
+          <Grid item alignItems="center" alignContent="center">
+          <Icon path={mdiCrown}
+        size={1}
+        horizontal
+        vertical
+        rotate={180}
+        color="grey"
+        //spin
+        />
+          </Grid>
+          <Grid item alignItems="center">
+            <div className="SetGoalDatePlaceHolder">  
+            Your D DAY
+            </div>
+          </Grid>
+      </Grid>
+      {/* Display remaining days */}
+        <Grid item xs={12} sm container   alignItems="center">        
+         
+          <Grid item xs={12} sm={6}>
+            <div className="livedaze_daysRemaining">
+            {remainingDays}
+            </div>
+          </Grid>
+        <Grid item xs={12} sm={6}>
+            <div className="fhfhfkfeofepf">
+            Days<br/>Left
+            </div>
+        </Grid>
+        </Grid>
+     
+      <div className="goalDate">{momentizedGoalDate}</div>
+      <div className="centerStuff">
+      <button
+      type="submit"
+      className="waves-effect waves-light btn PrimaryBtnColor"
+    >
+      reset
+    </button>
+    </div>
+      </form>
+     )}
+   </React.Fragment>
 
-    return (
-      <React.Fragment>
-        <div className="livedaze_TabTitle">My D-day</div>
-        <div className="livedaze_daysRemaining">
-          {remainingDays}
-          <span className="daysLeft">
-            days left
-            <br />
-          </span>
-        </div>
-        <div className="goalDate">{momentizedGoalDate}</div>
-      </React.Fragment>
+    
     );
   }
 }

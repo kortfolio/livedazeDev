@@ -12,7 +12,7 @@ export default theme => ({
     justifyContent: 'center',
     flexGrow: 1,
     padding: '1.25rem',
-    minWidth: '250px',
+    width: '100%',
     minHeight: '270px'
   },
   orLabel: {
@@ -21,8 +21,10 @@ export default theme => ({
   },
   login: {
     ...theme.flexColumnCenter,
-    justifyContent: 'center',
-    marginTop: '1.5rem'
+    display: "block",
+    textAlign: "right",
+    marginBottom: "2rem",
+    marginTop: "1rem"
   },
   loginLabel: {
     fontSize: '1rem',

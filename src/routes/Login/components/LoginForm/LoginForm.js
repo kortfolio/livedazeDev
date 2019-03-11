@@ -11,8 +11,9 @@ import Grid from '@material-ui/core/Grid';
 
 const buttonStyle = {
   backgroundColor: '#f7d371',
-  color: "#56597a",
-  borderRadius: "20px"
+  color: '#56597a',
+  borderRadius: '20px',
+  fontFamily: 'isotonic'
 }
 
 const LoginForm = ({ pristine, submitting, handleSubmit, classes }) => (

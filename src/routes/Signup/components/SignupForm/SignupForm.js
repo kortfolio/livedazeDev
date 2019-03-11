@@ -5,29 +5,42 @@ import { TextField } from 'redux-form-material-ui'
 import Button from '@material-ui/core/Button'
 import { required, validateEmail } from 'utils/form'
 
+
+const buttonStyle = {
+  backgroundColor: '#f7d371',
+  color: '#56597a',
+  borderRadius: '20px',
+  fontFamily: 'isotonic'
+}
+
 const SignupForm = ({ pristine, submitting, handleSubmit, classes }) => (
   <form className={classes.root} onSubmit={handleSubmit}>
     <Field
+      fullWidth={true}
       name="username"
       component={TextField}
       label="Username"
       validate={required}
     />
     <Field
+      fullWidth={true}
       name="email"
       component={TextField}
       label="Email"
       validate={[required, validateEmail]}
     />
     <Field
+      fullWidth={true}
       name="password"
       component={TextField}
       label="Password"
       type="password"
       validate={required}
     />
+    
     <div className={classes.submit}>
       <Button
+        style={buttonStyle}
         color="primary"
         type="submit"
         variant="contained"

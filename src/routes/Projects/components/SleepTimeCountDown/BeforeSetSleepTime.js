@@ -73,13 +73,8 @@ export class BeforeSetSleepTime extends React.Component {
              <span className="subDescription">Choose the hours that <br/>
              best meet your sleep needs.
             </span>
-      </div>
-
-
-            <div className="centerStuff">
               <label>
               {isTimeValid ? <div className="redman"> &nbsp; </div> : <div className="redman">Uh oh. please select the time!</div> }
-             
                 <DatePicker
                   className="helloman"
                   selected={this.state.startDate}
@@ -103,9 +98,7 @@ export class BeforeSetSleepTime extends React.Component {
                   timeCaption="Time"
                   placeholderText="0:00 PM"
                 />
-                
               </label>
-               
               <button
                 type="submit"
                 className="waves-effect waves-light btn PrimaryBtnColor"

@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import moment from "moment";
 
 import Icon from '@mdi/react'
 import { mdiCrown } from '@mdi/js'
@@ -48,14 +47,15 @@ export class BeforeSetGoalDate extends React.Component {
             justify="center"
           >
           <Grid item alignItems="center" alignContent="center">
-          <Icon path={mdiCrown}
-        size={1}
-        horizontal
-        vertical
-        rotate={180}
-        color="grey"
-        //spin
-        />
+          <Icon 
+          path={mdiCrown}
+          size={1}
+          horizontal
+          vertical
+          rotate={180}
+          color="grey"
+          //spin
+          />
           </Grid>
           <Grid item alignItems="center">
             <div className="SetGoalDatePlaceHolder">  
@@ -63,21 +63,26 @@ export class BeforeSetGoalDate extends React.Component {
             </div>
           </Grid>
       </Grid>
-          <Grid>
- 
-            </Grid>
+      <div className="centerStuff">
+             <span className="subDescription">Set the day that you <br/>
+            would like to count from today.
+            </span>
+      </div>
+      <div className="redman">&nbsp;</div>
             <div className="centerStuff">
               <label>
                 <DatePicker
+                className="helloman"
                  fixedHeight
                  withPortal
                   selected={this.state.startDate}
                   onChange={this.handleChange}
                   minDate={new Date()}
-
+                  placeholderText="0"
+                  shouldCloseOnSelect={true}
+                  excludeTimes
                 />
               </label>
-              <br />
               <button
                 type="submit"
                 className="waves-effect waves-light btn PrimaryBtnColor"
