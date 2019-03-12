@@ -6,6 +6,8 @@ import { withStyles } from '@material-ui/core/styles'
 import styles from './LoginForm.styles'
 
 export default compose(
+
+  
   // set proptypes used in HOCs
   setPropTypes({
     onSubmit: PropTypes.func.isRequired // eslint-disable-line react/no-unused-prop-types

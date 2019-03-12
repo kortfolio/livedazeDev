@@ -3,7 +3,7 @@ export default theme => ({
     ...theme.flexColumnCenter,
     justifyContent: 'flex-start',
     height: '100%',
-    width: '100%',
+  
     fontWeight: 400,
     paddingTop: '1.5rem'
   },
@@ -36,5 +36,15 @@ export default theme => ({
   },
   providers: {
     marginTop: '1rem'
-  }
+  },
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
+      width: 900,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
 })

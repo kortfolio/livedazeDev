@@ -4,20 +4,31 @@ import { Field } from 'redux-form'
 import Button from '@material-ui/core/Button'
 import { required, validateEmail } from 'utils/form'
 import { TextField } from 'redux-form-material-ui'
-import Fab from '@material-ui/core/Fab';
-import NavigationIcon from '@material-ui/icons/Navigation';
-import red from '@material-ui/core/colors/red';
-import Grid from '@material-ui/core/Grid';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import IconButton from '@material-ui/core/IconButton';
+import FilledInputAdornments from './FilledInputAdornments';
 
 const buttonStyle = {
   backgroundColor: '#f7d371',
-  color: '#56597a',
-  borderRadius: '20px',
+  color: "#56597a",
+  borderRadius: "20px",
   fontFamily: 'isotonic'
 }
 
-const LoginForm = ({ pristine, submitting, handleSubmit, classes }) => (
+const handleClickShowPassword = () => {
+  this.setState(state => ({ showPassword: !state.showPassword }));
+};
+
+const LoginForm = ({ pristine, submitting, handleSubmit, classes }) =>
+
+
+(
+ 
   <form className={classes.root} onSubmit={handleSubmit}>
+  <FilledInputAdornments/>
+   {/*
     <Field
       fullWidth={true}
       name="email"
@@ -25,18 +36,20 @@ const LoginForm = ({ pristine, submitting, handleSubmit, classes }) => (
       label="Email"
       validate={[required, validateEmail]}
     />
-
+    
     <Field
       fullWidth={true}
       name="password"
       component={TextField}
       label="Password"
       type="password"
-      validate={required}
-    />
-    <div 
+      validate={required}   
     
+    />
+     */}
+    <div 
     className={classes.submit}>
+    
       <Button
         style={buttonStyle}
         color='secondary'
@@ -46,7 +59,9 @@ const LoginForm = ({ pristine, submitting, handleSubmit, classes }) => (
         {submitting ? 'Loading' : 'Get Started'}
       </Button>
     </div>
-  </form>
+ 
+    </form>
+ 
 )
 
 LoginForm.propTypes = {
