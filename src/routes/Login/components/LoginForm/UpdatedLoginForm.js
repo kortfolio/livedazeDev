@@ -5,12 +5,11 @@ import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from 'redux-form-material-ui'
-import MenuItem from '@material-ui/core/MenuItem';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 import { Field } from 'redux-form'
-import Button from '@material-ui/core/Button'
+ 
 import { required, validateEmail } from 'utils/form'
 import { Grid } from '@material-ui/core';
 
@@ -31,13 +30,11 @@ const styles = theme => ({
       color:'black'
     },
   },
-   
-
 });
 
  
 
-class FilledInputAdornments extends React.Component {
+class UpdatedLoginForm extends React.Component {
   state = {
     password: '',
     showPassword: false,
@@ -102,8 +99,8 @@ class FilledInputAdornments extends React.Component {
   }
 }
 
-FilledInputAdornments.propTypes = {
+UpdatedLoginForm.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(FilledInputAdornments);
+export default withStyles(styles)(UpdatedLoginForm);

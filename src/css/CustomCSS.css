@@ -409,7 +409,8 @@ button.waves-effect.waves-light.btn.PrimaryBtnColor {
 
 div.Sm_Pink {
     color: #f087b1;
-    /* text-align: right; */
+    text-align: right; 
+    margin-top:10px;
 }
 
 .yellowButton {
@@ -546,4 +547,10 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   border-bottom: 0;
   -webkit-box-shadow: 0;
   box-shadow: 0;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

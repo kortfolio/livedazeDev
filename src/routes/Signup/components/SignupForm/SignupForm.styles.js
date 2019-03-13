@@ -16,5 +16,12 @@ export default theme => ({
     marginTop: '1.5rem',
     width: '100%',
     display: "block"
+  },
+  textField: {
+    [`& fieldset`]: {
+      borderRadius: 40,
+      backgroundColor: '#ffffff6b',
+      color:'black'
+    },
   }
 })

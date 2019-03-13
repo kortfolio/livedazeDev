@@ -8,7 +8,13 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import IconButton from '@material-ui/core/IconButton';
-import FilledInputAdornments from './FilledInputAdornments';
+import UpdatedLoginForm from './UpdatedLoginForm';
+import FacebookLogin from 'react-facebook-login';
+
+
+const responseFacebook = (response) => {
+  console.log(response);
+}
 
 const buttonStyle = {
   backgroundColor: '#f7d371',
@@ -27,7 +33,7 @@ const LoginForm = ({ pristine, submitting, handleSubmit, classes }) =>
 (
  
   <form className={classes.root} onSubmit={handleSubmit}>
-  <FilledInputAdornments/>
+  <UpdatedLoginForm/>
    {/*
     <Field
       fullWidth={true}
@@ -60,6 +66,23 @@ const LoginForm = ({ pristine, submitting, handleSubmit, classes }) =>
       </Button>
     </div>
  
+    <div 
+        className={classes.submit}>
+        
+        <FacebookLogin
+       style={buttonStyle}
+       color='secondary'
+       type="submit"
+       variant="contained"
+       disabled={pristine || submitting}
+      
+        appId="839834729688353"
+        autoLoad={true}
+        fields="name,email,picture"
+        scope="public_profile"
+        
+      />
+        </div>
     </form>
  
 )

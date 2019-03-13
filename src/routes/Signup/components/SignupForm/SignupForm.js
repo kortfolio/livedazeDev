@@ -4,6 +4,7 @@ import { Field } from 'redux-form'
 import { TextField } from 'redux-form-material-ui'
 import Button from '@material-ui/core/Button'
 import { required, validateEmail } from 'utils/form'
+import UpdatedSignupForm from './UpdatedSignupForm';
 
 
 const buttonStyle = {
@@ -15,29 +16,8 @@ const buttonStyle = {
 
 const SignupForm = ({ pristine, submitting, handleSubmit, classes }) => (
   <form className={classes.root} onSubmit={handleSubmit}>
-    <Field
-      fullWidth={true}
-      name="username"
-      component={TextField}
-      label="Username"
-      validate={required}
-    />
-    <Field
-      fullWidth={true}
-      name="email"
-      component={TextField}
-      label="Email"
-      validate={[required, validateEmail]}
-    />
-    <Field
-      fullWidth={true}
-      name="password"
-      component={TextField}
-      label="Password"
-      type="password"
-      validate={required}
-    />
-    
+  <UpdatedSignupForm/>
+  
     <div className={classes.submit}>
       <Button
         style={buttonStyle}
