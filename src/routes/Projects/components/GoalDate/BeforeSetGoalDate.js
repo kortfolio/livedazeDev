@@ -4,20 +4,30 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import Icon from '@mdi/react'
 import { mdiCrown } from '@mdi/js'
-
+import Fab from '@material-ui/core/Fab';
 import { AfterSetGoalDate } from "../GoalDate/AfterSetGoalDate";
 import { Grid } from "@material-ui/core";
 
+  
 export class BeforeSetGoalDate extends React.Component {
+  
+  
   constructor(props) {
     super(props);
     this.state = {
+      
       startDate: new Date(),
       isClicked: true
     };
+    const { classes } = props;
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
+  
   }
+
+  
 
   handleChange(date) {
     this.setState({
@@ -35,7 +45,17 @@ export class BeforeSetGoalDate extends React.Component {
 
   render() {
     let isClicked = this.state.isClicked;
-
+    const buttonStyle = {
+      textDecoration: 'none',
+      alignSelf: 'center',
+      letterSpacing: '0.1rem',
+      fontFamily: 'isotonic',
+      fontSize: '12px',
+      margin: '10px',
+      paddingLeft: '20px',
+      paddingRight: '20px',
+      backgroundImage: 'radial-gradient(circle at 12.3% 19.3%, rgb(94, 104, 226) 0%, rgb(166, 171, 241) 100.2%)'
+     }
     return (
       <React.Fragment>
         {isClicked ? (
@@ -72,7 +92,7 @@ export class BeforeSetGoalDate extends React.Component {
             <div className="centerStuff">
               <label>
                 <DatePicker
-                className="helloman"
+                className="DatePickerCustomStyle"
                  fixedHeight
                  withPortal
                   selected={this.state.startDate}
@@ -83,13 +103,20 @@ export class BeforeSetGoalDate extends React.Component {
                   excludeTimes
                 />
               </label>
-              <button
-                type="submit"
-                className="waves-effect waves-light btn PrimaryBtnColor"
-              >
-                Update
-              </button>
-            </div>
+              
+              <Fab
+              style={buttonStyle}
+          variant="extended"
+          size="small"
+          color="primary"
+          aria-label="Add"
+          className="btnMargin"
+          type="submit"
+        >
+          
+          Update
+        </Fab>
+              </div>
           </form>
         ) : (
           <AfterSetGoalDate newDate={this.state.startDate} />

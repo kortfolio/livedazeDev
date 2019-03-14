@@ -8,7 +8,7 @@ import './index.css'
 
 // import * as serviceWorker from './serviceWorker'
 import App from './containers/App'
-
+import './css/CustomCSS.css'
 // Window Variables
 // ------------------------------------
 window.version = version

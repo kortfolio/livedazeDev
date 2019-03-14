@@ -16,10 +16,17 @@ export default compose(
   withHandlers({
     onSubmitFail: props => (formErrs, dispatch, err) =>
       props.showError(formErrs ? 'Form Invalid' : err.message || 'Error'),
-    googleLogin: ({ firebase, showError }) => e =>
+    
+      googleLogin: ({ firebase, showError }) => e =>
       firebase
         .login({ provider: 'google', type: 'popup' })
         .catch(err => showError(err.message)),
+
+      facebookLogin: ({ firebase, showError }) => e =>
+      firebase
+        .login({ provider: 'facebook', type: 'popup' })
+        .catch(err => showError(err.message)),
+
     emailSignup: ({ firebase, showError }) => creds =>
       firebase
         .createUser(creds, {

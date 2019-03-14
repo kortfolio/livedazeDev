@@ -28,6 +28,23 @@ export default compose(
       firebase
         .login({ provider: 'google', type: 'popup' })
         .catch(err => showError(err.message)),
+
+    facebookLogin: ({ firebase, showError, router }) => event =>
+      firebase
+      .login({ provider: 'facebook', type: 'popup' })
+      .catch(err => showError(err.message)),    
+
+      githubLogin: ({ firebase, showError, router }) => event =>
+      firebase
+      .login({ provider: 'github', type: 'popup' })
+      .catch(err => showError(err.message)),    
+
+
+      anonymousLogin: ({ firebase, showError, router }) => event =>
+        firebase
+        .login({ provider: 'google', type: 'popup' })
+      .catch(err => showError(err.message)),    
+
     emailLogin: ({ firebase, router, showError }) => creds =>
       firebase.login(creds).catch(err => showError(err.message))
   }),

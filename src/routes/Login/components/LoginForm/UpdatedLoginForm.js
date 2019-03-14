@@ -52,12 +52,11 @@ class UpdatedLoginForm extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { handleSubmit } = this.props;
      
     return (
       <div className={classes.root}>
           <Grid item xl={6}>         
-              <form className={classes.root} onSubmit={handleSubmit}>
+               
                 <Field
                   fullWidth={true}
                   name="email"
@@ -73,7 +72,7 @@ class UpdatedLoginForm extends React.Component {
                   name="password"
                   component={TextField}
                   label="Password"
-                  type="password"
+            
                   type={this.state.showPassword ? 'text' : 'password'}
                   variant="outlined"
                   validate={required}   
@@ -90,10 +89,7 @@ class UpdatedLoginForm extends React.Component {
                     ),
                   }}
                 />
-          
-        </form>
         </Grid>
-      
       </div>
     );
   }

@@ -11,10 +11,6 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 
-import orange from '@material-ui/core/colors/orange';
-
-import { MuiThemeProvider, createMuiTheme} from  '@material-ui/core/styles';
-
 const buttonStyle = {
   textDecoration: 'none',
   alignSelf: 'center',

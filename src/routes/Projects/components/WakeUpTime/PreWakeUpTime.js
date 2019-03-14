@@ -7,6 +7,7 @@ import { AfterWakeUpTime } from "../WakeUpTime/AfterWakeUpTime";
 import Icon from '@material-ui/core/Icon';
 import { Grid } from "@material-ui/core";
 
+import Fab from '@material-ui/core/Fab';
 export class PreWakeUpTime extends React.Component {
   constructor(props) {
     super(props);
@@ -26,18 +27,10 @@ export class PreWakeUpTime extends React.Component {
   }
 
   handleSubmit = e => {
-    console.log(this.state.startDate);
     e.preventDefault();
-
-    if( (this.state.startDate) == null){
-      this.setState({
-        isTimeValid: false
-      });
-    }else {    
     this.setState({
       isClicked: false
     });
-  } 
   };
 
   render(){
@@ -45,6 +38,18 @@ export class PreWakeUpTime extends React.Component {
     let isTimeValid = this.state.isTimeValid;
   
     const today = new Date();
+    const buttonStyle = {
+      textDecoration: 'none',
+      alignSelf: 'center',
+      letterSpacing: '0.1rem',
+      fontFamily: 'isotonic',
+      fontSize: '12px',
+      margin: '10px',
+      paddingLeft: '20px',
+      paddingRight: '20px',
+      backgroundImage: 'radial-gradient(circle at 12.3% 19.3%, rgb(94, 104, 226) 0%, rgb(166, 171, 241) 100.2%)'
+    }
+
     return (
       <React.Fragment>
         {isClicked ? (
@@ -69,13 +74,13 @@ export class PreWakeUpTime extends React.Component {
              get up this morning?
             </span>
       </div>
-            <div className="centerStuff">
+      <Grid item xs={12} sm={6}>
+        <div className="centerStuff">
             {isTimeValid ? <div className="redman"> &nbsp; </div> : <div className="redman">Uh oh. please select the time!</div> }
            
-              <label>
+           
                 <DatePicker
-                 className="helloman"
-                 
+                 className="DatePickerCustomStyle"
                   selected={this.state.startDate}
                   onChange={this.handleChange}
                   showTimeSelect
@@ -97,15 +102,24 @@ export class PreWakeUpTime extends React.Component {
                   timeCaption="Time"
                   placeholderText="0:00 AM"
                 />
-              </label>
+        
               <br/>
-              <button
-                type="submit"
-                className="waves-effect waves-light btn PrimaryBtnColor"
-              >
-                Update
-              </button>
+              <div className="centerStuff">
+              <Fab
+              style={buttonStyle}
+          variant="extended"
+          size="small"
+          color="primary"
+          aria-label="Add"
+          className="btnMargin"
+          type="submit"
+        >
+          Update
+        </Fab>
+        </div>
             </div>
+            </Grid>
+            
           </form>
         ) : (
           <AfterWakeUpTime WakeUpTime={this.state.startDate} />

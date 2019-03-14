@@ -1,17 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { isEmpty } from 'react-redux-firebase'
-import { Route, Switch } from 'react-router-dom'
-import ProjectRoute from 'routes/Projects/routes/Project'
-import ProjectTile from '../ProjectTile'
-import NewProjectTile from '../NewProjectTile'
-import NewProjectDialog from '../NewProjectDialog'
+import React from "react";
+import PropTypes from "prop-types";
+import { isEmpty } from "react-redux-firebase";
+import { Route, Switch } from "react-router-dom";
+import ProjectRoute from "routes/Projects/routes/Project";
+import ProjectTile from "../ProjectTile";
+import NewProjectTile from "../NewProjectTile";
+import NewProjectDialog from "../NewProjectDialog";
 
 import "moment-timezone";
 import "moment-duration-format";
-import { BeforeSetSleepTime } from '../SleepTimeCountDown/BeforeSetSleepTime';
-import { PreWakeUpTime } from '../WakeUpTime/PreWakeUpTime';
-import { BeforeSetGoalDate } from '../GoalDate/BeforeSetGoalDate';
+import { BeforeSetSleepTime } from "../SleepTimeCountDown/BeforeSetSleepTime";
+import { PreWakeUpTime } from "../WakeUpTime/PreWakeUpTime";
+import { BeforeSetGoalDate } from "../GoalDate/BeforeSetGoalDate";
+import { Paper, Grid } from "@material-ui/core";
 
 const renderChildren = (routes, match, parentProps) =>
   routes.map(route => (
@@ -20,7 +21,7 @@ const renderChildren = (routes, match, parentProps) =>
       path={`${match.url}/${route.path}`}
       render={props => <route.component {...parentProps} {...props} />}
     />
-  ))
+  ));
 
 export const ProjectsPage = ({
   projects,
@@ -42,59 +43,52 @@ export const ProjectsPage = ({
       exact
       path={match.path}
       render={() => (
-        <div className="container">  
         <div className={classes.root}>
-        <div className="row flex">
-          <div className="col l4 s12">
-            <div className="card-panel livedazeGrey">
-              <span className="white-text">
-                <BeforeSetSleepTime />
-              </span>
-            </div>
-          </div>
+          <div className={classes.layout}>
+            <Grid container spacing={24}>
+              <Grid item md={4}>
+                <Paper>
+                  <BeforeSetSleepTime />
+                </Paper>
+              </Grid>
 
-          {/**Wake Up Time **/}
-          <div className="col l4 s12">
-            <div className="card-panel livedazeGrey">
-              <span className="white-text">
-                <PreWakeUpTime />
-              </span>
-            </div>
-          </div>
+              <Grid item md={4}>
+                <Paper>
+                  <PreWakeUpTime />
+                </Paper>
+              </Grid>
 
-          <div className="col l4 s12">
-            <div className="card-panel livedazeGrey">
-              <span className="white-text">
-              <BeforeSetGoalDate/>
-            </span>
+              <Grid item md={4}>
+                <Paper>
+                  <BeforeSetGoalDate />
+                </Paper>
+              </Grid>
+            </Grid>
+            <Grid />
+
+            <NewProjectDialog
+              onSubmit={addProject}
+              open={newDialogOpen}
+              onRequestClose={toggleDialog}
+            />
+            <div className={classes.tiles}>
+              <NewProjectTile onClick={toggleDialog} />
+              {!isEmpty(projects) &&
+                projects.map((project, ind) => (
+                  <ProjectTile
+                    key={`Project-${project.id}-${ind}`}
+                    name={project.name}
+                    onSelect={() => goToProject(project.id)}
+                    onDelete={() => deleteProject(project.id)}
+                  />
+                ))}
             </div>
           </div>
-        </div>
-        
-          <NewProjectDialog
-            onSubmit={addProject}
-            open={newDialogOpen}
-            onRequestClose={toggleDialog}
-          />
-          <div className={classes.tiles}>
-            <NewProjectTile onClick={toggleDialog} />
-            {!isEmpty(projects) &&
-              projects.map((project, ind) => (
-                <ProjectTile
-                  key={`Project-${project.id}-${ind}`}
-                  name={project.name}
-                  onSelect={() => goToProject(project.id)}
-                  onDelete={() => deleteProject(project.id)}
-                />
-              ))}
-          </div>
-        
-        </div>
         </div>
       )}
     />
   </Switch>
-)
+);
 
 ProjectsPage.propTypes = {
   classes: PropTypes.object.isRequired, // from enhancer (withStyles)
@@ -107,6 +101,6 @@ ProjectsPage.propTypes = {
   collabProjects: PropTypes.object, // from enhancer (withHandlers - firebase)
   addProject: PropTypes.func.isRequired, // from enhancer (withHandlers - firebase)
   goToProject: PropTypes.func.isRequired // from enhancer (withHandlers - router)
-}
+};
 
-export default ProjectsPage
+export default ProjectsPage;

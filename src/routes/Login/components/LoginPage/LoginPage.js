@@ -8,14 +8,11 @@ import LoginForm from "../LoginForm";
 import "./../../../../css/CustomCSS.css";
 import { Grid } from "@material-ui/core";
 
-const responseFacebook = (response) => {
-  console.log(response);
-}
-
 export const LoginPage = ({
   emailLogin,
   googleLogin,
-  
+  facebookLogin,
+  githubLogin,
   onSubmitFail,
   classes
 }) => (
@@ -37,8 +34,7 @@ export const LoginPage = ({
         <br />
         <Grid container spacing={24}>
           <Grid item xs={2}>
-            <img src="../images/bulbIcon.png" width="50px" 
-            alt="bulb icon"/>
+            <img src="../images/bulbIcon.png" width="50px" alt="bulb icon" />
           </Grid>
           <Grid item xs={10}>
             <span className="liveDazeMsDetails">
@@ -53,8 +49,11 @@ export const LoginPage = ({
 
         <Grid container spacing={24}>
           <Grid item xs={2}>
-            <img src="../images/NotePadIcon.png" width="50px"
-            alt="notepad icon" />
+            <img
+              src="../images/NotePadIcon.png"
+              width="50px"
+              alt="notepad icon"
+            />
           </Grid>
           <Grid item xs={10}>
             <span className="liveDazeMsDetails">
@@ -69,8 +68,11 @@ export const LoginPage = ({
 
         <Grid container spacing={24}>
           <Grid item xs={2}>
-            <img src="../images/TrophyIcon.png" width="50px" 
-            alt="trophy icon"/>
+            <img
+              src="../images/TrophyIcon.png"
+              width="50px"
+              alt="trophy icon"
+            />
           </Grid>
           <Grid item xs={10}>
             <span className="liveDazeMsDetails">
@@ -91,7 +93,7 @@ export const LoginPage = ({
             Start using Livedaze to keep your day organize.
           </div>
           <LoginForm onSubmit={emailLogin} onSubmitFail={onSubmitFail} />
-          
+
           <div className={classes.signup}>
             <span className={classes.signupLabel}>
               New to Livedaze?
@@ -101,8 +103,8 @@ export const LoginPage = ({
 
           <div className="description">OR LOGIN WITH</div>
           <br />
-          <Grid container spacing={24}>
-            <Grid item xs={4} alignContent="center">
+          <Grid container spacing={24} alignContent="center" justify="center">
+            <Grid item xs={4}>
               <img
                 src="../images/LoginWithGoogleBtn.png"
                 width="50px"
@@ -111,16 +113,22 @@ export const LoginPage = ({
               />
             </Grid>
 
-            <Grid item xs={4} alignContent="center">
-              <img src="../images/LoginWithFaceBookBtn.png" width="50px"
-              alt="Login With Facebook" />
-       
-             
+            <Grid item xs={4}>
+              <img
+                src="../images/LoginWithFaceBookBtn.png"
+                width="50px"
+                onClick={facebookLogin}
+                alt="Login With Facebook"
+              />
             </Grid>
 
-            <Grid item xs={4} alignContent="center" justify="center">
-              <img src="../images/LoginWithGithubBtn.png" width="50px"
-              alt="Login With Github" />
+            <Grid item xs={4}>
+              <img
+                src="../images/LoginWithGithubBtn.png"
+                width="50px"
+                alt="Login With Github"
+                onClick={githubLogin}
+              />
             </Grid>
           </Grid>
 
@@ -137,7 +145,8 @@ LoginPage.propTypes = {
   classes: PropTypes.object.isRequired, // from enhancer (withStyles)
   emailLogin: PropTypes.func.isRequired, // from enhancer (withHandlers)
   onSubmitFail: PropTypes.func.isRequired, // from enhancer (withHandlers)
-  googleLogin: PropTypes.func.isRequired // from enhancer (withHandlers)
+  googleLogin: PropTypes.func.isRequired,
+  facebookLogin: PropTypes.func.isRequired // from enhancer (withHandlers)
 };
 
 export default LoginPage;

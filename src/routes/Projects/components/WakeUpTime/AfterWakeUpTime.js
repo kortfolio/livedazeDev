@@ -55,8 +55,7 @@ export class AfterWakeUpTime extends React.Component {
 
   render() {
     let isClicked = this.state.isClicked;
-    const today = new Date();
-   
+    /*  const today = new Date();*/
     return (
       
       <React.Fragment>

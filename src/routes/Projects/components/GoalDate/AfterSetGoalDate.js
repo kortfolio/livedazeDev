@@ -26,15 +26,17 @@ export class AfterSetGoalDate extends React.Component {
     const date = new Date();
     const goalDate = this.state.goalDate;
 
-    const startDay = "2018-10-10";
+    //const startDay = "2018-10-10";
     const moment = require("moment");
 
     const momentizedGoalDate = moment(goalDate).format("LL");
     const remainingDays =
       Math.abs(moment(date, "days").diff(momentizedGoalDate, "days")) + 1;
 
-    const durationSince =
-      Math.abs(moment(date, "days").diff(startDay, "days")) + 1;
+   /* const durationSince =
+   Math.abs(moment(date, "days").diff(startDay, "days")) + 1;
+  */
+
     let isClicked = this.state.isClicked;
  return (
     <React.Fragment>

@@ -85,7 +85,6 @@ class UpdatedSignupForm extends React.Component {
                   name="password"
                   component={TextField}
                   label="Password"
-                  type="password"
                   type={this.state.showPassword ? 'text' : 'password'}
                   variant="outlined"
                   validate={required}   

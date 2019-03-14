@@ -5,7 +5,6 @@ import "moment-timezone";
 import "moment-duration-format";
 import { BeforeSetSleepTime } from "./BeforeSetSleepTime";
 import { Grid, Icon } from "@material-ui/core";
-import { red } from "@material-ui/core/colors";
 export class AfterSetSleepTime extends React.Component {
   constructor(props) {
     super(props);
@@ -55,12 +54,9 @@ export class AfterSetSleepTime extends React.Component {
   
   render() {
 
-    const faviconStyle = {
-      backgroundColor: red
-    }
 
     let isClicked = this.state.isClicked;
-    const today = new Date();
+   /* const today = new Date();*/
     return (
       <React.Fragment>
         {isClicked ? (

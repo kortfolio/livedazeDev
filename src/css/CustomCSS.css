@@ -501,13 +501,13 @@ span.subDescription {
     color:#B00020;
     font-size:12px;
 }
-input.helloman {
+input.DatePickerCustomStyle {
  
     font-family: 'isotonic';
     border:0 !important;
     color: #5e68e28c;
     text-align: center;
-    font-size: 48px !important;
+    font-size: 30px !important;
 }
 
 .livedaze_daysRemaining {
@@ -553,4 +553,8 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.btnMargin{
+  color:red;
 }
