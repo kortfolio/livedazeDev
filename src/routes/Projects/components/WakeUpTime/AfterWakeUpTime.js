@@ -5,6 +5,7 @@ import "moment-timezone";
 import "moment-duration-format";
 import { Grid, Icon } from "@material-ui/core";
 import { PreWakeUpTime } from "./PreWakeUpTime";
+import Fab from "@material-ui/core/Fab";
 
 export class AfterWakeUpTime extends React.Component {
   constructor(props) {
@@ -55,6 +56,18 @@ export class AfterWakeUpTime extends React.Component {
 
   render() {
     let isClicked = this.state.isClicked;
+    const buttonStyle = {
+      textDecoration: "none",
+      alignSelf: "center",
+      letterSpacing: "0.1rem",
+      fontFamily: "isotonic",
+      fontSize: "12px",
+      margin: "10px",
+      paddingLeft: "20px",
+      paddingRight: "20px",
+      backgroundImage:
+        "radial-gradient(circle at 12.3% 19.3%, rgb(94, 104, 226) 0%, rgb(166, 171, 241) 100.2%)"
+    };
     /*  const today = new Date();*/
     return (
       
@@ -93,12 +106,17 @@ export class AfterWakeUpTime extends React.Component {
             <sub className="timeSubset">SEC</sub>
           </div>
           <div className="centerStuff">
-          <button
-            type="submit"
-            className="waves-effect waves-light btn PrimaryBtnColor"
-          >
-            reset
-          </button>
+          <Fab
+                  style={buttonStyle}
+                  variant="extended"
+                  size="small"
+                  color="primary"
+                  aria-label="Add"
+                  className="btnMargin"
+                  type="submit"
+                >
+                  Update
+                </Fab>
           </div>
           </form>
         )}

@@ -8,7 +8,7 @@ import Fab from '@material-ui/core/Fab';
 import "moment-timezone";
 import "moment-duration-format";
 import Icon from "@material-ui/core/Icon";
-import { Grid, TextField } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 export class BeforeSetSleepTime extends React.Component {
   constructor(props) {
@@ -73,7 +73,6 @@ export class BeforeSetSleepTime extends React.Component {
                 </div>
               </Grid>
             </Grid>
-
             <div className="centerStuff">
               <span className="subDescription">
                 Choose the hours that <br />
