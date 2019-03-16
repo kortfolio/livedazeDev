@@ -1,7 +1,6 @@
 import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import Icon from '@mdi/react';
-import { mdiCrown } from '@mdi/js';
+
 import { Grid } from "@material-ui/core";
 import {BeforeSetGoalDate} from './BeforeSetGoalDate';
 import Fab from "@material-ui/core/Fab";
@@ -53,27 +52,19 @@ export class AfterSetGoalDate extends React.Component {
      ) : (
       <form onSubmit={this.handleSubmit}>
       <div className="fixedHeightPaper">
-       <Grid
-            container
-            spacing={3}
-            alignItems="center"
-            justify="center"
-       >
-          <Grid item>
-            <Icon path={mdiCrown}
-              size={1}
-              horizontal
-              vertical
-              rotate={180}
-              color="grey"
-            />
-          </Grid>
-          <Grid item alignItems="center">
-            <div className="SetGoalDatePlaceHolder">  
-            Your D DAY
+            <Grid container spacing={8} alignItems="center" justify="center">
+              <Grid item alignItems="center" alignContent="center">
+              
+              </Grid>
+              <Grid item alignItems="center">
+                <div className="SetGoalDatePlaceHolder">Your D DAY</div>
+              </Grid>
+            </Grid>
+            <div className="centerStuff">
+              <span className="subDescription">
+                Good Luck! <br />
+              </span>
             </div>
-          </Grid>
-      </Grid>
       {/* Display remaining days */}
         <Grid item xs={12} sm container   alignItems="center">        
          

@@ -4,10 +4,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import "moment-timezone";
 import "moment-duration-format";
 import { AfterWakeUpTime } from "../WakeUpTime/AfterWakeUpTime";
-import Icon from "@material-ui/core/Icon";
-import { Grid } from "@material-ui/core";
 
+import { Grid } from "@material-ui/core";
 import Fab from "@material-ui/core/Fab";
+
+import Icon from '@mdi/react'
+import { mdiWeatherSunny } from '@mdi/js';
 export class PreWakeUpTime extends React.Component {
   constructor(props) {
     super(props);
@@ -55,9 +57,13 @@ export class PreWakeUpTime extends React.Component {
       <React.Fragment>
         {isClicked ? (
           <form onSubmit={this.handleSubmit}>
+          <div className="fixedHeightPaper">
             <Grid container spacing={8} alignItems="center" justify="center">
               <Grid item alignItems="center" alignContent="center">
-                <Icon color="action"> wb_sunny </Icon>
+                <Icon path={mdiWeatherSunny}
+                   color="rgb(255, 184, 24)"
+                   size={1.2}
+                   ></Icon>
               </Grid>
               <Grid item alignItems="center">
                 <div className="SetGoalDatePlaceHolder">
@@ -116,6 +122,7 @@ export class PreWakeUpTime extends React.Component {
                 </Fab>
               </div>
             </Grid>
+            </div>
           </form>
         ) : (
           <AfterWakeUpTime WakeUpTime={this.state.startDate} />

@@ -5,6 +5,9 @@ import "moment-timezone";
 import "moment-duration-format";
 import { BeforeSetSleepTime } from "./BeforeSetSleepTime";
 import { Grid, Icon } from "@material-ui/core";
+import { useSpring, animated } from 'react-spring'
+import Fab from '@material-ui/core/Fab';
+import { Spring } from 'react-spring/renderprops';
 export class AfterSetSleepTime extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +26,7 @@ export class AfterSetSleepTime extends React.Component {
     this.diffDuration = moment.duration(this.diff);
   }
 
+  
   componentDidMount() {
     this.timerID = setInterval(() => this.tick(), 1000);
   }
@@ -54,15 +58,37 @@ export class AfterSetSleepTime extends React.Component {
   
   render() {
 
-
+    
     let isClicked = this.state.isClicked;
-   /* const today = new Date();*/
+    const buttonStyle = {
+      textDecoration: 'none',
+      alignSelf: 'center',
+      letterSpacing: '0.1rem',
+      fontFamily: 'isotonic',
+      fontSize: '12px',
+      margin: '10px',
+      paddingLeft: '20px',
+      paddingRight: '20px',
+      backgroundImage: 'radial-gradient(circle at 12.3% 19.3%, rgb(94, 104, 226) 0%, rgb(166, 171, 241) 100.2%)'
+    }
+
     return (
       <React.Fragment>
         {isClicked ? (
          <BeforeSetSleepTime/>
+         
         ) : (
-          <form onSubmit={this.handleSubmit}>
+
+          <Spring
+          from={{ opacity: 0}}
+          to={{ opacity: 1}}
+
+        >
+          { props => (
+                      <div style={props}>
+                      
+                      <form onSubmit={this.handleSubmit}>
+            <div className="fixedHeightPaper">
           <Grid
             container
             spacing={8}
@@ -95,14 +121,26 @@ export class AfterSetSleepTime extends React.Component {
             <sub className="timeSubset">SEC</sub>
           </div>
           <div className="centerStuff">
-          <button
-            type="submit"
-            className="waves-effect waves-light btn PrimaryBtnColor"
-          >
+          <Fab
+              style={buttonStyle}
+          variant="extended"
+          size="small"
+          color="primary"
+          aria-label="Add"
+          className="btnMargin"
+          type="submit"
+        >
             reset
-          </button>
+        </Fab>
+          </div>
           </div>
           </form>
+                      
+                      </div>
+
+          )}
+          </Spring>
+
         )}
       </React.Fragment>
     );

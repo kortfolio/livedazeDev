@@ -512,7 +512,7 @@ input.DatePickerCustomStyle {
 
 .livedaze_daysRemaining {
     color: black;
-    font-size: 90px;
+    font-size: 70px;
     text-align: right;
 }
 
@@ -532,7 +532,7 @@ input.DatePickerCustomStyle {
   font-size: 20px;
   line-height: normal;
 }
-
+/*
 input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
 border:0
 }
@@ -540,6 +540,7 @@ border:0
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
   border:0 
 }
+*/
 
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 0;
@@ -558,10 +559,31 @@ img {
 }
 
 .fixedHeightPaper{
-  display: block;
-  min-height: 300px;
-  transition-Duration: 0.3s;
-  height: 100%;
-  margin: 0 8px;
- 
+    min-height: 210px;
+    max-height: 210px;
+    transition-Duration: 0.3s;
+}
+
+.TodoListHeader {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: 'isotonicBold';
+  color: #ffa143;
+}
+
+.SelfCheckHeader {
+  color: #8f6ed5;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: 'isotonicBold';
+}
+
+
+
+
+.PostponeHeader {
+  color: #ff5b99;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: 'isotonicBold';
 }

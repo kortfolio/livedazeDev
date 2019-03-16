@@ -1,15 +1,15 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
 import { AfterSetSleepTime } from "../SleepTimeCountDown/AfterSetSleepTime";
 
 import Fab from '@material-ui/core/Fab';
 import "moment-timezone";
 import "moment-duration-format";
-import Icon from "@material-ui/core/Icon";
+import Icon from '@mdi/react'
 import { Grid } from "@material-ui/core";
-
+import { mdiWeatherNight } from '@mdi/js';
+import { Spring } from 'react-spring/renderprops';
 export class BeforeSetSleepTime extends React.Component {
   constructor(props) {
     super(props);
@@ -62,10 +62,21 @@ export class BeforeSetSleepTime extends React.Component {
     return (
       <React.Fragment>
         {isClicked ? (
-          <form onSubmit={this.handleSubmit}>
+        <Spring
+          from={{ opacity: 0}}
+          to={{ opacity: 1}}
+
+        >
+          { props => (
+            <div style={props}>
+              <form onSubmit={this.handleSubmit}>
+               <div className="fixedHeightPaper">
             <Grid container spacing={8} alignItems="center" justify="center">
-              <Grid item alignItems="center" alignContent="center">
-                <Icon color="action">hotel</Icon>
+              <Grid item alignItems="center" alignContent="center"> 
+         <Icon path={mdiWeatherNight}
+                      color="#132a9c"
+                      size={1.2}>
+                      </Icon>
               </Grid>
               <Grid item alignItems="center">
                 <div className="SetGoalDatePlaceHolder">
@@ -75,9 +86,9 @@ export class BeforeSetSleepTime extends React.Component {
             </Grid>
             <div className="centerStuff">
               <span className="subDescription">
-                Choose the hours that <br />
-                best meet your sleep needs.
-              </span>
+              What Time Do You<br></br>
+               Go to Sleep Tonigh?
+                </span>
               <label>
                 {isTimeValid ? (
                   <div className="redman"> &nbsp; </div>
@@ -124,8 +135,14 @@ export class BeforeSetSleepTime extends React.Component {
           Update
         </Fab>
             </div>
+            </div>
           </form>
+            </div>
+          ) }
+          </Spring>  
+        
         ) : (
+          
           <AfterSetSleepTime SleepTime={this.state.startDate} />
         )}
       </React.Fragment>

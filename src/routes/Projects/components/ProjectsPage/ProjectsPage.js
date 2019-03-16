@@ -13,6 +13,9 @@ import { BeforeSetSleepTime } from "../SleepTimeCountDown/BeforeSetSleepTime";
 import { PreWakeUpTime } from "../WakeUpTime/PreWakeUpTime";
 import { BeforeSetGoalDate } from "../GoalDate/BeforeSetGoalDate";
 import { Paper, Grid } from "@material-ui/core";
+import { TodoList } from "../TodoList/TodoList";
+import { CompletedToday } from "../TodoList/CompletedToday";
+import { SelfDiagnosis } from "../TodoList/SelfDiagnosis";
 
 const renderChildren = (routes, match, parentProps) =>
   routes.map(route => (
@@ -22,7 +25,7 @@ const renderChildren = (routes, match, parentProps) =>
       render={props => <route.component {...parentProps} {...props} />}
     />
   ));
-
+const thisIsProjectClickme = 5;
 export const ProjectsPage = ({
   projects,
   collabProjects,
@@ -66,12 +69,34 @@ export const ProjectsPage = ({
             </Grid>
             <Grid />
 
+            <Grid container spacing={24}>
+              <Grid item md={4}>
+                <Paper>
+                  <TodoList />
+                </Paper>
+              </Grid>
+
+              <Grid item md={4}>
+                <Paper>
+                  <CompletedToday />
+                </Paper>
+              </Grid>
+
+              <Grid item md={4}>
+                <Paper>
+                  <SelfDiagnosis />
+                </Paper>
+              </Grid>
+            </Grid>
+            <Grid />
+
             <NewProjectDialog
               onSubmit={addProject}
               open={newDialogOpen}
               onRequestClose={toggleDialog}
             />
             <div className={classes.tiles}>
+             {/*
               <NewProjectTile onClick={toggleDialog} />
               {!isEmpty(projects) &&
                 projects.map((project, ind) => (
@@ -82,6 +107,7 @@ export const ProjectsPage = ({
                     onDelete={() => deleteProject(project.id)}
                   />
                 ))}
+                 */}
             </div>
           </div>
         </div>
