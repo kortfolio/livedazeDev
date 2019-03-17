@@ -60,16 +60,17 @@ export class TodoList extends React.Component {
         "radial-gradient(circle at 12.3% 19.3%, rgb(94, 104, 226) 0%, rgb(166, 171, 241) 100.2%)"
     };
     return (
+      
       <form onSubmit={this.handleSubmit}>
       <div className="fixedHeightPaper">
-        <Grid container spacing={8} alignItems="center" justify="center">
-          <Grid item alignItems="center" alignContent="center">
+        <Grid container spacing={8} alignItems="center" justify="center"  alignContent="center">
+          <Grid item>
             <Icon path={mdiFormatListChecks}
                color="rgb(255, 184, 24)"
                size={1.2}
                ></Icon>
           </Grid>
-          <Grid item alignItems="center">
+          <Grid item>
             <div className="TodoListHeader">
               Morning Planner
             </div>

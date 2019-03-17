@@ -50,8 +50,8 @@ export class BeforeSetGoalDate extends React.Component {
         {isClicked ? (
           <form onSubmit={this.handleSubmit}>
               <div className="fixedHeightPaper">
-            <Grid container spacing={8} alignItems="center" justify="center">
-              <Grid item alignItems="center" alignContent="center">
+            <Grid container spacing={8} alignItems="center" justify="center" alignContent="center">
+              <Grid item>
                 <Icon
                   path={mdiCrown}
                   size={1}
@@ -61,7 +61,7 @@ export class BeforeSetGoalDate extends React.Component {
                   color="grey"
                 />
               </Grid>
-              <Grid item alignItems="center">
+              <Grid item>
                 <div className="SetGoalDatePlaceHolder">Set your D DAY</div>
               </Grid>
             </Grid>
@@ -83,7 +83,7 @@ export class BeforeSetGoalDate extends React.Component {
                   minDate={new Date()}
                   placeholderText="0"
                   shouldCloseOnSelect={true}
-                  excludeTimes
+           
                 />
               </label>
               <Fab

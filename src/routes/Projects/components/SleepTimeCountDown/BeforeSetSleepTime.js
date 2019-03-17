@@ -65,20 +65,19 @@ export class BeforeSetSleepTime extends React.Component {
         <Spring
           from={{ opacity: 0}}
           to={{ opacity: 1}}
-
         >
           { props => (
             <div style={props}>
               <form onSubmit={this.handleSubmit}>
                <div className="fixedHeightPaper">
-            <Grid container spacing={8} alignItems="center" justify="center">
-              <Grid item alignItems="center" alignContent="center"> 
-         <Icon path={mdiWeatherNight}
+            <Grid container spacing={8} alignItems="center" justify="center" alignContent="center">
+              <Grid item> 
+                <Icon path={mdiWeatherNight}
                       color="#132a9c"
                       size={1.2}>
                       </Icon>
               </Grid>
-              <Grid item alignItems="center">
+              <Grid item>
                 <div className="SetGoalDatePlaceHolder">
                   Set your Sleep time
                 </div>

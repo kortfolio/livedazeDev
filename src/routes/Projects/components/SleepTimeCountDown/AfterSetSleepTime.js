@@ -94,8 +94,9 @@ export class AfterSetSleepTime extends React.Component {
             spacing={8}
             alignItems="center"
             justify="center"
+            alignContent="center"
           >
-          <Grid item alignItems="center" alignContent="center">
+          <Grid item alignItems="center">
           <Icon color="action">
                   hotel
               </Icon>

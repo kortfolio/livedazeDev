@@ -64,15 +64,15 @@ export class CompletedToday extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
       <div className="fixedHeightPaper">
-        <Grid container spacing={8} alignItems="center" justify="center">
-          <Grid item alignItems="center" alignContent="center">
+        <Grid container spacing={8} alignItems="center" justify="center" alignContent="center"> 
+          <Grid item >
             <Icon path={mdiEmoticonDeadOutline}
                color="rgb(199, 0, 0)"
                size={1.2}
                >
                </Icon>
           </Grid>
-          <Grid item alignItems="center">
+          <Grid item>
             <div className="PostponeHeader">
              Stcuked
             </div>

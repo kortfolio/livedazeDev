@@ -58,14 +58,14 @@ export class PreWakeUpTime extends React.Component {
         {isClicked ? (
           <form onSubmit={this.handleSubmit}>
           <div className="fixedHeightPaper">
-            <Grid container spacing={8} alignItems="center" justify="center">
-              <Grid item alignItems="center" alignContent="center">
+            <Grid container spacing={8} alignItems="center" justify="center"  alignContent="center">
+              <Grid item >
                 <Icon path={mdiWeatherSunny}
                    color="rgb(255, 184, 24)"
                    size={1.2}
                    ></Icon>
               </Grid>
-              <Grid item alignItems="center">
+              <Grid item>
                 <div className="SetGoalDatePlaceHolder">
                   Set your wakeup time
                 </div>

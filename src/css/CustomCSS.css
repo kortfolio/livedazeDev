@@ -26,9 +26,7 @@ div#app {
 
 }
 
-header, main, footer {
-     padding-left: 300px;
-   }
+
 
    @media only screen and (max-width : 992px) {
      header, main, footer {
@@ -245,10 +243,6 @@ input#appt {
     letter-spacing: -0.2px;
 }
 
-header, main, footer {
-    padding-left: 200px;
-  }
-
   @media only screen and (max-width : 992px) {
     header, main, footer {
       padding-left: 0;
@@ -268,9 +262,7 @@ header, main, footer {
 /*# sourceMappingURL=picker.css.map */
 
 
-    header, main, footer {
-      padding-left: 220px;
-    }
+    
 
     @media only screen and (max-width : 992px) {
       header, main, footer {
@@ -587,3 +579,18 @@ img {
   font-size: 20px;
   font-family: 'isotonicBold';
 }
+/**
+header, main, footer {
+  padding-left: 300px;
+}
+
+
+header, main, footer {
+    padding-left: 200px;
+  }
+
+  header, main, footer {
+      padding-left: 220px;
+    }
+
+**/
