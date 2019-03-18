@@ -3,43 +3,27 @@ import PropTypes from "prop-types";
 import { isEmpty } from "react-redux-firebase";
 import { Route, Switch } from "react-router-dom";
 import ProjectRoute from "routes/Projects/routes/Project";
-import ProjectTile from "../ProjectTile";
-import NewProjectTile from "../NewProjectTile";
-import NewProjectDialog from "../NewProjectDialog";
 
+//import ProjectTile from "../ProjectTile";
+//import NewProjectTile from "../NewProjectTile";
+import NewProjectDialog from "../NewProjectDialog";
+import { Paper, Grid } from "@material-ui/core";
+
+
+//Moment JS for time/date manipulation 
 import "moment-timezone";
 import "moment-duration-format";
+
+//Livedaze core components
 import { BeforeSetSleepTime } from "../SleepTimeCountDown/BeforeSetSleepTime";
 import { PreWakeUpTime } from "../WakeUpTime/PreWakeUpTime";
 import { BeforeSetGoalDate } from "../GoalDate/BeforeSetGoalDate";
-import { Paper, Grid } from "@material-ui/core";
-import { TodoList } from "../TodoList/TodoList";
-import { CompletedToday } from "../TodoList/CompletedToday";
 import { SelfDiagnosis } from "../SelfDiagnosis/SelfDiagnosis";
-
-import Board from 'react-trello'
 import { KanbanBoard } from "../KanbanBoard/KanbanBoard";
+import { CompletedTask } from "../CompletedTask/CompletedTask";
 
 
-const data = {
-  lanes: [
-    {
-      id: 'lane1',
-      title: 'Planned Tasks',
-      label: '2/2',
-      cards: [
-        {id: 'Card1', title: 'Write Blog', description: 'Can AI make memes', label: '30 mins'},
-        {id: 'Card2', title: 'Pay Rent', description: 'Transfer via NEFT', label: '5 mins', metadata: {sha: 'be312a1'}}
-      ]
-    },
-    {
-      id: 'lane2',
-      title: 'Completed',
-      label: '0/0',
-      cards: []
-    }
-  ]
-}
+
 
 const renderChildren = (routes, match, parentProps) =>
   routes.map(route => (
@@ -95,14 +79,14 @@ export const ProjectsPage = ({
 
             <Grid container spacing={24}>
               <Grid item md={4}>
-                <Paper>
-                  <TodoList />
-                </Paper>
+              <Paper>
+                  <KanbanBoard/>
+               </Paper>
               </Grid>
 
               <Grid item md={4}>
                 <Paper>
-                  <CompletedToday />
+                  <CompletedTask />
                 </Paper>
               </Grid>
 
@@ -114,11 +98,7 @@ export const ProjectsPage = ({
             </Grid>
             <Grid />
 
-
-          
-            <KanbanBoard/>
-        
-
+            
             <NewProjectDialog
               onSubmit={addProject}
               open={newDialogOpen}

@@ -7,17 +7,17 @@ import { AfterWakeUpTime } from "../WakeUpTime/AfterWakeUpTime";
 
 import { Grid } from "@material-ui/core";
 import Fab from "@material-ui/core/Fab";
-
 import Icon from '@mdi/react'
 import { mdiWeatherSunny } from '@mdi/js';
 import  { mdiEmoticonNeutralOutline } from '@mdi/js';
 import  { mdiEmoticonDeadOutline } from '@mdi/js';
+import  { mdiCheckboxMarkedCircle } from '@mdi/js';
 
 import FormControl from '@material-ui/core/FormControl';
 import CustomizedInputs from "./CustomizedInputs";
 
 
-export class CompletedToday extends React.Component {
+export class CompletedTask extends React.Component {
 
   
   constructor(props) {
@@ -66,15 +66,15 @@ export class CompletedToday extends React.Component {
       <div className="fixedHeightPaper">
         <Grid container spacing={8} alignItems="center" justify="center" alignContent="center"> 
           <Grid item >
-            <Icon path={mdiEmoticonDeadOutline}
-               color="rgb(199, 0, 0)"
+            <Icon path={mdiCheckboxMarkedCircle}
+               color="rgb(116, 228, 162)"
                size={1.2}
                >
                </Icon>
           </Grid>
           <Grid item>
             <div className="PostponeHeader">
-             Stcuked
+             Completed
             </div>
           </Grid>
         </Grid>
@@ -86,28 +86,6 @@ export class CompletedToday extends React.Component {
             ) : (
               <div className="redman">Uh oh. please select the time!</div>
             )}
-{/*      { classes => (
-        <div style={props}>
-        </div>
-      )}
-*/}
-
-{/*
-<FormControl className={classes.margin}>
-    <InputLabel shrink htmlFor="bootstrap-input" className={classes.bootstrapFormLabel}>
-      Bootstrap
-    </InputLabel>
-    <InputBase
-      id="bootstrap-input"
-      defaultValue="react-bootstrap"
-      classes={{
-        root: classes.bootstrapRoot,
-        input: classes.bootstrapInput,
-      }}
-    />
-  </FormControl>
-    */}
-
           </div>
         </Grid>
         </div>

@@ -1,111 +1,222 @@
 import React from "react";
-import Checkbox from '@material-ui/core/Checkbox';
-import CircleChecked from '@material-ui/icons/CheckCircleOutline';
-import CircleCheckedFilled from '@material-ui/icons/CheckCircle';
-import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
+import Checkbox from "@material-ui/core/Checkbox";
+import CircleCheckedFilled from "@material-ui/icons/CheckCircle";
+import CircleUnchecked from "@material-ui/icons/RadioButtonUnchecked";
 
-import Board from "react-trello";
-import "./styles.css";
+import Board, { Tag } from "react-trello";
+import "moment-timezone";
+import "moment-duration-format";
+import { Grid } from "@material-ui/core";
 
-const CustomCard = props => {
-    return (
-
-      <div
-      style=
-      {{
-        //Card Panel CSS
-        backgroundColor:'yellow',
-        background: 'linear-gradient(315deg, rgb(249, 209, 183) 0%, rgb(248, 148, 164) 74%) red',
-        color: 'white',
-        borderRadius: '6px',
-        paddingLeft: 10,
-        paddingRight: 10,
-      }}
-      >
-        <header
-          style={{
-        
-            
-          //  paddingBottom: 6,
-          //  marginBottom: 10,
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            color: props.cardColor,
-            borderBottom:'0px solid #white'
-          }}>
-          <div style={{fontSize: 20, fontWeight: 'bold',color:'white'
-        
-        
-        }} >
-          <Checkbox
-            icon={<CircleUnchecked />}
-            checkedIcon={<CircleCheckedFilled />}
-            />
-          {props.name}</div>
-          <div style={{fontSize: 11,color:'white'}}>{props.dueOn}</div>
-        </header>
-        <div style={{fontSize: 12, color: '#BD3B36'}}>
-          <div style={{color: '#4C4C4C', fontWeight: 'bold'}}>{props.subTitle}</div>
-          <div style={{padding: '0px 0px'}}>
-            <i>{props.body}</i>
-          </div>
-          <div style={{marginTop: 0, textAlign: 'center', color: props.cardColor, fontSize: 15, fontWeight: 'bold'}}>
-            {props.escalationText}
-          </div>
-        </div>
-      </div>
-    )
-  }
-  
-  const mockData = {
-    lanes: [
-      {
-        id: 'lane1',
-        title: 'To do List',
-        style: {
-            backgroundColor: "white", //Section Background Color. Not card background color. 
-            borderRadius: 4,
-            boxShadow:
-              "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)"
-          },    
-        cards: [
-          {
-            id: 'Card1',
-            name: 'Lorem ipsum dolor sit amet',
-           // dueOn: 'due in a day',
-            cardColor: '#BD3B36', 
-          },
-          {
-            id: 'Card3',
-            name: 'Lorem ipsum dolor sit amet',
-            // dueOn: 'due in a day',
-            cardColor: '#BD3B36',
-            
-          },
-          {
-            id: 'Card3',
-            name: 'Lorem ipsum dolor sit amet',
-            // dueOn: 'due in a day',
-            cardColor: '#BD3B36',
-            
-          }
-                ]
-      }
-    ]
-  }
-
+import Icon from "@mdi/react";
+import { mdiFormatListChecks } from "@mdi/js";
+import { mdiCalendarCheckOutline } from "@mdi/js";
+import { mdiFormatListCheckbox } from "@mdi/js";
+import { Fab } from "@material-ui/core";
+import data from "./data.json";
+import { Spring } from "react-spring/renderprops";
+import { mdiClose } from "@mdi/js";
+import { CustomCard } from "./CustomCard.js";
 
 export function KanbanBoard() {
-  return( 
-  <div>  
-  <Board data={mockData} customCardLayout
-  style={{backgroundColor: '#f5f5f5'}}
-  draggable
-  editable 
-  >
-  <CustomCard />
-</Board>
-</div>
+  return (
+    <Grid
+      container
+      spacing={8}
+      alignItems="center"
+      justify="center"
+      alignContent="center"
+    >
+      <Board
+        data={data}
+        style={{ backgroundColor: "white", padding: 0, borderBottom: 0, height: "60vh" }}
+        customLaneHeader={<CustomLaneHeader />}
+        addCardLink={<AddNewCardTab />}
+        newCardTemplate={<NewCard />}
+        draggable
+        editable
+        customCardLayout
+      >
+        <CustomCard />
+      </Board>
+    </Grid>
   );
 }
+
+class NewCard extends React.Component {
+  updateField = (field, evt) => {
+    this.setState({ [field]: evt.target.value });
+  };
+
+  handleAdd = () => {
+    console.log("[handleAdd function] : ");
+    console.log(this.state);
+    this.props.onAdd(this.state);
+  };
+
+  render() {
+    const { onCancel } = this.props;
+    const buttonStyle = {
+      textDecoration: "none",
+      alignSelf: "center",
+      LetterSpacing: "0.1rem",
+      FontFamily: "isotonic",
+      fontSize: "12px",
+      borderRadius: "3px",
+      maxHeight: "30px",
+      PaddingLeft: "10px",
+      paddingRight: "10px",
+      background:
+        "linear-gradient(315deg, rgb(249, 209, 183) 0%, rgb(248, 148, 164) 74%)",
+      "&:hover:not($disabled):not($error):not($focused):before": {
+        borderBottomColor: "#cdcde7",
+        borderBottom: "2px solid rgb(205, 205, 231)"
+      }
+    };
+
+    return (
+      <div style={{ padding: 5, margin: 5 }}>
+        <div>
+          <div style={{ marginBottom: 5 }}>
+            <input
+              type="text"
+              onChange={evt => this.updateField("title", evt)}
+              placeholder="Title"
+            />
+          </div>
+
+          <div style={{ marginBottom: 5 }}>
+            <input
+              type="text"
+              onChange={evt => this.updateField("description", evt)}
+              placeholder="Description"
+              style={{
+                borderRadius: 4,
+                position: "relative",
+                //  backgroundColor: theme.palette.common.white,
+                border: "1px solid rgb(206, 212, 218)",
+                fontSize: 12,
+                width: "auto",
+                width: "100%",
+                color: "#6b7b93",
+                padding: 5,
+
+                // transition: theme.transitions.create(['border-color', 'box-shadow']),
+                // Use the system font instead of the default Roboto font.
+                fontFamily: [
+                  "-apple-system",
+                  "BlinkMacSystemFont",
+                  '"Segoe UI"',
+                  "Roboto",
+                  '"Helvetica Neue"',
+                  "Arial",
+                  "sans-serif",
+                  '"Apple Color Emoji"',
+                  '"Segoe UI Emoji"',
+                  '"Segoe UI Symbol"'
+                ].join(","),
+                "&:focus": {
+                  borderRadius: 4,
+                  borderColor: "#80bdff",
+                  boxShadow: "0 0 0 0.2rem rgba(0,123,255,.25)"
+                }
+              }}
+            />
+          </div>
+        </div>
+        <Grid container spacing={8}>
+          <Grid item>
+            <Fab
+              style={buttonStyle}
+              variant="extended"
+              size="small"
+              color="primary"
+              aria-label="Add Task"
+              className="btnMargin"
+              onClick={this.handleAdd}
+            >
+              Add Task
+            </Fab>
+          </Grid>
+          <Grid item>
+            <Icon
+              path={mdiClose}
+              onClick={onCancel}
+              color="#rgb(107, 123, 147)"
+              size={1}
+              cursor="pointer"
+            />
+          </Grid>
+        </Grid>
+      </div>
+    );
+  }
+}
+const AddNewCardTab = props => {
+  console.log({ props });
+  const moment = require("moment");
+  const today = moment(new Date()).format("LL");
+
+  return (
+    <Grid container spacing={8}>
+      <div
+        style={{
+          fontFamily: "isotonic",
+          color: "rgb(248, 148, 164)",
+          textTransform: "uppercase",
+          fontSize: "12px",
+          marginLeft: "10px"
+        }}
+      >
+        add a task +
+      </div>
+    </Grid>
+  );
+};
+
+const CustomLaneHeader = props => {
+  console.log({ props });
+  const moment = require("moment");
+  const today = moment(new Date()).format("LL");
+
+  return (
+    <Grid
+      container
+      spacing={8}
+      alignItems="center"
+      justify="center"
+      alignContent="center"
+    >
+      <Grid item>
+        <Icon
+          path={mdiFormatListCheckbox}
+          color="rgb(255, 199, 208)"
+          size={1.2}
+        />
+      </Grid>
+      <Grid item>
+        <div
+          style={{
+            fontFamily: "isotonicBold",
+            color: "rgb(249, 115, 137)",
+            textTransform: "uppercase",
+            fontSize: 20
+          }}
+        >
+          {props.title}
+        </div>
+      </Grid>
+      <p
+        style={{
+          color: "#6b7b93",
+          textTransform: "uppercase",
+          verticalAlign: "super",
+          fontSize: "12px",
+          marginLeft: "10px"
+        }}
+      >
+        {today}
+      </p>
+    </Grid>
+  );
+};

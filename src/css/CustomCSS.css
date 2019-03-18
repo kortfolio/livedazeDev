@@ -574,23 +574,9 @@ img {
 
 
 .PostponeHeader {
-  color: #ff5b99;
+  color: #24b47e;
   text-transform: uppercase;
   font-size: 20px;
   font-family: 'isotonicBold';
 }
-/**
-header, main, footer {
-  padding-left: 300px;
-}
 
-
-header, main, footer {
-    padding-left: 200px;
-  }
-
-  header, main, footer {
-      padding-left: 220px;
-    }
-
-**/

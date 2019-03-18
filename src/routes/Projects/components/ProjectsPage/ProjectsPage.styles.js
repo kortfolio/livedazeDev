@@ -13,6 +13,7 @@ export default theme => ({
     flexWrap: 'wrap',
     '-webkit-flex-flow': 'row wrap'
   },
+  
   layout: {
     width: 'auto',
     marginLeft: theme.spacing.unit * 3,

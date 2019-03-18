@@ -1,6 +1,7 @@
 import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
-
+import Icon from '@mdi/react';
+import { mdiCrown } from '@mdi/js';
 import { Grid } from "@material-ui/core";
 import {BeforeSetGoalDate} from './BeforeSetGoalDate';
 import Fab from "@material-ui/core/Fab";
@@ -54,7 +55,14 @@ export class AfterSetGoalDate extends React.Component {
       <div className="fixedHeightPaper">
             <Grid container spacing={8} alignItems="center" justify="center">
               <Grid item alignItems="center" alignContent="center">
-              
+                <Icon
+                  path={mdiCrown}
+                  size={1}
+                  horizontal
+                  vertical
+                  rotate={180}
+                  color="grey"
+                />
               </Grid>
               <Grid item alignItems="center">
                 <div className="SetGoalDatePlaceHolder">Your D DAY</div>
