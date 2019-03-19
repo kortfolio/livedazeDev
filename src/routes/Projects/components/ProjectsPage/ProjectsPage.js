@@ -20,7 +20,6 @@ import { PreWakeUpTime } from "../WakeUpTime/PreWakeUpTime";
 import { BeforeSetGoalDate } from "../GoalDate/BeforeSetGoalDate";
 import { SelfDiagnosis } from "../SelfDiagnosis/SelfDiagnosis";
 import { KanbanBoard } from "../KanbanBoard/KanbanBoard";
-import { CompletedTask } from "../CompletedTask/CompletedTask";
 
 
 
@@ -75,29 +74,27 @@ export const ProjectsPage = ({
                 </Paper>
               </Grid>
             </Grid>
-            <Grid />
 
             <Grid container spacing={24}>
-              <Grid item md={4}>
-              <Paper>
+              <Grid item md={8}>
+              
                   <KanbanBoard/>
-               </Paper>
+               
               </Grid>
-
-              <Grid item md={4}>
+            {/* 
+            <Grid item md={4}>
                 <Paper>
                   <CompletedTask />
                 </Paper>
               </Grid>
-
+            */}  
               <Grid item md={4}>
                 <Paper>
                   <SelfDiagnosis />
                 </Paper>
               </Grid>
             </Grid>
-            <Grid />
-
+            
             
             <NewProjectDialog
               onSubmit={addProject}

@@ -18,17 +18,27 @@ import { Spring } from "react-spring/renderprops";
 import { mdiClose } from "@mdi/js";
 
 export const CustomCard = props => {
+    console.log("I am from Custom card")
+    const isItPlanner = (props.laneId === "Planner")
+    console.log(`*************` + isItPlanner + `*************`)
+    const bgColor = "pink"
   return (
-    <div>
-      <header>
+   
+   <div>
+        {
+        (isItPlanner ? 
+             (
+                <React.Fragment>
+<header>
         {/* Card Styling */}
+        {/* Testing conditional rendering  */}
+        
         <div
           style={{
             fontSize: 12,
-            color: "white",
+            color: "black",
             borderRadius: 6,
-            background:
-              "linear-gradient(315deg, rgb(249, 209, 183) 0%, rgb(248, 148, 164) 74%)",            
+            background: "linear-gradient(315deg, rgb(249, 209, 183) 0%, rgb(248, 148, 164) 74%)",            
           }}
         >
           <Checkbox
@@ -90,6 +100,100 @@ export const CustomCard = props => {
           </div>
         )}
       </div>
+
+
+                </React.Fragment>
+
+             )
+               : (
+
+                <React.Fragment>
+                <header>
+                        {/* Card Styling */}
+                        {/* Testing conditional rendering  */}
+                        
+                        <div
+                          style={{
+                            fontSize: 12,
+                            color: "white",
+                            borderRadius: 6,
+                            background: 
+                              "linear-gradient(315deg, rgb(115, 228, 162) 0%, rgb(28, 156, 107) 74%)",            
+                          }}
+                        >
+                          <Checkbox
+                            icon={<CircleUnchecked />}
+                            checkedIcon={<CircleCheckedFilled />}
+                            style={{
+                              color: "white",
+                              "&:hover": {
+                                color: "#424770"
+                              },
+                              "&$checked": {
+                                color: "#8f6ed5"
+                              }
+                            }}
+                          />
+                          {props.name}
+                          {props.description}
+                        </div>
+                        <div style={{ fontSize: 11, color: "white" }}>{props.dueOn}</div>
+                      </header>
+                
+                      {/* Subtitle Styling */}
+                      <div style={{ fontSize: 12, color: "#BD3B36"}}>
+                        <div style={{ color: "#4C4C4C", fontWeight: "bold" }}>
+                          {props.subTitle}
+                        </div>
+                
+                        {/* Body Styling */}
+                
+                        <div style={{ padding: "0px 0px", border:"none" }}>
+                          {/* <i>Placeholder in props.body</i> */}
+                          <i>{props.body}</i>
+                        </div>
+                        <div
+                          style={{
+                            marginTop: 0,
+                            textAlign: "center",
+                            color: props.cardColor,
+                            fontSize: 15,
+                            fontWeight: "bold"
+                          }}
+                        >
+                          {props.escalationText}
+                        </div>
+                        {props.tags && (
+                          <div
+                            style={{
+                              borderTop: "1px solid #eee",
+                              paddingTop: 6,
+                              display: "flex",
+                              justifyContent: "flex-end",
+                              flexDirection: "row",
+                              flexWrap: "wrap"
+                            }}
+                          >
+                            {props.tags.map(tag => (
+                              <Tag key={tag.title} {...tag} tagStyle={props.tagStyle} />
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                
+                
+                                </React.Fragment>
+                
+
+
+
+               )
+        )
+        }
+       
+      
     </div>
+            
+
   );
 };

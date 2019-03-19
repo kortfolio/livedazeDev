@@ -9,7 +9,7 @@ import "moment-duration-format";
 import { Grid } from "@material-ui/core";
 
 import Icon from "@mdi/react";
-import { mdiFormatListChecks } from "@mdi/js";
+import { mdiFormatListChecks, mdiCheckboxMarkedCircle } from "@mdi/js";
 import { mdiCalendarCheckOutline } from "@mdi/js";
 import { mdiFormatListCheckbox } from "@mdi/js";
 import { Fab } from "@material-ui/core";
@@ -18,30 +18,6 @@ import { Spring } from "react-spring/renderprops";
 import { mdiClose } from "@mdi/js";
 import { CustomCard } from "./CustomCard.js";
 
-export function KanbanBoard() {
-  return (
-    <Grid
-      container
-      spacing={8}
-      alignItems="center"
-      justify="center"
-      alignContent="center"
-    >
-      <Board
-        data={data}
-        style={{ backgroundColor: "white", padding: 0, borderBottom: 0, height: "60vh" }}
-        customLaneHeader={<CustomLaneHeader />}
-        addCardLink={<AddNewCardTab />}
-        newCardTemplate={<NewCard />}
-        draggable
-        editable
-        customCardLayout
-      >
-        <CustomCard />
-      </Board>
-    </Grid>
-  );
-}
 
 class NewCard extends React.Component {
   updateField = (field, evt) => {
@@ -65,6 +41,7 @@ class NewCard extends React.Component {
       borderRadius: "3px",
       maxHeight: "30px",
       PaddingLeft: "10px",
+      
       paddingRight: "10px",
       background:
         "linear-gradient(315deg, rgb(249, 209, 183) 0%, rgb(248, 148, 164) 74%)",
@@ -75,8 +52,12 @@ class NewCard extends React.Component {
     };
 
     return (
-      <div style={{ padding: 5, margin: 5 }}>
+
+
+      // Styling Add new task tab.
         <div>
+
+          {/*
           <div style={{ marginBottom: 5 }}>
             <input
               type="text"
@@ -84,46 +65,32 @@ class NewCard extends React.Component {
               placeholder="Title"
             />
           </div>
+          */}
 
+          {/* Styling TextBox */}
           <div style={{ marginBottom: 5 }}>
-            <input
-              type="text"
+            <textarea
+              type="textArea"
               onChange={evt => this.updateField("description", evt)}
               placeholder="Description"
               style={{
-                borderRadius: 4,
+                borderRadius: 6,
                 position: "relative",
-                //  backgroundColor: theme.palette.common.white,
                 border: "1px solid rgb(206, 212, 218)",
                 fontSize: 12,
                 width: "auto",
                 width: "100%",
                 color: "#6b7b93",
                 padding: 5,
+                minHeight:54,
+                resize:"none",
 
-                // transition: theme.transitions.create(['border-color', 'box-shadow']),
-                // Use the system font instead of the default Roboto font.
-                fontFamily: [
-                  "-apple-system",
-                  "BlinkMacSystemFont",
-                  '"Segoe UI"',
-                  "Roboto",
-                  '"Helvetica Neue"',
-                  "Arial",
-                  "sans-serif",
-                  '"Apple Color Emoji"',
-                  '"Segoe UI Emoji"',
-                  '"Segoe UI Symbol"'
-                ].join(","),
-                "&:focus": {
-                  borderRadius: 4,
-                  borderColor: "#80bdff",
-                  boxShadow: "0 0 0 0.2rem rgba(0,123,255,.25)"
-                }
               }}
             />
           </div>
-        </div>
+
+
+        {/* Styling Buttons */}
         <Grid container spacing={8}>
           <Grid item>
             <Fab
@@ -157,6 +124,7 @@ const AddNewCardTab = props => {
   const moment = require("moment");
   const today = moment(new Date()).format("LL");
 
+  const hellobuddy = {mdiFormatListCheckbox};
   return (
     <Grid container spacing={8}>
       <div
@@ -165,7 +133,8 @@ const AddNewCardTab = props => {
           color: "rgb(248, 148, 164)",
           textTransform: "uppercase",
           fontSize: "12px",
-          marginLeft: "10px"
+          marginLeft: "10px",
+          marginTop: "10px"
         }}
       >
         add a task +
@@ -178,7 +147,12 @@ const CustomLaneHeader = props => {
   console.log({ props });
   const moment = require("moment");
   const today = moment(new Date()).format("LL");
-
+  const isItPlanner = (props.id === "Planner")
+  console.log("*************************");
+  console.log(props.id);
+  console.log(isItPlanner);
+  console.log("*************************");
+      
   return (
     <Grid
       container
@@ -187,25 +161,54 @@ const CustomLaneHeader = props => {
       justify="center"
       alignContent="center"
     >
-      <Grid item>
-        <Icon
+      {
+          (isItPlanner ? 
+            (
+                <React.Fragment>
+                <Grid item>
+      
+                <Icon
           path={mdiFormatListCheckbox}
           color="rgb(255, 199, 208)"
           size={1.2}
         />
-      </Grid>
+        </Grid>
+
       <Grid item>
-        <div
-          style={{
-            fontFamily: "isotonicBold",
-            color: "rgb(249, 115, 137)",
-            textTransform: "uppercase",
-            fontSize: 20
-          }}
-        >
-          {props.title}
-        </div>
-      </Grid>
+      <div
+        style={{
+          fontFamily: "isotonicBold",
+          color: "rgb(249, 115, 137)",
+          textTransform: "uppercase",
+          fontSize: 20
+        }}
+      >
+        {props.title}
+      </div>
+    </Grid>
+    </React.Fragment>
+            ):(
+                <React.Fragment>
+                <Grid item>
+                <Icon path={mdiCheckboxMarkedCircle}
+                color="rgb(116, 228, 162)"
+                size={1.2}
+                />
+                
+                </Grid>
+
+                <Grid item>
+      <div
+        className="PostponeHeader">
+        {props.title}
+      </div>
+    </Grid>
+                </React.Fragment>
+            )
+          )
+      }
+        
+   
       <p
         style={{
           color: "#6b7b93",
@@ -220,3 +223,23 @@ const CustomLaneHeader = props => {
     </Grid>
   );
 };
+
+
+export function KanbanBoard() {
+    return (
+     
+        <Board
+          data={data}
+          style={{ backgroundColor: "whitesmoke", padding: 0, borderBottom: 0, height: "60vh" }}
+          customLaneHeader={<CustomLaneHeader />}
+          addCardLink={<AddNewCardTab />}
+          newCardTemplate={<NewCard />}
+          draggable
+          editable
+          customCardLayout
+        >
+          <CustomCard />
+        </Board>
+   
+    );
+  }
