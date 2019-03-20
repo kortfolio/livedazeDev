@@ -8,7 +8,8 @@ import { withStyles } from '@material-ui/core/styles'
 import { withNotifications } from 'modules/notification'
 import { spinnerWhileLoading } from 'utils/components'
 import { UserIsAuthenticated } from 'utils/router'
-import styles from './ProjectsPage.styles'
+import theme from 'containers/Navbar/NavbarTheme';
+
 
 export default compose(
   // redirect to /login if user is not logged in
@@ -85,5 +86,5 @@ export default compose(
       history.push(`${LIST_PATH}/${projectId}`)
     }
   }),
-  withStyles(styles)
+  withStyles(theme)
 )

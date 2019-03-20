@@ -7,7 +7,7 @@ import ProjectRoute from "routes/Projects/routes/Project";
 //import ProjectTile from "../ProjectTile";
 //import NewProjectTile from "../NewProjectTile";
 import NewProjectDialog from "../NewProjectDialog";
-import { Paper, Grid } from "@material-ui/core";
+import { Paper, Grid, Typography } from "@material-ui/core";
 
 
 //Moment JS for time/date manipulation 
@@ -20,7 +20,6 @@ import { PreWakeUpTime } from "../WakeUpTime/PreWakeUpTime";
 import { BeforeSetGoalDate } from "../GoalDate/BeforeSetGoalDate";
 import { SelfDiagnosis } from "../SelfDiagnosis/SelfDiagnosis";
 import { KanbanBoard } from "../KanbanBoard/KanbanBoard";
-
 
 
 
@@ -53,8 +52,24 @@ export const ProjectsPage = ({
       exact
       path={match.path}
       render={() => (
-        <div className={classes.root}>
-          <div className={classes.layout}>
+        <React.Fragment>
+        <main className={classes.content}>
+          <div className={classes.toolbar}/> 
+         
+         {/*<div className={classes.layout}> 
+         <div className={classes.toolbar}>*/} 
+         <Typography paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
+          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
+          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
+          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
+          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
+          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
+          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
+          donec massa sapien faucibus et molestie ac.
+        </Typography>
             <Grid container spacing={24}>
               <Grid item md={4}>
                 <Paper>
@@ -76,11 +91,11 @@ export const ProjectsPage = ({
             </Grid>
 
             <Grid container spacing={24}>
-              <Grid item md={8}>
               
+            <Grid item md={4}>
                   <KanbanBoard/>
-               
-              </Grid>
+            </Grid>
+            
             {/* 
             <Grid item md={4}>
                 <Paper>
@@ -88,12 +103,13 @@ export const ProjectsPage = ({
                 </Paper>
               </Grid>
             */}  
-              <Grid item md={4}>
-                <Paper>
-                  <SelfDiagnosis />
-                </Paper>
+              <Grid item md={8}>
+                    <SelfDiagnosis />
               </Grid>
-            </Grid>
+              </Grid>
+         
+           
+
             
             
             <NewProjectDialog
@@ -115,8 +131,8 @@ export const ProjectsPage = ({
                 ))}
                  */}
             </div>
-          </div>
-        </div>
+          </main>
+          </React.Fragment>
       )}
     />
   </Switch>

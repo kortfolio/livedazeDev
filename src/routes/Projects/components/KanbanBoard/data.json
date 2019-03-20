@@ -6,18 +6,17 @@
         "title": "To do List",
         "label": "20/70",
         "style": {"background": "white",
-                 "border-radius": "4",
-
-                 "max-width": "283px",
-                 "min-width": "283px",
+                 "borderRadius": "4",
+                 "width": "100%",
                  "margin": "0",
-                 "box-shadow": "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)",
-                 "margin": "0px 0px 0px 0px"
+                 "boxShadow": "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)",
+                 "margin": "0px 0px 0px 0px",
+                 "flexGrow": 0,
+                 "maxWidth": "100%",
+                 "flexBasis": "100%"
                 },
         "cardStyle": {"border": "none", "boxShadow": "0 0 6px 1px #BD3B3", "marginBottom": 15,"padding": 0},
-        
         "cards": 
-        
         [
           {
             "id": "Milk",
@@ -38,14 +37,18 @@
         "id": "WIP",
         "title": "Completed",
         "label": "10/20",
+        "className": "MuiPaper-root-17 MuiPaper-elevation2-21 MuiPaper-rounded-18",
         "style": {
-          "max-width": "283px",
-          "min-width": "283px",
           "background": "white",
-          "box-shadow": "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)",
+          "boxShadow": "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)",
           "margin": "0px 0px 0px 24px",
-          "color": "red"
-        },
+            "borderRadius": "4",
+            "width": "100%",
+            "flexGrow": 0,
+            "maxWidth": "100%",
+            "flexBasis": "100%"
+          },
+        
         "cards": [
           {
             "className": "helloTrello",
@@ -56,10 +59,6 @@
           }
         ]
       }
-    
-    
     ]
-    
-    
     }
       

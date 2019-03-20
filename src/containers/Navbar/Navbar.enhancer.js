@@ -10,8 +10,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { withRouter } from 'react-router-dom'
 import { withFirebase, isEmpty, isLoaded } from 'react-redux-firebase'
 import { ACCOUNT_PATH } from 'constants/paths'
-import styles from './Navbar.styles'
-//import styles from './NavbarTheme';
+import styles from './NavbarTheme';
 export default compose(
   // Map redux state to props
   connect(({ firebase: { auth, profile } }) => ({

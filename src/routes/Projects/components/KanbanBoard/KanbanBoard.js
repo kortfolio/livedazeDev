@@ -18,7 +18,6 @@ import { Spring } from "react-spring/renderprops";
 import { mdiClose } from "@mdi/js";
 import { CustomCard } from "./CustomCard.js";
 
-
 class NewCard extends React.Component {
   updateField = (field, evt) => {
     this.setState({ [field]: evt.target.value });
@@ -41,7 +40,7 @@ class NewCard extends React.Component {
       borderRadius: "3px",
       maxHeight: "30px",
       PaddingLeft: "10px",
-      
+
       paddingRight: "10px",
       background:
         "linear-gradient(315deg, rgb(249, 209, 183) 0%, rgb(248, 148, 164) 74%)",
@@ -52,12 +51,9 @@ class NewCard extends React.Component {
     };
 
     return (
-
-
       // Styling Add new task tab.
-        <div>
-
-          {/*
+      <React.Fragment>
+      {/*
           <div style={{ marginBottom: 5 }}>
             <input
               type="text"
@@ -67,28 +63,26 @@ class NewCard extends React.Component {
           </div>
           */}
 
-          {/* Styling TextBox */}
-          <div style={{ marginBottom: 5 }}>
-            <textarea
-              type="textArea"
-              onChange={evt => this.updateField("description", evt)}
-              placeholder="Description"
-              style={{
-                borderRadius: 6,
-                position: "relative",
-                border: "1px solid rgb(206, 212, 218)",
-                fontSize: 12,
-                width: "auto",
-                width: "100%",
-                color: "#6b7b93",
-                padding: 5,
-                minHeight:54,
-                resize:"none",
-
-              }}
-            />
-          </div>
-
+        {/* Styling TextBox */}
+        <div style={{ marginBottom: 5 }}>
+          <textarea
+            type="textArea"
+            onChange={evt => this.updateField("description", evt)}
+            placeholder="Description"
+            style={{
+              borderRadius: 6,
+              position: "relative",
+              border: "1px solid rgb(206, 212, 218)",
+              fontSize: 12,
+              width: "auto",
+              width: "100%",
+              color: "#6b7b93",
+              padding: 5,
+              minHeight: 54,
+              resize: "none"
+            }}
+          />
+        </div>
 
         {/* Styling Buttons */}
         <Grid container spacing={8}>
@@ -115,7 +109,7 @@ class NewCard extends React.Component {
             />
           </Grid>
         </Grid>
-      </div>
+        </React.Fragment>
     );
   }
 }
@@ -124,7 +118,6 @@ const AddNewCardTab = props => {
   const moment = require("moment");
   const today = moment(new Date()).format("LL");
 
-  const hellobuddy = {mdiFormatListCheckbox};
   return (
     <Grid container spacing={8}>
       <div
@@ -147,12 +140,12 @@ const CustomLaneHeader = props => {
   console.log({ props });
   const moment = require("moment");
   const today = moment(new Date()).format("LL");
-  const isItPlanner = (props.id === "Planner")
+  const isItPlanner = props.id === "Planner";
   console.log("*************************");
   console.log(props.id);
   console.log(isItPlanner);
   console.log("*************************");
-      
+
   return (
     <Grid
       container
@@ -161,54 +154,45 @@ const CustomLaneHeader = props => {
       justify="center"
       alignContent="center"
     >
-      {
-          (isItPlanner ? 
-            (
-                <React.Fragment>
-                <Grid item>
-      
-                <Icon
-          path={mdiFormatListCheckbox}
-          color="rgb(255, 199, 208)"
-          size={1.2}
-        />
-        </Grid>
+      {isItPlanner ? (
+        <React.Fragment>
+          <Grid item>
+            <Icon
+              path={mdiFormatListCheckbox}
+              color="rgb(255, 199, 208)"
+              size={1.2}
+            />
+          </Grid>
 
-      <Grid item>
-      <div
-        style={{
-          fontFamily: "isotonicBold",
-          color: "rgb(249, 115, 137)",
-          textTransform: "uppercase",
-          fontSize: 20
-        }}
-      >
-        {props.title}
-      </div>
-    </Grid>
-    </React.Fragment>
-            ):(
-                <React.Fragment>
-                <Grid item>
-                <Icon path={mdiCheckboxMarkedCircle}
-                color="rgb(116, 228, 162)"
-                size={1.2}
-                />
-                
-                </Grid>
+          <Grid item>
+            <div
+              style={{
+                fontFamily: "isotonicBold",
+                color: "rgb(249, 115, 137)",
+                textTransform: "uppercase",
+                fontSize: 20
+              }}
+            >
+              {props.title}
+            </div>
+          </Grid>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Grid item>
+            <Icon
+              path={mdiCheckboxMarkedCircle}
+              color="rgb(116, 228, 162)"
+              size={1.2}
+            />
+          </Grid>
 
-                <Grid item>
-      <div
-        className="PostponeHeader">
-        {props.title}
-      </div>
-    </Grid>
-                </React.Fragment>
-            )
-          )
-      }
-        
-   
+          <Grid item>
+            <div className="PostponeHeader">{props.title}</div>
+          </Grid>
+        </React.Fragment>
+      )}
+
       <p
         style={{
           color: "#6b7b93",
@@ -224,22 +208,19 @@ const CustomLaneHeader = props => {
   );
 };
 
-
 export function KanbanBoard() {
-    return (
-     
-        <Board
-          data={data}
-          style={{ backgroundColor: "whitesmoke", padding: 0, borderBottom: 0, height: "60vh" }}
-          customLaneHeader={<CustomLaneHeader />}
-          addCardLink={<AddNewCardTab />}
-          newCardTemplate={<NewCard />}
-          draggable
-          editable
-          customCardLayout
-        >
-          <CustomCard />
-        </Board>
-   
-    );
-  }
+  return (
+    <Board
+      data={data}
+      style={{ backgroundColor: "#fafafa", padding: 0, borderBottom: 0 }}
+      customLaneHeader={<CustomLaneHeader />}
+      addCardLink={<AddNewCardTab />}
+      newCardTemplate={<NewCard />}
+      draggable
+      editable
+      customCardLayout
+    >
+      <CustomCard />
+    </Board>
+  );
+}

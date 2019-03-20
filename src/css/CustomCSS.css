@@ -7,8 +7,9 @@ nav {
 }
 
 div#app {
-    background-color: #f5f5f5;
+/*    background-color: #f5f5f5;*/
 }
+
 
 .livedaze_TabTitle {
     color: #95b5ff;
@@ -111,7 +112,7 @@ div#app {
 
         body{
             font-family: 'isotonic';
-                background: #f5f5f5;
+             
         }
 
         @font-face {
@@ -434,7 +435,7 @@ input[type]:-webkit-autofill:hover,
 input[type]:-webkit-autofill:focus,
 input[type]:-webkit-autofill:active {
     transition: background-color 5500s ease-in-out 0s;
-    -webkit-box-shadow: 0 0 0 1000px #f5f5f5 inset !important;
+   /* -webkit-box-shadow: 0 0 0 1000px #f5f5f5 inset !important;*/
 }
 
 /* Materialize fix labels overlapping */
@@ -494,7 +495,7 @@ span.subDescription {
     font-size:12px;
 }
 input.DatePickerCustomStyle {
- 
+  width: 150px;
     font-family: 'isotonic';
     border:0 !important;
     color: #5e68e28c;
@@ -580,3 +581,6 @@ img {
   font-family: 'isotonicBold';
 }
 
+.logoImage {
+  margin: 0
+}

@@ -1,4 +1,5 @@
 export default theme => ({
+  /*
   root: {
     ...theme.flexColumnCenter,
     paddingTop: theme.spacing.unit * 4,
@@ -7,6 +8,15 @@ export default theme => ({
     overflowY: 'scroll',
     display: ""
   },
+  */
+ root: {
+  ...theme.flexColumnCenter,
+  paddingTop: theme.spacing.unit * 4,
+  //flexGrow: '2',
+  boxSizing: 'border-box',
+  overflowY: 'scroll',
+  display: 'flex',
+},
   tiles: {
     //display: 'flex',
     justifyContent: 'center',
@@ -24,4 +34,9 @@ export default theme => ({
       marginRight: 'auto',
     },
   },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3,
+  }, 
+  toolbar: theme.mixins.toolbar,
 })

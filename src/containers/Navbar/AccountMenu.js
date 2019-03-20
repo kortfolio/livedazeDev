@@ -45,13 +45,7 @@ const AccountMenu = ({
 
 AccountMenu.propTypes = {
   classes: PropTypes.object.isRequired, // from enhancer (withStyles)
-  goToAccount: PropTypes.func.isRequired,
-  onLogoutClick: PropTypes.func.isRequired,
-  closeAccountMenu: PropTypes.func.isRequired,
-  handleMenu: PropTypes.func.isRequired,
-  displayName: PropTypes.string,
-  avatarUrl: PropTypes.string,
-  anchorEl: PropTypes.object
+ 
 }
 
 export default withStyles(styles)(AccountMenu)

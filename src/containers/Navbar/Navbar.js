@@ -10,12 +10,14 @@ import LoginMenu from './LoginMenu'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import ClippedDrawer from './ClippedDrawer';
+import { CssBaseline } from '@material-ui/core';
+import logo from './logo.png'; // with import
+
 
 const buttonStyle = {
   textDecoration: 'none',
-  alignSelf: 'center',
   backgroundColor: '#55587a'
-
 }
 
 export const Navbar = ({
@@ -27,17 +29,27 @@ export const Navbar = ({
   closeAccountMenu,
   anchorEl,
   handleMenu,
-  classes
+  classes,
 }) => (
-  <AppBar position="static" style={buttonStyle}>
+
+  <React.Fragment>
+       <div className={classes.root}>
+       <CssBaseline />
+  <AppBar position={authExists ? "fixed" : "static"
+   }
+  style={buttonStyle}
+  className={classes.appBar}>
     <Toolbar>
       <Typography
         variant="h6"
         color="inherit"
-        className={classes.flex}
+        className={classes.grow}
         component={Link}
         to={authExists ? LIST_PATH : '/'}>
-        Livedaze
+        <img src = {logo}
+             width = "150px"
+             className = "logoImage"
+        />
       </Typography>
       {authExists ? (
         <AccountMenu
@@ -54,6 +66,10 @@ export const Navbar = ({
       )}
     </Toolbar>
   </AppBar>
+  {
+    authExists ? (  <ClippedDrawer/> ) : ""}
+    </div>
+    </React.Fragment>
 )
 
 Navbar.propTypes = {
