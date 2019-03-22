@@ -1,19 +1,12 @@
 import React from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "moment-timezone";
 import "moment-duration-format";
-import { AfterWakeUpTime } from "../WakeUpTime/AfterWakeUpTime";
 
 import { Grid } from "@material-ui/core";
-import Fab from "@material-ui/core/Fab";
 import Icon from '@mdi/react'
-import { mdiWeatherSunny } from '@mdi/js';
-import  { mdiEmoticonNeutralOutline } from '@mdi/js';
-import  { mdiEmoticonDeadOutline } from '@mdi/js';
 import  { mdiCheckboxMarkedCircle } from '@mdi/js';
 
-import FormControl from '@material-ui/core/FormControl';
 import CustomizedInputs from "./CustomizedInputs";
 
 
@@ -24,7 +17,6 @@ export class CompletedTask extends React.Component {
     super(props);
     this.state = {
       startDate: null,
-      isClicked: true,
       isTimeValid: true
     };
     this.handleChange = this.handleChange.bind(this);
@@ -45,22 +37,8 @@ export class CompletedTask extends React.Component {
   };
 
   render() {
-    let isClicked = this.state.isClicked;
+  
     let isTimeValid = this.state.isTimeValid;
-
-    const today = new Date();
-    const buttonStyle = {
-      textDecoration: "none",
-      alignSelf: "center",
-      letterSpacing: "0.1rem",
-      fontFamily: "isotonic",
-      fontSize: "12px",
-      margin: "10px",
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      backgroundImage:
-        "radial-gradient(circle at 12.3% 19.3%, rgb(94, 104, 226) 0%, rgb(166, 171, 241) 100.2%)"
-    };
     return (
       <form onSubmit={this.handleSubmit}>
       <div className="fixedHeightPaper">
@@ -69,8 +47,7 @@ export class CompletedTask extends React.Component {
             <Icon path={mdiCheckboxMarkedCircle}
                color="rgb(116, 228, 162)"
                size={1.2}
-               >
-               </Icon>
+               />
           </Grid>
           <Grid item>
             <div className="PostponeHeader">

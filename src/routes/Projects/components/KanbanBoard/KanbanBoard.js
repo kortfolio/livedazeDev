@@ -13,7 +13,7 @@ import { mdiFormatListChecks, mdiCheckboxMarkedCircle } from "@mdi/js";
 import { mdiCalendarCheckOutline } from "@mdi/js";
 import { mdiFormatListCheckbox } from "@mdi/js";
 import { Fab } from "@material-ui/core";
-import data from "./data.json";
+import data2 from "./data2.json";
 import { Spring } from "react-spring/renderprops";
 import { mdiClose } from "@mdi/js";
 import { CustomCard } from "./CustomCard.js";
@@ -64,6 +64,7 @@ class NewCard extends React.Component {
           */}
 
         {/* Styling TextBox */}
+
         <div style={{ marginBottom: 5 }}>
           <textarea
             type="textArea"
@@ -154,6 +155,7 @@ const CustomLaneHeader = props => {
       justify="center"
       alignContent="center"
     >
+    
       {isItPlanner ? (
         <React.Fragment>
           <Grid item>
@@ -210,17 +212,22 @@ const CustomLaneHeader = props => {
 
 export function KanbanBoard() {
   return (
-    <Board
-      data={data}
-      style={{ backgroundColor: "#fafafa", padding: 0, borderBottom: 0 }}
+  
+    <Grid container spacing={24}>
+        <Board
+      data={data2}
+      style={{ backgroundColor: "black", width: "100%" }}
       customLaneHeader={<CustomLaneHeader />}
       addCardLink={<AddNewCardTab />}
       newCardTemplate={<NewCard />}
       draggable
       editable
       customCardLayout
-    >
+        >
       <CustomCard />
-    </Board>
+        </Board>
+    </Grid>
+  
+    
   );
 }

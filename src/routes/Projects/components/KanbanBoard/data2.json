@@ -1,0 +1,57 @@
+
+{
+    "lanes":
+    [
+      {
+        "id": "Planner",
+        "className": "customPaper",
+
+        "title": "To do List",
+        "label": "20/70",
+        "cards": 
+        [
+          {
+            "id": "Milk",
+            "title": "Buy milk",
+            "label": "15 mins",
+            "description": "2 Gallons of milk at the Deli store"
+          },
+          {
+            "id": "Plan2",
+            "title": "Dispose Garbage",
+            "label": "10 mins",
+            "description": "Sort out recyclable and waste as needed"
+          }
+        ]
+      },
+      {
+        "id": "WIP88",
+        "className": "customPaper",
+      
+        "title": "Completed",
+        "label": "10/20",
+        "cards": [
+          {
+            "id": "Wip1",
+            "title": "Clean House",
+            "label": "30 mins",
+            "description": "Soap wash and polish floor. "
+          }
+        ]
+      },{
+        "id": "WImmP",
+        "className": "customPaper",
+        "title": "Stucked",
+        "label": "10/20",
+        "cards": [
+          {
+            "id": "Wip1",
+            "title": "Clean House",
+            "label": "30 mins",
+            "description": "Soap wash and polish floor. "
+          }
+        ]
+      }
+    ]
+    }
+      

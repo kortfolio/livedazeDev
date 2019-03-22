@@ -1,6 +1,3 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import orange from '@material-ui/core/colors/orange';
-
 const drawerWidth = 200;
 const theme = theme => ({
   root: {

@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import Fab from "@material-ui/core/Fab";
 import Icon from "@mdi/react";
 import { mdiCat } from "@mdi/js";
 import SelfDiagnosisForm from "./SelfDiagnosisForm";

@@ -1,19 +1,27 @@
 
 {
-    "lanes": [
+    "lanes":
+    [
       {
         "id": "Planner",
         "title": "To do List",
         "label": "20/70",
-        "style": {"background": "white",
+        "laneStyle": 
+        {
+          "background": "black"
+         
+        },
+        "className": "customPaper",
+        "style": {
+          "background": "white",
                  "borderRadius": "4",
-                 "width": "100%",
+                 "width": "33.33%",
                  "margin": "0",
                  "boxShadow": "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)",
                  "margin": "0px 0px 0px 0px",
                  "flexGrow": 0,
-                 "maxWidth": "100%",
-                 "flexBasis": "100%"
+                 "maxWidth": "33.33%",
+                 "flexBasis": "33.33%"
                 },
         "cardStyle": {"border": "none", "boxShadow": "0 0 6px 1px #BD3B3", "marginBottom": 15,"padding": 0},
         "cards": 
@@ -35,18 +43,43 @@
       },
       {
         "id": "WIP",
+        "className": "customPaper",
         "title": "Completed",
         "label": "10/20",
-        "className": "MuiPaper-root-17 MuiPaper-elevation2-21 MuiPaper-rounded-18",
         "style": {
           "background": "white",
           "boxShadow": "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)",
           "margin": "0px 0px 0px 24px",
             "borderRadius": "4",
-            "width": "100%",
+            "width": "33.33%",
             "flexGrow": 0,
-            "maxWidth": "100%",
-            "flexBasis": "100%"
+            "maxWidth": "33.33%",
+            "flexBasis": "33.33%"
+          },
+        
+        "cards": [
+          {
+            "className": "helloTrello",
+            "id": "Wip1",
+            "title": "Clean House",
+            "label": "30 mins",
+            "description": "Soap wash and polish floor. "
+          }
+        ]
+      },{
+        "id": "WIP",
+        "title": "Stucked",
+        "className": "customPaper",
+        "label": "10/20",
+        "style": {
+          "background": "white",
+          "boxShadow": "0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)",
+          "margin": "0px 0px 0px 24px",
+            "borderRadius": "4",
+            "width": "33.33%",
+            "flexGrow": 0,
+            "maxWidth": "33.33%",
+            "flexBasis": "33.33%"
           },
         
         "cards": [

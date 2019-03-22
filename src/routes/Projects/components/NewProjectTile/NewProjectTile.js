@@ -2,14 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ContentAddCircle from '@material-ui/icons/AddCircle'
 import Paper from '@material-ui/core/Paper'
+import { Typography } from '@material-ui/core';
 
-const iconSize = '6rem'
+const iconSize = '1rem'
 const iconStyle = { width: iconSize, height: iconSize }
 
 export const NewProjectTile = ({ onClick, classes }) => (
-  <Paper className={classes.root} onClick={onClick}>
-    <ContentAddCircle style={iconStyle} />
-  </Paper>
+ 
+    <Typography onClick={onClick}>
+    Add a task + 
+    </Typography>
 )
 
 NewProjectTile.propTypes = {

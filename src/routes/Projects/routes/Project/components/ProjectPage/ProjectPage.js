@@ -9,10 +9,14 @@ const ProjectPage = ({ project, projectId, classes }) => (
     <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} component="h2">
-          {project.name || 'Project'}
+          {projectId || 'Project'}
         </Typography>
-        <Typography className={classes.subtitle}>{projectId}</Typography>
+        <Typography className={classes.subtitle}>
+        
+        <p>HEllo~~~~~~~~~~</p>
+        {projectId}</Typography>
         <div style={{ marginTop: '10rem' }}>
+        
           <pre>{JSON.stringify(project, null, 2)}</pre>
         </div>
       </CardContent>

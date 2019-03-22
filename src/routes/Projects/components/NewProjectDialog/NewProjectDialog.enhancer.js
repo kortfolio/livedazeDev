@@ -7,6 +7,7 @@ import styles from './NewProjectDialog.styles'
 export default compose(
   reduxForm({
     form: NEW_PROJECT_FORM_NAME,
+    
     // Clear the form for future use (creating another project)
     onSubmitSuccess: (result, dispatch, props) => props.reset()
   }),

@@ -9,19 +9,9 @@ export const Home = ({ classes }) => (
       <h2>UNDER DEVELOPMENT</h2>
     </div>
     <div className="flex-row-center">
-      <div className={classes.section}>
-        
-      </div>
-      <div className={classes.section}>
-       
-      </div>
-      <div className={classes.section}>
-     
-      </div>
-      <div className={classes.section}>
-     
-      </div>
-    </div>
+      
+  </div>
+      
   </div>
 )
 

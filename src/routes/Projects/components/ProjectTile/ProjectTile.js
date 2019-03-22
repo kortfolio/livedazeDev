@@ -13,9 +13,12 @@ export const ProjectTile = ({
   classes
 }) => (
   <Paper className={classes.root}>
+  { 
+     console.log( {name})
+  }
     <div className={classes.top}>
       <span className={classes.name} onClick={onSelect}>
-        {name || 'No Name'}
+        {name || "no name"}
       </span>
       {showDelete && onDelete ? (
         <Tooltip title="delete">

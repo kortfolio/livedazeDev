@@ -17,6 +17,8 @@ export default (initialState = {}) => {
   // Redux + Firebase Config (react-redux-firebase & redux-firestore)
   // ======================================================
   const defaultRRFConfig = {
+
+ useFirestoreForProfile: true, // Firestore for Profile instead of Realtime DB
     userProfile: 'users', // root that user profiles are written to
     updateProfileOnLogin: false, // enable/disable updating of profile on login
     presence: 'presence', // list currently online users under "presence" path in RTDB
@@ -36,7 +38,7 @@ export default (initialState = {}) => {
   const enhancers = []
 
   if (env === 'local') {
-    const devToolsExtension = window.devToolsExtension
+    const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     if (typeof devToolsExtension === 'function') {
       enhancers.push(devToolsExtension())
     }

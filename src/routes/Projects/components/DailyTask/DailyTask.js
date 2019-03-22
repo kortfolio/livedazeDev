@@ -1,0 +1,38 @@
+import React from "react";
+import { Grid } from "@material-ui/core";
+import Icon from "@mdi/react";
+import { mdiFormatListCheckbox } from "@mdi/js";
+
+export class DailyTask extends React.Component {
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <Grid container spacing={8} alignItems="center" justify="center" alignContent="center">
+        <Grid item>
+            <Icon
+              path={mdiFormatListCheckbox}
+              color="rgb(255, 199, 208)"
+              size={1.2}
+            />
+          </Grid>
+
+          <Grid item>
+            <div
+              style={{
+                fontFamily: "isotonicBold",
+                color: "rgb(249, 115, 137)",
+                textTransform: "uppercase",
+                fontSize: 20
+              }}
+            >
+              daily to do
+            </div>
+          </Grid>
+          {/* <FormControlLabelPosition/>
+           */}
+           
+        </Grid>
+      </form>
+    );
+  }
+}

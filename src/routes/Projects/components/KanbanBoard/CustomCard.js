@@ -6,7 +6,7 @@ import CircleUnchecked from "@material-ui/icons/RadioButtonUnchecked";
 import Board, { Tag } from "react-trello";
 import "moment-timezone";
 import "moment-duration-format";
-import { Grid } from "@material-ui/core";
+import { Grid,Paper} from "@material-ui/core";
 
 import Icon from "@mdi/react";
 import { mdiFormatListChecks, mdiCheckboxMarkedCircle } from "@mdi/js";
@@ -22,13 +22,13 @@ export const CustomCard = props => {
   const isItPlanner = props.laneId === "Planner";
   console.log(`*************` + isItPlanner + `*************`);
   return (
+  
     <div>
       {isItPlanner ? (
-        <React.Fragment>
+        <React.Fragment>   
           <header>
             {/* Card Styling */}
             {/* Testing conditional rendering  */}
-        
             <div
               style={{
                 fontSize: 12,
@@ -96,7 +96,7 @@ export const CustomCard = props => {
                 ))}
               </div>
             )}
-          </div>
+        </div>
         </React.Fragment>
       ) : (
         <React.Fragment>
@@ -162,6 +162,6 @@ export const CustomCard = props => {
           </div>
         </React.Fragment>
       )}
-    </div>
+      </div>
   );
 };

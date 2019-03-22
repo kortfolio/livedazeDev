@@ -5,7 +5,6 @@ import "moment-timezone";
 import "moment-duration-format";
 import { BeforeSetSleepTime } from "./BeforeSetSleepTime";
 import { Grid, Icon } from "@material-ui/core";
-import { useSpring, animated } from 'react-spring'
 import Fab from '@material-ui/core/Fab';
 import { Spring } from 'react-spring/renderprops';
 export class AfterSetSleepTime extends React.Component {

@@ -55,6 +55,7 @@ export default compose(
       if (!uid) {
         return showError('You must be logged in to create a project')
       }
+      //This is where you send data to firebase.
       return firebase
         .push('projects', {
           ...newInstance,
@@ -63,7 +64,7 @@ export default compose(
         })
         .then(() => {
           toggleDialog()
-          showSuccess('Project added successfully')
+          showSuccess('done')
         })
         .catch(err => {
           console.error('Error:', err) // eslint-disable-line no-console
@@ -71,19 +72,24 @@ export default compose(
           return Promise.reject(err)
         })
     },
-    deleteProject: props => projectId => {
+    deleteProject: props => project => {
       const { firebase, showError, showSuccess } = props
+      console.log("Hello I am from delete project")
+      
+      console.log("bie")
       return firebase
-        .remove(`projects/${projectId}`)
-        .then(() => showSuccess('Project deleted successfully'))
+
+        .remove(`projects/${project.key}`)
+        .then(() => 
+        showSuccess('Project deleted successfully'))
         .catch(err => {
           console.error('Error:', err) // eslint-disable-line no-console
           showError(err.message || 'Could not delete project')
           return Promise.reject(err)
         })
     },
-    goToProject: ({ history }) => projectId => {
-      history.push(`${LIST_PATH}/${projectId}`)
+    goToProject: ({ history }) => project => {
+      history.push(`${LIST_PATH}/${project.key}`)
     }
   }),
   withStyles(theme)

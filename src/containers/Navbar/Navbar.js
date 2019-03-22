@@ -49,6 +49,7 @@ export const Navbar = ({
         <img src = {logo}
              width = "150px"
              className = "logoImage"
+             alt="livedaze"
         />
       </Typography>
       {authExists ? (
