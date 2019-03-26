@@ -50,6 +50,27 @@ export default compose(
   ),
   // Add handlers as props
   withHandlers({
+    addGoalDate: props => newInstance => {
+      const { firebase, uid, showError, showSuccess,   } = props
+      if (!uid) {
+        return showError('You must be logged in to create a project')
+      }
+      //This is where you send data to firebase.
+      return firebase
+        .push('goalDays', {
+          ...newInstance,
+          createdBy: uid,
+          createdAt: firebase.database.ServerValue.TIMESTAMP
+        })
+        .then(() => {
+          showSuccess('done')
+        })
+        .catch(err => {
+          console.error('Error:', err) // eslint-disable-line no-console
+          showError(err.message || 'Could not add project')
+          return Promise.reject(err)
+        })
+    },
     addProject: props => newInstance => {
       const { firebase, uid, showError, showSuccess, toggleDialog } = props
       if (!uid) {
@@ -59,6 +80,7 @@ export default compose(
       return firebase
         .push('projects', {
           ...newInstance,
+
           createdBy: uid,
           createdAt: firebase.database.ServerValue.TIMESTAMP
         })
@@ -80,6 +102,22 @@ export default compose(
       return firebase
 
         .remove(`projects/${project.key}`)
+        .then(() => 
+        showSuccess('Project deleted successfully'))
+        .catch(err => {
+          console.error('Error:', err) // eslint-disable-line no-console
+          showError(err.message || 'Could not delete project')
+          return Promise.reject(err)
+        })
+    },
+    deleteGoalDay: props => goalDay => {
+      const { firebase, showError, showSuccess } = props
+      console.log("Hello I am from delete project")
+      
+      console.log("bie")
+      return firebase
+
+        .remove(`goalDays/${goalDay.key}`)
         .then(() => 
         showSuccess('Project deleted successfully'))
         .catch(err => {

@@ -374,17 +374,27 @@ a.waves-effect.waves-light.btn.PrimaryBtnColor
   flex-wrap: wrap;
 }
 .SetGoalDatePlaceHolder {
-    color: #6772e5;
+    color: #32325d;
     text-transform: uppercase;
     text-align: center;
     font-size: 20px;
     font-family: 'isotonicBold';
 }
 
+.GoalDayTextDecorator {
+  letter-spacing: 0.1em;
+  color: #686fe7;
+  font-family: 'isotonicBold';
+  font-size:19px;
+  margin: 0;
+  display: block;
+  padding: 0;
+}
 
 .centerStuff {
     align-items: center;
     text-align: center;
+    width:100%;
 }
 
 button.waves-effect.waves-light.btn.PrimaryBtnColor {
@@ -517,7 +527,7 @@ input.DatePickerCustomStyle {
   text-transform: uppercase;
 }
 
-.fhfhfkfeofepf {
+.DaysLeftTextDecorator {
   color: black;
   text-transform: uppercase;
   text-align: left;
@@ -611,4 +621,13 @@ img {
 .ekfekpfekfekpfkmemem
 {
   background:"yellow"
+}
+
+span.resetTextDecorator {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #7d7d8e;
+  letter-spacing: 0;
+  cursor: pointer;
+  /* margin-top: -10px; */
 }

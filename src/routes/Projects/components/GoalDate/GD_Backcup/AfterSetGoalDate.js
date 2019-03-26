@@ -3,8 +3,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import Icon from '@mdi/react';
 import { mdiCrown } from '@mdi/js';
 import { Grid } from "@material-ui/core";
-import {BeforeSetGoalDate} from './BeforeSetGoalDate';
 import Fab from "@material-ui/core/Fab";
+import { GoalDate2 } from "./GoalDateBackUp";
 export class AfterSetGoalDate extends React.Component {
   constructor(props) {
     super(props);
@@ -49,7 +49,7 @@ export class AfterSetGoalDate extends React.Component {
     <React.Fragment>
      {
        isClicked ? (
-      <BeforeSetGoalDate/>
+      <GoalDate2/>
      ) : (
       <form onSubmit={this.handleSubmit}>
       <div className="fixedHeightPaper">

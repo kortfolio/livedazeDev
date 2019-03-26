@@ -20,6 +20,10 @@ import FeedbackIcon from "@material-ui/icons/Feedback";
 
 import AlarmIcon from "@material-ui/icons/Alarm";
 import theme from "./NavbarTheme";
+import {Link} from 'react-router-dom'
+           
+import { FOCUSTIME_PATH } from 'constants/paths'
+import { LIST_PATH } from 'constants/paths'
 
 function ClippedDrawer(props) {
   const { classes } = props;
@@ -36,14 +40,20 @@ function ClippedDrawer(props) {
         <div className={classes.toolbar} />
         <List>
           {["Home", "Dashboard", "Focus Time", "Break Time"].map(
-            (text, index) => (
-              <ListItem button key={text}>
+            (text, index) => (  
+              <ListItem button key={text} component={Link} 
+              to={  
+                index === 0 && LIST_PATH ||
+                index === 1 && FOCUSTIME_PATH
+              }>
+              
                 <ListItemIcon>
-                  
-                  {index === 0 && <HomeIcon />}
+               
+                  {index === 0 && <HomeIcon/>}
                   {index === 1 && <BarChartIcon />}
                   {index === 2 && <AlarmIcon />}
                   {index === 3 && <BeachAccessIcon />}
+              
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
@@ -55,9 +65,11 @@ function ClippedDrawer(props) {
           {["Settings", "Notification", "Feedback"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
+                <React.Fragment>
                 {index === 0 && <SettingsIcon />}
                 {index === 1 && <NotificationsIcon />}
                 {index === 2 && <FeedbackIcon />}
+                </React.Fragment>
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>

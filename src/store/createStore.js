@@ -18,7 +18,7 @@ export default (initialState = {}) => {
   // ======================================================
   const defaultRRFConfig = {
 
- useFirestoreForProfile: true, // Firestore for Profile instead of Realtime DB
+   useFirestoreForProfile: true, // Firestore for Profile instead of Realtime DB
     userProfile: 'users', // root that user profiles are written to
     updateProfileOnLogin: false, // enable/disable updating of profile on login
     presence: 'presence', // list currently online users under "presence" path in RTDB

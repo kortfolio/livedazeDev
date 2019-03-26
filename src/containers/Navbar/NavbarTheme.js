@@ -17,6 +17,7 @@ const theme = theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
+   
   },
   content: {
     width: 'auto',

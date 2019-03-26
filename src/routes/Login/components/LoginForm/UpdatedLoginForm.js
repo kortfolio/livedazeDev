@@ -56,7 +56,7 @@ class UpdatedLoginForm extends React.Component {
     return (
       <div className={classes.root}>
           <Grid item xl={6}>         
-               
+
                 <Field
                   fullWidth={true}
                   name="email"

@@ -9,7 +9,8 @@ import { Field } from 'redux-form'
 import { TextField } from 'redux-form-material-ui'
 import { required } from 'utils/form'
 
-const NewProjectDialog = ({ classes, handleSubmit, open, onRequestClose }) => (
+
+const NewProjectDialog = ({ showDelete,classes, handleSubmit, open, onRequestClose }) => (
   <Dialog open={open} onClose={onRequestClose}>
     <DialogTitle id="new-project-dialog-title">New Project</DialogTitle>
     <form onSubmit={handleSubmit} className={classes.inputs}>

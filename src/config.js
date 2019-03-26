@@ -21,7 +21,7 @@ export const firebase = {
 // which is not environment specific.
 // For more details, visit http://react-redux-firebase.com/docs/api/enhancer.html
 export const reduxFirebase = {
-  enableLogging: true, // enable/disable Firebase Database Logging
+  enableLogging: false, // enable/disable Firebase Database Logging
 }
 
 export default {
