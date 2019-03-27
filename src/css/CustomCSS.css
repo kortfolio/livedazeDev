@@ -383,7 +383,7 @@ a.waves-effect.waves-light.btn.PrimaryBtnColor
 
 .GoalDayTextDecorator {
   letter-spacing: 0.1em;
-  color: #686fe7;
+  color: white;
   font-family: 'isotonicBold';
   font-size:19px;
   margin: 0;
@@ -514,9 +514,11 @@ input.DatePickerCustomStyle {
 }
 
 .livedaze_daysRemaining {
-    color: black;
+    color: white;
     font-size: 70px;
     text-align: right;
+    margin-top: -10px;
+    margin-bottom: -20px;
 }
 
 
@@ -528,7 +530,7 @@ input.DatePickerCustomStyle {
 }
 
 .DaysLeftTextDecorator {
-  color: black;
+  color: white;
   text-transform: uppercase;
   text-align: left;
   /* height: 30px; */
@@ -630,4 +632,10 @@ span.resetTextDecorator {
   letter-spacing: 0;
   cursor: pointer;
   /* margin-top: -10px; */
+}
+
+.goalDatePaper {
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+  max-height: 130px;
 }

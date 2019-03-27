@@ -7,7 +7,7 @@ import ProjectRoute from "routes/Projects/routes/Project";
 import ProjectTile from "../ProjectTile";
 import NewProjectTile from "../NewProjectTile";
 import NewProjectDialog from "../NewProjectDialog";
-import { Paper, Grid, Typography } from "@material-ui/core";
+import { Card, Paper, Grid, Typography } from "@material-ui/core";
 
 
 
@@ -57,30 +57,28 @@ export const ProjectsPage = ({
         <div className={classes.tiles}>
           <main className={classes.content}>
             <div className={classes.toolbar} />
-
             {/*<div className={classes.layout}> 
          <div className={classes.toolbar}>*/}
             <Typography paragraph />
-            <Grid container spacing={24}>
-              <Grid item md={4}>
-                <Paper>
-                  <BeforeSetSleepTime />
-                </Paper>
+            <Grid container justify="center" spacing={40}>
+            <Grid item xs={12} md={4}>
+              <GoalDate
+                  onSubmit={addGoalDate}
+                  />
               </Grid>
 
-              <Grid item md={4}>
-                <Paper>
+              <Grid item xs={12} md={4}>
+                                  <Paper>
                   <PreWakeUpTime />
                 </Paper>
               </Grid>
 
-              <Grid item md={4}>
-                <Paper>
+              <Grid item xs={12} md={4}>
+                             <Paper>
                
-                  <GoalDate
-                  onSubmit={addGoalDate}
-                  />
                
+                <BeforeSetSleepTime />
+
                 </Paper>
               </Grid>
             </Grid>

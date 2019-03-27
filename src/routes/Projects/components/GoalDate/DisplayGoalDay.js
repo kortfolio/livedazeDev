@@ -1,83 +1,123 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid } from "@material-ui/core";
+import { Grid, Avatar } from "@material-ui/core";
 import moment from "moment";
+import { withStyles } from "@material-ui/core/styles";
 
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import BackSpaceIcon from "@material-ui/icons/Backspace"; 
+import BackSpaceIcon from "@material-ui/icons/Backspace";
 import Icon from "@mdi/react";
 import { mdiCrown } from "@mdi/js";
+
+import { mdiKeyboardBackspace } from "@mdi/js";
+import { mdiCalendarCheck } from "@mdi/js";
 import { Spring } from "react-spring/renderprops";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
+import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
+const styles = theme => ({
+  card: {
+    display: "flex",
+    background: "#4c89db",
+    backgroundColor: "#045de9",
+    backgroundImage: "linear-gradient(315deg, #045de9 0%, #09c6f9 74%)"
+  },
+  details: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%"
+  },
+  goalDayTitle: {
+    display: "flex",
+    flexDirection: "column",
+    color: "white",
+    fontFamily: "isotonicBold",
+    textTransform: "uppercase",
+    fontSize: "1.25rem"
+  },
+  content: {
+    flex: "1 0 auto",
+    width: "100%"
+  },
+  controls: {
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit
+  },
+  playIcon: {
+    height: 38,
+    width: 38
+  }
+});
 
 export const DisplayGoalDay = ({ goalDay, classes, today, onDelete }) => (
-  <React.Fragment>
-   <Grid
-                  container
-                  spacing={8}
-                  alignItems="center"
-                  justify="center"
-                  alignContent="center"
-                >
-                  <Grid item>
-                    <Icon
-                      path={mdiCrown}
-                      size={1}
-                      horizontal
-                      vertical
-                      rotate={180}
-                      color="rgb(229, 160, 62)"
-                    />
-                  </Grid>
-                  <Grid item>
-                    <div className="SetGoalDatePlaceHolder">Your Goal Day
-      
-               </div>
-                 
-                  </Grid>
-                </Grid>
-                <div className="centerStuff">
-                  <span className="subDescription">
-                    Good Luck!
-                    <br />
-                    Do your best!!
-                  </span>
-                </div>
-    <Grid item xs={12} sm container alignItems="center">
-      <Grid item xs={12} sm={6}>
-        <div className="livedaze_daysRemaining">
+  <Card className={classes.card}>
+    
+    <CardMedia>
+      <Grid container justify="center" style={{ height: "100%" }}>
+        <Icon path={mdiCalendarCheck} size={3.5} color="white" />
+      </Grid>
+    </CardMedia>
+    
+    <div className={classes.details}>
+      <CardContent className={classes.content}>
+        <Grid
+          item
+          align="right"
+          className={classes.goalDayTitle}
+        >
+          <Icon path={mdiKeyboardBackspace}  onClick={onDelete} size={0.5} color="white" cursor="pointer"  />
+         </Grid>
+        <Typography align="right" className={classes.goalDayTitle}>
+          Your Goal Day
+        </Typography>
+        <Grid
+          container
+          alignItems="flex-start"
+          justify="flex-end"
+          direction="row"
+        >
           <Spring
             from={{ number: 0 }}
-            to={{ number: Math.abs(moment(new Date(), "days").diff(goalDay, "days")) + 1}}
+            to={{
+              number:
+                Math.abs(moment(new Date(), "days").diff(goalDay, "days")) + 1
+            }}
           >
-            {props => <div>{Math.floor(props.number)}</div>}
+            {props => (
+              <div className="livedaze_daysRemaining">
+                {Math.floor(props.number)}
+              </div>
+            )}
           </Spring>
-        </div>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <div className="DaysLeftTextDecorator">
-          Days
-          <br/>
-          Left
-        </div>    
-            
-      </Grid>
-      <div className="centerStuff">
-      
-      <span className="GoalDayTextDecorator">
-      {goalDay}
-      <br></br>
-      <span className="resetTextDecorator" onClick={onDelete}>
-        GO back
-        </span>
-      </span>
-      </div>
-      
-    </Grid>
-
-    
-  </React.Fragment>
+          <span className="DaysLeftTextDecorator">
+            Days
+            <br />
+            Left
+          </span>
+        </Grid>
+        <Typography align="right" className={classes.goalDayTitle}>
+          {goalDay}
+        </Typography>
+        <Grid
+          container
+          align="right"
+          alignContent="flex-end"
+          direction="row"
+          alignItems="center"
+        >
+          <span className="GoalDayTextDecorator" />
+        </Grid>
+      </CardContent>
+    </div>
+  </Card>
 );
 
 DisplayGoalDay.defaultProps = {
@@ -88,4 +128,4 @@ DisplayGoalDay.propTypes = {
   showDelete: PropTypes.bool
 };
 
-export default DisplayGoalDay;
+export default withStyles(styles, { withTheme: true })(DisplayGoalDay);

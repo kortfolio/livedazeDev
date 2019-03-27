@@ -9,19 +9,14 @@ import { isEmpty } from "react-redux-firebase";
 import Fab from "@material-ui/core/Fab";
 import { DatePickerField } from "./DatePickerField";
 
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
-import DeleteIcon from "@material-ui/icons/Delete"; 
 
 
 import { Grid } from "@material-ui/core";
 import Icon from "@mdi/react";
 import { mdiCrown } from "@mdi/js";
 import DisplayGoalDay from "./DisplayGoalDay";
-import { useSpring, animated } from "react-spring";
 
 //React Spring
-import { Spring } from "react-spring/renderprops";
 
 const buttonStyle = {
   textDecoration: "none",
@@ -43,7 +38,7 @@ export const GoalDate = ({
   onDelete
 }) => (
   <React.Fragment>
-    <div className="fixedHeightPaper">
+    
       {isEmpty(goalDays) && (
         <React.Fragment>
           <Grid
@@ -114,7 +109,7 @@ export const GoalDate = ({
                 />
    ))}
 
-    </div>
+    
   </React.Fragment>
 );
 
