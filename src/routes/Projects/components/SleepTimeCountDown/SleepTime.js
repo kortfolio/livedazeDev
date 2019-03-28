@@ -4,39 +4,55 @@ import Button from "@material-ui/core/Button";
 import moment from "moment";
 import { Field, reduxForm } from "redux-form";
 import { goalDateValidate } from "utils/form";
-
+import { mdiFire } from "@mdi/js";
+import {
+   TextField,TimePicker
+  } from 'redux-form-material-ui'
+  
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { mdiKeyboardBackspace } from "@mdi/js";
 import { withStyles } from "@material-ui/core/styles";
 
 import { Spring } from "react-spring/renderprops";
-import { mdiCalendarCheck } from "@mdi/js";
 import { mdiHelpCircleOutline } from "@mdi/js";
 
 import { isEmpty } from "react-redux-firebase";
 import Fab from "@material-ui/core/Fab";
-import { DatePickerField } from "./DatePickerField";
+import { TimePickerField } from "./TimePickerField";
 
 import { Grid } from "@material-ui/core";
 import Icon from "@mdi/react";
 import { mdiCrown } from "@mdi/js";
-import DisplayGoalDay from "./DisplayGoalDay";
 
-import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import AddIcon from '@material-ui/icons/Add';
+//import TimePicker from '@material-ui/core/TimePicker';
+//import { TimePicker } from 'material-ui-pickers';
 
+
+
+
+const MUITimePicker  = ({ input, defaultValue, meta: { touched, error },  ...other }) => (
+    <TimePicker 
+        errorText = {touched && error} 
+        {...input}
+        container="inline"
+        mode="landscape"
+        value = {input.value != '' ? moment(moment().format('DD MMM YYYY')+' '+input.value).toDate() : null}
+        autoComplete="off"  
+        onChange = {(event, value) => {input.onChange(moment(value).format('h:mm a'))}} 
+        {...other}
+        />
+)
 
 const styles = theme => ({
   card: {
     display: "flex",
     background: "#4c89db",
-    backgroundColor: "#045de9",
-    backgroundImage: "linear-gradient(315deg, #045de9 0%, #09c6f9 74%)",
+    backgroundColor: "#ff7878",
+    backgroundImage: "linear-gradient(315deg, #ff7878 0%, #ff0000 74%)",
     minHeight: "180px",
     maxHeight: "180px",
   },
@@ -102,23 +118,23 @@ const buttonStyle = {
   backgroundColor:"black"
 };
 
-const GoalDate = ({
+const SleepTime = ({
   handleSubmit,
+  sleepTimes,
+  sleepTime,
   goalDays,
   deleteGoalDay,
   onDelete,
-  classes
+  classes,
+
 }) => (
-  <React.Fragment>
-     <Card className={classes.card}>
-    
-      {isEmpty(goalDays) && (
-        
-        <React.Fragment>
-         
+<React.Fragment>
+  
+    {isEmpty(sleepTimes) && (
+     <Card className={classes.card}>      
     <CardMedia>
       <Grid container justify="center" style={{ height: "100%" }}>
-        <Icon path={mdiCalendarCheck} size={3.5} color="white" />
+        <Icon path={mdiFire} size={3.5} color="white" />
       </Grid>
     </CardMedia>
     {/* Card Content */}
@@ -130,12 +146,12 @@ const GoalDate = ({
           className={classes.goalDayTitle}
         >
        
-    <Tooltip title="Set your goals high, and don't stop till you get there.">
+    <Tooltip title="Set a bedtime. wake at the same time.">
           <Icon path={mdiHelpCircleOutline}  size={0.5} color="white" />
         </Tooltip>
          </Grid>
         <Typography align="right" className={classes.goalDayTitle}>
-          My Goal Day
+          My Bedtime
         </Typography>
         {/* Goal Day Picker */}
         <Grid
@@ -147,16 +163,10 @@ const GoalDate = ({
         <form onSubmit={handleSubmit}>
               <Field
                 className="DatePickerCustomStyle"
-                id="deadlineID"
-                name="goalDay"
-                type="text"
-                placeholderText="MM/DD/YYY"
-                component={DatePickerField}
-                autoComplete="off"
-                normalize={value =>
-                  value ? moment(value).format("MM/DD/YYYY") : null
-                }
-                validate={[goalDateValidate]}
+                id="deadlineIDzz"
+                component={TimePickerField}
+                name="sleepTime"
+                placeholderText="00:00"     
               />
                   <Grid
           container
@@ -183,32 +193,19 @@ const GoalDate = ({
         </Typography>
       </CardContent>
     </div>
-        
-         
-          
-        </React.Fragment>
-      )}
-
-{!isEmpty(goalDays) &&
-        goalDays.map((goalDay, ind) => (
-                <DisplayGoalDay
-                  key={`GoalDay-${goalDay.id}-${ind}`}
-                  goalDay={goalDay.value["goalDay"]}
-                  onDelete={() => deleteGoalDay(goalDay)}
-                />
-   ))}
-   </Card>
+       
+   </Card>)}
   </React.Fragment>
-);
+    );
 
-GoalDate.propTypes = {
+SleepTime.propTypes = {
   handleSubmit: PropTypes.func.isRequired, // from enhancer (reduxForm)
-  goalDays: PropTypes.array, // from enhancer (connect + firebaseConnect - firebase)
+  sleepTimes: PropTypes.array, // from enhancer (connect + firebaseConnect - firebase)
   onDelete: PropTypes.func
 };
 
-DisplayGoalDay.defaultProps = {
+SleepTime.defaultProps = {
   showDelete: true
 };
-export default withStyles(styles, { withTheme: true })(GoalDate);
 
+export default withStyles(styles, { withTheme: true })(SleepTime);

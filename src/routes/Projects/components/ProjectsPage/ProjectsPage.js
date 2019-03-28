@@ -22,6 +22,7 @@ import { SelfDiagnosis } from "../SelfDiagnosis/SelfDiagnosis";
 import { DailyTask } from "../DailyTask/DailyTask";
 import { CompletedTask } from "../CompletedTask/CompletedTask";
 import GoalDate from "../GoalDate";
+import SleepTime from "../SleepTimeCountDown";
 
 const renderChildren = (routes, match, parentProps) =>
   routes.map(route => (
@@ -34,7 +35,9 @@ const renderChildren = (routes, match, parentProps) =>
 
 export const ProjectsPage = ({
   projects,
+  props,
   goalDate,
+  sleepTime,
   collabProjects,
   auth,
   newDialogOpen,
@@ -42,6 +45,7 @@ export const ProjectsPage = ({
   deleteProject,
   addProject,
   addGoalDate,
+  addSleepTime,
   classes,
   match,
   goToProject
@@ -66,18 +70,18 @@ export const ProjectsPage = ({
                   onSubmit={addGoalDate}
                   />
               </Grid>
-
               <Grid item xs={12} md={4}>
-                                  <Paper>
-                  <PreWakeUpTime />
-                </Paper>
+                        
+                                  <SleepTime
+                                  onSubmit={addSleepTime}
+                                  />
+              
               </Grid>
 
               <Grid item xs={12} md={4}>
                              <Paper>
                
-               
-                <BeforeSetSleepTime />
+              
 
                 </Paper>
               </Grid>
@@ -132,12 +136,15 @@ ProjectsPage.propTypes = {
   auth: PropTypes.object, // from enhancer (connect + firebaseConnect - firebase)
   projects: PropTypes.array, // from enhancer (connect + firebaseConnect - firebase)
   goalDate: PropTypes.array,
+  sleepTime: PropTypes.array,
   newDialogOpen: PropTypes.bool, // from enhancer (withStateHandlers)
   toggleDialog: PropTypes.func.isRequired, // from enhancer (withStateHandlers)
   deleteProject: PropTypes.func.isRequired, // from enhancer (withHandlers - firebase)
   collabProjects: PropTypes.object, // from enhancer (withHandlers - firebase)
   addProject: PropTypes.func.isRequired, // from enhancer (withHandlers - firebase)
   addGoalDate: PropTypes.func.isRequired,
+  addSleepTime: PropTypes.func.isRequired,
+  
   goToProject: PropTypes.func.isRequired // from enhancer (withHandlers - router)
 
 };

@@ -33,6 +33,7 @@
     "firebase": "^5.7.2",
     "history": "^4.7.2",
     "lodash": "^4.17.11",
+    "material-ui-next-pickers": "0.0.20",
     "material-ui-pickers": "^2.2.4",
     "mdi-react": "^5.3.0",
     "prop-types": "^15.6.1",

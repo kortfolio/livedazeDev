@@ -505,10 +505,11 @@ span.subDescription {
     font-size:12px;
 }
 input.DatePickerCustomStyle {
+  background: transparent;
   width: 150px;
     font-family: 'isotonic';
     border:0 !important;
-    color: #5e68e28c;
+    color:white;
     text-align: center;
     font-size: 30px !important;
 }
@@ -638,4 +639,8 @@ span.resetTextDecorator {
   background-color: #045de9;
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
   max-height: 130px;
+}
+
+::placeholder {
+  color: white;
 }

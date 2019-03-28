@@ -71,6 +71,27 @@ export default compose(
           return Promise.reject(err)
         })
     },
+    addSleepTime: props => newInstance => {
+      const { firebase, uid, showError, showSuccess,   } = props
+      if (!uid) {
+        return showError('You must be logged in to create a project')
+      }
+      //This is where you send data to firebase.
+      return firebase
+        .push('sleepTimes', {
+          ...newInstance,
+          createdBy: uid,
+          createdAt: firebase.database.ServerValue.TIMESTAMP
+        })
+        .then(() => {
+          showSuccess('done')
+        })
+        .catch(err => {
+          console.error('Error:', err) // eslint-disable-line no-console
+          showError(err.message || 'Could not add project')
+          return Promise.reject(err)
+        })
+    },
     addProject: props => newInstance => {
       const { firebase, uid, showError, showSuccess, toggleDialog } = props
       if (!uid) {

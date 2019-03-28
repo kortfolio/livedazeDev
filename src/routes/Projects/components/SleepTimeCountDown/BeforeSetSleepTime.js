@@ -10,6 +10,7 @@ import Icon from '@mdi/react'
 import { Grid } from "@material-ui/core";
 import { mdiWeatherNight } from '@mdi/js';
 import { Spring } from 'react-spring/renderprops';
+import DisplaySleepTime from "./DisplaySleepTime";
 export class BeforeSetSleepTime extends React.Component {
   constructor(props) {
     super(props);
@@ -62,6 +63,7 @@ export class BeforeSetSleepTime extends React.Component {
     return (
       <React.Fragment>
         {isClicked ? (
+          
         <Spring
           from={{ opacity: 0}}
           to={{ opacity: 1}}
@@ -69,6 +71,7 @@ export class BeforeSetSleepTime extends React.Component {
           { props => (
             <div style={props}>
               <form onSubmit={this.handleSubmit}>
+              <DisplaySleepTime/>
                <div className="fixedHeightPaper">
             <Grid container spacing={8} alignItems="center" justify="center" alignContent="center">
               <Grid item> 

@@ -4,8 +4,14 @@ import { Grid, Avatar } from "@material-ui/core";
 import moment from "moment";
 import { withStyles } from "@material-ui/core/styles";
 
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
 
+import BackSpaceIcon from "@material-ui/icons/Backspace";
 import Icon from "@mdi/react";
+import { mdiCrown } from "@mdi/js";
+
+import { mdiFire } from "@mdi/js";
 
 import { mdiKeyboardBackspace } from "@mdi/js";
 import { mdiCalendarCheck } from "@mdi/js";
@@ -14,13 +20,16 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
 const styles = theme => ({
   card: {
     display: "flex",
     background: "#4c89db",
-    backgroundColor: "#045de9",
-    backgroundImage: "linear-gradient(315deg, #045de9 0%, #09c6f9 74%)"
-  },
+    backgroundColor: "#ff7878",
+    backgroundImage: "linear-gradient(315deg, #ff7878 0%, #ff0000 74%)"
+},
   details: {
     display: "flex",
     flexDirection: "column",
@@ -50,15 +59,14 @@ const styles = theme => ({
   }
 });
 
-export const DisplayGoalDay = ({ goalDay, classes, today, onDelete }) => (
-  <React.Fragment>
-    {/* Material Icon for the card */}
+export const DisplaySleepTime = ({ goalDay, classes, today, onDelete }) => (
+  <Card className={classes.card}>
     <CardMedia>
       <Grid container justify="center" style={{ height: "100%" }}>
-        <Icon path={mdiCalendarCheck} size={3.5} color="white" />
+        <Icon path={mdiFire} size={3.5} color="white" />
       </Grid>
     </CardMedia>
-    {/* Card Content */}
+    
     <div className={classes.details}>
       <CardContent className={classes.content}>
         <Grid
@@ -69,7 +77,7 @@ export const DisplayGoalDay = ({ goalDay, classes, today, onDelete }) => (
           <Icon path={mdiKeyboardBackspace}  onClick={onDelete} size={0.5} color="white" cursor="pointer"  />
          </Grid>
         <Typography align="right" className={classes.goalDayTitle}>
-          My Goal Day
+          Remaining time
         </Typography>
         <Grid
           container
@@ -99,17 +107,26 @@ export const DisplayGoalDay = ({ goalDay, classes, today, onDelete }) => (
         <Typography align="right" className={classes.goalDayTitle}>
           {goalDay}
         </Typography>
+        <Grid
+          container
+          align="right"
+          alignContent="flex-end"
+          direction="row"
+          alignItems="center"
+        >
+          <span className="GoalDayTextDecorator" />
+        </Grid>
       </CardContent>
     </div>
-    </React.Fragment>
+  </Card>
 );
 
-DisplayGoalDay.defaultProps = {
+DisplaySleepTime.defaultProps = {
   showDelete: true
 };
-DisplayGoalDay.propTypes = {
-  onDelete: PropTypes.func,
-  showDelete: PropTypes.bool
+DisplaySleepTime.propTypes = {
+ // onDelete: PropTypes.func,
+  //showDelete: PropTypes.bool
 };
 
-export default withStyles(styles, { withTheme: true })(DisplayGoalDay);
+export default withStyles(styles, { withTheme: true })(DisplaySleepTime);
