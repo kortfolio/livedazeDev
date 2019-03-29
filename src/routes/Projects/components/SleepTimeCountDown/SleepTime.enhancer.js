@@ -1,8 +1,8 @@
 import { compose } from 'recompose'
 import { reduxForm } from 'redux-form'
 import { NEW_SLEEPTIME_FORM_NAME } from 'constants/formNames'
-//import { withStyles } from '@material-ui/core/styles'
-//import styles from './GoalDate.styles'
+import { withStyles } from '@material-ui/core/styles'
+import styles from './SleepTime.styles'
 
 import { connect } from 'react-redux'
 import { LIST_PATH } from 'constants/paths'
@@ -12,8 +12,7 @@ import { firebaseConnect } from 'react-redux-firebase'
 import { withNotifications } from 'modules/notification'
 import { spinnerWhileLoading } from 'utils/components'
 import { UserIsAuthenticated } from 'utils/router'
-import theme from 'containers/Navbar/NavbarTheme';
-
+import theme from './SleepTime.styles';
 
 export default compose(
   reduxForm({
@@ -67,6 +66,7 @@ export default compose(
     },
     
   }),
+  withStyles(theme)
   
   
  )
