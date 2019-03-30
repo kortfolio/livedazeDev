@@ -29,8 +29,11 @@ export default compose(
       }),
       handleMenu: () => event => ({
         anchorEl: event.target
-      })
-    }
+      }),
+      
+    },
+    // Add state handlers as props
+   
   ),
   // Add props.router (used in handlers)
   withRouter,
@@ -47,6 +50,7 @@ export default compose(
       props.history.push(ACCOUNT_PATH)
       props.closeAccountMenu()
     }
+    
   }),
   // Add custom props
   withProps(({ auth, profile }) => ({

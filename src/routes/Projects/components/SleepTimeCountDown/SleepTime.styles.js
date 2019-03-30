@@ -9,6 +9,7 @@ export default theme => ({
       ...theme.flexColumnCenter
     },
     card: {
+      minWidth: 275,
         display: "flex",
         background: "#4c89db",
         backgroundColor: "#ff7878",

@@ -222,7 +222,7 @@ font-family: 'isotonic';
 
 .timeSuperSet{
   font-size:48px;
-  color: #212121;
+  color: white;
   text-align: center;
 }
 
@@ -510,10 +510,19 @@ input.DatePickerCustomStyle {
     font-family: 'isotonic';
     border:0 !important;
     color:white;
-    text-align: center;
+    text-align: right;
     font-size: 30px !important;
 }
 
+input.DatePickerCustomStyle2 {
+    background: transparent;
+    width: 150px;
+    font-family: 'isotonic';
+    border:0 !important;
+    color:white;
+    font-size: 30px !important;
+    text-align:right;
+}
 .livedaze_daysRemaining {
     color: white;
     font-size: 70px;

@@ -8,13 +8,13 @@ export default theme => ({
     buttons: {
       ...theme.flexColumnCenter
     },
-  card: {
-    display: 'flex',
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
+  
+    details: {
+      display: "flex",
+      flexDirection: "column",
+      width: "100%"
+    },
+  
   content: {
     flex: '1 0 auto',
   },
@@ -37,11 +37,7 @@ export default theme => ({
       backgroundColor: "#045de9",
       backgroundImage: "linear-gradient(315deg, #045de9 0%, #09c6f9 74%)"
     },
-    details: {
-      display: "flex",
-      flexDirection: "column",
-      width: "100%"
-    },
+
     goalDayTitle: {
       display: "flex",
       flexDirection: "column",
@@ -50,19 +46,6 @@ export default theme => ({
       textTransform: "uppercase",
       fontSize: "1.25rem"
     },
-    content: {
-      flex: "1 0 auto",
-      width: "100%"
-    },
-    controls: {
-      display: "flex",
-      alignItems: "center",
-      paddingLeft: theme.spacing.unit,
-      paddingBottom: theme.spacing.unit
-    },
-    playIcon: {
-      height: 38,
-      width: 38
-    }
+   
   });
   

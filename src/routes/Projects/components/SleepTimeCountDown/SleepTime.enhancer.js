@@ -5,14 +5,12 @@ import { withStyles } from '@material-ui/core/styles'
 import styles from './SleepTime.styles'
 
 import { connect } from 'react-redux'
-import { LIST_PATH } from 'constants/paths'
 import { withHandlers, withStateHandlers } from 'recompose'
 import { withRouter } from 'react-router-dom'
 import { firebaseConnect } from 'react-redux-firebase'
 import { withNotifications } from 'modules/notification'
 import { spinnerWhileLoading } from 'utils/components'
 import { UserIsAuthenticated } from 'utils/router'
-import theme from './SleepTime.styles';
 
 export default compose(
   reduxForm({
@@ -57,16 +55,13 @@ export default compose(
       return firebase
         .remove(`sleepTimes/${sleepTime.key}`)
         .then(() => 
-        showSuccess('goal day deleted successfully'))
+        showSuccess('Great! Your sleep time is set.'))
         .catch(err => {
           console.error('Error:', err) // eslint-disable-line no-console
-          showError(err.message || 'Could not delete project')
+          showError(err.message || 'Could not delete sleep time')
           return Promise.reject(err)
         })
     },
-    
   }),
-  withStyles(theme)
-  
-  
+  withStyles(styles)
  )

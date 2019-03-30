@@ -1,18 +1,17 @@
 import { compose } from 'recompose'
 import { reduxForm } from 'redux-form'
 import { NEW_GOALDATE_FORM_NAME } from 'constants/formNames'
-import { withStyles } from '@material-ui/core/styles'
-import styles from './GoalDate.styles'
+ 
 
 import { connect } from 'react-redux'
-import { LIST_PATH } from 'constants/paths'
+ 
 import { withHandlers, withStateHandlers } from 'recompose'
 import { withRouter } from 'react-router-dom'
 import { firebaseConnect } from 'react-redux-firebase'
 import { withNotifications } from 'modules/notification'
 import { spinnerWhileLoading } from 'utils/components'
 import { UserIsAuthenticated } from 'utils/router'
-import theme from 'containers/Navbar/NavbarTheme';
+ 
 
 
 export default compose(

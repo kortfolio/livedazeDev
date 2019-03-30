@@ -2,8 +2,11 @@ import React from 'react'
 import { compose, withHandlers, withState, lifecycle, setDisplayName } from 'recompose'
 import moment from 'moment'
 import { Form, Label } from 'semantic-ui-react'
-import DatePickerComponent from 'react-datepicker'
+ 
 import TimePickerComponent from 'react-datepicker'
+
+const today = new Date();
+
 
 const withLabel = (Component) => setDisplayName('withLabel')(
   ({ id, label, ...props }) => (
@@ -47,7 +50,7 @@ export const TimePicker = compose(
   lifecycle({
     componentWillMount () {
       if (this.props.input.value) {
-        this.props.setSelectedTime(moment(this.props.input.value, 'h:mm aa'))
+        this.props.setSelectedTime(moment(this.props.input.value))
       }
     }
   })
@@ -58,8 +61,22 @@ export const TimePicker = compose(
     showTimeSelect
     showTimeSelectOnly
     timeIntervals={15}
-    dateFormat="h:mm aa"
+    dateFormat="hh:mm a"
+    //dateFormat : handles the output of the on change and selected to the end user.
+    // DO not touch. it is working fine. does not affect anything else.
     timeCaption="Time"
+
+    minTime={today}
+    maxTime={new Date(
+                      today.getYear(),
+                      today.getMonth(),
+                      today.getDay(),
+                      23,
+                      50,
+                      0,
+                      0
+                    )
+                  }
     {...rest}
   />
 ))

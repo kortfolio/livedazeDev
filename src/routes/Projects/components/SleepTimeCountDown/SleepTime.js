@@ -10,9 +10,6 @@ import moment from "moment";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
-import theme from "./SleepTime.styles";
-import { Spring } from "react-spring/renderprops";
 import { mdiHelpCircleOutline } from "@mdi/js";
 
 import { isEmpty } from "react-redux-firebase";
@@ -25,65 +22,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { DisplaySleepTime } from "./DisplaySleepTime";
 //import TimePicker from '@material-ui/core/TimePicker';
 //import { TimePicker } from 'material-ui-pickers';
-const styles = theme => ({
-  card: {
-    display: "flex",
-    background: "#4c89db",
-    backgroundColor: "#045de9",
-    backgroundImage: "linear-gradient(315deg, #045de9 0%, #09c6f9 74%)",
-    minHeight: "180px",
-    maxHeight: "180px",
-  },
-  details: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%"
-  },
-  goalDayTitle: {
-    display: "flex",
-    flexDirection: "column",
-    color: "white",
-    fontFamily: "isotonicBold",
-    textTransform: "uppercase",
-    fontSize: "1.25rem"
-  },
-  content: {
-    flex: "1 0 auto",
-    width: "100%"
-  },
-  controls: {
-    display: "flex",
-    alignItems: "center",
-    paddingLeft: theme.spacing.unit,
-    paddingBottom: theme.spacing.unit
-  },
-  playIcon: {
-    height: 38,
-    width: 38
-  },
-  outLinedBtn:
-  {
-    color:'white',
-    backgroundColor:'black',
-    borderColor:'white',
-    textDecoration: "none",
-    alignSelf: "center",
-    letterSpacing: "0.1rem",
-    fontFamily: "isotonic",
-    fontSize: "12px",
-    margin: "10px",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-  },
-  fab: {
-    margin: theme.spacing.unit * 2,
-  },
-  absolute: {
-    position: 'absolute',
-    bottom: theme.spacing.unit * 2,
-    right: theme.spacing.unit * 3,
-  },
-});
+import { withStyles } from "@material-ui/core/styles";
+import styles from "./SleepTime.styles";
 
 const buttonStyle = {
   textDecoration: "none",
@@ -96,7 +36,7 @@ const buttonStyle = {
   backgroundColor: "black"
 };
 
-const SleepTime = ({
+export const SleepTime = ({
   handleSubmit,
   sleepTimes,
   sleepTime,
@@ -104,8 +44,9 @@ const SleepTime = ({
   onDelete,
   classes
 }) => (
-  <React.Fragment>
+    
     <Card className={classes.card}>
+    {console.log("From SleepTime.js classes.card val" + classes)}
     <CardMedia>
           <Grid container justify="center" style={{ height: "100%" }}>
             <Icon path={mdiFire} size={3.5} color="white" />
@@ -130,7 +71,7 @@ const SleepTime = ({
               justify="flex-end"
               direction="row"
             >
-              <form onSubmit={handleSubmit} autocomplete="off">
+              <form onSubmit={handleSubmit} autoComplete="off">
                 {/* Time Picker Field */}
                 <Field
                   className="DatePickerCustomStyle2"
@@ -144,7 +85,7 @@ const SleepTime = ({
                   }
                   dateFormat="h:mm aa"
                   timeCaption="Time"
-                  placeholderText="0:00 PM"
+                  
                   
                   
                 />
@@ -176,14 +117,15 @@ const SleepTime = ({
 
     {!isEmpty(sleepTimes) &&
       sleepTimes.map((sleepTime, ind) => (
+        
         <DisplaySleepTime
           key={`SleepTime-${sleepTime.id}-${ind}`}
           sleepTime={sleepTime.value["sleepTime"]}
           onDelete={() => deleteSleepTime(sleepTime)}
+          classes={classes}
         />
       ))}
   </Card>
-  </React.Fragment>
 );
 
 SleepTime.propTypes = {
@@ -196,4 +138,4 @@ SleepTime.defaultProps = {
   showDelete: true
 };
 
-export default SleepTime;
+export default withStyles(styles, { withTheme: true })(SleepTime);

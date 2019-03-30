@@ -1,7 +1,6 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { AfterSetSleepTime } from "../SleepTimeCountDown/AfterSetSleepTime";
 
 import Fab from '@material-ui/core/Fab';
 import "moment-timezone";
@@ -10,7 +9,8 @@ import Icon from '@mdi/react'
 import { Grid } from "@material-ui/core";
 import { mdiWeatherNight } from '@mdi/js';
 import { Spring } from 'react-spring/renderprops';
-import DisplaySleepTime from "./DisplaySleepTime";
+import DisplaySleepTime from "../DisplaySleepTime";
+
 export class BeforeSetSleepTime extends React.Component {
   constructor(props) {
     super(props);
@@ -62,8 +62,7 @@ export class BeforeSetSleepTime extends React.Component {
 
     return (
       <React.Fragment>
-        {isClicked ? (
-          
+         
         <Spring
           from={{ opacity: 0}}
           to={{ opacity: 1}}
@@ -143,9 +142,7 @@ export class BeforeSetSleepTime extends React.Component {
           ) }
           </Spring>  
         
-        ) : (
-          
-          <AfterSetSleepTime SleepTime={this.state.startDate} />
+          {/*<AfterSetSleepTime SleepTime={this.state.startDate} />**/}
         )}
       </React.Fragment>
     );

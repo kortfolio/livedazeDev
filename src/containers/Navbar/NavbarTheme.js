@@ -21,14 +21,14 @@ const theme = theme => ({
   },
   content: {
     width: 'auto',
-    marginLeft: drawerWidth + 50,
-    marginRight: 50,
-    /*    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
+        [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
       width: 900,
       marginLeft: drawerWidth + 50,
-      marginRight: 10,
+      marginRight: drawerWidth + 50,
       }
- */
+      //marginLeft: drawerWidth + 50,
+    //marginRight: 50,
+   
   },
   toolbar: theme.mixins.toolbar,
   

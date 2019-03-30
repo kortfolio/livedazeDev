@@ -7,7 +7,7 @@ import ProjectRoute from "routes/Projects/routes/Project";
 import ProjectTile from "../ProjectTile";
 import NewProjectTile from "../NewProjectTile";
 import NewProjectDialog from "../NewProjectDialog";
-import { Card, Paper, Grid, Typography } from "@material-ui/core";
+import { Paper, Grid, Typography } from "@material-ui/core";
 
 //Moment JS for time/date manipulation
 import "moment-timezone";
@@ -19,8 +19,6 @@ import { DailyTask } from "../DailyTask/DailyTask";
 import { CompletedTask } from "../CompletedTask/CompletedTask";
 import GoalDate from "../GoalDate";
 import SleepTime from "../SleepTimeCountDown";
-import { BeforeSetSleepTime } from "../SleepTimeCountDown/SleepTime_BackUp/BeforeSetSleepTime";
-
 const renderChildren = (routes, match, parentProps) =>
   routes.map(route => (
     <Route
@@ -70,6 +68,7 @@ export const ProjectsPage = ({
               </Grid>
 
               <Grid item xs={12} md={4}>
+              <GoalDate onSubmit={addGoalDate} />
               </Grid>
             </Grid>
 
