@@ -1,4 +1,4 @@
-import SleepTime from './SleepTime'
-import enhance from './SleepTime.enhancer'
+import SleepTime from './SleepTime';
+import enhance from './SleepTime.enhancer';
 
-export default enhance(SleepTime)
+export default enhance(SleepTime);

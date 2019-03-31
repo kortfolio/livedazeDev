@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Card, CardMedia } from "@material-ui/core";
 import Fab from "@material-ui/core/Fab";
 import Icon from "@mdi/react";
 import { mdiCat,mdiFormatListCheckbox } from "@mdi/js";
@@ -7,7 +7,16 @@ import { mdiCat,mdiFormatListCheckbox } from "@mdi/js";
 export class DailyTask extends React.Component {
   render() {
     return (
+    
       <form onSubmit={this.handleSubmit}>
+        <Card className={classes.card}>
+      {console.log("From SleepTime.js classes.card val" + classes)}
+      <CardMedia>
+            <Grid container justify="center" style={{ height: "100%" }}>
+              <Icon path={mdiFire} size={3.5} color="white" />
+            </Grid>
+      </CardMedia>
+      </Card>
         <Grid container spacing={8} alignItems="center" justify="center" alignContent="center">
         <Grid item>
             <Icon

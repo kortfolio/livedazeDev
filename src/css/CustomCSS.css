@@ -161,16 +161,7 @@ div#app {
 
         a { cursor: pointer; }
         .help-block { font-size: 12px; }
-        nav {
-            color: #fff;
-            background: linear-gradient(180deg, rgb(85, 88, 123) 0%, rgb(47, 49, 70) 100%);
-            width: 100%;
-            height: 70px;
-            line-height: 70px;
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-
-        }
+        
 
         .navbar-brand {
             padding: 0px;

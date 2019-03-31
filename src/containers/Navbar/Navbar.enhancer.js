@@ -11,6 +11,8 @@ import { withRouter } from 'react-router-dom'
 import { withFirebase, isEmpty, isLoaded } from 'react-redux-firebase'
 import { ACCOUNT_PATH } from 'constants/paths'
 import styles from './NavbarTheme';
+
+
 export default compose(
   // Map redux state to props
   connect(({ firebase: { auth, profile } }) => ({
@@ -21,7 +23,8 @@ export default compose(
   withStateHandlers(
     ({ accountMenuOpenInitially = false }) => ({
       accountMenuOpen: accountMenuOpenInitially,
-      anchorEl: null
+      anchorEl: null,
+      mobileOpen: false,
     }),
     {
       closeAccountMenu: ({ accountMenuOpen }) => () => ({
@@ -29,12 +32,20 @@ export default compose(
       }),
       handleMenu: () => event => ({
         anchorEl: event.target
+        
       }),
+      handleDrawerToggle: () => event => ({
+        mobileOpen: true
+      }),
+      closeDrawerToggle: () => event => ({
+        mobileOpen: false
+      })
       
     },
-    // Add state handlers as props
-   
   ),
+    
+  
+  
   // Add props.router (used in handlers)
   withRouter,
   // Add props.firebase (used in handlers)
@@ -49,10 +60,10 @@ export default compose(
     goToAccount: props => () => {
       props.history.push(ACCOUNT_PATH)
       props.closeAccountMenu()
-    }
-    
+    },
   }),
-  // Add custom props
+ 
+   // Add custom props
   withProps(({ auth, profile }) => ({
     authExists: isLoaded(auth) && !isEmpty(auth)
   })),

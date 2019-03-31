@@ -1,37 +1,34 @@
-const drawerWidth = 200;
+const drawerWidth = 240;
+
 const theme = theme => ({
   root: {
-  display: 'flex',
-  flexGrow: 1,
-  
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    display: 'flex',
   },
   drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
   },
-  drawerPaper: {
-    width: drawerWidth,
-   
+  appBar: {
+    marginLeft: drawerWidth,
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
   },
-  content: {
-    width: 'auto',
-        [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-      width: 900,
-      marginLeft: drawerWidth + 50,
-      marginRight: drawerWidth + 50,
-      }
-      //marginLeft: drawerWidth + 50,
-    //marginRight: 50,
-   
+  menuButton: {
+    marginRight: 20,
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
   },
   toolbar: theme.mixins.toolbar,
-  
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3,
+  },
 });
-
-export default theme;
+export default theme

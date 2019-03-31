@@ -1,4 +1,4 @@
 import { withStyles } from '@material-ui/core/styles'
-import styles from './ProjectTile.styles'
+import theme from './ProjectTile.styles'
 
-export default withStyles(styles)
+export default withStyles(theme)
