@@ -3,12 +3,9 @@ export default (theme) => ({
 		padding: theme.spacing.unit * 2
 	},
 	todoItemTab: {
-		// display: 'flex',
+		alignItems: 'right',
 		justifyContent: 'space-between',
-		width: '90%',
-		// background: "linear-gradient(315deg, rgb(249, 209, 183) 0%, rgb(248, 148, 164) 74%)",
-		//background: "linear-gradient(315deg, rgb(249, 209, 183) 0%, rgb(248, 148, 164) 74%)",
-		// background: "white"
+		width: '95%',
 		backgroundColor: 'white',
 		margin: 10,
 		borderRadius: 10
@@ -35,9 +32,7 @@ export default (theme) => ({
 		display: 'flex',
 		background: '#4c89db',
 		backgroundColor: '#ff7878',
-		backgroundImage: 'linear-gradient(315deg, #ff7878 0%, #ff0000 74%)',
-		minHeight: '180px',
-		maxHeight: '180px'
+		backgroundImage: 'linear-gradient(315deg, #ff7878 0%, #ff0000 74%)'
 	},
 	details: {
 		display: 'flex',

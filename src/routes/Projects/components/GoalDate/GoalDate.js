@@ -7,7 +7,6 @@ import { goalDateValidate } from 'utils/form';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import { mdiCalendarCheck } from '@mdi/js';
@@ -32,6 +31,7 @@ const buttonStyle = {
 	fontFamily: 'isotonic',
 	fontSize: '12px',
 	marginRight: '0px',
+	marginTop: '10px',
 	paddingLeft: '20px',
 	paddingRight: '20px',
 	backgroundColor: 'black'
@@ -42,11 +42,11 @@ const GoalDate = ({ handleSubmit, goalDays, deleteGoalDay, onDelete, classes }) 
 		<Card className={classes.card}>
 			{isEmpty(goalDays) && (
 				<React.Fragment>
-					<CardMedia>
-						<Grid container justify='center' style={{ height: '100%' }}>
-							<Icon path={mdiCalendarCheck} size={3.5} color='white' />
+					<CardContent>
+						<Grid container style={{ height: '100%' }}>
+							<Icon path={mdiCalendarCheck} size={3} color='white' />
 						</Grid>
-					</CardMedia>
+					</CardContent>
 					{/* Card Content */}
 					<div className={classes.details}>
 						<CardContent className={classes.content}>
@@ -95,7 +95,6 @@ const GoalDate = ({ handleSubmit, goalDays, deleteGoalDay, onDelete, classes }) 
 									</Grid>
 								</form>
 							</Grid>
-							<Typography align='right' className={classes.goalDayTitle} />
 						</CardContent>
 					</div>
 				</React.Fragment>

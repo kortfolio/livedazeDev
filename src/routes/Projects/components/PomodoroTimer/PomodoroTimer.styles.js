@@ -2,6 +2,7 @@ export default (theme) => ({
 	root: {
 		padding: theme.spacing.unit * 2
 	},
+
 	inputs: {
 		...theme.flexColumnCenter
 	},
@@ -10,16 +11,15 @@ export default (theme) => ({
 	},
 	card: {
 		display: 'flex',
-		backgroundColor: '#ff7878',
-		backgroundImage: 'linear-gradient(315deg, #6c202e 0%, #ff7979 74%)',
-		height: '100%'
+		backgroundColor: '#8ae9b3',
+		backgroundImage: 'linear-gradient(315deg, rgb(90, 184, 141) 0%, rgb(140, 199, 115) 74%)'
 	},
 	details: {
 		display: 'flex',
 		flexDirection: 'column',
 		width: '100%'
 	},
-	goalDayTitle: {
+	cardTitleText: {
 		display: 'flex',
 		flexDirection: 'column',
 		color: 'white',
@@ -51,8 +51,8 @@ export default (theme) => ({
 		fontFamily: 'isotonic',
 		fontSize: '12px',
 		margin: '10px',
-		paddingLeft: '20px',
-		paddingRight: '20px'
+		paddingLeft: '20px !important',
+		paddingRight: '20px !important'
 	},
 	fab: {
 		margin: theme.spacing.unit * 2
@@ -61,5 +61,15 @@ export default (theme) => ({
 		position: 'absolute',
 		bottom: theme.spacing.unit * 2,
 		right: theme.spacing.unit * 3
+	},
+	buttonStyle: {
+		textDecoration: 'none',
+		letterSpacing: '0.1rem',
+		fontFamily: 'isotonic',
+		fontSize: '12px',
+		marginRight: '0px',
+		paddingLeft: '20px',
+		paddingRight: '20px',
+		backgroundColor: 'black'
 	}
 });

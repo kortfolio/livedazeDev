@@ -18,15 +18,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import Divider from '@material-ui/core/Divider';
 
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import theme from './NavbarTheme';
 //import ClippedDrawer from "./ClippedDrawer";
-
+import DrawerList from './DrawerList';
 const buttonStyle = {
 	textDecoration: 'none',
 	backgroundColor: '#55587a'
@@ -107,32 +101,7 @@ export const Navbar = ({
 							<div>
 								<div className={classes.toolbar} />
 								<Divider />
-								<List>
-									{[
-										'Inbox',
-										'Starred',
-										'Send email',
-										'Drafts'
-									].map((text, index) => (
-										<ListItem button key={text}>
-											<ListItemIcon>
-												{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-											</ListItemIcon>
-											<ListItemText primary={text} />
-										</ListItem>
-									))}
-								</List>
-								<Divider />
-								<List>
-									{[ 'All mail', 'Trash', 'Spam' ].map((text, index) => (
-										<ListItem button key={text}>
-											<ListItemIcon>
-												{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-											</ListItemIcon>
-											<ListItemText primary={text} />
-										</ListItem>
-									))}
-								</List>
+								<DrawerList />
 							</div>
 							{console.log('value of mobile Open from bottom Drawer' + mobileOpen)}
 						</Drawer>
@@ -147,32 +116,7 @@ export const Navbar = ({
 							<div>
 								<div className={classes.toolbar} />
 								<Divider />
-								<List>
-									{[
-										'Inbox',
-										'Starred',
-										'Send email',
-										'Drafts'
-									].map((text, index) => (
-										<ListItem button key={text}>
-											<ListItemIcon>
-												{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-											</ListItemIcon>
-											<ListItemText primary={text} />
-										</ListItem>
-									))}
-								</List>
-								<Divider />
-								<List>
-									{[ 'All mail', 'Trash', 'Spam' ].map((text, index) => (
-										<ListItem button key={text}>
-											<ListItemIcon>
-												{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-											</ListItemIcon>
-											<ListItemText primary={text} />
-										</ListItem>
-									))}
-								</List>
+								<DrawerList />
 							</div>
 						</Drawer>
 					</Hidden>
@@ -196,7 +140,7 @@ Navbar.propTypes = {
 	anchorEl: PropTypes.object, // from enhancer (withStateHandlers - handleMenu)
 
 	theme: PropTypes.object.isRequired,
-	mobileOpen: PropTypes.func
+	mobileOpen: PropTypes.bool
 };
 
 Navbar.defaultProps = {

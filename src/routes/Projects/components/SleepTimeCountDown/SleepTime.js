@@ -8,7 +8,6 @@ import { mdiFire } from '@mdi/js';
 import Card from '@material-ui/core/Card';
 import moment from 'moment';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { mdiHelpCircleOutline } from '@mdi/js';
 
@@ -46,11 +45,11 @@ export const SleepTime = ({
 }) => (
 	<Card className={classes.card}>
 		{console.log('From SleepTime.js classes.card val' + classes)}
-		<CardMedia>
-			<Grid container justify='center' style={{ height: '100%' }}>
-				<Icon path={mdiFire} size={3.5} color='white' />
+		<CardContent>
+			<Grid container style={{ height: '100%' }}>
+				<Icon path={mdiFire} size={3} color='white' />
 			</Grid>
-		</CardMedia>
+		</CardContent>
 		{isEmpty(sleepTimes) && (
 			<Fragment>
 				<div className={classes.details}>
@@ -79,7 +78,6 @@ export const SleepTime = ({
 									dateFormat='h:mm aa'
 									timeCaption='Time'
 								/>
-
 								<Grid
 									container
 									alignItems='flex-start'

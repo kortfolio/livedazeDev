@@ -7,18 +7,26 @@ import ProjectRoute from 'routes/Projects/routes/Project';
 import ProjectTile from '../ProjectTile';
 import NewProjectTile from '../NewProjectTile';
 import NewProjectDialog from '../NewProjectDialog';
-import { Paper, Grid, Typography, CardMedia, Card, CardContent } from '@material-ui/core';
-import { mdiFormatListCheckbox } from '@mdi/js';
+import { Grid, Typography, Card, CardContent } from '@material-ui/core';
 
 //Moment JS for time/date manipulation
 import 'moment-timezone';
 import 'moment-duration-format';
 
 //Livedaze core components
-import { SelfDiagnosis } from '../SelfDiagnosis/SelfDiagnosis';
+import SelfDiagnosis from '../SelfDiagnosis';
 import GoalDate from '../GoalDate';
 import SleepTime from '../SleepTimeCountDown';
 import Icon from '@mdi/react';
+import PomodoroTimer from '../PomodoroTimer';
+
+//To Refactor in future
+import { mdiFormatListCheckbox } from '@mdi/js';
+
+const section = {
+	height: '100%'
+};
+
 const renderChildren = (routes, match, parentProps) =>
 	routes.map((route) => (
 		<Route
@@ -46,58 +54,34 @@ export const ProjectsPage = ({
 	goToProject
 }) => (
 	<Switch>
-		{' '}
-		{/* Child routes */}{' '}
+		{/* Child routes */}
 		{renderChildren([ ProjectRoute ], match, {
 			auth
-		})}{' '}
-		{/* Main Route */}{' '}
+		})}
+		{/* Main Route */}
 		<Route
 			exact
 			path={match.path}
 			render={() => (
-				<main className={classes.layout}>
-					<div className={classes.toolbar} />{' '}
-					{/*<div className={classes.layout}> 
-                       
-                   
-                     <div className={classes.toolbar}>*/}{' '}
+				<main className={classes.content}>
 					<Grid container justify='center' spacing={40}>
 						<Grid item xs={12} md={4}>
-							<GoalDate onSubmit={addGoalDate} />{' '}
-						</Grid>{' '}
+							<div style={section}>
+								<GoalDate onSubmit={addGoalDate} />
+							</div>
+						</Grid>
 						<Grid item xs={12} md={4}>
-							<SleepTime onSubmit={addSleepTime} />{' '}
-						</Grid>{' '}
+							<div style={section}>
+								<SleepTime onSubmit={addSleepTime} />
+							</div>
+						</Grid>
 						<Grid item xs={12} md={4}>
-							<Card
-								style={{
-									display: 'flex',
-									backgroundColor: '#3bb78f',
-									backgroundImage:
-										'linear-gradient(315deg, #3bb78f 0%, #0bab64 74%)',
-									boxShadow:
-										'0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08)'
-									//#B3F6D8#52A7C1
-								}}>
-								<CardMedia>
-									<Grid
-										container
-										justify='center'
-										style={{
-											height: '100%'
-										}}>
-										<Icon
-											path={mdiFormatListCheckbox}
-											size={3.5}
-											color='white'
-										/>
-									</Grid>{' '}
-								</CardMedia>{' '}
-							</Card>
-						</Grid>{' '}
+							<div style={section}>
+								<PomodoroTimer />
+							</div>
+						</Grid>
 					</Grid>
-					{/* To do Task */}{' '}
+
 					<Grid container justify='center' spacing={40}>
 						<Grid item xs={12} md={8}>
 							<Card
@@ -109,7 +93,7 @@ export const ProjectsPage = ({
 									boxShadow:
 										'0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08)'
 								}}>
-								<CardMedia>
+								<CardContent>
 									<Grid
 										container
 										justify='center'
@@ -121,8 +105,8 @@ export const ProjectsPage = ({
 											size={3.5}
 											color='white'
 										/>
-									</Grid>{' '}
-								</CardMedia>{' '}
+									</Grid>
+								</CardContent>
 								<div
 									style={{
 										display: 'flex',
@@ -137,8 +121,8 @@ export const ProjectsPage = ({
 										<Typography
 											align='right'
 											className={classes.CardTitleTextDecorator}>
-											My Daily To do List{' '}
-										</Typography>{' '}
+											My Daily To do List
+										</Typography>
 										{!isEmpty(projects) &&
 											projects.map((project, ind) => (
 												<ProjectTile
@@ -147,26 +131,24 @@ export const ProjectsPage = ({
 													onSelect={() => goToProject(project)}
 													onDelete={() => deleteProject(project)}
 												/>
-											))}{' '}
+											))}
 										<NewProjectDialog
 											onSubmit={addProject}
 											open={newDialogOpen}
 											onRequestClose={toggleDialog}
-										/>{' '}
-										<NewProjectTile onClick={toggleDialog} />{' '}
-									</CardContent>{' '}
-								</div>{' '}
-							</Card>{' '}
-						</Grid>{' '}
-						<Grid item md={4}>
-							<Paper>
-								<SelfDiagnosis />
-							</Paper>{' '}
-						</Grid>{' '}
-					</Grid>{' '}
+										/>
+										<NewProjectTile onClick={toggleDialog} />
+									</CardContent>
+								</div>
+							</Card>
+						</Grid>
+						<Grid item xs={12} md={4}>
+							<SelfDiagnosis />
+						</Grid>
+					</Grid>
 				</main>
 			)}
-		/>{' '}
+		/>
 	</Switch>
 );
 

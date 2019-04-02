@@ -1,0 +1,32 @@
+{
+  "projects": {
+    "default": "redux-firebasev3",
+    "master": "redux-firebasev3",
+    "prod": "redux-firebasev3"
+  },
+  "ci": {
+    "createConfig": {
+      "master": {
+        "env": "staging",
+        "firebase": {
+            "apiKey": "AIzaSyDa2w_9XaDAZfHne9MwzXJTtxly9Eryk1E",
+             "authDomain": "livedaze-66d5f.firebaseapp.com",
+            "databaseURL": "https://livedaze-66d5f.firebaseio.com",
+            "projectId": "livedaze-66d5f",
+            "storageBucket: "livedaze-66d5f.appspot.com"
+        
+        }
+      },
+      "prod": {
+        "env": "production",
+        "firebase": {
+             "apiKey": "AIzaSyDa2w_9XaDAZfHne9MwzXJTtxly9Eryk1E",
+             "authDomain": "livedaze-66d5f.firebaseapp.com",
+              "databaseURL": "https://livedaze-66d5f.firebaseio.com",
+             "projectId": "livedaze-66d5f",
+           "storageBucket: "livedaze-66d5f.appspot.com"
+        }
+      }
+    }
+  }
+}

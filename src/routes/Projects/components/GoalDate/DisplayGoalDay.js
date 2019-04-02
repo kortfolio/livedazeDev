@@ -10,18 +10,17 @@ import { mdiKeyboardBackspace } from '@mdi/js';
 import { mdiCalendarCheck } from '@mdi/js';
 import { Spring } from 'react-spring/renderprops';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import styles from './GoalDate.styles';
 
 export const DisplayGoalDay = ({ goalDay, classes, onDelete }) => (
 	<React.Fragment>
 		{/* Material Icon for the card */}
-		<CardMedia>
+		<CardContent>
 			<Grid container justify='center' style={{ height: '100%' }}>
-				<Icon path={mdiCalendarCheck} size={3.5} color='white' />
+				<Icon path={mdiCalendarCheck} size={3} color='white' />
 			</Grid>
-		</CardMedia>
+		</CardContent>
 		{/* Card Content */}
 		<div className={classes.details}>
 			<CardContent className={classes.content}>

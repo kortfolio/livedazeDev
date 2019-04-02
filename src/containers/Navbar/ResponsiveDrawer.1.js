@@ -19,101 +19,103 @@ import { withStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-  },
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
-  appBar: {
-    marginLeft: drawerWidth,
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-    },
-  },
-  menuButton: {
-    marginRight: 20,
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
-  },
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3,
-  },
+const styles = (theme) => ({
+	root: {
+		display: 'flex'
+	},
+	drawer: {
+		[theme.breakpoints.up('sm')]: {
+			width: drawerWidth,
+			flexShrink: 0
+		}
+	},
+	appBar: {
+		marginLeft: drawerWidth,
+		[theme.breakpoints.up('sm')]: {
+			width: `calc(100% - ${drawerWidth}px)`
+		}
+	},
+	menuButton: {
+		marginRight: 20,
+		[theme.breakpoints.up('sm')]: {
+			display: 'none'
+		}
+	},
+	toolbar: theme.mixins.toolbar,
+	drawerPaper: {
+		width: drawerWidth
+	},
+	content: {
+		flexGrow: 1,
+		padding: theme.spacing.unit * 3
+	}
 });
 
 class ResponsiveDrawer1 extends React.Component {
-  state = {
-    mobileOpen: false,
-  };
+	state = {
+		mobileOpen: false
+	};
 
-  handleDrawerToggle = () => {
-    this.setState(state => ({ mobileOpen: !state.mobileOpen }));
-  };
+	handleDrawerToggle = () => {
+		this.setState((state) => ({ mobileOpen: !state.mobileOpen }));
+	};
 
-  render() {
-    const { classes, theme } = this.props;
+	render() {
+		const { classes, theme } = this.props;
 
-    const drawer = (
-      <div>
-        <div className={classes.toolbar} />
-        <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </div>
-    );
+		const drawer = (
+			<div>
+				<div className={classes.toolbar} />
+				<Divider />
+				<List>
+					{[ 'Inbox', 'Starred', 'Send email', 'Drafts' ].map((text, index) => (
+						<ListItem button key={text}>
+							<ListItemIcon>
+								{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+							</ListItemIcon>
+							<ListItemText primary={text} />
+						</ListItem>
+					))}
+				</List>
+				<Divider />
+				<List>
+					{[ 'All mail', 'Trash', 'Spam' ].map((text, index) => (
+						<ListItem button key={text}>
+							<ListItemIcon>
+								{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+							</ListItemIcon>
+							<ListItemText primary={text} />
+						</ListItem>
+					))}
+				</List>
+			</div>
+		);
 
-    return (
-      <div className={classes.root}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
-              Responsive drawe,,,r
-            </Typography>
-          </Toolbar>
-        
-      </div>
-    );
-  }
+		return (
+			<div className={classes.root}>
+				<Toolbar>
+					<IconButton
+						color='inherit'
+						aria-label='Open drawer'
+						onClick={this.handleDrawerToggle}
+						className={classes.menuButton}>
+						<MenuIcon />
+					</IconButton>
+					<Typography variant='h6' color='inherit' noWrap>
+						Responsive drawe,,,r
+					</Typography>
+				</Toolbar>
+			</div>
+		);
+	}
 }
 
 ResponsiveDrawer1.propTypes = {
-  classes: PropTypes.object.isRequired,
-  // Injected by the documentation to work in an iframe.
-  // You won't need it on your project.
-  container: PropTypes.object,
-  theme: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired,
+	// Injected by the documentation to work in an iframe.
+	// You won't need it on your project.
+	container: PropTypes.object,
+	theme: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(ResponsiveDrawer1);
