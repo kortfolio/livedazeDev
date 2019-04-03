@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Grid, Typography, Card, CardContent, Fab, Hidden } from '@material-ui/core';
+import { Grid, Typography, Card, CardContent, Fab } from '@material-ui/core';
 import { mdiTimer } from '@mdi/js';
-import { mdiAccessPoint } from '@mdi/js';
 
 import Icon from '@mdi/react';
 import styles from './PomodoroTimer.styles';

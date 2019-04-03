@@ -41,11 +41,13 @@ export const ProjectsPage = ({
 	props,
 	goalDate,
 	sleepTime,
+	editTask,
 	collabProjects,
 	auth,
 	newDialogOpen,
 	toggleDialog,
 	deleteProject,
+	editProject,
 	addProject,
 	addGoalDate,
 	addSleepTime,
@@ -128,8 +130,10 @@ export const ProjectsPage = ({
 												<ProjectTile
 													key={`Project-${project.id}-${ind}`}
 													name={project.value['name']}
-													onSelect={() => goToProject(project)}
+													//onSelect={() => goToProject(project)}
 													onDelete={() => deleteProject(project)}
+													onSelect={() => editTask(project)}
+													onSubmit={console.log('hello')}
 												/>
 											))}
 										<NewProjectDialog

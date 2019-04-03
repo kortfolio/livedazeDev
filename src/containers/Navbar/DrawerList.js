@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 
 import Divider from '@material-ui/core/Divider';
@@ -26,12 +25,6 @@ import { FOCUSTIME_PATH } from 'constants/paths';
 import { LIST_PATH } from 'constants/paths';
 import { Typography } from '@material-ui/core';
 
-const helloWorld = {
-	color: 'white',
-	backgroundColor: 'yellow',
-	textDecoration: 'none',
-	alignSelf: 'center'
-};
 function DrawerList(props) {
 	const { classes } = props;
 
@@ -43,15 +36,21 @@ function DrawerList(props) {
 						button
 						key={text}
 						component={Link}
-						to={(index === 0 && LIST_PATH) || (index === 1 && FOCUSTIME_PATH)}
+						to={
+							<React.Fragment>
+								(index === 0 && LIST_PATH) || (index === 1 && FOCUSTIME_PATH)
+							</React.Fragment>
+						}
 						style={{
 							textTransform: 'initial'
 						}}>
 						<ListItemIcon style={{ color: '#e2e2e2' }}>
-							{index === 0 && <HomeIcon />}
-							{index === 1 && <BarChartIcon />}
-							{index === 2 && <AlarmIcon />}
-							{index === 3 && <BeachAccessIcon />}
+							<React.Fragment>
+								{index === 0 && <HomeIcon />}
+								{index === 1 && <BarChartIcon />}
+								{index === 2 && <AlarmIcon />}
+								{index === 3 && <BeachAccessIcon />}
+							</React.Fragment>
 						</ListItemIcon>
 						<ListItemText
 							disableTypography

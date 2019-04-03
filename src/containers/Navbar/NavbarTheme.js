@@ -1,5 +1,3 @@
-import { mdiBlackMesa } from '@mdi/js';
-
 const drawerWidth = 180;
 
 const theme = (theme) => ({

@@ -1,7 +1,7 @@
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { LIST_PATH } from 'constants/paths';
-import { withHandlers, withStateHandlers } from 'recompose';
+import { withHandlers, withStateHandlers, setPropTypes } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import { firebaseConnect } from 'react-redux-firebase';
 import { withStyles } from '@material-ui/core/styles';
@@ -10,6 +10,7 @@ import { spinnerWhileLoading } from 'utils/components';
 import { UserIsAuthenticated } from 'utils/router';
 //import theme from 'containers/Navbar/NavbarTheme';
 import theme from './ProjectsPage.styles.1';
+import PropTypes from 'prop-types';
 
 export default compose(
 	// redirect to /login if user is not logged in
@@ -119,9 +120,6 @@ export default compose(
 		},
 		deleteProject: (props) => (project) => {
 			const { firebase, showError, showSuccess } = props;
-			console.log('Hello I am from delete project');
-
-			console.log('bie');
 			return firebase
 				.remove(`projects/${project.key}`)
 				.then(() => showSuccess('Project deleted successfully'))
@@ -131,11 +129,21 @@ export default compose(
 					return Promise.reject(err);
 				});
 		},
+		editTask: ({ firebase, showSuccess, showError, props, toggleDialog }) => (project) =>
+			firebase
+				.editProject(project)
+				.then(() => {
+					toggleDialog();
+					showSuccess('done');
+				})
+				.catch((error) => {
+					showError('Error updating profile: ', error.message || error);
+					console.error('Error updating profile', error.message || error); // eslint-disable-line no-console
+					return Promise.reject(error);
+				}),
+
 		deleteGoalDay: (props) => (goalDay) => {
 			const { firebase, showError, showSuccess } = props;
-			console.log('Hello I am from delete project');
-
-			console.log('bie');
 			return firebase
 				.remove(`goalDays/${goalDay.key}`)
 				.then(() => showSuccess('Project deleted successfully'))
