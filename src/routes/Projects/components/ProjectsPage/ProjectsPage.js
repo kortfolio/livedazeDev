@@ -22,6 +22,7 @@ import PomodoroTimer from '../PomodoroTimer';
 
 //To Refactor in future
 import { mdiFormatListCheckbox } from '@mdi/js';
+import EditTaskDialog from '../EditTaskDialog/';
 
 const section = {
 	height: '100%'
@@ -51,6 +52,7 @@ export const ProjectsPage = ({
 	addProject,
 	addGoalDate,
 	addSleepTime,
+	toggleDialog2,
 	classes,
 	match,
 	goToProject
@@ -129,11 +131,9 @@ export const ProjectsPage = ({
 											projects.map((project, ind) => (
 												<ProjectTile
 													key={`Project-${project.id}-${ind}`}
+													keykey={project.key}
 													name={project.value['name']}
-													//onSelect={() => goToProject(project)}
 													onDelete={() => deleteProject(project)}
-													onSelect={() => editTask(project)}
-													onSubmit={console.log('hello')}
 												/>
 											))}
 										<NewProjectDialog

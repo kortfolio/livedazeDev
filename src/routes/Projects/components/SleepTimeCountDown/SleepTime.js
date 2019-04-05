@@ -44,7 +44,6 @@ export const SleepTime = ({
 	classes
 }) => (
 	<Card className={classes.card}>
-		{console.log('From SleepTime.js classes.card val' + classes)}
 		<CardContent>
 			<Grid container style={{ height: '100%' }}>
 				<Icon path={mdiFire} size={3} color='white' />

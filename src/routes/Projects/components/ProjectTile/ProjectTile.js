@@ -6,13 +6,23 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Chip from '@material-ui/core/Chip';
 import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
-import { FormControlLabel, Radio, Checkbox, Grid, Typography, TextField } from '@material-ui/core';
+import {
+	FormControlLabel,
+	Radio,
+	Checkbox,
+	Grid,
+	Typography,
+	TextField,
+	Button
+} from '@material-ui/core';
 import { mdiCheckboxMarkedCircle } from '@mdi/js';
 import { mdiPencil } from '@mdi/js';
 import Icon from '@mdi/react';
 import { reduxForm } from 'redux-form';
 import { Field } from 'redux-form';
-
+import EditTaskDialog from '../EditTaskDialog';
+import ConfirmCompleteDialog from '../ConfirmCompleteDialog';
+//import SimpleComponent from './SimpleComponent';
 const renderCheckbox = ({ input, label }) => (
 	<div>
 		<FormControlLabel
@@ -23,109 +33,102 @@ const renderCheckbox = ({ input, label }) => (
 	</div>
 );
 
-const helloWorld = {
-	//background: 'red',
-	width: '100%',
-	color: 'white'
+const openShit = (name) => (event) => {};
+
+const taskTabDecorator = {
+	color: 'white',
+	background: 'white',
+	marginBottom: '20px',
+	marginTop: '20px',
+	padding: '0',
+	borderRadius: '50px',
+	border: '1px',
+	boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px'
 };
+const Hohoho = ({ onClick }) => <Typography onClick={onClick}>kpkpkpkpkpEDIT</Typography>;
 export const ProjectTile = ({
-	project,
-	displayName,
-	onSelect,
-	onDelete,
-	onEdit,
-	showDelete,
+	toggleSent,
 	classes,
-	handleSubmit,
-	account,
-	submitting,
-	pristine,
+	onDelete,
+	wasSent,
 	name,
 	key,
-	kimoddi
+	editProject,
+	newDialogOpen,
+	toggleDialog,
+	editTask,
+	isDone
 }) => (
-	<form onSubmit={handleSubmit}>
-		<Grid container justify='space-between' spacing={16}>
+	<React.Fragment>
+		<Grid
+			container
+			justify='space-between'
+			spacing={0}
+			style={taskTabDecorator}
+			className={classes.root}>
+			{/* Checkbox for 
+				completed task */}
 			<Grid item xs={1}>
-				<Checkbox />
-			</Grid>
-			<Grid item xs={9}>
-				<FormControlLabel
-					control={<Typography>{name}</Typography>}
-					style={{
-						background: 'white',
-						width: '100%',
-						borderRadius: '10px',
-						margin: '5px'
-					}}
-					//onDelete={() => deleteProject(project)}
-					//onSelect={() => editTask(project)}
+				<ConfirmCompleteDialog
+					onSubmit={isDone}
+					open={wasSent}
+					onRequestClose={toggleSent}
+				/>
+
+				<Icon
+					path={mdiPencil}
+					color='pink'
+					style={{ height: '100%' }}
+					size={1}
+					onClick={toggleSent}
 				/>
 			</Grid>
+
+			<Grid item xs={9} style={{ color: 'black' }}>
+				<p>{name}</p>
+			</Grid>
+
 			<Grid item xs={1}>
-				<Icon path={mdiPencil} color='grey' size={1} onClick={onDelete} />
-				<Icon path={mdiCheckboxMarkedCircle} color='pink' size={1} onClick={onSelect} />
+				<Tooltip title='delete'>
+					<IconButton onClick={onDelete}>
+						<DeleteIcon />
+					</IconButton>
+				</Tooltip>
+			</Grid>
+
+			<Grid item xs={1}>
+				<EditTaskDialog
+					onSubmit={editProject}
+					open={newDialogOpen}
+					onRequestClose={toggleDialog}
+				/>
+				<Icon
+					path={mdiPencil}
+					color='grey'
+					style={{ height: '100%' }}
+					size={1}
+					onClick={toggleDialog}
+				/>
 			</Grid>
 		</Grid>
-	</form>
+	</React.Fragment>
 );
-{
-	/*
-		<TextField defaultValue={name} onChange={console.log('u clikcedme')} style={helloWorld} />
-	<FormControlLabel
-			control={
-				<Grid container justify='space-between' spacing={16}>
-					<Grid item xs={1}>
-						<Checkbox />
-					</Grid>
-					<Grid item xs={9}>
-						<Typography>{name}</Typography>
-					</Grid>
-					<Grid item xs={1}>
-						<Icon
-							path={mdiPencil}
-							color='grey'
-							size={1}
-							onClick={console.log('hello!')}
-						/>
-				style={{
-				background: 'white',
-				width: '100%',
-				borderRadius: '10px',
-				margin: '5px'
-			}}
-	<Chip
-			color='secondary'
-			deleteIcon={<DoneIcon />}
-			onDelete={onDelete}
-			label=
-			style={{ width: '100%', background: 'white', color: 'black', margin: '5px' }}
-			onClick={onSelect}
-		/>
-		<div className={classes.todoItemTab}>
-		<span className={classes.todoItem}>{name || 'no name'}</span>
-
-	{showDelete && onDelete ? (
-			<Tooltip title='delete'>
-				<IconButton onClick={onDelete}>
-					<DeleteIcon />
-				</IconButton>
-			</Tooltip>
-		) : null}
-	</div>
-	*/
-}
 
 ProjectTile.propTypes = {
-	name: PropTypes.string,
+	//name: PropTypes.string,
 	//onSelect: PropTypes.func.isRequired,
 	onDelete: PropTypes.func,
 	onEdit: PropTypes.func,
-	showDelete: PropTypes.bool
+	showDelete: PropTypes.bool,
+	handleSubmit: PropTypes.func,
+	newDialogOpen2: PropTypes.bool,
+	toggleDialog2: PropTypes.bool,
+	wasSent: PropTypes.bool // from enhancer (withStateHandlers)
 };
-
 ProjectTile.defaultProps = {
-	showDelete: true
+	showDelete: true,
+	newDialogOpen2: false,
+	onRequestClose: false
 };
 
 export default ProjectTile;

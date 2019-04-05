@@ -49,6 +49,14 @@ export default compose(
 			toggleDialog: ({ newDialogOpen }) => () => ({
 				newDialogOpen: !newDialogOpen
 			})
+		},
+		({ initialWasSent = false }) => ({
+			wasSent: initialWasSent
+		}),
+		{
+			toggleSent: ({ wasSent }) => () => ({
+				wasSent: !wasSent
+			})
 		}
 	),
 	// Add handlers as props
@@ -66,7 +74,7 @@ export default compose(
 					createdAt: firebase.database.ServerValue.TIMESTAMP
 				})
 				.then(() => {
-					showSuccess('done');
+					showSuccess('Your goal day is sucessfully set. Good Luck!');
 				})
 				.catch((err) => {
 					console.error('Error:', err); // eslint-disable-line no-console
@@ -110,11 +118,28 @@ export default compose(
 				})
 				.then(() => {
 					toggleDialog();
-					showSuccess('done');
+					showSuccess('New Task is added sucessfuly.');
 				})
 				.catch((err) => {
 					console.error('Error:', err); // eslint-disable-line no-console
 					showError(err.message || 'Could not add project');
+					return Promise.reject(err);
+				});
+		},
+		editProject: (props) => (newInstance) => {
+			const { firebase, uid, showError, showSuccess, toggleDialog } = props;
+			console.log('I am from project tile');
+			console.log(props);
+			console.log(props.form);
+			return firebase
+				.update(`projects/${props.keykey}`, { name: props.name })
+				.then(() => {
+					toggleDialog();
+					//showSuccess('eej' + newInstance);
+				})
+				.catch((err) => {
+					console.error('Error:', err); // eslint-disable-line no-console
+					//showError(err.message || 'Could not add project');
 					return Promise.reject(err);
 				});
 		},
@@ -129,18 +154,6 @@ export default compose(
 					return Promise.reject(err);
 				});
 		},
-		editTask: ({ firebase, showSuccess, showError, props, toggleDialog }) => (project) =>
-			firebase
-				.editProject(project)
-				.then(() => {
-					toggleDialog();
-					showSuccess('done');
-				})
-				.catch((error) => {
-					showError('Error updating profile: ', error.message || error);
-					console.error('Error updating profile', error.message || error); // eslint-disable-line no-console
-					return Promise.reject(error);
-				}),
 
 		deleteGoalDay: (props) => (goalDay) => {
 			const { firebase, showError, showSuccess } = props;
