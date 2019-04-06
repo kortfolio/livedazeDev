@@ -10,31 +10,68 @@ import { TextField } from 'redux-form-material-ui';
 import { required } from 'utils/form';
 import InputBase from '@material-ui/core/InputBase';
 import InputLabel from '@material-ui/core/InputLabel';
+import Icon from '@mdi/react';
+import { mdiCheckCircle } from '@mdi/js';
+import { Grid, Fab } from '@material-ui/core';
+const ConfirmCompleteDialog = ({ handleSubmit, open, onRequestClose, name, classes }) => (
+	<Dialog open={open} onClose={onRequestClose} maxWidth='xs' fullWidth={true}>
+		<Grid
+			container
+			justify='center'
+			direction='row'
+			alignItems='center'
+			justify='center'
+			spacing={0}>
+			<Grid item sm={1} />
+			<Grid item sm={2}>
+				<Icon path={mdiCheckCircle} color='#9ed166' size={2.5} />
+			</Grid>
+			<Grid item sm={8}>
+				<div className='textDialogBold'>Complete?</div>
+				<DialogContent style={{ padding: '0px 24px 0 0' }}>
+					<div className='textDialogSmall'>{name}</div>
 
-const ConfirmCompleteDialog = ({ handleSubmit, open, onRequestClose }) => (
-	<Dialog open={open} onClose={onRequestClose}>
-		<DialogTitle id='new-project-dialog-title'>edit edit edit Task</DialogTitle>
+					<form onSubmit={handleSubmit}>
+						<DialogActions>
+							<Button
+								variant='outlined'
+								size='small'
+								color='primary'
+								style={{
+									textDecoration: 'none',
+									letterSpacing: '0.1rem',
+									fontFamily: 'isotonic',
+									fontSize: '12px',
+									marginRight: '0px',
+									borderRadius: '50px'
+								}}
+								onClick={onRequestClose}>
+								Not Yet
+							</Button>
 
-		<form onSubmit={handleSubmit}>
-			<DialogContent>
-				<Field
-					name='name'
-					component={TextField}
-					label='Add a Task'
-					validate={[ required ]}
-					fullWidth
-				/>
-			</DialogContent>
-
-			<DialogActions>
-				<Button type='submit' color='primary'>
-					Update
-				</Button>
-				<Button onClick={onRequestClose} color='secondary'>
-					Cancel
-				</Button>
-			</DialogActions>
-		</form>
+							<Fab
+								size='small'
+								variant='extended'
+								aria-label='Delete'
+								className={classes.fab}
+								style={{
+									textDecoration: 'none',
+									letterSpacing: '0.1rem',
+									fontFamily: 'isotonic',
+									fontSize: '12px',
+									marginRight: '0px',
+									paddingLeft: '20px',
+									paddingRight: '20px'
+								}}
+								type='submit'>
+								YES
+							</Fab>
+						</DialogActions>
+					</form>
+				</DialogContent>
+			</Grid>
+			<Grid item sm={1} />
+		</Grid>
 	</Dialog>
 );
 
