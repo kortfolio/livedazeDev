@@ -7,7 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import Icon from '@mdi/react';
 import { mdiCheckCircle } from '@mdi/js';
 import { Grid, Fab } from '@material-ui/core';
-const ConfirmCompleteDialog = ({
+const ConfirmDeleteDialog = ({
 	handleSubmit,
 	open,
 	onRequestClose,
@@ -53,9 +53,9 @@ const ConfirmCompleteDialog = ({
 	</Dialog>
 );
 
-ConfirmCompleteDialog.propTypes = {
+ConfirmDeleteDialog.propTypes = {
 	//	handleSubmit: PropTypes.func.isRequired, // from enhancer (reduxForm)
 	//	open: PropTypes.bool.isRequired,
 	//	onRequestClose: PropTypes.func.isRequired
 };
-export default ConfirmCompleteDialog;
+export default ConfirmDeleteDialog;

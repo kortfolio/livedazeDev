@@ -1,7 +1,7 @@
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { LIST_PATH } from 'constants/paths';
-import { withHandlers, withStateHandlers, setPropTypes } from 'recompose';
+import { withHandlers, withStateHandlers } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import { firebaseConnect } from 'react-redux-firebase';
 import { withStyles } from '@material-ui/core/styles';
@@ -10,7 +10,6 @@ import { spinnerWhileLoading } from 'utils/components';
 import { UserIsAuthenticated } from 'utils/router';
 //import theme from 'containers/Navbar/NavbarTheme';
 import theme from './ProjectsPage.styles.1';
-import PropTypes from 'prop-types';
 
 export default compose(
 	// redirect to /login if user is not logged in
@@ -112,7 +111,7 @@ export default compose(
 			return firebase
 				.push('projects', {
 					...newInstance,
-
+					isDone: false,
 					createdBy: uid,
 					createdAt: firebase.database.ServerValue.TIMESTAMP
 				})
@@ -127,19 +126,16 @@ export default compose(
 				});
 		},
 		editProject: (props) => (newInstance) => {
-			const { firebase, uid, showError, showSuccess, toggleDialog } = props;
-			console.log('I am from project tile');
-			console.log(props);
-			console.log(props.form);
+			const { firebase, showError, showSuccess, toggleDialog } = props;
 			return firebase
 				.update(`projects/${props.keykey}`, { name: props.name })
 				.then(() => {
 					toggleDialog();
-					//showSuccess('eej' + newInstance);
+					showSuccess('edit project success');
 				})
 				.catch((err) => {
 					console.error('Error:', err); // eslint-disable-line no-console
-					//showError(err.message || 'Could not add project');
+					showError(err.message || 'Could not edit project');
 					return Promise.reject(err);
 				});
 		},

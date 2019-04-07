@@ -10,15 +10,21 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 import { Checkbox } from '@material-ui/core';
 
-export const SimpleComponent = ({ createTodo, wasSent, isDone, keykey, classes, name }) => (
+export const DeleteButtonComponent = ({ createTodo, wasSent, isDone, keykey, classes, name }) => (
 	<div>
-		<ConfirmCompleteDialog
+		<ConfirmDeleteDialog
 			onSubmit={isDone}
 			open={wasSent}
 			onRequestClose={createTodo}
 			name={name}
 		/>
 		<Tooltip title='Complete'>
+			<Tooltip title='delete'>
+				<IconButton onClick={onDelete}>
+					<DeleteIcon />
+				</IconButton>
+			</Tooltip>
+
 			<Checkbox
 				onChange={createTodo}
 				style={{
@@ -77,4 +83,4 @@ const enhance = compose(
 	})
 );
 
-export default enhance(SimpleComponent);
+export default enhance(DeleteButtonComponent);

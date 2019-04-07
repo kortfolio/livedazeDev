@@ -7,7 +7,7 @@ import ProjectRoute from 'routes/Projects/routes/Project';
 import ProjectTile from '../ProjectTile';
 import NewProjectTile from '../NewProjectTile';
 import NewProjectDialog from '../NewProjectDialog';
-import { Grid, Typography, Card, CardContent } from '@material-ui/core';
+import { Grid, Typography, Card, CardContent, Hidden } from '@material-ui/core';
 
 //Moment JS for time/date manipulation
 import 'moment-timezone';
@@ -22,7 +22,6 @@ import PomodoroTimer from '../PomodoroTimer';
 
 //To Refactor in future
 import { mdiFormatListCheckbox } from '@mdi/js';
-import EditTaskDialog from '../EditTaskDialog/';
 
 const section = {
 	height: '100%'
@@ -98,18 +97,34 @@ export const ProjectsPage = ({
 										'0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08)'
 								}}>
 								<CardContent>
-									<Grid
-										container
-										justify='center'
-										style={{
-											height: '100%'
-										}}>
-										<Icon
-											path={mdiFormatListCheckbox}
-											size={3.5}
-											color='white'
-										/>
-									</Grid>
+									{/*
+									<Hidden xsUp>
+										<Paper className={classes.paper}>xsUp</Paper>
+									</Hidden>
+									<Hidden smUp>
+										<Paper className={classes.paper}>smUp</Paper>
+									</Hidden>
+									<Hidden mdUp>
+										<Paper className={classes.paper}>mdUp</Paper>
+									</Hidden>
+									<Hidden lgDown>
+										<Paper className={classes.paper}>lgUp</Paper>
+									</Hidden>
+									*/}
+									<Hidden mdDown>
+										<Grid
+											container
+											justify='center'
+											style={{
+												height: '100%'
+											}}>
+											<Icon
+												path={mdiFormatListCheckbox}
+												size={3.5}
+												color='white'
+											/>
+										</Grid>
+									</Hidden>
 								</CardContent>
 								<div
 									style={{
@@ -134,6 +149,7 @@ export const ProjectsPage = ({
 													keykey={project.key}
 													name={project.value['name']}
 													onDelete={() => deleteProject(project)}
+													isOver={project.value['isDone']}
 												/>
 											))}
 										<NewProjectDialog
@@ -170,7 +186,7 @@ ProjectsPage.propTypes = {
 	addProject: PropTypes.func.isRequired, // from enhancer (withHandlers - firebase)
 	addGoalDate: PropTypes.func.isRequired,
 	addSleepTime: PropTypes.func.isRequired,
-
+	toggleSent: PropTypes.func.isRequired,
 	goToProject: PropTypes.func.isRequired // from enhancer (withHandlers - router)
 };
 

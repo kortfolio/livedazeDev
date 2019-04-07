@@ -26,8 +26,6 @@ import { LIST_PATH } from 'constants/paths';
 import { Typography } from '@material-ui/core';
 
 function DrawerList(props) {
-	const { classes } = props;
-
 	return (
 		<React.Fragment>
 			<List>
@@ -38,7 +36,7 @@ function DrawerList(props) {
 						component={Link}
 						to={
 							<React.Fragment>
-								(index === 0 && LIST_PATH) || (index === 1 && FOCUSTIME_PATH)
+								{(index === 0 && LIST_PATH) || (index === 1 && FOCUSTIME_PATH)}
 							</React.Fragment>
 						}
 						style={{

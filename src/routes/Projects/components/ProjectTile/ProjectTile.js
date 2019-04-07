@@ -3,37 +3,12 @@ import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Chip from '@material-ui/core/Chip';
-import FaceIcon from '@material-ui/icons/Face';
-import DoneIcon from '@material-ui/icons/Done';
-import {
-	FormControlLabel,
-	Radio,
-	Checkbox,
-	Grid,
-	Typography,
-	TextField,
-	Button
-} from '@material-ui/core';
-import { mdiCheckboxMarkedCircle } from '@mdi/js';
+
+import { Checkbox, Grid } from '@material-ui/core';
 import { mdiPencil } from '@mdi/js';
 import Icon from '@mdi/react';
-import { reduxForm } from 'redux-form';
-import { Field } from 'redux-form';
 import EditTaskDialog from '../EditTaskDialog';
-import ConfirmCompleteDialog from '../ConfirmCompleteDialog';
-//import SimpleComponent from './SimpleComponent';
-const renderCheckbox = ({ input, label }) => (
-	<div>
-		<FormControlLabel
-			control={<Checkbox checked={input.value ? true : false} onChange={input.onChange} />}
-			label={label}
-			style={{ background: 'white', width: '100%' }}
-		/>
-	</div>
-);
-
-const openShit = (name) => (event) => {};
+import SimpleComponent from './SimpleComponent';
 
 const taskTabDecorator = {
 	color: 'white',
@@ -41,11 +16,10 @@ const taskTabDecorator = {
 	marginBottom: '20px',
 	marginTop: '20px',
 	padding: '0',
-	borderRadius: '50px',
+	borderRadius: '5px',
 	border: '1px',
 	boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px'
 };
-const Hohoho = ({ onClick }) => <Typography onClick={onClick}>kpkpkpkpkpEDIT</Typography>;
 export const ProjectTile = ({
 	toggleSent,
 	classes,
@@ -57,60 +31,77 @@ export const ProjectTile = ({
 	newDialogOpen,
 	toggleDialog,
 	editTask,
-	isDone
+	isDone,
+	isOver,
+	keykey,
+	toggleConfirm
 }) => (
 	<React.Fragment>
-		<Grid
-			container
-			justify='space-between'
-			spacing={0}
-			style={taskTabDecorator}
-			className={classes.root}>
-			{/* Checkbox for 
+		{!isOver && (
+			<Grid
+				container
+				justify='space-between'
+				spacing={0}
+				style={taskTabDecorator}
+				className={classes.root}>
+				{/* CHECKBOX FOR TODO TAB */}
+				<Grid item xs={1}>
+					<SimpleComponent keykey={keykey} name={name} />
+				</Grid>
+
+				{/* TODO VALUE*/}
+				<Grid item xs={9} style={{ color: 'black' }}>
+					<p
+						style={{
+							whiteSpace: 'nowrap',
+							textOverflow: 'ellipsis',
+							overflow: 'hidden'
+						}}>
+						{name}
+					</p>
+				</Grid>
+				{/* DELETE BUTTON */}
+				<Grid item xs={1}>
+					<Tooltip title='delete'>
+						<IconButton onClick={onDelete}>
+							<DeleteIcon />
+						</IconButton>
+					</Tooltip>
+				</Grid>
+				{/* EDIT BUTTON */}
+				<Grid item xs={1}>
+					<Tooltip title='Edit Task'>
+						<IconButton onClick={toggleDialog}>
+							<Icon path={mdiPencil} color='grey' size={1} />
+						</IconButton>
+					</Tooltip>
+					<EditTaskDialog
+						onSubmit={editProject}
+						open={newDialogOpen}
+						onRequestClose={toggleDialog}
+						name={name}
+					/>
+				</Grid>
+			</Grid>
+		)}
+		{/* display Completed task  */}
+		{isOver && (
+			<Grid
+				container
+				justify='space-between'
+				spacing={0}
+				style={taskTabDecorator}
+				className={classes.root}>
+				{/* Checkbox for 
 				completed task */}
-			<Grid item xs={1}>
-				<ConfirmCompleteDialog
-					onSubmit={isDone}
-					open={wasSent}
-					onRequestClose={toggleSent}
-				/>
-
-				<Icon
-					path={mdiPencil}
-					color='pink'
-					style={{ height: '100%' }}
-					size={1}
-					onClick={toggleSent}
-				/>
+				<Grid item xs={1}>
+					<Checkbox checked='false' disabled={true} />
+				</Grid>
+				<Grid item xs={11} style={{ color: 'grey' }}>
+					<p>[COMPLETED] {name}</p>
+				</Grid>
 			</Grid>
-
-			<Grid item xs={9} style={{ color: 'black' }}>
-				<p>{name}</p>
-			</Grid>
-
-			<Grid item xs={1}>
-				<Tooltip title='delete'>
-					<IconButton onClick={onDelete}>
-						<DeleteIcon />
-					</IconButton>
-				</Tooltip>
-			</Grid>
-
-			<Grid item xs={1}>
-				<EditTaskDialog
-					onSubmit={editProject}
-					open={newDialogOpen}
-					onRequestClose={toggleDialog}
-				/>
-				<Icon
-					path={mdiPencil}
-					color='grey'
-					style={{ height: '100%' }}
-					size={1}
-					onClick={toggleDialog}
-				/>
-			</Grid>
-		</Grid>
+		)}
 	</React.Fragment>
 );
 

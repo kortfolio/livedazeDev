@@ -654,3 +654,10 @@ span.resetTextDecorator {
 	color: #525f7f;
 	word-break: break-all;
 }
+
+input.taskTextField {
+	width: 100%;
+	border-radius: 10px;
+	height: auto;
+	font-size: 14px;
+}
