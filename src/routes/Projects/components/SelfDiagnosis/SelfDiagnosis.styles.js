@@ -27,8 +27,9 @@ export default (theme) => ({
 	},
 	card: {
 		display: 'flex',
-		backgroundColor: 'rgb(101, 112, 227)',
-		backgroundImage: 'linear-gradient(315deg, rgb(99, 109, 227) 0%, rgb(156, 162, 239) 74%)'
+		backgroundColor: '#000000',
+		backgroundImage: 'linear-gradient(147deg, #000000 0%, #434343 74%)'
+	 
 	},
 	content: {
 		flexGrow: 1,
