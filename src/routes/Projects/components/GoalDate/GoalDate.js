@@ -37,6 +37,10 @@ const buttonStyle = {
 	backgroundColor: 'black'
 };
 
+const handleDateChangeRaw = (e) => {
+	e.preventDefault();
+};
+
 const GoalDate = ({ handleSubmit, goalDays, deleteGoalDay, onDelete, classes }) => (
 	<React.Fragment>
 		<Card className={classes.card}>
@@ -76,6 +80,7 @@ const GoalDate = ({ handleSubmit, goalDays, deleteGoalDay, onDelete, classes }) 
 										normalize={(value) =>
 											value ? moment(value).format('MM/DD/YYYY') : null}
 										validate={[ goalDateValidate ]}
+										onChangeRaw={handleDateChangeRaw}
 									/>
 									<Grid
 										container

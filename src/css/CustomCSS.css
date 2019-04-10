@@ -637,6 +637,7 @@ span.resetTextDecorator {
 .starRatingComponent {
 	font-size: 20px;
 	letter-spacing: 5px;
+	display: inline-block;
 }
 
 .textDialogBold {
@@ -660,4 +661,9 @@ input.taskTextField {
 	border-radius: 10px;
 	height: auto;
 	font-size: 14px;
+}
+
+textarea#reviewRatingTextField {
+	font-size: 12px;
+	font-family: 'isotonic';
 }

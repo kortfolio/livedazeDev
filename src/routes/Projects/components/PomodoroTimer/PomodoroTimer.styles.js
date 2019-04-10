@@ -11,8 +11,8 @@ export default (theme) => ({
 	},
 	card: {
 		display: 'flex',
-		backgroundColor: '#8ae9b3',
-		backgroundImage: 'linear-gradient(315deg, rgb(90, 184, 141) 0%, rgb(140, 199, 115) 74%)'
+		backgroundColor: '#ee8e6b',
+		backgroundImage: 'linear-gradient(315deg, #ee8e6b 0%, #ef6da0 74%)'
 	},
 	details: {
 		display: 'flex',

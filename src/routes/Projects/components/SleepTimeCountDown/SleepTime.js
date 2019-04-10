@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import { goalDateValidate } from 'utils/form';
-import { mdiFire } from '@mdi/js';
 
 //MUI (Material UI) Core libraries
 import Card from '@material-ui/core/Card';
@@ -10,6 +9,7 @@ import moment from 'moment';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { mdiHelpCircleOutline } from '@mdi/js';
+import { mdiWeatherNight } from '@mdi/js';
 
 import { isEmpty } from 'react-redux-firebase';
 import Fab from '@material-ui/core/Fab';
@@ -19,8 +19,6 @@ import { Grid } from '@material-ui/core';
 import Icon from '@mdi/react';
 import Tooltip from '@material-ui/core/Tooltip';
 import { DisplaySleepTime } from './DisplaySleepTime';
-//import TimePicker from '@material-ui/core/TimePicker';
-//import { TimePicker } from 'material-ui-pickers';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './SleepTime.styles';
 
@@ -35,6 +33,10 @@ const buttonStyle = {
 	backgroundColor: 'black'
 };
 
+const handleDateChangeRaw = (e) => {
+	e.preventDefault();
+};
+
 export const SleepTime = ({
 	handleSubmit,
 	sleepTimes,
@@ -46,7 +48,7 @@ export const SleepTime = ({
 	<Card className={classes.card}>
 		<CardContent>
 			<Grid container style={{ height: '100%' }}>
-				<Icon path={mdiFire} size={3} color='white' />
+				<Icon path={mdiWeatherNight} size={3} color='white' />
 			</Grid>
 		</CardContent>
 		{isEmpty(sleepTimes) && (
@@ -76,6 +78,7 @@ export const SleepTime = ({
 										value ? moment(value).format('LLLL') : null}
 									dateFormat='h:mm aa'
 									timeCaption='Time'
+									onChangeRaw={handleDateChangeRaw}
 								/>
 								<Grid
 									container

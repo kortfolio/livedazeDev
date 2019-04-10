@@ -31,7 +31,6 @@ export default compose(
 	connect(({ firebase: { ordered } }) => ({
 		projects: ordered.projects
 	})),
-	// Show loading spinner while projects and collabProjects are loading
 	spinnerWhileLoading([ 'projects' ]),
 	// Add props.router
 	withRouter,

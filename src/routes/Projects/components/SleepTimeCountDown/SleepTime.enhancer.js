@@ -34,7 +34,6 @@ export default compose(
 	connect(({ firebase: { ordered } }) => ({
 		sleepTimes: ordered.sleepTimes
 	})),
-	// Show loading spinner while projects and collabProjects are loading
 	spinnerWhileLoading([ 'sleepTimes' ]),
 	// Add props.router
 	withRouter,

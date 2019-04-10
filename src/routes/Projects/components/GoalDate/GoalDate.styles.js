@@ -35,7 +35,7 @@ export default (theme) => ({
 		display: 'flex',
 		background: '#4c89db',
 		backgroundColor: '#045de9',
-		backgroundImage: 'linear-gradient(315deg, #045de9 0%, #09c6f9 74%)',
+		backgroundImage: 'linear-gradient(315deg, #4c89db 0%, #85b9ff 74%)',
 		height: '100%'
 	},
 

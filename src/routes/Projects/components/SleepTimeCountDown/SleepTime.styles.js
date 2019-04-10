@@ -10,8 +10,8 @@ export default (theme) => ({
 	},
 	card: {
 		display: 'flex',
-		backgroundColor: '#ff7878',
-		backgroundImage: 'linear-gradient(315deg, #6c202e 0%, #ff7979 74%)',
+		backgroundColor: '#4dccc6',
+		backgroundImage: 'linear-gradient(315deg, #4dccc6 0%, #96e4df 74%)',
 		height: '100%'
 	},
 	details: {
