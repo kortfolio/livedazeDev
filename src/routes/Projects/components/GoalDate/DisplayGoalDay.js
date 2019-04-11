@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid } from '@material-ui/core';
+import { Grid, Tooltip } from '@material-ui/core';
 import moment from 'moment';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -15,16 +15,9 @@ import styles from './GoalDate.styles';
 
 export const DisplayGoalDay = ({ goalDay, classes, onDelete }) => (
 	<React.Fragment>
-		{/* Material Icon for the card */}
-		<CardContent>
-			<Grid container justify='center' style={{ height: '100%' }}>
-				<Icon path={mdiCalendarCheck} size={3} color='white' />
-			</Grid>
-		</CardContent>
-		{/* Card Content */}
-		<div className={classes.details}>
-			<CardContent className={classes.content}>
-				<Grid item align='right' className={classes.goalDayTitle}>
+		<CardContent className={classes.content}>
+			<Grid item align='right' className={classes.goalDayTitle}>
+				<Tooltip title='Set your goals high, and don&#39;t stop till you get there.'>
 					<Icon
 						path={mdiKeyboardBackspace}
 						onClick={onDelete}
@@ -32,31 +25,31 @@ export const DisplayGoalDay = ({ goalDay, classes, onDelete }) => (
 						color='white'
 						cursor='pointer'
 					/>
-				</Grid>
-				<Typography align='right' className={classes.goalDayTitle}>
-					My Goal Day
-				</Typography>
-				<Grid container alignItems='flex-start' justify='flex-end' direction='row'>
-					<Spring
-						from={{ number: 0 }}
-						to={{
-							number: Math.abs(moment(new Date(), 'days').diff(goalDay, 'days')) + 1
-						}}>
-						{(props) => (
-							<div className='livedaze_daysRemaining'>{Math.floor(props.number)}</div>
-						)}
-					</Spring>
-					<span className='DaysLeftTextDecorator'>
-						Days
-						<br />
-						Left
-					</span>
-				</Grid>
-				<Typography align='right' className={classes.goalDayTitle}>
-					{goalDay}
-				</Typography>
-			</CardContent>
-		</div>
+				</Tooltip>
+			</Grid>
+			<Typography align='right' className={classes.goalDayTitle}>
+				My Goal Day
+			</Typography>
+			<Grid container alignItems='flex-start' justify='flex-end' direction='row'>
+				<Spring
+					from={{ number: 0 }}
+					to={{
+						number: Math.abs(moment(new Date(), 'days').diff(goalDay, 'days')) + 1
+					}}>
+					{(props) => (
+						<div className='livedaze_daysRemaining'>{Math.floor(props.number)}</div>
+					)}
+				</Spring>
+				<span className='DaysLeftTextDecorator'>
+					Days
+					<br />
+					Left
+				</span>
+			</Grid>
+			<Typography align='right' className={classes.goalDayTitle}>
+				{goalDay}
+			</Typography>
+		</CardContent>
 	</React.Fragment>
 );
 

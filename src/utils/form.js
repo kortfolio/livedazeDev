@@ -15,8 +15,8 @@ export function required(value) {
 	return value ? undefined : 'Required';
 }
 
-export function goalDateValidate(value) {
-	return value ? undefined : 'Please select the date';
+export function goalDateValidate(value, allValues) {
+	return value ? undefined : 'Please set your goal day';
 }
 /**
  * Returns error message if value is not a valid email, otherwise returns

@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { pick, some } from 'lodash'
-import { isLoaded } from 'react-redux-firebase'
-import LoadableComponent from 'react-loadable'
-import { mapProps, branch, renderComponent } from 'recompose'
-import LoadingSpinner from 'components/LoadingSpinner'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { pick, some } from 'lodash';
+import { isLoaded } from 'react-redux-firebase';
+import LoadableComponent from 'react-loadable';
+import { mapProps, branch, renderComponent } from 'recompose';
+import LoadingSpinner from 'components/LoadingSpinner';
 
 /**
  * Show a loading spinner when a condition is truthy. Used within
@@ -13,8 +13,7 @@ import LoadingSpinner from 'components/LoadingSpinner'
  * @param  {Function} condition - Condition function for when to show spinner
  * @return {HigherOrderComponent}
  */
-export const spinnerWhile = condition =>
-  branch(condition, renderComponent(LoadingSpinner))
+export const spinnerWhile = (condition) => branch(condition, renderComponent(LoadingSpinner));
 
 /**
  * Show a loading spinner while props are loading . Checks
@@ -37,8 +36,8 @@ export const spinnerWhile = condition =>
  * @param  {Array} propNames - List of prop names to check loading for
  * @return {HigherOrderComponent}
  */
-export const spinnerWhileLoading = propNames =>
-  spinnerWhile(props => some(propNames, name => !isLoaded(props[name])))
+export const spinnerWhileLoading = (propNames) =>
+	spinnerWhile((props) => some(propNames, (name) => !isLoaded(props[name])));
 
 /**
  * HOC that logs props using console.log. Accepts an array list of prop names
@@ -60,39 +59,37 @@ export const spinnerWhileLoading = propNames =>
  * @return {HigherOrderComponent}
  */
 export const logProps = (propNames, logName = '') =>
-  mapProps(ownerProps => {
-    console.log(
-      `${logName} props:`,
-      propNames ? pick(ownerProps, propNames) : ownerProps
-    )
-    return ownerProps
-  })
+	mapProps((ownerProps) => {
+		console.log(`${logName} props:`, propNames ? pick(ownerProps, propNames) : ownerProps);
+		return ownerProps;
+	});
 
 export function createWithFromContext(withVar) {
-  return WrappedComponent => {
-    class WithFromContext extends Component {
-      render() {
-        const props = { [withVar]: this.context[withVar] }
-        if (this.context.store && this.context.store.dispatch) {
-          props.dispatch = this.context.store.dispatch
-        }
-        return <WrappedComponent {...this.props} {...props} />
-      }
-    }
+	return (WrappedComponent) => {
+		class WithFromContext extends Component {
+			render() {
+				const props = { [withVar]: this.context[withVar] };
 
-    WithFromContext.contextTypes = {
-      [withVar]: PropTypes.object.isRequired
-    }
+				if (this.context.store && this.context.store.dispatch) {
+					props.dispatch = this.context.store.dispatch;
+				}
+				return <WrappedComponent {...this.props} {...props} />;
+			}
+		}
 
-    return WithFromContext
-  }
+		WithFromContext.contextTypes = {
+			[withVar]: PropTypes.object.isRequired
+		};
+
+		return WithFromContext;
+	};
 }
 
 /**
  * HOC that adds store to props
  * @return {HigherOrderComponent}
  */
-export const withStore = createWithFromContext('store')
+export const withStore = createWithFromContext('store');
 
 /**
  * Create component which is loaded async, showing a loading spinner
@@ -101,8 +98,8 @@ export const withStore = createWithFromContext('store')
  * @param {Function} opts.loader - Loader function (should return import promise)
  */
 export function Loadable(opts) {
-  return LoadableComponent({
-    loading: LoadingSpinner,
-    ...opts
-  })
+	return LoadableComponent({
+		loading: LoadingSpinner,
+		...opts
+	});
 }
