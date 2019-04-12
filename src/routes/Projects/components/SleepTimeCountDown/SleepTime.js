@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
-import { goalDateValidate } from 'utils/form';
+import { sleepTimeValidate } from 'utils/form';
 
 //MUI (Material UI) Core libraries
 import Card from '@material-ui/core/Card';
@@ -22,17 +22,6 @@ import { DisplaySleepTime } from './DisplaySleepTime';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './SleepTime.styles';
 
-const buttonStyle = {
-	textDecoration: 'none',
-	letterSpacing: '0.1rem',
-	fontFamily: 'isotonic',
-	fontSize: '12px',
-	marginRight: '0px',
-	paddingLeft: '20px',
-	paddingRight: '20px',
-	backgroundColor: 'black'
-};
-
 const handleDateChangeRaw = (e) => {
 	e.preventDefault();
 };
@@ -45,62 +34,48 @@ export const SleepTime = ({
 	onDelete,
 	classes
 }) => (
-	<Card className={classes.card}>
-		<CardContent>
-			<Grid container style={{ height: '100%' }}>
-				<Icon path={mdiWeatherNight} size={3} color='white' />
-			</Grid>
-		</CardContent>
+	<Card className={classes.root}>
+		<Icon path={mdiWeatherNight} size={3.5} color='white' style={{ height: '100%' }} />
 		{isEmpty(sleepTimes) && (
-			<Fragment>
-				<div className={classes.details}>
-					<CardContent className={classes.content}>
-						<Grid item align='right' className={classes.goalDayTitle}>
-							<Tooltip title='Set a bedtime. wake at the same time.'>
-								<Icon path={mdiHelpCircleOutline} size={0.5} color='white' />
-							</Tooltip>
-						</Grid>
-						<Typography align='right' className={classes.goalDayTitle}>
-							My Bedtime
-						</Typography>
-						{/* Goal Day Picker */}
+			<CardContent className={classes.content}>
+				<Grid item align='right' className={classes.goalDayTitle}>
+					<Tooltip title='Set a bedtime. wake at the same time.'>
+						<Icon path={mdiHelpCircleOutline} size={0.5} color='white' />
+					</Tooltip>
+				</Grid>
+				<Typography align='right' className={classes.goalDayTitle}>
+					My Bedtime
+				</Typography>
+				{/* Goal Day Picker */}
+				<Grid container alignItems='flex-start' justify='flex-end' direction='row'>
+					<form onSubmit={handleSubmit} autoComplete='off'>
+						{/* Time Picker Field */}
+						<Field
+							className='DatePickerCustomStyle2'
+							id='sleepTime'
+							component={TimePickerField}
+							name='sleepTime'
+							placeholderText='00:00'
+							validate={[ sleepTimeValidate ]}
+							normalize={(value) => (value ? moment(value).format('LLLL') : null)}
+							dateFormat='h:mm aa'
+							timeCaption='Time'
+							onChangeRaw={handleDateChangeRaw}
+						/>
 						<Grid container alignItems='flex-start' justify='flex-end' direction='row'>
-							<form onSubmit={handleSubmit} autoComplete='off'>
-								{/* Time Picker Field */}
-								<Field
-									className='DatePickerCustomStyle2'
-									id='sleepTime'
-									component={TimePickerField}
-									name='sleepTime'
-									placeholderText='00:00'
-									validate={[ goalDateValidate ]}
-									normalize={(value) =>
-										value ? moment(value).format('LLLL') : null}
-									dateFormat='h:mm aa'
-									timeCaption='Time'
-									onChangeRaw={handleDateChangeRaw}
-								/>
-								<Grid
-									container
-									alignItems='flex-start'
-									justify='flex-end'
-									direction='row'>
-									<Fab
-										style={buttonStyle}
-										variant='extended'
-										size='small'
-										color='primary'
-										aria-label='Add'
-										className={classes.outLinedBtn}
-										type='submit'>
-										Update
-									</Fab>
-								</Grid>
-							</form>
+							<Fab
+								variant='extended'
+								size='small'
+								color='primary'
+								aria-label='Add'
+								className={classes.outLinedBtn}
+								type='submit'>
+								Update
+							</Fab>
 						</Grid>
-					</CardContent>
-				</div>
-			</Fragment>
+					</form>
+				</Grid>
+			</CardContent>
 		)}
 
 		{!isEmpty(sleepTimes) &&

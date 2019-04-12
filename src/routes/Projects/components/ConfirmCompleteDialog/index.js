@@ -1,4 +1,4 @@
-import confirmCompleteDialog from './ConfirmCompleteDialog';
+import ConfirmCompleteDialog from './ConfirmCompleteDialog';
 import enhance from './ConfirmCompleteDialog.enhancer';
 
-export default enhance(confirmCompleteDialog);
+export default enhance(ConfirmCompleteDialog);

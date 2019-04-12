@@ -7,14 +7,11 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-
 import HomeIcon from '@material-ui/icons/Home';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
-
 import SettingsIcon from '@material-ui/icons/Settings';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-
 import FeedbackIcon from '@material-ui/icons/Feedback';
 
 import AlarmIcon from '@material-ui/icons/Alarm';

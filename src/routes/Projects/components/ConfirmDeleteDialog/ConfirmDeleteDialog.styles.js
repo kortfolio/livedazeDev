@@ -34,14 +34,14 @@ export default (theme) => ({
 		paddingLeft: '10px',
 		borderColor: '#9ed166',
 		paddingRight: '10px',
-		'&:hover': {
-			backgroundColor: '#f3ffe4',
-			borderColor: '#9ed166'
-		},
 		textDecoration: 'none',
 		letterSpacing: '0.1rem',
 		fontSize: '12px',
 		marginRight: '0px',
-		borderRadius: '50px'
+		borderRadius: '50px',
+		'&:hover': {
+			backgroundColor: '#f3ffe4',
+			borderColor: '#9ed166'
+		}
 	}
 });

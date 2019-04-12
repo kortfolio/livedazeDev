@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import DeleteIcon from '@material-ui/icons/Delete';
 
-import { Checkbox, Grid } from '@material-ui/core';
+import {   Grid } from '@material-ui/core';
 import { mdiPencil } from '@mdi/js';
 import Icon from '@mdi/react';
 import EditTaskDialog from '../EditTaskDialog';
-import SimpleComponent from './SimpleComponent';
+import ConfirmCompleteCheckBox from './ConfirmCompleteCheckBox';
+import DeleteButtonIcon from './DeleteButtonIcon';
 
 const taskTabDecorator = {
 	color: 'white',
@@ -46,7 +46,7 @@ export const ProjectTile = ({
 				className={classes.root}>
 				{/* CHECKBOX FOR TODO TAB */}
 				<Grid item xs={1}>
-					<SimpleComponent keykey={keykey} name={name} />
+					<ConfirmCompleteCheckBox keykey={keykey} name={name} />
 				</Grid>
 
 				{/* TODO VALUE*/}
@@ -62,11 +62,7 @@ export const ProjectTile = ({
 				</Grid>
 				{/* DELETE BUTTON */}
 				<Grid item xs={1}>
-					<Tooltip title='delete'>
-						<IconButton onClick={onDelete}>
-							<DeleteIcon />
-						</IconButton>
-					</Tooltip>
+					<DeleteButtonIcon keykey={keykey} name={name} />
 				</Grid>
 				{/* EDIT BUTTON */}
 				<Grid item xs={1}>
@@ -81,24 +77,6 @@ export const ProjectTile = ({
 						onRequestClose={toggleDialog}
 						name={name}
 					/>
-				</Grid>
-			</Grid>
-		)}
-		{/* display Completed task  */}
-		{isOver && (
-			<Grid
-				container
-				justify='space-between'
-				spacing={0}
-				style={taskTabDecorator}
-				className={classes.root}>
-				{/* Checkbox for 
-				completed task */}
-				<Grid item xs={1}>
-					<Checkbox checked='false' disabled={true} />
-				</Grid>
-				<Grid item xs={11} style={{ color: 'grey' }}>
-					<p>[COMPLETED] {name}</p>
 				</Grid>
 			</Grid>
 		)}

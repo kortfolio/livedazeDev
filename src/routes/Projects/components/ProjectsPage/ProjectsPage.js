@@ -9,19 +9,17 @@ import NewProjectTile from '../NewProjectTile';
 import NewProjectDialog from '../NewProjectDialog';
 import { Grid, Typography, Card, CardContent, Hidden } from '@material-ui/core';
 
-//Moment JS for time/date manipulation
+import Icon from '@mdi/react';
+import { mdiFormatListCheckbox } from '@mdi/js';
+
 import 'moment-timezone';
 import 'moment-duration-format';
 
 //Livedaze core components
-import SelfDiagnosis from '../SelfDiagnosis';
 import GoalDate from '../GoalDate';
 import SleepTime from '../SleepTimeCountDown';
-import Icon from '@mdi/react';
 import PomodoroTimer from '../PomodoroTimer';
-
-//To Refactor in future
-import { mdiFormatListCheckbox } from '@mdi/js';
+import SelfDiagnosis from '../SelfDiagnosis';
 
 const section = {
 	height: '100%'
@@ -42,7 +40,6 @@ export const ProjectsPage = ({
 	goalDate,
 	sleepTime,
 	editTask,
-	collabProjects,
 	auth,
 	newDialogOpen,
 	toggleDialog,
@@ -51,7 +48,6 @@ export const ProjectsPage = ({
 	addProject,
 	addGoalDate,
 	addSleepTime,
-	toggleDialog2,
 	classes,
 	match,
 	goToProject
@@ -97,20 +93,6 @@ export const ProjectsPage = ({
 										'0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08)'
 								}}>
 								<CardContent>
-									{/*
-									<Hidden xsUp>
-										<Paper className={classes.paper}>xsUp</Paper>
-									</Hidden>
-									<Hidden smUp>
-										<Paper className={classes.paper}>smUp</Paper>
-									</Hidden>
-									<Hidden mdUp>
-										<Paper className={classes.paper}>mdUp</Paper>
-									</Hidden>
-									<Hidden lgDown>
-										<Paper className={classes.paper}>lgUp</Paper>
-									</Hidden>
-									*/}
 									<Hidden mdDown>
 										<Grid
 											container
@@ -173,21 +155,20 @@ export const ProjectsPage = ({
 );
 
 ProjectsPage.propTypes = {
-	classes: PropTypes.object.isRequired, // from enhancer (withStyles)
-	match: PropTypes.object.isRequired, // from enhancer (withRouter)
-	auth: PropTypes.object, // from enhancer (connect + firebaseConnect - firebase)
-	projects: PropTypes.array, // from enhancer (connect + firebaseConnect - firebase)
+	classes: PropTypes.object.isRequired,
+	match: PropTypes.object.isRequired,
+	auth: PropTypes.object,
+	projects: PropTypes.array,
 	goalDate: PropTypes.array,
 	sleepTime: PropTypes.array,
-	newDialogOpen: PropTypes.bool, // from enhancer (withStateHandlers)
-	toggleDialog: PropTypes.func.isRequired, // from enhancer (withStateHandlers)
-	deleteProject: PropTypes.func.isRequired, // from enhancer (withHandlers - firebase)
-	collabProjects: PropTypes.object, // from enhancer (withHandlers - firebase)
-	addProject: PropTypes.func.isRequired, // from enhancer (withHandlers - firebase)
+	newDialogOpen: PropTypes.bool,
+	toggleDialog: PropTypes.func.isRequired,
+	deleteProject: PropTypes.func.isRequired,
+	addProject: PropTypes.func.isRequired,
 	addGoalDate: PropTypes.func.isRequired,
 	addSleepTime: PropTypes.func.isRequired,
 	toggleSent: PropTypes.func.isRequired,
-	goToProject: PropTypes.func.isRequired // from enhancer (withHandlers - router)
+	goToProject: PropTypes.func.isRequired
 };
 
 export default ProjectsPage;

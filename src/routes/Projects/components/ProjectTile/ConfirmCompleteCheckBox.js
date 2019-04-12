@@ -10,23 +10,24 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 import { Checkbox } from '@material-ui/core';
 
-export const DeleteButtonComponent = ({ createTodo, wasSent, isDone, keykey, classes, name }) => (
+export const ConfirmCompleteCheckBox = ({
+	toggleConfirmDialog,
+	wasSent,
+	isDone,
+	keykey,
+	classes,
+	name
+}) => (
 	<div>
-		<ConfirmDeleteDialog
+		<ConfirmCompleteDialog
 			onSubmit={isDone}
 			open={wasSent}
-			onRequestClose={createTodo}
+			onRequestClose={toggleConfirmDialog}
 			name={name}
 		/>
 		<Tooltip title='Complete'>
-			<Tooltip title='delete'>
-				<IconButton onClick={onDelete}>
-					<DeleteIcon />
-				</IconButton>
-			</Tooltip>
-
 			<Checkbox
-				onChange={createTodo}
+				onChange={toggleConfirmDialog}
 				style={{
 					color: 'black'
 				}}
@@ -35,11 +36,11 @@ export const DeleteButtonComponent = ({ createTodo, wasSent, isDone, keykey, cla
 	</div>
 );
 
-SimpleComponent.propTypes = {
+ConfirmCompleteCheckBox.propTypes = {
 	firebase: PropTypes.shape({
 		push: PropTypes.func.isRequired
 	}),
-	createTodo: PropTypes.func, // from enhancer (withHandlers)
+	toggleConfirmDialog: PropTypes.func, // from enhancer (withHandlers)
 	wasSent: PropTypes.bool, // from enhancer (withStateHandlers)
 	isDone: PropTypes.func
 	//	classes: PropTypes.object.isRequired
@@ -62,7 +63,7 @@ const enhance = compose(
 		}
 	),
 	withHandlers({
-		createTodo: ({ wasSent, toggleConfirm }) => (event) => {
+		toggleConfirmDialog: ({ wasSent, toggleConfirm }) => (event) => {
 			return toggleConfirm();
 		},
 		//Workin
@@ -83,4 +84,4 @@ const enhance = compose(
 	})
 );
 
-export default enhance(DeleteButtonComponent);
+export default enhance(ConfirmCompleteCheckBox);

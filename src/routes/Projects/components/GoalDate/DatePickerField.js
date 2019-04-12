@@ -16,40 +16,12 @@ const withFormField = (Component) =>
 	setDisplayName('withFormField')(({ meta: { touched, error }, ...props }) => (
 		<Form.Field error={!!(touched && error)}>
 			<Component {...props} />
-
-			{touched && error ? (
-				<Label
-					basic
-					color='red'
-					pointing
-					style={{
-						textAlign: 'right',
-						fontSize: '12px',
-						color: '#eeeeee'
-					}}>
-					{error}
-				</Label>
-			) : (
-				<Label
-					basic
-					color='red'
-					pointing
-					style={{
-						textAlign: 'right',
-						fontSize: '12px',
-						color: '#eeeeee'
-					}}>
-					*Required
-				</Label>
-			)}
+			<Label className='validateLabel'>{touched && error ? error : '*required'}</Label>
 		</Form.Field>
 	));
 
 const withFormLabelField = compose(withFormField, withLabel);
 
-/**
- * DatePicker Input
- */
 export const DatePicker = compose(
 	withState('selectedDate', 'setSelectedDate', null),
 	withHandlers({
@@ -74,7 +46,4 @@ export const DatePicker = compose(
 	/>
 ));
 
-/**
- * DatePicker Field
- */
 export const DatePickerField = withFormLabelField(DatePicker);

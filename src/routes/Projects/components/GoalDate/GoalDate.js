@@ -27,14 +27,16 @@ const handleDateChangeRaw = (e) => {
 };
 const GoalDate = ({ handleSubmit, goalDays, deleteGoalDay, onDelete, classes }) => (
 	<Card className={classes.root}>
-		<Icon path={mdiCalendarCheck} size={4.5} color='white' style={{ height: '100%' }} />
+		<Icon path={mdiCalendarCheck} size={3.5} color='white' style={{ height: '100%' }} />
 		{!isEmpty(goalDays) &&
 			goalDays.map((goalDay, ind) => (
-				<DisplayGoalDay
-					key={`GoalDay-${goalDay.id}-${ind}`}
-					goalDay={goalDay.value['goalDay']}
-					onDelete={() => deleteGoalDay(goalDay)}
-				/>
+				<CardContent className={classes.content}>
+					<DisplayGoalDay
+						key={`GoalDay-${goalDay.id}-${ind}`}
+						goalDay={goalDay.value['goalDay']}
+						onDelete={() => deleteGoalDay(goalDay)}
+					/>
+				</CardContent>
 			))}
 
 		{isEmpty(goalDays) && (

@@ -93,7 +93,7 @@ export default compose(
 					createdAt: firebase.database.ServerValue.TIMESTAMP
 				})
 				.then(() => {
-					showSuccess('done');
+					showSuccess('Sleep time is set.');
 				})
 				.catch((err) => {
 					console.error('Error:', err); // eslint-disable-line no-console

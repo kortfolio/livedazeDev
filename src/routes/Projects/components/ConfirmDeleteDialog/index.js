@@ -1,4 +1,4 @@
-import confirmDeleteDialog from './ConfirmDeleteDialog';
+import ConfirmDeleteDialog from './ConfirmDeleteDialog';
 import enhance from './ConfirmDeleteDialog.enhancer';
 
-export default enhance(confirmDeleteDialog);
+export default enhance(ConfirmDeleteDialog);

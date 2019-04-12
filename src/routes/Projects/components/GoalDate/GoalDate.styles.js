@@ -5,7 +5,12 @@ export default (theme) => ({
 		background: '#4c89db',
 		backgroundColor: '#045de9',
 		backgroundImage: 'linear-gradient(315deg, #4c89db 0%, #85b9ff 74%)',
-		height: '200px'
+		height: '200px',
+		borderRadius: '8px',
+		webkitBoxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
+		boxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
 	},
 	inputs: {
 		...theme.flexColumnCenter
@@ -49,7 +54,7 @@ export default (theme) => ({
 	outLinedBtn: {
 		margin: theme.spacing.unit,
 		color: 'white',
-		backgroundColor: 'black',
+		backgroundColor: '#222',
 		borderColor: 'black',
 		textDecoration: 'none',
 		alignSelf: 'center',
@@ -59,7 +64,7 @@ export default (theme) => ({
 		paddingLeft: '20px !important',
 		paddingRight: '20px !important',
 		'&:hover': {
-			backgroundColor: '#333'
+			backgroundColor: 'black'
 		},
 		'&:disabled': {
 			backgroundColor: 'black',

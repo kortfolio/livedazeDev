@@ -210,6 +210,7 @@ span.daysLeft {
 
 sub.timeSubset {
 	font-size: 12px;
+	width: 30px;
 }
 
 input#appt {
@@ -666,4 +667,24 @@ input.taskTextField {
 textarea#reviewRatingTextField {
 	font-size: 12px;
 	font-family: 'isotonic';
+}
+
+.validateLabel {
+	text-align: right;
+	font-Size: 12px;
+	color: #eeeeee;
+}
+
+.timeFixedWidth {
+	font-size: 38px;
+	width: 40px;
+	color: white;
+	text-align: right;
+	font-family: isotonicBold;
+}
+
+.timeSubScript {
+	font-size: 12px;
+	padding-top: 30px;
+	color: white;
 }

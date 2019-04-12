@@ -128,16 +128,9 @@ export class PomodoroTimer extends React.Component {
 				</React.Fragment>
 			) : null;
 		return (
-			<Card className={classes.card}>
-				<CardContent>
-					<Grid
-						container
-						style={{
-							height: '100%'
-						}}>
-						<Icon path={mdiTimer} size={3} color='white' />
-					</Grid>
-				</CardContent>
+			<Card className={classes.root}>
+				<Icon path={mdiTimer} size={3.5} color='white' style={{ height: '100%' }} />
+
 				<div
 					style={{
 						display: 'flex',
@@ -147,7 +140,7 @@ export class PomodoroTimer extends React.Component {
 					<CardContent className={classes.content}>
 						<span className='white-text'>
 							<Typography align='right' className={classes.cardTitleText}>
-								Pomodoro Timer
+								Focus Timer
 							</Typography>
 							<Typography align='right'>
 								<span className='timeSuperSet'>

@@ -18,6 +18,10 @@ export function required(value) {
 export function goalDateValidate(value, allValues) {
 	return value ? undefined : 'Please set your goal day';
 }
+
+export function sleepTimeValidate(value, allValues) {
+	return value ? undefined : 'Please set your sleep time';
+}
 /**
  * Returns error message if value is not a valid email, otherwise returns
  * undefined
