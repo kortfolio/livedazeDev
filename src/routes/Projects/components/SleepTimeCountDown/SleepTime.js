@@ -38,12 +38,12 @@ export const SleepTime = ({
 		<Icon path={mdiWeatherNight} size={3.5} color='white' style={{ height: '100%' }} />
 		{isEmpty(sleepTimes) && (
 			<CardContent className={classes.content}>
-				<Grid item align='right' className={classes.goalDayTitle}>
+				<Grid item align='right' className={classes.boldText}>
 					<Tooltip title='Set a bedtime. wake at the same time.'>
 						<Icon path={mdiHelpCircleOutline} size={0.5} color='white' />
 					</Tooltip>
 				</Grid>
-				<Typography align='right' className={classes.goalDayTitle}>
+				<Typography align='right' className={classes.boldText}>
 					My Bedtime
 				</Typography>
 				{/* Goal Day Picker */}

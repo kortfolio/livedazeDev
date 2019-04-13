@@ -21,10 +21,6 @@ import SleepTime from '../SleepTimeCountDown';
 import PomodoroTimer from '../PomodoroTimer';
 import SelfDiagnosis from '../SelfDiagnosis';
 
-const section = {
-	height: '100%'
-};
-
 const renderChildren = (routes, match, parentProps) =>
 	routes.map((route) => (
 		<Route
@@ -36,10 +32,8 @@ const renderChildren = (routes, match, parentProps) =>
 
 export const ProjectsPage = ({
 	projects,
-	props,
 	goalDate,
 	sleepTime,
-	editTask,
 	auth,
 	newDialogOpen,
 	toggleDialog,
@@ -62,26 +56,18 @@ export const ProjectsPage = ({
 			exact
 			path={match.path}
 			render={() => (
-				<main className={classes.content}>
+				<main className={classes.root}>
 					<Grid container justify='center' spacing={40}>
 						<Grid item xs={12} md={4}>
-							<div style={section}>
-								<GoalDate onSubmit={addGoalDate} />
-							</div>
+							<GoalDate onSubmit={addGoalDate} />
 						</Grid>
 						<Grid item xs={12} md={4}>
-							<div style={section}>
-								<SleepTime onSubmit={addSleepTime} />
-							</div>
+							<SleepTime onSubmit={addSleepTime} />
 						</Grid>
 						<Grid item xs={12} md={4}>
-							<div style={section}>
-								<PomodoroTimer />
-							</div>
+							<PomodoroTimer />
 						</Grid>
-					</Grid>
 
-					<Grid container justify='center' spacing={40}>
 						<Grid item xs={12} md={8}>
 							<Card
 								style={{

@@ -11,6 +11,7 @@ export default (theme) => ({
 		boxShadow:
 			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
 	},
+
 	inputs: {
 		...theme.flexColumnCenter
 	},
@@ -42,7 +43,7 @@ export default (theme) => ({
 		height: '100%'
 	},
 
-	goalDayTitle: {
+	cardTitleText: {
 		display: 'flex',
 		flexDirection: 'column',
 		color: 'white',
@@ -51,26 +52,27 @@ export default (theme) => ({
 		fontSize: '1.25rem'
 	},
 	outLinedBtn: {
+		padding: '0px 20px 0px 20px !important',
+		margin: '10px 0px, 0px 0px !important',
 		margin: theme.spacing.unit,
-		color: 'white',
-		backgroundColor: '#222',
-		borderColor: 'black',
-		textDecoration: 'none',
-		alignSelf: 'center',
 		letterSpacing: '0.1rem',
+		backgroundColor: '#222',
+		textDecoration: 'none',
 		fontFamily: 'isotonic',
+		alignSelf: 'center',
 		fontSize: '12px',
-		paddingLeft: '20px !important',
-		paddingRight: '20px !important',
+		color: 'white',
 		'&:hover': {
 			backgroundColor: 'black'
 		},
 		'&:disabled': {
-			backgroundColor: 'black',
-			color: 'white',
+			backgroundColor: '#f5f5f5',
+			color: '#333',
 			style: { cursor: 'no-drop' }
-		},
-		marginRight: '0px',
-		marginTop: '10px'
+		}
+	},
+	outLinedBtn2: {
+		display: 'none',
+		color: 'red,'
 	}
 });

@@ -1,11 +1,10 @@
 import React from 'react';
-
-import { Grid, Typography, Card, CardContent, Fab } from '@material-ui/core';
-import { mdiTimer } from '@mdi/js';
-
+import { Typography, Card, CardContent, Fab, Hidden, Grid } from '@material-ui/core';
+import { mdiTimerSandEmpty } from '@mdi/js';
 import Icon from '@mdi/react';
 import styles from './PomodoroTimer.styles';
 import { withStyles } from '@material-ui/core/styles';
+
 export class PomodoroTimer extends React.Component {
 	constructor() {
 		super();
@@ -75,85 +74,70 @@ export class PomodoroTimer extends React.Component {
 
 	render() {
 		const { classes } = this.props;
-		let start =
-			this.state.seconds === 1500 ? (
-				<Fab
-					variant='extended'
-					size='small'
-					color='primary'
-					aria-label='Add'
-					className={classes.outLinedBtn}
-					onClick={this.startTimer}
-					type='submit'>
-					Start
-				</Fab>
-			) : null;
-		let stop = this.state.isOn ? (
-			<Fab
-				variant='extended'
-				size='small'
-				color='primary'
-				aria-label='Add'
-				className={classes.outLinedBtn}
-				onClick={this.stopTimer}
-				type='submit'>
-				Pause
-			</Fab>
-		) : null;
-
-		let reset =
-			this.state.seconds !== 1500 && !this.state.isOn ? (
-				<React.Fragment>
-					<Fab
-						style={{ display: 'inline' }}
-						variant='extended'
-						size='small'
-						color='primary'
-						aria-label='Add'
-						className={classes.outLinedBtn}
-						onClick={this.resetTimer}
-						type='submit'>
-						Reset
-					</Fab>
-					<Fab
-						variant='extended'
-						size='small'
-						color='primary'
-						aria-label='Add'
-						className={classes.outLinedBtn}
-						onClick={this.startTimer}
-						type='submit'>
-						Resume
-					</Fab>
-				</React.Fragment>
-			) : null;
 		return (
 			<Card className={classes.root}>
-				<Icon path={mdiTimer} size={3.5} color='white' style={{ height: '100%' }} />
-
-				<div
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						width: '100%'
-					}}>
-					<CardContent className={classes.content}>
-						<span className='white-text'>
-							<Typography align='right' className={classes.cardTitleText}>
-								Focus Timer
-							</Typography>
-							<Typography align='right'>
-								<span className='timeSuperSet'>
-									{this.state.time.m} <sub className='timeSubset'> MIN </sub>
-									{this.state.time.s} <sub className='timeSubset'> SEC </sub>
-								</span>
-								{start}
-								{stop}
-								{reset}
-							</Typography>
-						</span>
-					</CardContent>
-				</div>
+				<Icon
+					path={mdiTimerSandEmpty}
+					size={3.5}
+					color='white'
+					style={{ height: '100%' }}
+				/>
+				<CardContent className={classes.content}>
+					<span className='white-text'>
+						<Typography align='right' className={classes.cardTitleText}>
+							Focus Timer
+						</Typography>
+						<Typography align='right' className={classes.cardTitleText}>
+							<span className='timeSuperSet'>
+								{this.state.time.m} <sub className='timeSubset'> M </sub>
+								{this.state.time.s} <sub className='timeSubset'> S </sub>
+							</span>
+						</Typography>
+						<Grid container alignItems='flex-start' justify='flex-end' direction='row'>
+							<Fab
+								variant='extended'
+								size='small'
+								color='primary'
+								aria-label='Add'
+								className={
+									this.state.seconds === 1500 && !this.state.isOn ? (
+										classes.outLinedBtn
+									) : (
+										classes.outLinedBtn2
+									)
+								}
+								onClick={this.startTimer}
+								type='submit'>
+								Start
+							</Fab>
+							<Fab
+								variant='extended'
+								size='small'
+								color='primary'
+								aria-label='Add'
+								className={
+									this.state.isOn ? classes.outLinedBtn : classes.outLinedBtn2
+								}
+								onClick={this.stopTimer}
+								type='submit'>
+								Stop
+							</Fab>
+							<Fab
+								variant='extended'
+								size='small'
+								color='primary'
+								aria-label='Add'
+								className={classes.outLinedBtn}
+								onClick={this.startTimer}
+								disabled={
+									this.state.seconds !== 1500 && !this.state.isOn ? false : true
+								}
+								type='submit'>
+								RESET
+							</Fab>
+						</Grid>
+					</span>
+				</CardContent>
 			</Card>
 		);
 	}

@@ -1,29 +1,18 @@
 export default (theme) => ({
 	root: {
-		...theme.flexColumnCenter,
-		paddingTop: theme.spacing.unit * 4,
-		flexGrow: '2',
-		boxSizing: 'border-box',
-		overflowY: 'scroll'
+		flexGrow: 1,
+		padding: theme.spacing.unit * 3,
+		[theme.breakpoints.up('sm')]: {
+			marginLeft: 200,
+			marginTop: '28px',
+			width: `calc(100% - ${200}px)`
+		}
 	},
 	tiles: {
 		display: 'flex',
 		justifyContent: 'center',
 		flexWrap: 'wrap',
 		'-webkit-flex-flow': 'row wrap'
-	},
-
-	content: {
-		flexGrow: 1,
-		padding: theme.spacing.unit * 4,
-		marginLeft: 0,
-		[theme.breakpoints.up('sm')]: {
-			marginLeft: 200,
-			width: `calc(100% - ${200}px)`
-		}
-	},
-	goalDatePaper: {
-		background: 'red'
 	},
 	toolbar: theme.mixins.toolbar,
 	CardTitleTextDecorator: {
