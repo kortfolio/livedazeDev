@@ -688,3 +688,18 @@ textarea#reviewRatingTextField {
 	padding-top: 30px;
 	color: white;
 }
+
+.goodNight {
+	display: flex;
+	color: white;
+	text-transform: uppercase;
+	font-Size: 13px;
+	text-align: end;
+}
+
+.checkboxLabel {
+	display: inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

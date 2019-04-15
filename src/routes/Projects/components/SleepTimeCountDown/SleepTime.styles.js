@@ -42,13 +42,22 @@ export default (theme) => ({
 		height: '100%'
 	},
 
-	goalDayTitle: {
+	boldText: {
 		display: 'flex',
 		flexDirection: 'column',
 		color: 'white',
 		fontFamily: 'isotonicBold',
 		textTransform: 'uppercase',
 		fontSize: '1.25rem'
+	},
+
+	boldTextSmall: {
+		display: 'flex',
+		flexDirection: 'column',
+		color: 'white',
+		fontFamily: 'isotonicBold',
+		textTransform: 'uppercase',
+		fontSize: '12px'
 	},
 	outLinedBtn: {
 		margin: theme.spacing.unit,

@@ -69,8 +69,9 @@ export const EditTaskDialog = ({
 						autoComplete='off'
 						multiline
 						rowsMax='10'
-						defaultValue='fkfkpfkpekfpekfpk'
-					/>
+						defaultValue='fkfkpfkpekfpekfpk'>
+						{name}
+					</Field>
 					<form onSubmit={handleSubmit}>
 						<DialogActions>
 							<Fab

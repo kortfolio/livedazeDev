@@ -22,7 +22,13 @@ export const DeleteButtonIcon = ({
 	classes,
 	name
 }) => (
-	<div>
+	<React.Fragment>
+		<Tooltip title='Delete'>
+			<IconButton onClick={toggleConfirmDialog}>
+				<Icon path={mdiDelete} color='grey' size={1} />
+			</IconButton>
+		</Tooltip>
+
 		<ConfirmCompleteDialog
 			onSubmit={deleteProject}
 			open={wasSent}
@@ -30,12 +36,7 @@ export const DeleteButtonIcon = ({
 			name={name}
 			isDeleteTab={true}
 		/>
-		<Tooltip title='Delete'>
-			<IconButton onClick={toggleConfirmDialog}>
-				<Icon path={mdiDelete} color='grey' size={1} />
-			</IconButton>
-		</Tooltip>
-	</div>
+	</React.Fragment>
 );
 
 DeleteButtonIcon.propTypes = {

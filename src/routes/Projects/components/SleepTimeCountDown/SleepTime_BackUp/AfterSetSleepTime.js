@@ -49,10 +49,12 @@ export class AfterSetSleepTime extends React.Component {
 						<div style={props}>
 							<Grid container justify='flex-end' spacing={8}>
 								<Grid item className='timeFixedWidth'>
-									{this.diffDuration.hours()}
+									{this.diffDuration.hours() > 0 && this.diffDuration.hours()}
 								</Grid>
 								<Grid item className='timeSubScript'>
-									<div className='timeSubScript'>H</div>
+									<div className='timeSubScript'>
+										{this.diffDuration.hours() > 0 && 'H'}
+									</div>
 								</Grid>
 								<Grid item className='timeFixedWidth'>
 									{this.diffDuration.minutes()}

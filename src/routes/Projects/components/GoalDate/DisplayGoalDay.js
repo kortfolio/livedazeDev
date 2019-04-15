@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Icon from '@mdi/react';
 import { mdiKeyboardBackspace } from '@mdi/js';
 import { Spring } from 'react-spring/renderprops';
-import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import styles from './GoalDate.styles';
 

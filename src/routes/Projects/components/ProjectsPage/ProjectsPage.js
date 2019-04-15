@@ -10,7 +10,7 @@ import NewProjectDialog from '../NewProjectDialog';
 import { Grid, Typography, Card, CardContent, Hidden } from '@material-ui/core';
 
 import Icon from '@mdi/react';
-import { mdiFormatListCheckbox } from '@mdi/js';
+import { mdiFormatListCheckbox, mdiAccessPoint } from '@mdi/js';
 
 import 'moment-timezone';
 import 'moment-duration-format';
@@ -69,65 +69,34 @@ export const ProjectsPage = ({
 						</Grid>
 
 						<Grid item xs={12} md={8}>
-							<Card
-								style={{
-									display: 'flex',
-									backgroundColor: '#bdd4e7',
-									backgroundImage:
-										'linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%)',
-									boxShadow:
-										'0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08)'
-								}}>
-								<CardContent>
-									<Hidden mdDown>
-										<Grid
-											container
-											justify='center'
-											style={{
-												height: '100%'
-											}}>
-											<Icon
-												path={mdiFormatListCheckbox}
-												size={3.5}
-												color='white'
+							<Card className={classes.cardDecorator}>
+								<Icon path={mdiFormatListCheckbox} size={3.5} color='white' />
+								<CardContent className={classes.content}>
+									<Typography
+										align='right'
+										className={classes.CardTitleTextDecorator}>
+										My Daily To do List
+									</Typography>
+									{!isEmpty(projects) &&
+										projects.map((project, ind) => (
+											<ProjectTile
+												key={`Project-${project.id}-${ind}`}
+												keykey={project.key}
+												name={project.value['name']}
+												onDelete={() => deleteProject(project)}
+												isOver={project.value['isDone']}
 											/>
-										</Grid>
-									</Hidden>
+										))}
+									<NewProjectDialog
+										onSubmit={addProject}
+										open={newDialogOpen}
+										onRequestClose={toggleDialog}
+									/>
+									<Typography align='right'>
+										{' '}
+										<NewProjectTile align='right' onClick={toggleDialog} />
+									</Typography>
 								</CardContent>
-								<div
-									style={{
-										display: 'flex',
-										flexDirection: 'column',
-										width: '100%'
-									}}>
-									<CardContent
-										style={{
-											flex: '1 0 auto',
-											width: '100%'
-										}}>
-										<Typography
-											align='right'
-											className={classes.CardTitleTextDecorator}>
-											My Daily To do List
-										</Typography>
-										{!isEmpty(projects) &&
-											projects.map((project, ind) => (
-												<ProjectTile
-													key={`Project-${project.id}-${ind}`}
-													keykey={project.key}
-													name={project.value['name']}
-													onDelete={() => deleteProject(project)}
-													isOver={project.value['isDone']}
-												/>
-											))}
-										<NewProjectDialog
-											onSubmit={addProject}
-											open={newDialogOpen}
-											onRequestClose={toggleDialog}
-										/>
-										<NewProjectTile onClick={toggleDialog} />
-									</CardContent>
-								</div>
 							</Card>
 						</Grid>
 						<Grid item xs={12} md={4}>

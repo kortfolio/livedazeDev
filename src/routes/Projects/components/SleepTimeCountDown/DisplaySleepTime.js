@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import Icon from '@mdi/react';
 import PropTypes from 'prop-types';
 import styles from './SleepTime.styles';
@@ -8,8 +9,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import { AfterSetSleepTime } from './SleepTime_BackUp/AfterSetSleepTime';
-import moment from 'moment';
+import { SleepTimer } from './SleepTimer';
 
 export const DisplaySleepTime = ({ classes, sleepTime, onDelete }) => (
 	<CardContent className={classes.content}>
@@ -24,12 +24,12 @@ export const DisplaySleepTime = ({ classes, sleepTime, onDelete }) => (
 				/>
 			</Tooltip>
 		</Grid>
-		<Typography align='right' className={classes.goalDayTitle}>
+		<Typography align='right' className={classes.boldText}>
 			My Bedtime
 		</Typography>
 		{/* Goal Day Picker */}
-		<AfterSetSleepTime sleepTime={sleepTime} />
-		<Typography align='right' className={classes.goalDayTitle}>
+		<SleepTimer sleepTime={sleepTime} onDelete={sleepTime} />
+		<Typography align='right' className={classes.boldTextSmall}>
 			Left until {moment(sleepTime).format('hh:mm a')}
 		</Typography>
 	</CardContent>

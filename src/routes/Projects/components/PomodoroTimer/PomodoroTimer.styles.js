@@ -53,7 +53,7 @@ export default (theme) => ({
 	},
 	outLinedBtn: {
 		padding: '0px 20px 0px 20px !important',
-		margin: '10px 0px, 0px 0px !important',
+		//margin: '10px 0px, 0px 0px !important',
 		margin: theme.spacing.unit,
 		letterSpacing: '0.1rem',
 		backgroundColor: '#222',
@@ -68,11 +68,34 @@ export default (theme) => ({
 		'&:disabled': {
 			backgroundColor: '#f5f5f5',
 			color: '#333',
-			style: { cursor: 'no-drop' }
+			cursor: 'not-allowed'
 		}
 	},
 	outLinedBtn2: {
 		display: 'none',
 		color: 'red,'
+	},
+	disabledBtn: {
+		padding: '0px 20px 0px 20px !important',
+		//margin: '10px 0px, 0px 0px !important',
+		boxShadow: 'none',
+		margin: theme.spacing.unit,
+		letterSpacing: '0.1rem',
+		backgroundColor: '#f5f5f5',
+		textDecoration: 'none',
+		fontFamily: 'isotonic',
+		alignSelf: 'center',
+		fontSize: '12px',
+		color: '#333',
+		disabled: 'true',
+		cursor: 'not-allowed',
+		'&:hover': {
+			backgroundColor: '#f5f5f5'
+		},
+		'&:disabled': {
+			backgroundColor: '#f5f5f5',
+			color: '#333',
+			cursor: 'not-allowed'
+		}
 	}
 });

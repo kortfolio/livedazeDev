@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { compose, withStateHandlers, withHandlers } from 'recompose';
 import { withFirebase } from 'react-redux-firebase';
 import ConfirmCompleteDialog from '../ConfirmCompleteDialog';
-
 import { UserIsAuthenticated } from 'utils/router';
 import { connect } from 'react-redux';
 import Tooltip from '@material-ui/core/Tooltip';
-
-import { Checkbox } from '@material-ui/core';
+import { Checkbox, FormControlLabel, Typography, Grid } from '@material-ui/core';
 
 export const ConfirmCompleteCheckBox = ({
 	toggleConfirmDialog,
@@ -18,22 +16,29 @@ export const ConfirmCompleteCheckBox = ({
 	classes,
 	name
 }) => (
-	<div>
+	<React.Fragment>
+		<FormControlLabel
+			control={
+				<Tooltip title='Complete'>
+					<Checkbox
+						checked={wasSent}
+						onChange={toggleConfirmDialog}
+						value={name}
+						style={{
+							color: '#333',
+							whiteSpace: 'nowrap'
+						}}
+					/>
+				</Tooltip>
+			}
+		/>
 		<ConfirmCompleteDialog
 			onSubmit={isDone}
 			open={wasSent}
 			onRequestClose={toggleConfirmDialog}
 			name={name}
 		/>
-		<Tooltip title='Complete'>
-			<Checkbox
-				onChange={toggleConfirmDialog}
-				style={{
-					color: 'black'
-				}}
-			/>
-		</Tooltip>
-	</div>
+	</React.Fragment>
 );
 
 ConfirmCompleteCheckBox.propTypes = {

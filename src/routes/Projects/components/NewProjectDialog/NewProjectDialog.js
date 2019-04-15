@@ -54,7 +54,6 @@ const NewProjectDialog = ({
 			<Grid item sm={2} className={classes.root}>
 				<Icon path={mdiPencilCircle} color='#8693ab' size={2.5} />
 			</Grid>
-
 			<Grid item sm={10}>
 				<DialogTitle id='customized-dialog-title' onRequestClose={onRequestClose}>
 					<div className='textDialogBold'>ADD A TASK</div>

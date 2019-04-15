@@ -93,15 +93,13 @@ export const Navbar = ({
 							anchor={theme.direction === 'rtl' ? 'right' : 'left'}
 							open={mobileOpen}
 							onClose={closeDrawerToggle}
-							//open={this.state.mobileOpen}
-							//onClose={this.handleDrawerToggle}
 							classes={{
 								paper: classes.drawerPaper
 							}}>
 							<div>
 								<div className={classes.toolbar} />
 								<Divider />
-								<DrawerList />
+								<DrawerList onLogoutClick={handleLogout} />
 							</div>
 							{console.log('value of mobile Open from bottom Drawer' + mobileOpen)}
 						</Drawer>
@@ -116,7 +114,7 @@ export const Navbar = ({
 							<div>
 								<div className={classes.toolbar} />
 								<Divider />
-								<DrawerList />
+								<DrawerList onLogoutClick={handleLogout} />
 							</div>
 						</Drawer>
 					</Hidden>

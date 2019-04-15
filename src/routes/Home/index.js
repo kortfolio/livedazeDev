@@ -1,7 +1,7 @@
-import HomePage from './components/HomePage'
+import HomePage from './components/HomePage';
 
 // Sync route definition
 export default {
-  path: '/',
-  component: HomePage
-}
+	path: '/hp',
+	component: HomePage
+};

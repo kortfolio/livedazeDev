@@ -8,7 +8,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { withNotifications } from 'modules/notification';
 import { spinnerWhileLoading } from 'utils/components';
 import { UserIsAuthenticated } from 'utils/router';
-//import theme from 'containers/Navbar/NavbarTheme';
 import theme from './ProjectsPage.styles.1';
 
 export default compose(

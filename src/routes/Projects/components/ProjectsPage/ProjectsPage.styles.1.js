@@ -14,7 +14,6 @@ export default (theme) => ({
 		flexWrap: 'wrap',
 		'-webkit-flex-flow': 'row wrap'
 	},
-	toolbar: theme.mixins.toolbar,
 	CardTitleTextDecorator: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -22,5 +21,23 @@ export default (theme) => ({
 		fontFamily: 'isotonicBold',
 		textTransform: 'uppercase',
 		fontSize: '1.25rem'
+	},
+	cardDecorator: {
+		maxHeight: '100%',
+		minHeight: '200px',
+		padding: '16px',
+		display: 'flex',
+		backgroundColor: '#bdd4e7',
+		backgroundImage: 'linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%)',
+		borderRadius: '8px',
+		webkitBoxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
+		boxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
+	},
+	content: {
+		height: '100%',
+		padding: '0',
+		width: '100%'
 	}
 });

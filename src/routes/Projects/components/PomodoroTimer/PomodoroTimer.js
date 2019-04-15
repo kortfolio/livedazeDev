@@ -1,16 +1,18 @@
 import React from 'react';
-import { Typography, Card, CardContent, Fab, Hidden, Grid } from '@material-ui/core';
+import { Typography, Card, CardContent, Fab, Grid } from '@material-ui/core';
 import { mdiTimerSandEmpty } from '@mdi/js';
 import Icon from '@mdi/react';
 import styles from './PomodoroTimer.styles';
 import { withStyles } from '@material-ui/core/styles';
+
+const timerValue = 1500;
 
 export class PomodoroTimer extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			time: {},
-			seconds: 1500,
+			seconds: timerValue,
 			isOn: false
 		};
 		this.timer = 0;
@@ -51,10 +53,10 @@ export class PomodoroTimer extends React.Component {
 	resetTimer() {
 		this.setState({
 			time: {},
-			seconds: 1500,
+			seconds: timerValue,
 			isOn: false
 		});
-		let timeLeftVar = this.secondsToTime(1500);
+		let timeLeftVar = this.secondsToTime(timerValue);
 		this.setState({ time: timeLeftVar });
 		this.timer = 0;
 	}
@@ -68,6 +70,7 @@ export class PomodoroTimer extends React.Component {
 		});
 
 		if (seconds === 0) {
+			this.setState({ isOn: false });
 			clearInterval(this.timer);
 		}
 	}
@@ -97,43 +100,31 @@ export class PomodoroTimer extends React.Component {
 							<Fab
 								variant='extended'
 								size='small'
-								color='primary'
-								aria-label='Add'
-								className={
-									this.state.seconds === 1500 && !this.state.isOn ? (
-										classes.outLinedBtn
+								className={classes.outLinedBtn}
+								onClick={
+									this.state.seconds === timerValue || !this.state.isOn ? (
+										this.startTimer
 									) : (
-										classes.outLinedBtn2
+										this.stopTimer
 									)
 								}
-								onClick={this.startTimer}
 								type='submit'>
-								Start
+								{(this.state.seconds === timerValue || !this.state.isOn) && 'Start'}
+								{this.state.isOn && 'Stop'}
 							</Fab>
 							<Fab
 								variant='extended'
 								size='small'
-								color='primary'
-								aria-label='Add'
 								className={
-									this.state.isOn ? classes.outLinedBtn : classes.outLinedBtn2
+									this.state.seconds !== timerValue && !this.state.isOn ? (
+										classes.outLinedBtn
+									) : (
+										classes.disabledBtn
+									)
 								}
-								onClick={this.stopTimer}
+								onClick={this.resetTimer}
 								type='submit'>
-								Stop
-							</Fab>
-							<Fab
-								variant='extended'
-								size='small'
-								color='primary'
-								aria-label='Add'
-								className={classes.outLinedBtn}
-								onClick={this.startTimer}
-								disabled={
-									this.state.seconds !== 1500 && !this.state.isOn ? false : true
-								}
-								type='submit'>
-								RESET
+								Reset
 							</Fab>
 						</Grid>
 					</span>

@@ -13,6 +13,30 @@ export default (theme) => ({
 		fontSize: '18px',
 		color: 'white',
 		fontFamily: 'isotonicBold',
-		textTransform: 'uppercase'
+		textTransform: 'uppercase',
+		textAlign: 'right'
+	},
+	outLinedBtn: {
+		margin: theme.spacing.unit,
+		color: 'white',
+		backgroundColor: '#222',
+		borderColor: 'black',
+		textDecoration: 'none',
+		alignSelf: 'center',
+		letterSpacing: '0.1rem',
+		fontFamily: 'isotonic',
+		fontSize: '10px',
+		paddingLeft: '20px !important',
+		paddingRight: '20px !important',
+		'&:hover': {
+			backgroundColor: 'black'
+		},
+		'&:disabled': {
+			backgroundColor: 'black',
+			color: 'white',
+			style: { cursor: 'no-drop' }
+		},
+		marginRight: '0px',
+		marginTop: '10px'
 	}
 });
