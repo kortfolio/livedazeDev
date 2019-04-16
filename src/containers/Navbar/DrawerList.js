@@ -23,20 +23,17 @@ function DrawerList(props) {
 	return (
 		<React.Fragment>
 			<List>
-				{[ 'Home', 'Dashboard' ].map((text, index) => (
+				{[ 'Home' ].map((text, index) => (
 					<ListItem
 						button
 						key={text}
 						component={Link}
-						to={(index === 0 && LIST_PATH) || (index === 1 && DASHBOARD_PATH)}
+						to={index === 0 && LIST_PATH}
 						style={{
 							textTransform: 'initial'
 						}}>
 						<ListItemIcon style={{ color: '#e2e2e2' }}>
-							<React.Fragment>
-								{index === 0 && <HomeIcon />}
-								{index === 1 && <BarChartIcon />}
-							</React.Fragment>
+							<React.Fragment>{index === 0 && <HomeIcon />}</React.Fragment>
 						</ListItemIcon>
 						<ListItemText
 							disableTypography

@@ -44,7 +44,10 @@ export const ProjectsPage = ({
 	addSleepTime,
 	classes,
 	match,
-	goToProject
+	goToProject,
+	ReviewsRating,
+	sumAll,
+	ReviewsRatingLength
 }) => (
 	<Switch>
 		{/* Child routes */}
@@ -93,7 +96,6 @@ export const ProjectsPage = ({
 										onRequestClose={toggleDialog}
 									/>
 									<Typography align='right'>
-										{' '}
 										<NewProjectTile align='right' onClick={toggleDialog} />
 									</Typography>
 								</CardContent>

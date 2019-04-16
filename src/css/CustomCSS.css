@@ -703,3 +703,12 @@ textarea#reviewRatingTextField {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
+
+span.totalRatings {
+	vertical-align: super;
+
+	font-size: 12px;
+	color: #7aff86;
+	letter-spacing: initial;
+	text-transform: uppercase;
+}

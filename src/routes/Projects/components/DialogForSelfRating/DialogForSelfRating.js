@@ -2,7 +2,7 @@ import React from 'react';
 import { required } from 'utils/form';
 import { Field } from 'redux-form';
 
-import { mdiStar } from '@mdi/js';
+import { mdiStar, mdiStarOutline } from '@mdi/js';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -10,18 +10,19 @@ import { Grid, Fab } from '@material-ui/core';
 import { TextField } from 'redux-form-material-ui';
 import Icon from '@mdi/react';
 import StarRatingComponent from 'react-star-rating-component';
+import PropTypes from 'prop-types';
 
 const DialogForSelfRating = ({
 	handleSubmit,
 	open,
 	onRequestClose,
 	name,
-	value,
+	//value,
 	updateRating,
-	starRating,
+	//starRating,
 	classes,
 	pristine,
-	rating,
+	//rating,
 	submitting,
 	display,
 	isDeleteTab,
@@ -35,19 +36,16 @@ const DialogForSelfRating = ({
 					<div className='starRatingComponent'>
 						<StarRatingComponent
 							name='displayStarRating'
-							starCount={starRating}
-							editing={false}
-							value={starRating}
+							//	starCount={starRating}
+							//	value={starRating}
 							emptyStarColor={'#fff'}
 							renderStarIcon={(index, value) => {
 								return (
-									<span>
-										<Icon
-											path={index <= value ? mdiStar : mdiStar}
-											size={1.5}
-											color={index <= value ? '#ffd800' : 'white'}
-										/>
-									</span>
+									<Icon
+										path={index <= value ? mdiStar : mdiStarOutline}
+										size={2}
+										color={index <= value ? '#ffd800' : 'black'}
+									/>
 								);
 							}}
 						/>
@@ -66,8 +64,24 @@ const DialogForSelfRating = ({
 					rows='5'
 					multiline
 					variant='outlined'
-					value={starRating}
-					rating={10000}
+					//value={starRating}
+					//rating={starRating}
+					fullWidth
+				/>
+				<Field
+					id='reviewRatingTextField'
+					style={{ width: '100%' }}
+					component={TextField}
+					name='starRating'
+					validate={[ required ]}
+					placeholder='Describe your opinion about your progress.'
+					autoComplete='off'
+					margin='dense'
+					rows='5'
+					multiline
+					variant='outlined'
+					//value={starRating}
+					//rating={starRating}
 					fullWidth
 				/>
 
@@ -78,8 +92,7 @@ const DialogForSelfRating = ({
 							size='small'
 							color='primary'
 							className={classes.outlinedConfirmDeleteFab}
-							onClick={onRequestClose}
-							value={rating}>
+							onClick={onRequestClose}>
 							CANCEL
 						</Fab>
 						<Fab
@@ -98,9 +111,9 @@ const DialogForSelfRating = ({
 );
 
 DialogForSelfRating.propTypes = {
-	//	handleSubmit: PropTypes.func.isRequired, // from enhancer (reduxForm)
-	//	open: PropTypes.bool.isRequired,
-	//	onRequestClose: PropTypes.func.isRequired
+	handleSubmit: PropTypes.func.isRequired, // from enhancer (reduxForm)
+	open: PropTypes.bool.isRequired,
+	onRequestClose: PropTypes.func.isRequired
 };
 
 DialogForSelfRating.defaultProps = {
