@@ -2,6 +2,12 @@ export default (theme) => ({
 	root: {
 		padding: theme.spacing.unit * 2
 	},
+	closeButton: {
+		position: 'absolute',
+		right: theme.spacing.unit,
+		top: theme.spacing.unit,
+		color: 'grey'
+	},
 	inputs: {
 		...theme.flexColumnCenter
 	},
@@ -21,8 +27,8 @@ export default (theme) => ({
 		textDecoration: 'none',
 		fontSize: '10px',
 		marginRight: '0px',
-		paddingLeft: '10px !important',
-		paddingRight: '10px !important'
+		paddingLeft: '20px !important',
+		paddingRight: '20px !important'
 	},
 	confirmDeleteFab: {
 		margin: theme.spacing.unit,

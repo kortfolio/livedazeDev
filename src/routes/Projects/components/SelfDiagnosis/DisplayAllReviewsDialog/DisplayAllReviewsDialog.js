@@ -1,66 +1,73 @@
 import React from 'react';
-import { required } from 'utils/form';
-import { Field } from 'redux-form';
 import moment from 'moment';
-import { mdiStar, mdiStarOutline } from '@mdi/js';
+import { mdiStar, mdiStarOutline, mdiStarHalf } from '@mdi/js';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import { Grid, Fab, Divider, Typography } from '@material-ui/core';
-import { TextField } from 'redux-form-material-ui';
+import { Grid, Divider, Typography, IconButton } from '@material-ui/core';
+
 import Icon from '@mdi/react';
 import StarRatingComponent from 'react-star-rating-component';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { spinnerWhileLoading } from 'utils/components';
-import { withNotifications } from 'modules/notification';
-import { compose, withStateHandlers, withHandlers } from 'recompose';
-import { withFirebase, firebaseConnect } from 'react-redux-firebase';
+import { isEmpty } from 'react-redux-firebase';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
-import Tooltip from '@material-ui/core/Tooltip';
-import { UserIsAuthenticated } from 'utils/router';
-import { isEmpty, isLoaded, getVal, populate } from 'react-redux-firebase';
+import CloseIcon from '@material-ui/icons/Close';
 
-import { Route, Switch } from 'react-router-dom';
-import DialogForSelfRating from '../DialogForSelfRating';
-
-export const DisplayAllReviewsDialog = ({
+const DisplayAllReviewsDialog = ({
 	open,
 	onRequestClose,
 	ReviewsRating,
 	AverageRating,
-	RatingLength
+	RatingLength,
+	classes
 }) => (
-	<Dialog open={open} onClose={onRequestClose} maxWidth='sm' fullWidth={true}>
+	<Dialog open={open} onClose={onRequestClose} maxWidth='xs' fullWidth={true}>
+		<DialogTitle align='center' className={classes.dialogText}>
+			<div className={classes.dialogText}>My Progress</div>
+			<IconButton aria-label='Close' className={classes.closeButton} onClick={onRequestClose}>
+				<CloseIcon />
+			</IconButton>
+		</DialogTitle>
 		<DialogContent>
-			My Progress<br />
-			{AverageRating}
-			<StarRatingComponent
-				name='displayAvgStarRating'
-				editing={false}
-				starCount={5}
-				value={AverageRating}
-				renderStarIcon={(index, value) => {
-					return (
-						<span>
-							<Icon
-								path={index <= value ? mdiStar : mdiStarOutline}
-								size={2}
-								color={index <= value ? '#ffd800' : '#f5f5f5'}
-							/>
-						</span>
-					);
-				}}
-			/>
-			<span
-				style={{
-					color: '#999',
+			<Grid container justify='center' direction='row' alignItems='center' spacing={0}>
+				<Typography className={classes.largeText}>{AverageRating}</Typography>
+				<StarRatingComponent
+					name='displayAvgStarRating'
+					editing={false}
+					starCount={5}
+					value={AverageRating}
+					renderStarIconHalf={(index, value) => {
+						return (
+							<span>
+								<Icon
+									path={index <= value ? mdiStarHalf : mdiStarHalf}
+									size={1.5}
+									color={index <= value ? '#ffd800' : '#ffd800'}
+								/>
+							</span>
+						);
+					}}
+					renderStarIcon={(index, value) => {
+						return (
+							<span>
+								<Icon
+									path={index <= value ? mdiStar : mdiStarOutline}
+									size={1.5}
+									color={index <= value ? '#ffd800' : '#909090'}
+								/>
+							</span>
+						);
+					}}
+				/>
+				<span
+					style={{
+						color: '#999',
+						textTransform: 'none'
+					}}>
+					{RatingLength} Reviews
+				</span>
+			</Grid>
 
-					textTransform: 'none'
-				}}>
-				{' '}
-				{RatingLength} Ratings
-			</span>
 			{!isEmpty(ReviewsRating) &&
 				ReviewsRating.map((rating, ind) => (
 					<React.Fragment>
@@ -71,7 +78,7 @@ export const DisplayAllReviewsDialog = ({
 							alignItems='center'
 							spacing={0}>
 							{/**	<Grid item xs={12} md={4}> */}
-							<Grid item xs={6} sm={4}>
+							<Grid item xs={6} sm={3}>
 								<StarRatingComponent
 									name='displayAvgStarRating'
 									editing={false}
@@ -90,7 +97,7 @@ export const DisplayAllReviewsDialog = ({
 									}}
 								/>
 							</Grid>
-							<Grid item xs={6} sm={8}>
+							<Grid item xs={6} sm={9}>
 								<Typography style={{ color: '#999' }}>
 									{moment(rating.value['createdAt']).fromNow()}
 
@@ -117,4 +124,5 @@ DisplayAllReviewsDialog.propTypes = {
 DisplayAllReviewsDialog.defaultProps = {
 	isDeleteTab: false
 };
+
 export default DisplayAllReviewsDialog;

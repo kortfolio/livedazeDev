@@ -2,110 +2,85 @@ import React from 'react';
 import { required } from 'utils/form';
 import { Field } from 'redux-form';
 
-import { mdiStar, mdiStarOutline } from '@mdi/js';
+import { mdiStar, mdiStarOutline, mdiStarHalf, mdiEmoticonHappyOutline } from '@mdi/js';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import { Grid, Fab } from '@material-ui/core';
+import { Grid, Fab, IconButton } from '@material-ui/core';
 import { TextField } from 'redux-form-material-ui';
 import Icon from '@mdi/react';
 import StarRatingComponent from 'react-star-rating-component';
 import PropTypes from 'prop-types';
-
+import { StarRatingReduxFieldForm } from './StarRatingReduxFieldForm';
+import CloseIcon from '@material-ui/icons/Close';
 const DialogForSelfRating = ({
 	handleSubmit,
 	open,
 	onRequestClose,
-	name,
-	//value,
-	updateRating,
-	//starRating,
 	classes,
 	pristine,
-	//rating,
+	rating,
 	submitting,
 	display,
-	isDeleteTab,
-	TestBoi
+	isDeleteTab
 }) => (
-	<Dialog open={open} onClose={onRequestClose} maxWidth='xs' fullWidth={true}>
+	<Dialog open={open} onClose={onRequestClose} maxWidth='sm' fullWidth={true}>
 		<Grid container justify='center' direction='row' alignItems='center' spacing={0}>
-			<div className='textDialogBold'>Rate and review</div>
-			<DialogContent>
-				<div className='textDialogSmall'>
-					<div className='starRatingComponent'>
-						<StarRatingComponent
-							name='displayStarRating'
-							//	starCount={starRating}
-							//	value={starRating}
-							emptyStarColor={'#fff'}
-							renderStarIcon={(index, value) => {
-								return (
-									<Icon
-										path={index <= value ? mdiStar : mdiStarOutline}
-										size={2}
-										color={index <= value ? '#ffd800' : 'black'}
-									/>
-								);
-							}}
+			<Grid item sm={2} className={classes.root}>
+				<Icon path={mdiEmoticonHappyOutline} size={3} color='black' height='100%' />
+			</Grid>
+			<Grid item sm={10} className={classes.root}>
+				<div className='textDialogBold'>Review your Progress</div>
+				<IconButton
+					aria-label='Close'
+					className={classes.closeButton}
+					onClick={onRequestClose}>
+					<CloseIcon />
+				</IconButton>
+
+				<DialogContent style={{ padding: '0px' }}>
+					<Grid
+						container
+						justify='center'
+						direction='row'
+						alignItems='center'
+						spacing={0}>
+						<div className='textDialogSmall' />
+						<Field
+							name='starRating'
+							component={StarRatingReduxFieldForm}
+							fullWidth
+							validate={[ required ]}
 						/>
-					</div>
-				</div>
-
-				<Field
-					id='reviewRatingTextField'
-					style={{ width: '100%' }}
-					component={TextField}
-					name='feedback'
-					validate={[ required ]}
-					placeholder='Describe your opinion about your progress.'
-					autoComplete='off'
-					margin='dense'
-					rows='5'
-					multiline
-					variant='outlined'
-					//value={starRating}
-					//rating={starRating}
-					fullWidth
-				/>
-				<Field
-					id='reviewRatingTextField'
-					style={{ width: '100%' }}
-					component={TextField}
-					name='starRating'
-					validate={[ required ]}
-					placeholder='Describe your opinion about your progress.'
-					autoComplete='off'
-					margin='dense'
-					rows='5'
-					multiline
-					variant='outlined'
-					//value={starRating}
-					//rating={starRating}
-					fullWidth
-				/>
-
-				<form onSubmit={handleSubmit}>
-					<DialogActions>
-						<Fab
-							variant='extended'
-							size='small'
-							color='primary'
-							className={classes.outlinedConfirmDeleteFab}
-							onClick={onRequestClose}>
-							CANCEL
-						</Fab>
-						<Fab
-							size='small'
-							variant='extended'
-							aria-label='Delete'
-							className={isDeleteTab ? classes.confirmDeleteFab : classes.fab}
-							type='submit'>
-							Okay, UPDATE My Rating
-						</Fab>
-					</DialogActions>
-				</form>
-			</DialogContent>
+						<Field
+							id='reviewRatingTextField'
+							style={{ width: '100%' }}
+							component={TextField}
+							validate={[ required ]}
+							name='feedback'
+							placeholder='Describe your opinion about your progress.'
+							autoComplete='off'
+							margin='dense'
+							rows='2'
+							multiline
+							variant='outlined'
+							fullWidth
+						/>
+						<form onSubmit={handleSubmit}>
+							<DialogActions align='right'>
+								<Fab
+									size='small'
+									variant='extended'
+									aria-label='Delete'
+									className={classes.fab}
+									type='submit'>
+									SUBMIT
+								</Fab>
+							</DialogActions>
+						</form>
+					</Grid>
+				</DialogContent>
+			</Grid>
 		</Grid>
 	</Dialog>
 );
