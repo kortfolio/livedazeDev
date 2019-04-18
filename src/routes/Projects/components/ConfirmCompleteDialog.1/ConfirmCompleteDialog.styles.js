@@ -1,12 +1,6 @@
 export default (theme) => ({
 	root: {
-		padding: theme.spacing.unit * 1.5
-	},
-	closeButton: {
-		position: 'absolute',
-		right: theme.spacing.unit,
-		top: theme.spacing.unit,
-		color: 'grey'
+		padding: theme.spacing.unit * 2
 	},
 	inputs: {
 		...theme.flexColumnCenter
@@ -14,10 +8,8 @@ export default (theme) => ({
 	buttons: {
 		...theme.flexColumnCenter
 	},
-	fab2: {
-		width: '100% !important',
-		paddingLeft: '20px !important',
-		paddingRight: '20px !important',
+	fab: {
+		margin: theme.spacing.unit,
 		color: 'white',
 		cursor: 'pointer',
 		background: 'black',
@@ -28,8 +20,9 @@ export default (theme) => ({
 		},
 		textDecoration: 'none',
 		fontSize: '10px',
-
-		marginRight: '0px'
+		marginRight: '0px',
+		paddingLeft: '10px !important',
+		paddingRight: '10px !important'
 	},
 	confirmDeleteFab: {
 		margin: theme.spacing.unit,

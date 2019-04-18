@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-
-import { Grid, Typography, FormControlLabel, Checkbox, Paper } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { mdiPencil } from '@mdi/js';
-import { mdiAccessPointNetwork } from '@mdi/js';
 import Icon from '@mdi/react';
 import EditTaskDialog from '../EditTaskDialog';
 import ConfirmCompleteCheckBox from './ConfirmCompleteCheckBox';
@@ -34,8 +32,8 @@ export const ProjectTile = ({
 				<Grid item xs={1}>
 					<ConfirmCompleteCheckBox keykey={keykey} name={name} />
 				</Grid>
-				<Grid item xs={9} noWrap style={{ marginTop: '12px' }}>
-					<Typography noWrap>{name}</Typography>
+				<Grid item xs={9} style={{ marginTop: '12px' }}>
+					<Typography>{name}</Typography>
 				</Grid>
 				<Grid item xs={1}>
 					<Tooltip title='Edit Task'>

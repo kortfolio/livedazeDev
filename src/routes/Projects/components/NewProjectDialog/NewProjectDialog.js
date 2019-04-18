@@ -67,7 +67,6 @@ const NewProjectDialog = ({
 						validate={[ required ]}
 						placeholder='Add a todo list...'
 						autoComplete='off'
-						multiline
 						rowsMax='10'
 					/>
 					<form onSubmit={handleSubmit}>

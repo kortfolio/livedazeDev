@@ -1,6 +1,13 @@
 export default (theme) => ({
 	root: {
-		padding: theme.spacing.unit * 2
+		padding: '0px 10px 0px 10px',
+		color: 'white',
+		background: 'white',
+		marginBottom: '20px',
+		marginTop: '20px',
+		borderRadius: '5px',
+		border: '1px',
+		boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px'
 	},
 	todoItemTab: {
 		alignItems: 'right',

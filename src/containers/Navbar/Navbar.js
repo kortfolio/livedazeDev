@@ -101,7 +101,6 @@ export const Navbar = ({
 								<Divider />
 								<DrawerList onLogoutClick={handleLogout} />
 							</div>
-							{console.log('value of mobile Open from bottom Drawer' + mobileOpen)}
 						</Drawer>
 					</Hidden>
 					<Hidden xsDown implementation='css'>

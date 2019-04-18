@@ -27,9 +27,8 @@ const GoalDate = ({ handleSubmit, goalDays, deleteGoalDay, onDelete, classes }) 
 		<Icon path={mdiCalendarCheck} size={3.5} color='white' style={{ height: '100%' }} />
 		{!isEmpty(goalDays) &&
 			goalDays.map((goalDay, ind) => (
-				<CardContent className={classes.content}>
+				<CardContent className={classes.content} key={`GoalDay-${goalDay.id}-${ind}`}>
 					<DisplayGoalDay
-						key={`GoalDay-${goalDay.id}-${ind}`}
 						goalDay={goalDay.value['goalDay']}
 						onDelete={() => deleteGoalDay(goalDay)}
 					/>

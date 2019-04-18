@@ -7,10 +7,10 @@ import ProjectRoute from 'routes/Projects/routes/Project';
 import ProjectTile from '../ProjectTile';
 import NewProjectTile from '../NewProjectTile';
 import NewProjectDialog from '../NewProjectDialog';
-import { Grid, Typography, Card, CardContent, Hidden } from '@material-ui/core';
+import { Grid, Typography, Card, CardContent } from '@material-ui/core';
 
 import Icon from '@mdi/react';
-import { mdiFormatListCheckbox, mdiAccessPoint } from '@mdi/js';
+import { mdiFormatListCheckbox } from '@mdi/js';
 
 import 'moment-timezone';
 import 'moment-duration-format';
@@ -33,7 +33,6 @@ const renderChildren = (routes, match, parentProps) =>
 export const ProjectsPage = ({
 	projects,
 	goalDate,
-	sleepTime,
 	auth,
 	newDialogOpen,
 	toggleDialog,
@@ -44,8 +43,6 @@ export const ProjectsPage = ({
 	addSleepTime,
 	classes,
 	match,
-	goToProject,
-	ReviewsRating,
 	sumAll,
 	ReviewsRatingLength
 }) => (
@@ -124,7 +121,6 @@ ProjectsPage.propTypes = {
 	addProject: PropTypes.func.isRequired,
 	addGoalDate: PropTypes.func.isRequired,
 	addSleepTime: PropTypes.func.isRequired,
-	toggleSent: PropTypes.func.isRequired,
 	goToProject: PropTypes.func.isRequired
 };
 

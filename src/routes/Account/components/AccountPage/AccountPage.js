@@ -21,7 +21,6 @@ export const AccountPage = ({ avatarUrl, updateAccount, profile, classes }) => (
 						account={profile}
 						initialValues={profile}
 					/>
-					{console.log({ profile })}
 				</div>
 			</div>
 		</Paper>

@@ -1,11 +1,18 @@
 import React from 'react';
 import { Spring } from 'react-spring/renderprops';
-import { mdiStar, mdiStarOutline, mdiStarHalf } from '@mdi/js';
-import { Grid, Fab } from '@material-ui/core';
-import { TextField } from 'redux-form-material-ui';
+import {
+	mdiStar,
+	mdiStarOutline,
+	mdiEmoticonNeutralOutline,
+	mdiEmoticonAngryOutline,
+	mdiEmoticonCoolOutline,
+	mdiEmoticonHappyOutline,
+	mdiEmoticonSadOutline,
+	mdiStarFace
+} from '@mdi/js';
+import { Grid, Typography } from '@material-ui/core';
 import Icon from '@mdi/react';
 import StarRatingComponent from 'react-star-rating-component';
-import PropTypes from 'prop-types';
 
 export class StarRatingReduxFieldForm extends React.Component {
 	render() {
@@ -17,17 +24,31 @@ export class StarRatingReduxFieldForm extends React.Component {
 				direction='row'
 				alignItems='center'
 				align='center'
-				spacing={0}>
-				<Grid item xs={12} alignItems='center'>
-					{value == 0 && 'Rating'}
-					{value === 1 && 'Terrible'}
-					{value === 2 && 'Bad'}
-					{value === 3 && 'OK'}
-					{value === 4 && 'Good'}
-					{value === 5 && 'Excellent'}
+				spacing={0}
+				style={{ border: '1px solid #0000003b', borderRadius: '4px' }}>
+				<Grid item xs={3}>
+					<Icon
+						path={
+							(value == 0 && mdiStarFace) ||
+							(value === 1 && mdiEmoticonAngryOutline) ||
+							(value === 2 && mdiEmoticonSadOutline) ||
+							(value === 3 && mdiEmoticonNeutralOutline) ||
+							(value === 4 && mdiEmoticonHappyOutline) ||
+							(value === 5 && mdiEmoticonCoolOutline)
+						}
+						size={1}
+						color='#242729'
+					/>
+					<Typography style={{ color: '#242729' }}>
+						{value == 0 && 'Rating'}
+						{value === 1 && 'Terrible'}
+						{value === 2 && 'Bad'}
+						{value === 3 && 'OK'}
+						{value === 4 && 'Good'}
+						{value === 5 && 'Excellent'}
+					</Typography>
 				</Grid>
-
-				<Grid item xs={12} alignItems='center'>
+				<Grid item xs={9}>
 					<StarRatingComponent
 						name='starRating'
 						starCount={5}

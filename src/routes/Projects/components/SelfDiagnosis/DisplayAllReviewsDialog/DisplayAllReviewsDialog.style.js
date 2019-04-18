@@ -25,7 +25,6 @@ export default (theme) => ({
 		paddingRight: '20px !important'
 	},
 	dialogText: {
-		color: 'red',
 		fontFamily: 'isotonicBold',
 		color: '#333 !important',
 		textTransform: 'uppercase'

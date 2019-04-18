@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isEmpty } from 'react-redux-firebase';
-import ProjectTile from '../../../Projects/components/ProjectTile';
-import { Grid, Typography, Card, CardContent, Hidden } from '@material-ui/core';
+import { Grid, Card } from '@material-ui/core';
 
 export const Dashboard = ({ classes, projects, deleteProject }) => (
 	<div className={classes.root}>

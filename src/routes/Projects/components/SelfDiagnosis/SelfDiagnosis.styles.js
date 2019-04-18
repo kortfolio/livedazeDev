@@ -1,10 +1,15 @@
 export default (theme) => ({
 	root: {
-		...theme.flexColumnCenter,
-		paddingTop: theme.spacing.unit * 4,
-		flexGrow: '2',
-		boxSizing: 'border-box',
-		overflowY: 'scroll'
+		padding: theme.spacing.unit * 2,
+		display: 'flex',
+		backgroundColor: '#67a0b4',
+		backgroundImage: 'linear-gradient(315deg, #67a0b4 0%,  #b1d2d8 74%)',
+		height: '200px',
+		borderRadius: '8px',
+		webkitBoxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
+		boxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
 	},
 	tiles: {
 		display: 'flex',
@@ -29,11 +34,11 @@ export default (theme) => ({
 		display: 'flex',
 		backgroundColor: '#000000',
 		backgroundImage: 'linear-gradient(147deg, #000000 0%, #434343 74%)'
-	 
 	},
 	content: {
-		flexGrow: 1,
-		padding: theme.spacing.unit * 3
+		height: '100%',
+		padding: '0',
+		width: '100%'
 	},
 
 	goalDatePaper: {
@@ -73,5 +78,28 @@ export default (theme) => ({
 		fontSize: '12px',
 		paddingLeft: '20px',
 		paddingRight: '20px'
+	},
+	outLinedBtn2: {
+		margin: theme.spacing.unit,
+		color: 'white',
+		backgroundColor: '#222',
+		borderColor: 'black',
+		textDecoration: 'none',
+		alignSelf: 'center',
+		letterSpacing: '0.1rem',
+		fontFamily: 'isotonic',
+		fontSize: '10px',
+		paddingLeft: '20px !important',
+		paddingRight: '20px !important',
+		'&:hover': {
+			backgroundColor: 'black'
+		},
+		'&:disabled': {
+			backgroundColor: 'black',
+			color: 'white',
+			style: { cursor: 'no-drop' }
+		},
+		marginRight: '0px',
+		marginTop: '10px'
 	}
 });

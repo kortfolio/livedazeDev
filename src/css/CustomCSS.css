@@ -2,10 +2,6 @@ nav {
 	height: 56px;
 }
 
-div#app {
-	/*    background-color: #f5f5f5;*/
-}
-
 .livedaze_TabTitle {
 	color: #95b5ff;
 	text-transform: uppercase;
@@ -706,9 +702,13 @@ textarea#reviewRatingTextField {
 
 span.totalRatings {
 	vertical-align: super;
-
 	font-size: 12px;
-	color: #7aff86;
+	color: #fff;
 	letter-spacing: initial;
+	text-transform: uppercase;
+}
+.dialogText {
+	font-family: isotonicBold !important;
+	color: #333 !important;
 	text-transform: uppercase;
 }

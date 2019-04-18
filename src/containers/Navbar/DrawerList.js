@@ -8,15 +8,13 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import SettingsIcon from '@material-ui/icons/Settings';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 import theme from './NavbarTheme';
 import { Link } from 'react-router-dom';
 
-import { FOCUSTIME_PATH, LIST_PATH, ACCOUNT_PATH, DASHBOARD_PATH } from 'constants/paths';
+import { LIST_PATH, ACCOUNT_PATH } from 'constants/paths';
 import { Typography } from '@material-ui/core';
 
 function DrawerList(props) {
@@ -27,8 +25,6 @@ function DrawerList(props) {
 					<ListItem
 						button
 						key={text}
-						component={Link}
-						to={index === 0 && LIST_PATH}
 						style={{
 							textTransform: 'initial'
 						}}>
@@ -54,12 +50,7 @@ function DrawerList(props) {
 			<Divider />
 			<List>
 				{[ 'Account', 'Notification', 'Sign out' ].map((text, index) => (
-					<ListItem
-						button
-						key={text}
-						component={Link}
-						to={index === 0 && ACCOUNT_PATH}
-						onClick={index === 2 && props.onLogoutClick}>
+					<ListItem button key={text}>
 						<ListItemIcon style={{ color: '#e2e2e2' }}>
 							<React.Fragment>
 								{index === 0 && <SettingsIcon />}

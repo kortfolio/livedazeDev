@@ -6,7 +6,7 @@ import ConfirmCompleteDialog from '../ConfirmCompleteDialog';
 import { UserIsAuthenticated } from 'utils/router';
 import { connect } from 'react-redux';
 import Tooltip from '@material-ui/core/Tooltip';
-import { Checkbox, FormControlLabel, Typography, Grid } from '@material-ui/core';
+import { Checkbox, FormControlLabel } from '@material-ui/core';
 
 export const ConfirmCompleteCheckBox = ({
 	toggleConfirmDialog,
