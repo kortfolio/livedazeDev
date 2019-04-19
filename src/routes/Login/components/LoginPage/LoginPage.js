@@ -13,6 +13,8 @@ export const LoginPage = ({
 	googleLogin,
 	facebookLogin,
 	githubLogin,
+	anonymousLogin,
+	al,
 	onSubmitFail,
 	classes
 }) => (
@@ -124,7 +126,10 @@ export const LoginPage = ({
 						</Grid>
 					</Grid>
 
-					<div className='Sm_Pink right' style={{ cursor: 'pointer' }}>
+					<div
+						className='Sm_Pink right'
+						style={{ cursor: 'pointer' }}
+						onClick={anonymousLogin}>
 						No thanks, let me just look around.
 					</div>
 				</div>

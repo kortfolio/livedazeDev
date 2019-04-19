@@ -7,16 +7,16 @@ import ProviderDataForm from '../ProviderDataForm';
 
 export const AccountForm = ({ account, handleSubmit, submitting, pristine, classes }) => (
 	<form className={classes.root} onSubmit={handleSubmit}>
-		<h4>Account</h4>
+		<h4>My Account</h4>
 		<div className={classes.fields}>
-			<Field fullWidth name='displayName' component={TextField} label='Display Name' />
+			<Field fullWidth name='displayName' component={TextField} label='Name' />
 			<Field name='email' label='Email' component={TextField} fullWidth />
 			<Field name='avatarUrl' label='Avatar Url' component={TextField} fullWidth />
 		</div>
 		{!!account &&
 		!!account.providerData && (
 			<div>
-				<h4>Linked Accounts</h4>
+				<h4>Logged in Via</h4>
 				<ProviderDataForm providerData={account.providerData} />
 			</div>
 		)}

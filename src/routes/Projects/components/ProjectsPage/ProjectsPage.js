@@ -87,6 +87,7 @@ export const ProjectsPage = ({
 												isOver={project.value['isDone']}
 											/>
 										))}
+
 									<NewProjectDialog
 										onSubmit={addProject}
 										open={newDialogOpen}

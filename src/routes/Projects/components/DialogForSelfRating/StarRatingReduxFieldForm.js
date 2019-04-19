@@ -14,6 +14,16 @@ import { Grid, Typography } from '@material-ui/core';
 import Icon from '@mdi/react';
 import StarRatingComponent from 'react-star-rating-component';
 
+const Emoji = (props) => (
+	<span
+		className='emoji'
+		role='img'
+		aria-label={props.label ? props.label : ''}
+		aria-hidden={props.label ? 'false' : 'true'}>
+		{props.symbol}
+	</span>
+);
+
 export class StarRatingReduxFieldForm extends React.Component {
 	render() {
 		const { input: { value, onChange } } = this.props;
@@ -26,28 +36,27 @@ export class StarRatingReduxFieldForm extends React.Component {
 				align='center'
 				spacing={0}
 				style={{ border: '1px solid #0000003b', borderRadius: '4px' }}>
-				<Grid item xs={3}>
-					<Icon
-						path={
-							(value == 0 && mdiStarFace) ||
-							(value === 1 && mdiEmoticonAngryOutline) ||
-							(value === 2 && mdiEmoticonSadOutline) ||
-							(value === 3 && mdiEmoticonNeutralOutline) ||
-							(value === 4 && mdiEmoticonHappyOutline) ||
-							(value === 5 && mdiEmoticonCoolOutline)
-						}
-						size={1}
-						color='#242729'
-					/>
-					<Typography style={{ color: '#242729' }}>
-						{value == 0 && 'Rating'}
-						{value === 1 && 'Terrible'}
-						{value === 2 && 'Bad'}
-						{value === 3 && 'OK'}
-						{value === 4 && 'Good'}
-						{value === 5 && 'Excellent'}
-					</Typography>
+				<Grid item xs={2}>
+					<Grid item xs={12}>
+						{(value == 0 && <Emoji symbol='😶' label='sheep' />) ||
+							(value === 1 && <Emoji symbol='😵' />) ||
+							(value === 2 && <Emoji symbol='😕' />) ||
+							(value === 3 && <Emoji symbol='😐' />) ||
+							(value === 4 && <Emoji symbol='😀' />) ||
+							(value === 5 && <Emoji symbol='😎' />)}
+					</Grid>
+					<Grid item xs={12}>
+						<Typography className='ratingLabel'>
+							{value == 0 && 'Rating'}
+							{value === 1 && 'Terrible'}
+							{value === 2 && 'Bad'}
+							{value === 3 && 'OK'}
+							{value === 4 && 'Good'}
+							{value === 5 && 'Excellent'}
+						</Typography>
+					</Grid>
 				</Grid>
+
 				<Grid item xs={9}>
 					<StarRatingComponent
 						name='starRating'

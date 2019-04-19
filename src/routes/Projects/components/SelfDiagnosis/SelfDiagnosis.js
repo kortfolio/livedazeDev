@@ -8,39 +8,16 @@ import { withStateHandlers, withHandlers } from 'recompose';
 import { withFirebase, firebaseConnect } from 'react-redux-firebase';
 import Tooltip from '@material-ui/core/Tooltip';
 import { UserIsAuthenticated } from 'utils/router';
-import { Grid, Card, Typography, CardContent, Fab, Paper } from '@material-ui/core';
+import { Grid, Card, Typography, CardContent, Fab } from '@material-ui/core';
 import { isEmpty } from 'react-redux-firebase';
 import Icon from '@mdi/react';
 import { mdiStar, mdiStarOutline, mdiHelpCircleOutline, mdiStarFace } from '@mdi/js';
 import StarRatingComponent from 'react-star-rating-component';
 import DialogForSelfRating from '../DialogForSelfRating';
 import DisplayAllReviewsDialog from './DisplayAllReviewsDialog/index';
-import { Route, Switch } from 'react-router-dom';
+import { reset } from 'redux-form';
 
 let sumAll = 0;
-
-let ReviewsRatingLength = 0;
-let average = (sumAll / (ReviewsRatingLength + 1)).toFixed(1);
-
-const renderChildren = (routes, match, parentProps) =>
-	routes.map((route) => (
-		<Route
-			key={`${match.url}-${route.path}`}
-			path={`${match.url}/${route.path}`}
-			render={(props) => <route.component {...parentProps} {...props} />}
-		/>
-	));
-
-function Welcome(add) {
-	let helloCount = 0;
-
-	console.log(helloCount);
-	//console.log(add);
-
-	console.log(add.ReviewsRating);
-	//helloCount += { add.value.["starRating"] };
-	return <span>{helloCount}</span>;
-}
 
 export const SelfDiagnosis = ({
 	toggleConfirmDialog,
@@ -77,7 +54,6 @@ export const SelfDiagnosis = ({
 					className={classes.outLinedBtn2}>
 					Write a Review
 				</Fab>
-				<Paper>{/*Display Averate Review*/}</Paper>
 				<Grid item xs={12}>
 					<div className='starRatingComponent'>
 						{/* AVERAGE RATE IN TEXT */}
@@ -100,8 +76,6 @@ export const SelfDiagnosis = ({
 						</span>
 						<StarRatingComponent
 							name='displayAvgStarRating'
-							editing={false}
-							starCount={5}
 							value={
 								!isEmpty(ReviewsRating) ? (
 									(sumAll / ReviewsRating.length).toFixed(1)
@@ -109,6 +83,8 @@ export const SelfDiagnosis = ({
 									0
 								)
 							}
+							editing={false}
+							starCount={5}
 							renderStarIcon={(index, value) => {
 								return (
 									<span>
@@ -138,8 +114,8 @@ export const SelfDiagnosis = ({
 							className='totalRatings'
 							onClick={toggleDisplayReviewDialog}
 							style={{
-								color: 'black',
-								//textDecoration: 'underline',
+								color: 'white',
+								textDecoration: 'underline',
 								cursor: 'pointer',
 								textTransform: 'none'
 							}}>
@@ -161,7 +137,7 @@ SelfDiagnosis.propTypes = {
 	toggleConfirmDialog: PropTypes.func,
 	toggleDisplayReviewDialog: PropTypes.func,
 	average: PropTypes.number,
-
+	sumAll: PropTypes.number,
 	updateStarRatingDialog: PropTypes.func, // from enhancer (withHandlers)
 	wasSent: PropTypes.bool, // from enhancer (withStateHandlers)
 	isDone: PropTypes.func,
@@ -227,6 +203,9 @@ const enhance = compose(
 					showError(err.message || 'Could not update self review');
 					return Promise.reject(err);
 				});
+		},
+		clearStuff: (props) => (event) => {
+			props.reset();
 		}
 	})
 );

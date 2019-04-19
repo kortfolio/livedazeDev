@@ -10,6 +10,8 @@ import { TextField } from 'redux-form-material-ui';
 import PropTypes from 'prop-types';
 import { StarRatingReduxFieldForm } from './StarRatingReduxFieldForm';
 import CloseIcon from '@material-ui/icons/Close';
+import { reduxForm } from 'redux-form';
+
 const DialogForSelfRating = ({
 	handleSubmit,
 	open,
@@ -19,9 +21,18 @@ const DialogForSelfRating = ({
 	rating,
 	submitting,
 	display,
-	isDeleteTab
+	reset
 }) => (
-	<Dialog open={open} onClose={onRequestClose} maxWidth='xs' fullWidth={true}>
+	<Dialog
+		open={open}
+		onClose={(event) => {
+			{
+				reset(event);
+			}
+			onRequestClose();
+		}}
+		maxWidth='xs'
+		fullWidth={true}>
 		<DialogTitle style={{ padding: '0px' }}>
 			<div className='textDialogBold'>Review your Progress</div>
 		</DialogTitle>
@@ -32,33 +43,42 @@ const DialogForSelfRating = ({
 			alignItems='center'
 			spacing={0}
 			className={classes.root}>
-			<IconButton aria-label='Close' className={classes.closeButton} onClick={onRequestClose}>
+			<IconButton
+				aria-label='Close'
+				className={classes.closeButton}
+				onClick={(event) => {
+					{
+						reset(event);
+					}
+					onRequestClose();
+				}}>
 				<CloseIcon />
 			</IconButton>
 			<DialogContent style={{ padding: '0px 10px 10px 10px' }}>
 				<Grid item sm={12}>
 					<div className='textDialogSmall' />
-					<Field
-						name='starRating'
-						component={StarRatingReduxFieldForm}
-						fullWidth
-						validate={[ required ]}
-					/>
-					<Field
-						id='reviewRatingTextField'
-						style={{ width: '100%' }}
-						component={TextField}
-						validate={[ required ]}
-						name='feedback'
-						placeholder='Describe your opinion about your progress.'
-						autoComplete='off'
-						margin='dense'
-						rows='2'
-						multiline
-						variant='outlined'
-						fullWidth
-					/>
 					<form onSubmit={handleSubmit}>
+						<Field
+							name='starRating'
+							component={StarRatingReduxFieldForm}
+							fullWidth
+							validate={[ required ]}
+						/>
+						<Field
+							id='reviewRatingTextField'
+							style={{ width: '100%' }}
+							component={TextField}
+							validate={[ required ]}
+							name='feedback'
+							placeholder='Describe your opinion about your progress.'
+							autoComplete='off'
+							margin='dense'
+							rows='2'
+							multiline
+							variant='outlined'
+							fullWidth
+						/>
+
 						<DialogActions align='right'>
 							<Fab
 								size='small'

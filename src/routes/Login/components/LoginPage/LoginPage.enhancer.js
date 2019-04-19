@@ -39,11 +39,10 @@ export default compose(
 				.login({ provider: 'github', type: 'popup' })
 				.catch((err) => showError(err.message)),
 
-		anonymousLogin: ({ firebase, showError, router }) => (event) =>
-			firebase.auth().signInAnonymously(),
-
 		emailLogin: ({ firebase, router, showError }) => (creds) =>
-			firebase.login(creds).catch((err) => showError(err.message))
+			firebase.login(creds).catch((err) => showError(err.message)),
+
+		anonymousLogin: ({ firebase, router, showError }) => firebase.auth().signInAnonymously()
 	}),
 	// add props.classes
 	withStyles(styles, { withTheme: true })

@@ -12,15 +12,22 @@ export default (theme) => ({
 		...theme.flexColumnCenter,
 		justifyContent: 'space-around',
 		flexBasis: '60%',
-		padding: theme.spacing.unit
+		padding: theme.spacing.unit,
+		backgroundColor: 'white',
+		borderRadius: '8px',
+		webkitBoxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
+		boxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
 	},
 	settings: {
 		...theme.flexRowCenter
 	},
 	avatarCurrent: {
-		width: '100%',
+		width: '100px',
+		margin: '5px',
+		textAlign: 'center',
 		maxWidth: '13rem',
-		marginTop: '3rem',
 		height: 'auto',
 		cursor: 'pointer'
 	},
@@ -29,5 +36,36 @@ export default (theme) => ({
 		flexBasis: '60%',
 		marginBottom: '3rem',
 		marginTop: '2rem'
+	},
+	displayName: {
+		fontFamily: 'isotonicBold',
+		textTransform: 'uppercase',
+		textAlign: 'center',
+		fontSize: '24px'
+	},
+	email: {
+		fontFamily: 'isotonicBold',
+		textTransform: 'uppercase',
+		textAlign: 'center',
+		color: '#00000099'
+	},
+	accountSummaryTab: {
+		//	padding: theme.spacing.unit,
+		height: '100%',
+		backgroundColor: 'white',
+		borderRadius: '8px',
+		webkitBoxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
+		boxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
+	},
+	accountEditTab: {
+		//	padding: theme.spacing.unit,
+		backgroundColor: 'white',
+		borderRadius: '8px',
+		webkitBoxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
+		boxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
 	}
 });

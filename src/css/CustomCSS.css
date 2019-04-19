@@ -707,8 +707,15 @@ span.totalRatings {
 	letter-spacing: initial;
 	text-transform: uppercase;
 }
-.dialogText {
-	font-family: isotonicBold !important;
-	color: #333 !important;
+
+.emoji {
+	font-size: 24px;
+}
+
+.ratingLabel {
 	text-transform: uppercase;
+	color: #525f7f !important;
+	font-size: 10px !important;
+	font-family: 'isotonicBold' !important;
+	margin-top: -5px !important;
 }

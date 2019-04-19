@@ -7,6 +7,7 @@ export default compose(
 	reduxForm({
 		form: 'UPDATE_SELFREVIEW_DIALOG_FORM',
 		// Clear the form for future use (creating another project)
+		onSubmit: (result, dispatch, props) => props.reset(),
 		onSubmitSuccess: (result, dispatch, props) => props.reset()
 	}),
 	withStyles(styles)
