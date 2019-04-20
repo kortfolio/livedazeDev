@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Paper from '@material-ui/core/Paper';
+
 import defaultUserImageUrl from 'static/User.png';
 import AccountForm from '../AccountForm';
 import Avatar from '@material-ui/core/Avatar';
@@ -13,12 +13,14 @@ export const AccountPage = ({ avatarUrl, updateAccount, profile, classes }) => (
 				<Card className={classes.accountSummaryTab}>
 					<Typography className={classes.displayName}>My account</Typography>
 					<Divider variant='middle' />
-					<Avatar
-						alt='Avatar'
-						src={avatarUrl || defaultUserImageUrl}
-						className={classes.avatarCurrent}
-						align='center'
-					/>
+					<Grid container justify='center' alignItems='center'>
+						<Avatar
+							alt='Avatar'
+							src={avatarUrl || defaultUserImageUrl}
+							className={classes.avatarCurrent}
+							align='center'
+						/>
+					</Grid>
 					<Typography className={classes.displayName}>{profile.displayName}</Typography>
 					<Typography className={classes.email}>{profile.email}</Typography>
 				</Card>

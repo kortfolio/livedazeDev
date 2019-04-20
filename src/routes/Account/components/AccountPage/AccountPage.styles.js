@@ -25,7 +25,7 @@ export default (theme) => ({
 	},
 	avatarCurrent: {
 		width: '100px',
-		margin: '5px',
+		margin: '10px',
 		textAlign: 'center',
 		maxWidth: '13rem',
 		height: 'auto',
@@ -51,6 +51,8 @@ export default (theme) => ({
 	},
 	accountSummaryTab: {
 		//	padding: theme.spacing.unit,
+		padding: theme.spacing.unit * 2,
+
 		height: '100%',
 		backgroundColor: 'white',
 		borderRadius: '8px',

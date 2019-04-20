@@ -15,7 +15,6 @@ import { mdiStar, mdiStarOutline, mdiHelpCircleOutline, mdiStarFace } from '@mdi
 import StarRatingComponent from 'react-star-rating-component';
 import DialogForSelfRating from '../DialogForSelfRating';
 import DisplayAllReviewsDialog from './DisplayAllReviewsDialog/index';
-import { reset } from 'redux-form';
 
 let sumAll = 0;
 
@@ -56,16 +55,11 @@ export const SelfDiagnosis = ({
 				</Fab>
 				<Grid item xs={12}>
 					<div className='starRatingComponent'>
-						{/* AVERAGE RATE IN TEXT */}
-						{/* AVERAGE RATE IN SVG */}
-						{/* <Welcome ReviewsRating={ReviewsRating} /> */}
 						{!isEmpty(ReviewsRating) &&
 							ReviewsRating.map((rating, ind) => (
-								<React.Fragment>
-									<div style={{ display: 'none' }}>
-										{(sumAll += rating.value['starRating'])}
-									</div>
-								</React.Fragment>
+								<div style={{ display: 'none' }} key={ind}>
+									{(sumAll += rating.value['starRating'])}
+								</div>
 							))}
 						<span className='totalRatings'>
 							{!isEmpty(ReviewsRating) ? (
@@ -78,7 +72,7 @@ export const SelfDiagnosis = ({
 							name='displayAvgStarRating'
 							value={
 								!isEmpty(ReviewsRating) ? (
-									(sumAll / ReviewsRating.length).toFixed(1)
+									sumAll / ReviewsRating.length.toFixed(1)
 								) : (
 									0
 								)

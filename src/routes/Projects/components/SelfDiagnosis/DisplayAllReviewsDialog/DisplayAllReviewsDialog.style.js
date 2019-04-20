@@ -26,8 +26,16 @@ export default (theme) => ({
 	},
 	dialogText: {
 		fontFamily: 'isotonicBold',
-		color: '#333 !important',
-		textTransform: 'uppercase'
+		color: 'white !important',
+		textTransform: 'uppercase',
+		background: '#55587a',
+		padding: '5px 5px 5px 5px'
+
+		//backgroundImage: 'linear-gradient(315deg, #67a0b4 0%, #b1d2d8 74%)'
+	},
+
+	customDialogContent: {
+		padding: '24px 24px 24px 24px'
 	},
 
 	closeButton: {
@@ -38,6 +46,7 @@ export default (theme) => ({
 	},
 	largeText: {
 		fontFamily: 'isotonicBold',
-		fontSize: '32px'
+		fontSize: '32px',
+		color: 'white'
 	}
 });

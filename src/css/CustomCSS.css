@@ -719,3 +719,9 @@ span.totalRatings {
 	font-family: 'isotonicBold' !important;
 	margin-top: -5px !important;
 }
+
+.tempListItemText {
+	color: #ffffff !important;
+	font-family: 'isotonicBold' !important;
+	text-transform: uppercase !important;
+}

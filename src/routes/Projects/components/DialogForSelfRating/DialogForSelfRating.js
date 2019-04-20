@@ -10,7 +10,6 @@ import { TextField } from 'redux-form-material-ui';
 import PropTypes from 'prop-types';
 import { StarRatingReduxFieldForm } from './StarRatingReduxFieldForm';
 import CloseIcon from '@material-ui/icons/Close';
-import { reduxForm } from 'redux-form';
 
 const DialogForSelfRating = ({
 	handleSubmit,

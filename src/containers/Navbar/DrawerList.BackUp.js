@@ -8,6 +8,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import SettingsIcon from '@material-ui/icons/Settings';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 import theme from './NavbarTheme';
 import { Link } from 'react-router-dom';
@@ -40,31 +41,31 @@ function DrawerList(props) {
 				))}
 			</List>
 			<Divider />
-
 			<List>
-				<ListItem button key={'Account'} component={Link} to={ACCOUNT_PATH}>
-					<ListItemIcon style={{ color: '#e2e2e2' }}>
-						<SettingsIcon />
-					</ListItemIcon>
-					<ListItemText
-						disableTypography
-						primary={<Typography className='tempListItemText'>{'Account'}</Typography>}
-					/>
-				</ListItem>
-				<ListItem
-					button
-					key={'Sign Out'}
-					component={Link}
-					to={props.onLogoutClick}
-					onClick={props.onLogoutClick}>
-					<ListItemIcon style={{ color: '#e2e2e2' }}>
-						<ExitToApp />
-					</ListItemIcon>
-					<ListItemText
-						disableTypography
-						primary={<Typography className='tempListItemText'>{'Sign Out'}</Typography>}
-					/>
-				</ListItem>
+				{[ 'Account', 'Notification', 'Sign out' ].map((text, index) => (
+					<ListItem button key={text} component={Link} to={index == 0 && ACCOUNT_PATH}>
+						<ListItemIcon style={{ color: '#e2e2e2' }}>
+							<React.Fragment>
+								{index === 0 && <SettingsIcon />}
+								{index === 1 && <NotificationsIcon />}
+								{index === 2 && <ExitToApp />}
+							</React.Fragment>
+						</ListItemIcon>
+						<ListItemText
+							disableTypography
+							primary={
+								<Typography
+									style={{
+										color: '#FFFFFF',
+										fontFamily: 'isotonicBold',
+										textTransform: 'uppercase'
+									}}>
+									{text}
+								</Typography>
+							}
+						/>
+					</ListItem>
+				))}
 			</List>
 		</React.Fragment>
 	);

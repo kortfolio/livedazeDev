@@ -22,11 +22,6 @@ const DisplayAllReviewsDialog = ({
 	<Dialog open={open} onClose={onRequestClose} maxWidth='xs' fullWidth={true}>
 		<DialogTitle align='center' className={classes.dialogText}>
 			<div className={classes.dialogText}>My Progress</div>
-			<IconButton aria-label='Close' className={classes.closeButton} onClick={onRequestClose}>
-				<CloseIcon />
-			</IconButton>
-		</DialogTitle>
-		<DialogContent>
 			<Grid container justify='center' direction='row' alignItems='center' spacing={0}>
 				<Typography className={classes.largeText}>{AverageRating}</Typography>
 				<StarRatingComponent
@@ -40,7 +35,7 @@ const DisplayAllReviewsDialog = ({
 								<Icon
 									path={index <= value ? mdiStarHalf : mdiStarHalf}
 									size={1.5}
-									color={index <= value ? '#ffd800' : '#ffd800'}
+									color={index <= value ? '#ffd800' : 'ffd800'}
 								/>
 							</span>
 						);
@@ -51,23 +46,30 @@ const DisplayAllReviewsDialog = ({
 								<Icon
 									path={index <= value ? mdiStar : mdiStarOutline}
 									size={1.5}
-									color={index <= value ? '#ffd800' : '#909090'}
+									color={index <= value ? '#ffd800' : 'white'}
 								/>
 							</span>
 						);
 					}}
 				/>
 				<span
+					className={classes.largeText}
 					style={{
-						color: '#999',
-						textTransform: 'none'
+						color: 'white',
+						textTransform: 'none',
+						fontSize: '12px'
 					}}>
 					{RatingLength} Reviews
 				</span>
 			</Grid>
-
+			<IconButton aria-label='Close' className={classes.closeButton} onClick={onRequestClose}>
+				<CloseIcon />
+			</IconButton>
+		</DialogTitle>
+		<DialogContent className={classes.customDialogContent}>
+			<Grid container justify='center' direction='row' alignItems='center' spacing={0} />
 			{!isEmpty(ReviewsRating) &&
-				ReviewsRating.map((rating, ind) => (
+				ReviewsRating.slice(0).reverse().map((rating, ind) => (
 					<Grid
 						container
 						justify='center'
@@ -75,7 +77,6 @@ const DisplayAllReviewsDialog = ({
 						alignItems='center'
 						spacing={0}
 						key={ind}>
-						<Divider />
 						<Grid item xs={6} sm={3}>
 							<StarRatingComponent
 								name='displayAvgStarRating'
@@ -102,6 +103,9 @@ const DisplayAllReviewsDialog = ({
 						</Grid>
 						<Grid item xs={12} sm={12}>
 							<Typography>{rating.value['feedback']}</Typography>
+						</Grid>
+						<Grid item xs={12} sm={12}>
+							<Divider />
 						</Grid>
 					</Grid>
 				))}
