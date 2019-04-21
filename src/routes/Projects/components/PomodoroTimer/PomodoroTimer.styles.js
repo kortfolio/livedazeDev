@@ -12,6 +12,12 @@ export default (theme) => ({
 			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
 	},
 
+	colorPrimary: {
+		backgroundColor: '#b0fdf1'
+	},
+	barColorPrimary: {
+		backgroundColor: '#008d76'
+	},
 	inputs: {
 		...theme.flexColumnCenter
 	},
@@ -30,9 +36,6 @@ export default (theme) => ({
 		height: '100%',
 		padding: '0',
 		width: '100%'
-	},
-	iconContent: {
-		padding: 0
 	},
 
 	card: {
@@ -66,11 +69,13 @@ export default (theme) => ({
 			backgroundColor: 'black'
 		},
 		'&:disabled': {
-			backgroundColor: '#f5f5f5',
-			color: '#333',
-			cursor: 'not-allowed'
+			margin: theme.spacing.unit,
+			letterSpacing: '0.1rem',
+			color: '#ffffff8c',
+			backgroundColor: '#00000042'
 		}
 	},
+
 	outLinedBtn2: {
 		display: 'none',
 		color: 'red,'
@@ -86,16 +91,14 @@ export default (theme) => ({
 		fontFamily: 'isotonic',
 		alignSelf: 'center',
 		fontSize: '12px',
-		color: '#333',
-		disabled: 'true',
-		cursor: 'not-allowed',
+		color: '#8a8a8a',
+		border: '1px solid #8a8a8a',
 		'&:hover': {
 			backgroundColor: '#f5f5f5'
 		},
 		'&:disabled': {
-			backgroundColor: '#f5f5f5',
-			color: '#333',
-			cursor: 'not-allowed'
+			backgroundColor: '#00000042',
+			color: '#333'
 		}
 	}
 });

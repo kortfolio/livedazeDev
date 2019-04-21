@@ -97,12 +97,14 @@ const DisplayAllReviewsDialog = ({
 							/>
 						</Grid>
 						<Grid item xs={6} sm={9}>
-							<Typography style={{ color: '#999' }}>
+							<Typography style={{ color: '#999', fontFamily: 'isotonic' }}>
 								{moment(rating.value['createdAt']).fromNow()}
 							</Typography>
 						</Grid>
 						<Grid item xs={12} sm={12}>
-							<Typography>{rating.value['feedback']}</Typography>
+							<Typography style={{ color: '#333', fontFamily: 'isotonic' }}>
+								{rating.value['feedback']}
+							</Typography>
 						</Grid>
 						<Grid item xs={12} sm={12}>
 							<Divider />

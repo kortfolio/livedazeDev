@@ -28,13 +28,14 @@ export default (theme) => ({
 		fontFamily: 'isotonicBold',
 		color: 'white !important',
 		textTransform: 'uppercase',
-		background: '#55587a',
+		background: '#3c3c3c',
 		padding: '5px 5px 5px 5px'
 
 		//backgroundImage: 'linear-gradient(315deg, #67a0b4 0%, #b1d2d8 74%)'
 	},
 
 	customDialogContent: {
+		fontFamily: 'isotonicBold !important',
 		padding: '24px 24px 24px 24px'
 	},
 
