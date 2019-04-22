@@ -23,5 +23,9 @@ export default (theme) => ({
 		marginRight: '0px',
 		paddingLeft: '20px !important',
 		paddingRight: '20px !important'
+	},
+	resize: {
+		fontSize: 12,
+		fontFamily: 'isotonic'
 	}
 });
