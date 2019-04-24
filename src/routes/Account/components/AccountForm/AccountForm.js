@@ -1,28 +1,73 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
-import Button from '@material-ui/core/Button';
-import { TextField } from 'redux-form-material-ui';
-import ProviderDataForm from '../ProviderDataForm';
+import { Fab } from '@material-ui/core';
 
-export const AccountForm = ({ account, handleSubmit, submitting, pristine, classes }) => (
-	<form className={classes.root} onSubmit={handleSubmit}>
-		<h4>My Account</h4>
-		<div className={classes.fields}>
-			<Field fullWidth name='displayName' component={TextField} label='Name' />
-			<Field name='email' label='Email' component={TextField} fullWidth />
-			<Field name='avatarUrl' label='Avatar Url' component={TextField} fullWidth />
-		</div>
-		{!!account &&
-		!!account.providerData && (
-			<div>
-				<h4>Logged in Via</h4>
-				<ProviderDataForm providerData={account.providerData} />
-			</div>
-		)}
-		<Button color='primary' type='submit' disabled={pristine || submitting}>
-			{submitting ? 'Saving' : 'Save'}
-		</Button>
+import Avatar from '@material-ui/core/Avatar';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+
+export const AccountForm = ({
+	account,
+	handleSubmit,
+	submitting,
+	pristine,
+	classes,
+	avatarUrl,
+	defaultUserImageUrl
+}) => (
+	<form onSubmit={handleSubmit}>
+		<List className={classes.root}>
+			<ListItem
+				alignItems='flex-start'
+				style={{
+					paddingLeft: '0px',
+					paddingRight: '0px'
+				}}>
+				<ListItemAvatar>
+					<Avatar
+						alt='Avatar'
+						src={avatarUrl || defaultUserImageUrl}
+						className={classes.avatarCurrent}
+						align='center'
+						justify='center'
+					/>
+				</ListItemAvatar>
+				<ListItemText
+					primary={
+						<Field
+							name='displayName'
+							label='Name'
+							component='input'
+							type='text'
+							autoComplete='off'
+							className={classes.bootstrapInput}
+						/>
+					}
+					secondary={
+						<Field
+							name='email'
+							label='Email'
+							component='input'
+							type='text'
+							autoComplete='off'
+							className={classes.bootstrapInput}
+						/>
+					}
+				/>
+			</ListItem>
+			<Fab
+				size='small'
+				variant='extended'
+				aria-label='Delete'
+				className={classes.updateBtn}
+				type='submit'
+				disabled={pristine || submitting}>
+				UPDATE PROFILE
+			</Fab>
+		</List>
 	</form>
 );
 

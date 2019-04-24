@@ -1,43 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import defaultUserImageUrl from 'static/User.png';
 import AccountForm from '../AccountForm';
-import Avatar from '@material-ui/core/Avatar';
 import { Typography, Grid, Card, Divider } from '@material-ui/core';
+import AccountSummary from '../AccountSummary';
 
 export const AccountPage = ({ avatarUrl, updateAccount, profile, classes }) => (
 	<div className={classes.root}>
-		<Grid container spacing={40} alignContent='center' justify='center'>
+		<Grid container spacing={40} justify='center'>
 			<Grid item xs={12} md={4}>
 				<Card className={classes.accountSummaryTab}>
-					<Typography className={classes.displayName}>My account</Typography>
-					<Divider variant='middle' />
-					<Grid container justify='center' alignItems='center'>
-						<Avatar
-							alt='Avatar'
-							src={avatarUrl || defaultUserImageUrl}
-							className={classes.avatarCurrent}
-							align='center'
-						/>
-					</Grid>
-					<Typography className={classes.displayName}>{profile.displayName}</Typography>
-					<Typography className={classes.email}>{profile.email}</Typography>
+					<Typography align='right' className={classes.CardTitleTextDecorator}>
+						MY ACCOUNT PROFILE
+					</Typography>
+					<Divider />
+					<Typography
+						align='right'
+						className={classes.CardTitleTextDecorator}
+						style={{ fontSize: '14px', color: '#6b7c93' }}>
+						EDIT YOUR PROFILE DETAILS
+					</Typography>
+
+					<AccountForm
+						onSubmit={updateAccount}
+						account={profile}
+						initialValues={profile}
+						avatarUrl={avatarUrl}
+						defaultUserImageUrl={defaultUserImageUrl}
+					/>
 				</Card>
 			</Grid>
 
 			<Grid item xs={12} md={8}>
-				<Card className={classes.accountSummaryTab}>
-					<div className={classes.settings}>
-						<div />
-						<div className={classes.meta}>
-							<AccountForm
-								onSubmit={updateAccount}
-								account={profile}
-								initialValues={profile}
-							/>
-						</div>
-					</div>
+				<Card className={classes.accountSummaryTabBlack}>
+					<AccountSummary />
 				</Card>
 			</Grid>
 		</Grid>

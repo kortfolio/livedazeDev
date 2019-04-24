@@ -8,24 +8,33 @@ export default (theme) => ({
 			width: `calc(100% - ${200}px)`
 		}
 	},
+	CardTitleTextDecorator: {
+		display: 'flex',
+		flexDirection: 'column',
+		color: '#32325d',
+		fontFamily: 'isotonicBold',
+		textTransform: 'uppercase',
+		fontSize: '1.25rem'
+	},
+
 	pane: {
 		...theme.flexColumnCenter,
 		justifyContent: 'space-around',
 		flexBasis: '60%',
 		padding: theme.spacing.unit,
 		backgroundColor: 'white',
+		//backgroundColor: '#d9e4f5',
+		//backgroundImage: 'linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%)',
 		borderRadius: '8px',
 		webkitBoxShadow:
 			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
 		boxShadow:
 			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
 	},
-	settings: {
-		...theme.flexRowCenter
-	},
+
 	avatarCurrent: {
-		width: '100px',
-		margin: '10px',
+		width: '50px',
+		//margin: '10px',
 		textAlign: 'center',
 		maxWidth: '13rem',
 		height: 'auto',
@@ -41,7 +50,7 @@ export default (theme) => ({
 		fontFamily: 'isotonicBold',
 		textTransform: 'uppercase',
 		textAlign: 'center',
-		fontSize: '24px'
+		fontSize: '12px'
 	},
 	email: {
 		fontFamily: 'isotonicBold',
@@ -52,10 +61,13 @@ export default (theme) => ({
 	accountSummaryTab: {
 		//	padding: theme.spacing.unit,
 		padding: theme.spacing.unit * 2,
-
 		height: '100%',
-		backgroundColor: 'white',
+		//backgroundColor: 'white',
 		borderRadius: '8px',
+		backgroundColor: '#ffffff',
+		backgroundImage: 'linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)',
+		// 		background-color:
+		// background-image: ;
 		webkitBoxShadow:
 			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
 		boxShadow:
@@ -65,6 +77,17 @@ export default (theme) => ({
 		//	padding: theme.spacing.unit,
 		backgroundColor: 'white',
 		borderRadius: '8px',
+		webkitBoxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
+		boxShadow:
+			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)'
+	},
+	accountSummaryTabBlack: {
+		padding: theme.spacing.unit * 2,
+		height: '100%',
+		borderRadius: '8px',
+		backgroundColor: '#000000',
+		backgroundImage: 'linear-gradient(147deg, #000000 0%, #2c3e50 74%)',
 		webkitBoxShadow:
 			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
 		boxShadow:
