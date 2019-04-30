@@ -23,5 +23,18 @@ export default (theme) => ({
 		marginRight: '0px',
 		paddingLeft: '20px !important',
 		paddingRight: '20px !important'
+	},
+	container: {
+		display: 'flex',
+		flexWrap: 'wrap'
+	},
+	textField: {
+		margin: 0,
+		fontFamily: 'isotonic !important'
+	},
+	//style for font size
+	resize: {
+		fontSize: 12,
+		fontFamily: 'isotonic'
 	}
 });

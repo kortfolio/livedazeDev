@@ -7,8 +7,21 @@ export default (theme) => ({
 		marginTop: '20px',
 		borderRadius: '5px',
 		border: '1px',
-		boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px'
+		boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px',
+		'&:hover': {
+			//background: '#7795f8',
+			//	transform: 'translateY(-1px)',
+			boxShadow: '0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);'
+		}
 	},
+	taskTypography: {
+		fontFamily: 'isotonicBold'
+	},
+	taskTypographyDisabled: {
+		fontFamily: 'isotonicBold',
+		color: '#9a9a9a'
+	},
+
 	todoItemTab: {
 		alignItems: 'right',
 		justifyContent: 'space-between',

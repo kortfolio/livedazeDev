@@ -46,7 +46,7 @@ class UpdatedSignupForm extends React.Component {
 
 	render() {
 		const { classes } = this.props;
-		const { handleSubmit } = this.props;
+		//	const { handleSubmit } = this.props;
 
 		return (
 			<div className={classes.root}>

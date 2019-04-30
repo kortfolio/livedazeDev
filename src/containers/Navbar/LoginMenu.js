@@ -6,7 +6,8 @@ import { LOGIN_PATH, SIGNUP_PATH } from 'constants/paths';
 const buttonStyle = {
 	color: 'white',
 	textDecoration: 'none',
-	alignSelf: 'center'
+	alignSelf: 'center',
+	fontFamily: 'isotonicBold'
 };
 
 export const LoginMenu = () => (

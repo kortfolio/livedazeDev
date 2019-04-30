@@ -25,9 +25,7 @@ const DialogForSelfRating = ({
 	<Dialog
 		open={open}
 		onClose={(event) => {
-			{
-				reset(event);
-			}
+			reset(event);
 			onRequestClose();
 		}}
 		maxWidth='xs'
@@ -46,14 +44,13 @@ const DialogForSelfRating = ({
 				aria-label='Close'
 				className={classes.closeButton}
 				onClick={(event) => {
-					{
-						reset(event);
-					}
+					reset(event);
+
 					onRequestClose();
 				}}>
 				<CloseIcon />
 			</IconButton>
-			<DialogContent style={{ padding: '0px 10px 10px 10px' }}>
+			<DialogContent style={{ padding: '0px 24px 24px 24px' }}>
 				<Grid item sm={12}>
 					<div className='textDialogSmall' />
 					<form onSubmit={handleSubmit}>

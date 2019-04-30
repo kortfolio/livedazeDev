@@ -1,10 +1,10 @@
 import React from 'react';
-import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
 import 'moment-timezone';
+import moment from 'moment';
 import 'moment-duration-format';
-import { Spring } from 'react-spring/renderprops';
 import { Grid } from '@material-ui/core';
+import { Spring } from 'react-spring/renderprops';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export class SleepTimer extends React.Component {
 	constructor(props) {
@@ -64,7 +64,7 @@ export class SleepTimer extends React.Component {
 								</React.Fragment>
 							)}
 
-							{this.diffDuration.seconds() >= 0 && (
+							{this.diffDuration.seconds() > 0 && (
 								<React.Fragment>
 									<Grid item className='timeFixedWidth'>
 										{this.diffDuration.seconds()}
@@ -74,12 +74,15 @@ export class SleepTimer extends React.Component {
 									</Grid>
 								</React.Fragment>
 							)}
-
-							{this.diffDuration.asSeconds() < 0 && (
-								<Grid item className='goodNight'>
-									Good Night :)
-								</Grid>
-							)}
+						</Grid>
+						<Grid container justify='flex-end' spacing={8}>
+							<Grid item className='goodNight'>
+								{this.diffDuration.asSeconds() > 0 ? (
+									'LEFT UNTIL ' + moment(this.expiration).format('h:mm a')
+								) : (
+									(clearInterval(this.timerID), 'Good Night :)')
+								)}
+							</Grid>
 						</Grid>
 					</div>
 				)}

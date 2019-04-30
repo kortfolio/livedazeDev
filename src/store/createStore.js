@@ -53,6 +53,14 @@ export default (initialState = {}) => {
 	firebase.initializeApp(fbConfig);
 
 	// ======================================================
+	// UPDATE: APR 24 2018
+	// ...Firebase update error: The behavior for date objects stored
+	// in Firestore is going to change and your app may break...
+	// ======================================================
+	const settings = { timestampsInSnapshots: true };
+	firebase.firestore().settings(settings);
+
+	// ======================================================
 	// Store Instantiation and HMR Setup
 	// ======================================================
 	const store = createStore(

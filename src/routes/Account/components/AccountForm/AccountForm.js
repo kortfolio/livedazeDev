@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import { Fab } from '@material-ui/core';
-
+import defaultUserImageUrl from 'static/User.png';
 import Avatar from '@material-ui/core/Avatar';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -15,10 +15,10 @@ export const AccountForm = ({
 	submitting,
 	pristine,
 	classes,
-	avatarUrl,
-	defaultUserImageUrl
+	avatarUrl
 }) => (
 	<form onSubmit={handleSubmit}>
+		{console.log(avatarUrl)}
 		<List className={classes.root}>
 			<ListItem
 				alignItems='flex-start'
@@ -29,7 +29,7 @@ export const AccountForm = ({
 				<ListItemAvatar>
 					<Avatar
 						alt='Avatar'
-						src={avatarUrl || defaultUserImageUrl}
+						src={avatarUrl != null ? avatarUrl : defaultUserImageUrl}
 						className={classes.avatarCurrent}
 						align='center'
 						justify='center'
@@ -41,6 +41,7 @@ export const AccountForm = ({
 							name='displayName'
 							label='Name'
 							component='input'
+							placeholder='Example Name'
 							type='text'
 							autoComplete='off'
 							className={classes.bootstrapInput}
@@ -50,6 +51,7 @@ export const AccountForm = ({
 						<Field
 							name='email'
 							label='Email'
+							placeholder='live.daze@example.com'
 							component='input'
 							type='text'
 							autoComplete='off'

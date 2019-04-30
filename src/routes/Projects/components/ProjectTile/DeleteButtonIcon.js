@@ -11,7 +11,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Icon from '@mdi/react';
 
 import { IconButton } from '@material-ui/core';
-//	onDelete={() => deleteProject(project)}
 import { mdiDelete } from '@mdi/js';
 export const DeleteButtonIcon = ({
 	toggleConfirmDialog,

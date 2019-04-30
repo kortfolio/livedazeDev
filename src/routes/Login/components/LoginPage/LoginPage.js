@@ -24,7 +24,7 @@ export const LoginPage = ({
 				<h5 className='center-align'>
 					<img
 						className='responsive-img center'
-						src='../images/welcome.png'
+						src='https://kortfolio.com/images/livedazeicons/welcome.png'
 						width='300px'
 						alt='astronaut and cat'
 					/>
@@ -36,7 +36,11 @@ export const LoginPage = ({
 				<br />
 				<Grid container spacing={24}>
 					<Grid item xs={2}>
-						<img src='../images/bulbIcon.png' width='50px' alt='bulb icon' />
+						<img
+							src='https://kortfolio.com/images/livedazeicons/BulbIcon.png'
+							width='50px'
+							alt='bulb icon'
+						/>
 					</Grid>
 					<Grid item xs={10}>
 						<span className='liveDazeMsDetails'>
@@ -51,7 +55,11 @@ export const LoginPage = ({
 
 				<Grid container spacing={24}>
 					<Grid item xs={2}>
-						<img src='../images/NotePadIcon.png' width='50px' alt='notepad icon' />
+						<img
+							src='https://kortfolio.com/images/livedazeicons/NotePadIcon.png'
+							width='50px'
+							alt='notepad icon'
+						/>
 					</Grid>
 					<Grid item xs={10}>
 						<span className='liveDazeMsDetails'>
@@ -66,7 +74,11 @@ export const LoginPage = ({
 
 				<Grid container spacing={24}>
 					<Grid item xs={2}>
-						<img src='../images/TrophyIcon.png' width='50px' alt='trophy icon' />
+						<img
+							src='https://kortfolio.com/images/livedazeicons/TrophyIcon.png'
+							width='50px'
+							alt='trophy icon'
+						/>
 					</Grid>
 					<Grid item xs={10}>
 						<span className='liveDazeMsDetails'>
@@ -100,7 +112,7 @@ export const LoginPage = ({
 					<Grid container spacing={24} alignContent='center' justify='center'>
 						<Grid item xs={4}>
 							<img
-								src='../images/LoginWithGoogleBtn.png'
+								src='https://kortfolio.com/images/livedazeicons/LoginWithGoogleBtn.png'
 								width='50px'
 								onClick={googleLogin}
 								alt='Login With Google'
@@ -109,7 +121,7 @@ export const LoginPage = ({
 
 						<Grid item xs={4}>
 							<img
-								src='../images/LoginWithFaceBookBtn.png'
+								src='https://kortfolio.com/images/livedazeicons/LoginWithFaceBookBtn.png'
 								width='50px'
 								onClick={facebookLogin}
 								alt='Login With Facebook'
@@ -118,7 +130,7 @@ export const LoginPage = ({
 
 						<Grid item xs={4}>
 							<img
-								src='../images/LoginWithGithubBtn.png'
+								src='https://kortfolio.com/images/livedazeicons/LoginWithGithubBtn.png'
 								width='50px'
 								alt='Login With Github'
 								onClick={githubLogin}

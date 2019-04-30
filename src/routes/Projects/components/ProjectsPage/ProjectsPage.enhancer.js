@@ -39,25 +39,27 @@ export default compose(
 	withStateHandlers(
 		// Setup initial state
 		({ initialDialogOpen = false }) => ({
-			newDialogOpen: initialDialogOpen
+			newDialogOpen: initialDialogOpen,
+			wasOpen: initialDialogOpen
 		}),
 		// Add state handlers as props
 		{
 			toggleDialog: ({ newDialogOpen }) => () => ({
 				newDialogOpen: !newDialogOpen
-			})
-		},
-		({ initialWasSent = false }) => ({
-			wasSent: initialWasSent
-		}),
-		{
+			}),
 			toggleSent: ({ wasSent }) => () => ({
 				wasSent: !wasSent
+			}),
+			toggleDisplayReview: ({ wasOpen }) => (event) => ({
+				wasOpen: !wasOpen
 			})
 		}
 	),
 	// Add handlers as props
 	withHandlers({
+		toggleDisplayReviewDialog: ({ wasOpen, toggleDisplayReview }) => (event) => {
+			return toggleDisplayReview();
+		},
 		addGoalDate: (props) => (newInstance) => {
 			const { firebase, uid, showError, showSuccess } = props;
 			if (!uid) {

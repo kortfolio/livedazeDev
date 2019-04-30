@@ -1,26 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import Avatar from '@material-ui/core/Avatar';
+import Chip from '@material-ui/core/Chip';
 import { LIST_PATH } from 'constants/paths';
-import AccountMenu from './AccountMenu';
 import LoginMenu from './LoginMenu';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-//import ClippedDrawer from './ClippedDrawer';
 import { CssBaseline, IconButton, Hidden, Drawer } from '@material-ui/core';
-import logo from './logo.png'; // with import
 import MenuIcon from '@material-ui/icons/Menu';
-//import ResponsiveDrawer1 from './ResponsiveDrawer.1'
-//import ResponsiveDrawer from './ResponsiveDrawer';
-
 import Divider from '@material-ui/core/Divider';
-
 import theme from './NavbarTheme';
-//import ClippedDrawer from "./ClippedDrawer";
 import DrawerList from './DrawerList';
+import defaultUserImageUrl from 'static/User.png';
+
 const buttonStyle = {
 	textDecoration: 'none',
 	backgroundColor: '#55587a'
@@ -51,16 +46,15 @@ export const Navbar = ({
 				className={authExists ? classes.appBar : classes.appBar2}>
 				<Toolbar>
 					<Typography
-						variant='h6'
 						color='inherit'
-						className={classes.grow}
+						className='livedazeLogoFont'
 						component={Link}
 						to={authExists ? LIST_PATH : '/'}>
-						<img src={logo} width='150px' className='logoImage' alt='livedaze' />
+						Livedaze
 					</Typography>
 					{authExists ? (
 						<React.Fragment>
-							<AccountMenu
+							{/* <AccountMenu
 								avatarUrl={avatarUrl}
 								displayName={displayName}
 								onLogoutClick={handleLogout}
@@ -68,18 +62,42 @@ export const Navbar = ({
 								closeAccountMenu={closeAccountMenu}
 								handleMenu={handleMenu}
 								anchorEl={anchorEl}
-							/>
-							<IconButton
-								className={classes.menuButton}
-								color='inherit'
-								aria-label='Open drawer'
-								onClick={handleDrawerToggle}>
-								{/** DO NOT MODIFY onClick. It is working. **/}
-								<MenuIcon />
-							</IconButton>
+							/> */}
+							<section className={classes.rightToolbar}>
+								<Chip
+									avatar={
+										<Avatar
+											src={
+												avatarUrl != null ? avatarUrl : defaultUserImageUrl
+											}
+										/>
+									}
+									label={displayName != null ? displayName : 'Guest'}
+									onClick={goToAccount}
+									style={{
+										background: '#55587a',
+										border: 'none',
+										color: 'white',
+										fontFamily: 'isotonicBold',
+										cursor: 'pointer'
+									}}
+									className={classes.chip}
+									variant='outlined'
+								/>
+								<IconButton
+									className={classes.menuButton}
+									color='inherit'
+									aria-label='Open drawer'
+									onClick={handleDrawerToggle}>
+									{/** DO NOT MODIFY onClick. It is working. **/}
+									<MenuIcon />
+								</IconButton>
+							</section>
 						</React.Fragment>
 					) : (
-						<LoginMenu />
+						<section className={classes.rightToolbar}>
+							<LoginMenu />
+						</section>
 					)}
 				</Toolbar>
 			</AppBar>

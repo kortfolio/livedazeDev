@@ -14,30 +14,37 @@ export const ConfirmCompleteCheckBox = ({
 	isDone,
 	keykey,
 	classes,
-	name
+	name,
+	displayComplete
 }) => (
 	<React.Fragment>
-		<FormControlLabel
-			control={
-				<Tooltip title='Complete'>
-					<Checkbox
-						checked={wasSent}
-						onChange={toggleConfirmDialog}
-						value={name}
-						style={{
-							color: '#333',
-							whiteSpace: 'nowrap'
-						}}
-					/>
-				</Tooltip>
-			}
-		/>
-		<ConfirmCompleteDialog
-			onSubmit={isDone}
-			open={wasSent}
-			onRequestClose={toggleConfirmDialog}
-			name={name}
-		/>
+		{displayComplete ? (
+			<FormControlLabel control={<Checkbox checked={true} disabled={true} value={name} />} />
+		) : (
+			<React.Fragment>
+				<FormControlLabel
+					control={
+						<Tooltip title='Complete'>
+							<Checkbox
+								checked={wasSent}
+								onChange={toggleConfirmDialog}
+								value={name}
+								style={{
+									color: '#333',
+									whiteSpace: 'nowrap'
+								}}
+							/>
+						</Tooltip>
+					}
+				/>
+				<ConfirmCompleteDialog
+					onSubmit={isDone}
+					open={wasSent}
+					onRequestClose={toggleConfirmDialog}
+					name={name}
+				/>
+			</React.Fragment>
+		)}
 	</React.Fragment>
 );
 
@@ -74,7 +81,6 @@ const enhance = compose(
 		//Workin
 		isDone: (props, wasSent, toggleConfirm) => (newInstance) => {
 			console.log(props);
-			//	const { firebase, uid, showError, showSuccess, toggleDialog2 } = props;
 			const { firebase } = props;
 			return firebase
 				.update(`projects/${props.keykey}`, { isDone: true })

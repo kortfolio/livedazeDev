@@ -74,6 +74,11 @@ export default (theme) => ({
 			borderColor: '#80bdff',
 			color: '#32325d',
 			boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)'
+		},
+		'&::placeholder': {
+			fontFamily: 'isotonic',
+			textOverflow: 'ellipsis !important',
+			color: '#8898aa'
 		}
 	},
 	bootstrapFormLabel: {

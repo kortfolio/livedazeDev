@@ -2,6 +2,13 @@ nav {
 	height: 56px;
 }
 
+.livedazeLogoFont {
+	font-family: 'Marck Script', cursive !important;
+	letter-spacing: -0.5px !important;
+	font-size: 28px !important;
+	font-weight: bold !important;
+}
+
 .livedaze_TabTitle {
 	color: #95b5ff;
 	text-transform: uppercase;
@@ -690,7 +697,7 @@ textarea#reviewRatingTextField {
 	color: white;
 	text-transform: uppercase;
 	font-Size: 13px;
-	text-align: end;
+	text-align: right;
 }
 
 .checkboxLabel {

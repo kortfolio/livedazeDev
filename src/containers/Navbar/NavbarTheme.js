@@ -3,6 +3,11 @@ const drawerWidth = 180;
 const theme = (theme) => ({
 	root: {
 		display: 'flex'
+		//	flexGrow: 1
+	},
+	rightToolbar: {
+		marginLeft: 'auto',
+		marginRight: -12
 	},
 	drawer: {
 		background: 'yellow',

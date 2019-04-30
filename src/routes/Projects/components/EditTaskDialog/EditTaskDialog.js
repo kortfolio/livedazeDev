@@ -53,7 +53,7 @@ export const EditTaskDialog = ({
 				<DialogTitle id='customized-dialog-title' onRequestClose={onRequestClose}>
 					<div className='textDialogBold'>EDIT A TASK</div>
 				</DialogTitle>
-				<DialogContent style={{ padding: '0px 24px 0 0' }}>
+				<DialogContent className={classes.dialogContent}>
 					<form onSubmit={handleSubmit}>
 						<EditTaskTextField initialValues={{ name: name }} />
 						<DialogActions>

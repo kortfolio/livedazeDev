@@ -63,9 +63,15 @@ const NewProjectDialog = ({
 					<Field
 						name='name'
 						component={TextField}
-						style={{ width: '100%', fontSize: '15px' }}
+						style={{ width: '100%', fontSize: '12px' }}
+						InputProps={{
+							classes: {
+								input: classes.resize
+							}
+						}}
+						className={classes.textField}
 						validate={[ required ]}
-						placeholder='Add a todo list...'
+						placeholder='Write a task you need to complete today'
 						autoComplete='off'
 						rowsMax='10'
 					/>

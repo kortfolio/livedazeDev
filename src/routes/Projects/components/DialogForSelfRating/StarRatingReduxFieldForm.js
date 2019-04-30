@@ -1,15 +1,6 @@
 import React from 'react';
 import { Spring } from 'react-spring/renderprops';
-import {
-	mdiStar,
-	mdiStarOutline,
-	mdiEmoticonNeutralOutline,
-	mdiEmoticonAngryOutline,
-	mdiEmoticonCoolOutline,
-	mdiEmoticonHappyOutline,
-	mdiEmoticonSadOutline,
-	mdiStarFace
-} from '@mdi/js';
+import { mdiStar, mdiStarOutline } from '@mdi/js';
 import { Grid, Typography } from '@material-ui/core';
 import Icon from '@mdi/react';
 import StarRatingComponent from 'react-star-rating-component';
@@ -35,24 +26,25 @@ export class StarRatingReduxFieldForm extends React.Component {
 				alignItems='center'
 				align='center'
 				spacing={0}
-				style={{ border: '1px solid #0000003b', borderRadius: '4px' }}>
+				style={{
+					borderRadius: '4px'
+				}}>
 				<Grid item xs={2}>
 					<Grid item xs={12}>
-						{(value == 0 && <Emoji symbol='😶' label='sheep' />) ||
-							(value === 1 && <Emoji symbol='😵' />) ||
-							(value === 2 && <Emoji symbol='😕' />) ||
-							(value === 3 && <Emoji symbol='😐' />) ||
-							(value === 4 && <Emoji symbol='😀' />) ||
-							(value === 5 && <Emoji symbol='😎' />)}
+						{(value === 1 && <Emoji symbol='😵' />) ||
+						(value === 2 && <Emoji symbol='😕' />) ||
+						(value === 3 && <Emoji symbol='😐' />) ||
+						(value === 4 && <Emoji symbol='😀' />) ||
+						(value === 5 && <Emoji symbol='😎' />) || <Emoji symbol='😶' />}
 					</Grid>
 					<Grid item xs={12}>
 						<Typography className='ratingLabel'>
-							{value == 0 && 'Rating'}
-							{value === 1 && 'Terrible'}
-							{value === 2 && 'Bad'}
-							{value === 3 && 'OK'}
-							{value === 4 && 'Good'}
-							{value === 5 && 'Excellent'}
+							{(value === 1 && 'Terrible') ||
+								(value === 2 && 'Bad') ||
+								(value === 3 && 'OK') ||
+								(value === 4 && 'Good') ||
+								(value === 5 && 'Excellent') ||
+								'Rating'}
 						</Typography>
 					</Grid>
 				</Grid>

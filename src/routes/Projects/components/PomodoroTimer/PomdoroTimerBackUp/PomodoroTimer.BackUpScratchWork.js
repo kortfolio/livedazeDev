@@ -1,13 +1,12 @@
 import React from 'react';
-import Icon from '@mdi/react';
+import { Typography, Card, CardContent, Fab, Grid } from '@material-ui/core';
 import { mdiTimerSandEmpty } from '@mdi/js';
-import styles from './PomodoroTimer.styles';
-import { mdiHelpCircleOutline } from '@mdi/js';
+import Icon from '@mdi/react';
+import styles from '../PomodoroTimer.styles';
 import { withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { Typography, Card, CardContent, Fab, Grid, Tooltip } from '@material-ui/core';
+const timerValue = 10;
 
-const timerValue = 1500;
 export class PomodoroTimer extends React.Component {
 	constructor() {
 		super();
@@ -25,6 +24,7 @@ export class PomodoroTimer extends React.Component {
 		this.resetTimer = this.resetTimer.bind(this);
 		this.countDown = this.countDown.bind(this);
 	}
+
 	secondsToTime(secs) {
 		let hours = Math.floor(secs / (60 * 60));
 		let divisor_for_minutes = secs % (60 * 60);
@@ -38,6 +38,7 @@ export class PomodoroTimer extends React.Component {
 		};
 		return obj;
 	}
+
 	componentWillUnmount() {
 		clearInterval(this.seconds);
 		clearInterval(this.timer);
@@ -52,23 +53,50 @@ export class PomodoroTimer extends React.Component {
 	progress = (event) => {
 		const addValue = 100 / this.state.countDownFrom;
 		const { completed } = this.state;
-
+		{
+			/* <Fab
+								variant='extended'
+								className={classes.outLinedBtn}
+								size='small'
+								onClick={this.stopTimer}
+								style={{
+									display: this.state.isTicking ? '' : 'none'
+								}}
+								disabled={this.state.isButtonDisabled}
+								type='submit'>
+								Pause
+							</Fab> */
+		}
+		{
+			/* Reset Button */
+		}
 		if (this.state.isTicking) {
+			console.log('ahaha2h');
 			this.setState({
 				completed: Math.min(completed + addValue, 100)
 			});
+			// } else if (!this.state.isTicking && this.state.completed > 0) {
+			// 	this.setState({
+			// 		completed: this.state.completed
+			// 	});
 		}
-
+		//Start
 		if (!this.state.isTicking && completed === 100) {
+			console.log('it is 100 !!!!!!!!');
 			this.setState({
 				completed: 0
 			});
 		}
 		//Stop
 		if (!this.state.isTicking && completed < 100) {
+			console.log('it is not ticking');
 			this.setState({
 				completed: completed
 			});
+			// } else if (!this.state.isTicking && this.state.completed > 0) {
+			// 	this.setState({
+			// 		completed: this.state.completed
+			// 	});
 		}
 		//Reset
 		if (this.timer === 0) {
@@ -78,18 +106,74 @@ export class PomodoroTimer extends React.Component {
 		}
 	};
 
+	// if (!this.state.isTicking) {
+	// 	console.log('ahaha2h');
+	// 	this.setState({
+	// 		completed: completed
+	// 	});
+
+	// } else if (!this.state.isTicking && this.state.completed > 0) {
+	// 	this.setState({
+	// 		completed: this.state.completed
+	// 	});
+	// }
+
+	// } else {
+	// 	console.log('ahahah');
+	// 	this.setState({
+	// 		completed: 0
+	// 	});
+	// }
+	//if (this.state.completed === 100)
+	// if (this.state.isTicking && completed != 100) {
+	// 	this.setState({
+	// 		completed: Math.min(this.state.completed + addValue, 100)
+	// 	});
+	// } else if (!this.state.isTicking && completed != 100) {
+	// 	this.setState({
+	// 		completed: this.state.completed
+	// 	});
+	// } else if (this.state.completed === 100) {
+	// 	this.setState({
+	// 		completed: 0
+	// 	});
+	// }
+	// };
+
+	// let seconds = this.state.seconds - 1;
+	// this.setState({
+	// 	isOn: true,
+	// 	time: this.secondsToTime(seconds)
+	// });
+
+	// if (seconds === 0) {
+	// 	this.setState({
+	// 		time: {},
+	// 		seconds: timerValue,
+	// 		isTicking: false
+	// 	});
+	// 	let timeLeftVar = this.secondsToTime(timerValue);
+	// 	this.setState({ time: timeLeftVar });
+	// 	this.timer = 0;
+	// }
+
+	// } else {
+	// 	this.setState({
+	// 		completed: 0
+	// 	});
+	// }
+
 	progressBarController() {
 		this.setState({
 			isTicking: true
 		});
 		if (this.state.second !== 0) {
 			this.timer = setInterval(this.progress, 1000);
+		} else {
+			console.log('who ARE U??');
 		}
 	}
-
-	startTimer(event) {
-		event.preventDefault();
-		setTimeout(() => this.setState({ isButtonDisabled: false }), 2000);
+	startTimer() {
 		this.setState({
 			isTicking: true
 		});
@@ -102,9 +186,23 @@ export class PomodoroTimer extends React.Component {
 		}
 	}
 
+	// this.timer = setInterval(this.progress, 1000);
+	//startTimer(event) {
+	// 	event.preventDefault();
+	// 	this.setState({
+	// 		isButtonDisabled: true,
+	// 		isTicking: true
+	// 	});
+	// 	setTimeout(() => this.setState({ isButtonDisabled: false }), 1000);
+	// 	if (this.state.seconds < 0) {
+	// 		this.timer = setInterval(this.progress, 1000);
+	// 	} else {
+	// 		clearInterval(this.timer);
+	// 	}
+	// }
+
 	stopTimer(event) {
 		event.preventDefault();
-		setTimeout(() => this.setState({ isButtonDisabled: false }), 2000);
 		this.setState({ isTicking: false });
 		clearInterval(this.timer);
 	}
@@ -151,11 +249,19 @@ export class PomodoroTimer extends React.Component {
 					style={{ height: '100%' }}
 				/>
 				<CardContent className={classes.content}>
-					<Grid item align='right'>
-						<Tooltip title='Focus and get things done.'>
-							<Icon path={mdiHelpCircleOutline} size={0.5} color='white' />
-						</Tooltip>
-					</Grid>
+					<LinearProgress
+						variant='determinate'
+						color='secondary'
+						value={this.state.completed}
+					/>
+					value of this.state.completed : {this.state.completed}
+					{/* value of this.state.timervalue : {this.state.countDownFrom}
+					<br />
+					value of this.state.completed : {this.state.completed}
+					<br />
+					value ofthis.state.seconds : {this.state.seconds}
+					<br />
+					value of this.state.time.s : {this.state.time.s} */}
 					<span className='white-text'>
 						<Typography align='right' className={classes.cardTitleText}>
 							Focus Timer
@@ -171,26 +277,34 @@ export class PomodoroTimer extends React.Component {
 								{this.state.time.s} <sub className='timeSubset'> S </sub>
 							</span>
 						</Typography>
-						<LinearProgress
-							variant='determinate'
-							value={this.state.completed}
-							classes={{
-								colorPrimary: classes.colorPrimary,
-								barColorPrimary: classes.barColorPrimary
-							}}
-						/>
 						<Grid container alignItems='flex-start' justify='flex-end' direction='row'>
 							{/* Start Button and Stop Button */}
 							<Fab
 								variant='extended'
 								className={classes.outLinedBtn}
 								size='small'
-								onClick={this.state.isTicking ? this.stopTimer : this.startTimer}
+								onClick={this.startTimer}
+								disabled={this.state.isButtonDisabled}
+								style={{
+									display: this.state.isTicking ? 'none' : ''
+								}}
+								display={'none'}
+								type='submit'>
+								Start
+							</Fab>
+							<Fab
+								variant='extended'
+								className={classes.outLinedBtn}
+								size='small'
+								onClick={this.stopTimer}
+								style={{
+									display: this.state.isTicking ? '' : 'none'
+								}}
 								disabled={this.state.isButtonDisabled}
 								type='submit'>
-								{this.state.isTicking ? 'Pause' : 'Start'}
+								Pause
 							</Fab>
-
+							{/* Reset Button */}
 							<Fab
 								variant='extended'
 								size='small'

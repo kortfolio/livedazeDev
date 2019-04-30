@@ -86,8 +86,11 @@ export default (theme) => ({
 		padding: theme.spacing.unit * 2,
 		height: '100%',
 		borderRadius: '8px',
-		backgroundColor: '#000000',
-		backgroundImage: 'linear-gradient(147deg, #000000 0%, #2c3e50 74%)',
+		//backgroundColor: '#000000',
+		//backgroundImage: 'linear-gradient(147deg, #000000 0%, #2c3e50 74%)',
+		backgroundColor: '#7f5a83',
+		backgroundImage: 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)',
+
 		webkitBoxShadow:
 			'0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025)',
 		boxShadow:

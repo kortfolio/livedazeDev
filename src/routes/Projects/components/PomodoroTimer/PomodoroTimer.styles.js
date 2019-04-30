@@ -1,4 +1,10 @@
 export default (theme) => ({
+	inputs: {
+		...theme.flexColumnCenter
+	},
+	buttons: {
+		...theme.flexColumnCenter
+	},
 	root: {
 		padding: theme.spacing.unit * 2,
 		display: 'flex',
@@ -18,20 +24,6 @@ export default (theme) => ({
 	barColorPrimary: {
 		backgroundColor: '#008d76'
 	},
-	inputs: {
-		...theme.flexColumnCenter
-	},
-	buttons: {
-		...theme.flexColumnCenter
-	},
-
-	details: {
-		padding: theme.spacing.unit,
-		display: 'flex',
-		flexDirection: 'column',
-		width: '100%'
-	},
-
 	content: {
 		height: '100%',
 		padding: '0',
@@ -56,7 +48,6 @@ export default (theme) => ({
 	},
 	outLinedBtn: {
 		padding: '0px 20px 0px 20px !important',
-		//margin: '10px 0px, 0px 0px !important',
 		margin: theme.spacing.unit,
 		letterSpacing: '0.1rem',
 		backgroundColor: '#222',
@@ -74,11 +65,6 @@ export default (theme) => ({
 			color: '#ffffff8c',
 			backgroundColor: '#00000042'
 		}
-	},
-
-	outLinedBtn2: {
-		display: 'none',
-		color: 'red,'
 	},
 	disabledBtn: {
 		padding: '0px 20px 0px 20px !important',

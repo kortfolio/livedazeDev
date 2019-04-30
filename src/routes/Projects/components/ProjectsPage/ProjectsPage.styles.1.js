@@ -39,5 +39,12 @@ export default (theme) => ({
 		height: '100%',
 		padding: '0',
 		width: '100%'
+	},
+	displayStat: {
+		display: 'flex',
+		flexDirection: 'column',
+		fontSize: '12px !important',
+		color: 'white',
+		fontFamily: 'isotonicBold'
 	}
 });

@@ -22,17 +22,12 @@ import { DisplaySleepTime } from './DisplaySleepTime';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './SleepTime.styles';
 
-const handleDateChangeRaw = (e) => {
-	e.preventDefault();
-};
-
 export const SleepTime = ({
+	classes,
 	handleSubmit,
 	sleepTimes,
-	sleepTime,
 	deleteSleepTime,
-	onDelete,
-	classes
+	handleDateChangeRaw
 }) => (
 	<Card className={classes.root}>
 		<Icon path={mdiWeatherNight} size={3.5} color='white' style={{ height: '100%' }} />

@@ -12,7 +12,7 @@ import styles from './GoalDate.styles';
 export const DisplayGoalDay = ({ goalDay, classes, onDelete }) => (
 	<React.Fragment>
 		<Grid item align='right' className={classes.goalDayTitle}>
-			<Tooltip title='Set your goals high, and don&#39;t stop till you get there.'>
+			<Tooltip title='Reset Goal Day'>
 				<Icon
 					path={mdiKeyboardBackspace}
 					onClick={onDelete}

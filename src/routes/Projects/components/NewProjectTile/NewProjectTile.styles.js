@@ -9,13 +9,6 @@ export default (theme) => ({
 		padding: theme.spacing.unit * 1.3,
 		overflow: 'hidden'
 	},
-	addTaskTxt: {
-		fontSize: '18px',
-		color: 'white',
-		fontFamily: 'isotonicBold',
-		textTransform: 'uppercase',
-		textAlign: 'right'
-	},
 	outLinedBtn: {
 		margin: theme.spacing.unit,
 		color: 'white',

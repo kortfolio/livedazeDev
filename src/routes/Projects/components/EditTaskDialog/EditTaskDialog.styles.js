@@ -27,5 +27,8 @@ export default (theme) => ({
 	resize: {
 		fontSize: 12,
 		fontFamily: 'isotonic'
+	},
+	dialogContent: {
+		padding: '0px 24px 0 0'
 	}
 });

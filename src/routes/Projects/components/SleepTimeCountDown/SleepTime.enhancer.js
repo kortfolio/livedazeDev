@@ -51,12 +51,15 @@ export default compose(
 			const { firebase, showError, showSuccess } = props;
 			return firebase
 				.remove(`sleepTimes/${sleepTime.key}`)
-				.then(() => showSuccess('Great! Your sleep time is set.'))
+				.then(() => showSuccess('Reset Complete'))
 				.catch((err) => {
 					console.error('Error:', err); // eslint-disable-line no-console
 					showError(err.message || 'Could not delete sleep time');
 					return Promise.reject(err);
 				});
+		},
+		handleDateChangeRaw: (props) => (e) => {
+			e.preventDefault();
 		}
 	}),
 	withStyles(styles)
