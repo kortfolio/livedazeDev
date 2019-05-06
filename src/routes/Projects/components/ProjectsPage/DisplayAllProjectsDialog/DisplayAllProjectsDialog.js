@@ -13,7 +13,6 @@ const DisplayAllReviewsDialog = ({
 	onRequestClose,
 	ReviewsRating,
 	AverageRating,
-	RatingLength,
 	classes
 }) => (
 	<Dialog open={open} onClose={onRequestClose} maxWidth='sm' fullWidth={true}>

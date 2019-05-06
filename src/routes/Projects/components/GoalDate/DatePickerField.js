@@ -1,8 +1,8 @@
 import React from 'react';
-import { compose, withHandlers, withState, lifecycle, setDisplayName } from 'recompose';
 import moment from 'moment';
 import { Form, Label } from 'semantic-ui-react';
 import DatePickerComponent from 'react-datepicker';
+import { compose, withHandlers, withState, lifecycle, setDisplayName } from 'recompose';
 
 const withLabel = (Component) =>
 	setDisplayName('withLabel')(({ id, label, ...props }) => (

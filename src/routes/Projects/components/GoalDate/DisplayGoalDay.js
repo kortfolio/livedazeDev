@@ -1,13 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Grid, Tooltip } from '@material-ui/core';
 import moment from 'moment';
-import { withStyles } from '@material-ui/core/styles';
 import Icon from '@mdi/react';
+import PropTypes from 'prop-types';
+import styles from './GoalDate.styles';
 import { mdiKeyboardBackspace } from '@mdi/js';
 import { Spring } from 'react-spring/renderprops';
+import { Grid, Tooltip } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import styles from './GoalDate.styles';
 
 export const DisplayGoalDay = ({ goalDay, classes, onDelete }) => (
 	<React.Fragment>
