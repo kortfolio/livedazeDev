@@ -1,23 +1,31 @@
 {
-	"rules": {
-		".read": "auth !== null",
-		".write": "auth !== null",
-		"users": {
-			"$uid": {
-				".write": "auth !== null && $uid === auth.uid"
-			}
-		},
-		"projects": {
-			".indexOn": [ "createdBy" ]
-		},
-		"goalDays": {
-			".indexOn": [ "createdBy" ]
-		},
-		"sleepTimes": {
-			".indexOn": [ "createdBy" ]
-		},
-		"ReviewsRating": {
-			".indexOn": [ "createdBy" ]
-		}
-	}
+  "rules": {
+    ".read": "auth !== null",
+    ".write": "auth !== null",
+    "users": {
+      "$uid": {
+        ".write": "auth !== null && $uid === auth.uid"
+      }
+    },
+    "projects": {
+      ".indexOn": [
+        "createdBy"
+      ]
+    },
+    "goalDays": {
+      ".indexOn": [
+        "createdBy"
+      ]
+    },
+    "sleepTimes": {
+      ".indexOn": [
+        "createdBy"
+      ]
+    },
+    "ReviewsRating": {
+      ".indexOn": [
+        "createdBy"
+      ]
+    }
+  }
 }
