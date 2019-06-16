@@ -11,7 +11,7 @@ The current version of livedaze supports the following functions
 - [x] Integrated social login function with Firebase API (Google, Facebook, Github Login)
 - [x] Firebase Email Authentication
 - [x] Integrated anonymous login function.
-- [*] Vectorize social Login icons and micro user interactions. 
+- [ ] Vectorize social login icons to SVG and add micro user interactions (Hover, onClick, etc..) 
 
 
 • Core Functionalities
