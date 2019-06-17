@@ -1,3 +1,8 @@
+<p align="center">
+  <a href="https://livedaze.com/" rel="noopener" target="_blank"><img width="150" src="https://kortfolio.com/public/images/livedazeLogo.png" alt="Livedaze logo"></a></p>
+</p>
+
+<h1 align="center">Livedaze</h1>
 # Livedaze
 A Time management web application built with React, Redux, and Firebase
 ## :bulb: Motivation 
