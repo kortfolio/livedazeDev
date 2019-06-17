@@ -15,18 +15,13 @@ The current version of livedaze supports the following functions.
 - [x] Integrated anonymous login function.
 - [ ] Vectorize social login icons to SVG and develop micro-animated UI(Hover, onClick, etc..)
 
-**Dashboard Page - Post Login Page **
+**Dashboard - Core Functionalities**
+- [x] Function for set a goal day.
+- [x] Function for set a sleep time.
+- [x] 25 Minute Pomodoro Timer.
+- [x] Self-Evaluation function (With Emoji).
+- [x] Daily Task Tracker (To do list).
 
-
-
-
-• Core Functionalities
-• Set a goal day (Example : 
-• Set sleep time (It will display the remaining time of the day once the time  configured)
-• 25 Minute Pomodoro Timer
-• Task Tracker (It will archive all data when the day is over)
-• Self-evaluate (Star Rating) of progress
-• Tracking tasks to be done
-• and track remaining time of the day.
-• 
-Key Features: Automatically Archive 
+**Settings Page [IN PROGRESS] **
+- [x] Display User Information and manage email & Password.
+- [ ] Develop a function to visualize user's data and display in a chart form.
