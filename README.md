@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Livedaze</h1>
 <div align="center">
-A Time management web application built with [React](https://reactjs.org/), [Redux](https://redux.js.org/), and [Firebase](https://firebase.google.com/)
+A Time management web application built with <a href="https://reactjs.org/">React</a>, <a href="https://redux.js.org/">Redux</a>, and <a href="https://firebase.google.com/">Firebase.</a>
 </div>
 
 ## :bulb: Motivation 
