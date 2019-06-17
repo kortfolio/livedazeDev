@@ -2,9 +2,9 @@
   <a href="https://livedaze.com/" rel="noopener" target="_blank"><img width="150" src="https://kortfolio.com/public/images/projectThumbnails/livedaze_TN.jpg" alt="Livedaze logo"></a></p>
 </p>
 <h1 align="center">Livedaze</h1>
-<p align="center">
-A Time management web application built with React, Redux, and Firebase
-</p>
+<div align="center">
+A Time management web application built with [React](https://reactjs.org/), [Redux](https://redux.js.org/), and [Firebase](https://firebase.google.com/)
+</div>
 
 ## :bulb: Motivation 
 As a part of my 2019 new year resolution, I wanted to learn and use React to build my pet project. I was fascinated by the idea of Virtual DOM and its ecosystem. I started learning some basic syntax and mechanisms from React official website and jump straight to develop and learn more in-depth contents by actually using React.
