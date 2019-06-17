@@ -5,13 +5,19 @@ As a part of my 2019 new year resolution, I wanted to learn and use React to bui
 I tried my best not to use anything else but React. However, as state management getting complicated, and hearing things about how Redux is excellent with React, I soon integrated Redux to the project. The project is currently deployed at https://livedaze.com, and most of the basic functionalities are available. Although there are still many problems and issues to fix/update, I am quite satisfied with the current progress that I have made over time. 
 
 ## :checkered_flag: Project Status
-The current version of livedaze supports the following functions
+The current version of livedaze supports the following functions.
 
-**Login/Registration/Authentication**
+**Landing Page - Login/Registration Page**
+- [x] Designed and developed responsive Web Page (Login Page and Registration Page)
+- [x] Integrated Material UI (Login Forms and Buttons)  
 - [x] Integrated social login function with Firebase API (Google, Facebook, Github Login)
 - [x] Firebase Email Authentication
 - [x] Integrated anonymous login function.
-- [ ] Vectorize social login icons to SVG and add micro user interactions (Hover, onClick, etc..) 
+- [ ] Vectorize social login icons to SVG and develop micro-animated UI(Hover, onClick, etc..)
+
+**Dashboard Page - Post Login Page **
+
+
 
 
 • Core Functionalities
