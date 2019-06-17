@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://livedaze.com/" rel="noopener" target="_blank"><img width="150" src="https://kortfolio.com/public/images/projectThumbnails/livedaze_TN.jpg" alt="Livedaze logo"></a></p>
+  <a href="https://livedaze.com/" rel="noopener" target="_blank"><img width="150" src="https://github.com/kortfolio/livedazeDev/blob/master/android-chrome-192x192.png" alt="Livedaze logo"></a></p>
 </p>
 <h1 align="center">Livedaze</h1>
 <div align="center">
