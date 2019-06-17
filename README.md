@@ -22,6 +22,6 @@ The current version of livedaze supports the following functions.
 - [x] Self-Evaluation function (With Emoji).
 - [x] Daily Task Tracker (To do list).
 
-**Settings Page [IN PROGRESS] **
+**Settings Page [IN PROGRESS]**
 - [x] Display User Information and manage email & Password.
 - [ ] Develop a function to visualize user's data and display in a chart form.
