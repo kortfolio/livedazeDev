@@ -30,4 +30,10 @@ The current version of livedaze supports the following functions.
 
 **Settings Page [IN PROGRESS]**
 - [x] Display User Information and manage email & Password.
+- [ ] Display basic analysis of the user's usage. 
+
+**Data Visualization [IN PROGRESS]**
 - [ ] Develop a function to visualize user's data and display in a chart form.
+
+**Documentation [IN PROGRESS]**
+- [ ] Updating Github Markdown page.
