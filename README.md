@@ -3,6 +3,7 @@
 </p>
 
 <h1 align="center">Livedaze</h1>
+
 # Livedaze
 A Time management web application built with React, Redux, and Firebase
 ## :bulb: Motivation 
