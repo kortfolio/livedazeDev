@@ -84,7 +84,7 @@
 		"moment": "^2.24.0",
 		"moment-duration-format": "^2.2.2",
 		"moment-timezone": "^0.5.23",
-		"node-sass": "^4.12.0",
+		"node-sass": "^7.0.0",
 		"prettier": "^1.14.3",
 		"react-scripts": "^2.1.8"
 	},
